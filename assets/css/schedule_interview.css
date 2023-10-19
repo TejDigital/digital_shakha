@@ -1,0 +1,160 @@
+.schedule_1 {
+    position: relative;
+}
+
+.schedule_1 .img_area {
+    width: 100%;
+}
+
+.schedule_1 .img_area img {
+    width: 100%;
+}
+
+.schedule_1 .text_area {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 3rem 3rem 0 3rem;
+}
+
+.schedule_1 .text_area .heading {
+    padding: 1rem 0;
+}
+.schedule_1 .text_area .heading h1{
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 50px;
+}
+.schedule_1 .text_area .heading p{
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #615D5D;
+  line-height: 30px;
+}
+.schedule_1 .text_area .box{
+    padding: 2rem 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.schedule_1 .text_area .box input[type="text"],
+.schedule_1 .text_area .box input[type="email"],
+.schedule_1 .text_area .box input[type="number"]
+{
+
+    padding: 0.8rem 1rem;
+    border: 1px solid #000;
+    width: 100%;
+    margin: 1rem 0;
+}
+.schedule_1 .text_area .box select{
+    padding: 0.8rem 1rem;
+    border: 1px solid #000;
+    width: 100%;
+    margin: 1rem 0;
+}
+.schedule_1 .text_area .box textarea{
+    padding: 0.8rem 1rem;
+    border: 1px solid #000;
+    /* width: 100%; */
+    margin: 1rem 0;
+}
+.schedule_1 .text_area .box p{
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 1rem 0;
+    color: #615D5D;
+    line-height: 30px;
+}
+.schedule_1 .text_area .box .btn-box{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 1rem;
+}
+.schedule_1 .text_area .box .btn-box button{
+   border: 1px solid #000;
+   padding: 0.4rem 1.5rem;
+   background: transparent;
+   font-size: 0.8rem;
+}
+.schedule_1 .text_area .box .btn-box button:nth-child(2){
+   margin-left: 1rem;
+}
+.schedule_1 .text_area .box .date-time-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.schedule_1 .text_area .box .date-time-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.schedule_1 .text_area .box .date-time-box .time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.schedule_1 .text_area .box .date-time-box .time .time_box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.schedule_1 .text_area .box .date-time-box .time .time_box .radio_box{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.schedule_1 .text_area .box .date-time-box .time .time_box .radio_box span{
+    width: 60%;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+/* .schedule_1 .text_area .box .date-time-box .time .time_box .radio_box input{
+    accent-color: #BB5327; 
+} */
+.schedule_1 .text_area .box .s_btn{
+    border: 1px solid transparent;
+    background-color: #BB5327;
+    color: #fff;
+    padding: 1rem;
+    font-weight: 500;
+}
+
+.schedule_1 .text_area .box .date-time-box .time .time_box .radio_box input[type='radio'] {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 1rem;
+    box-shadow: 0 0 0 2px #BB5327;
+}
+
+.schedule_1 .text_area .box .date-time-box .time .time_box .radio_box input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 70%;
+    height: 70%;
+    margin: 14% auto;
+    border-radius: 50%;
+}
+
+.schedule_1 .text_area .box .date-time-box .time .time_box .radio_box input[type='radio']:checked:before {
+    background: #BB5327;
+}
+
+@media(max-width:768px){
+    .schedule_1 .text_area{
+        padding: 3rem 1rem 0 1rem;
+    }
+    .schedule_1 .img_area{
+        display: none;
+    }
+}

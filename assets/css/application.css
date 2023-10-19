@@ -1,0 +1,173 @@
+.application_1 {
+    position: relative;
+}
+
+.application_1 .img_area {
+    width: 100%;
+    height: auto;
+}
+
+.application_1 .img_area img {
+    width: 100%;
+    /* height: 100%; */
+}
+
+.application_1 .text {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 4rem 1rem 4rem;
+
+}
+
+.application_1 .text .permanent_address p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 1rem 0;
+
+}
+
+.application_1 .text .permanent_address .flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.application_1 .text .permanent_address .flex-box input:nth-child(2) {
+    margin-left: 10px;
+}
+
+.application_1 .text input[type="text"] {
+    padding: 1rem;
+    border: 1px solid #000;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+.application_1 .text .payment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.application_1 .text .payment .img {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.application_1 .text .payment .img img {
+    width: 100%;
+    height: 100%;
+}
+
+.application_1 .text .payment p {
+    text-align: start;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 2rem 0;
+    color: #615D5D;
+}
+
+.application_1 .text .payment a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    background-color: #BB5327;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.7rem 4rem;
+    width: 100%;
+    text-align: center;
+}
+
+
+.application_1 .text input[type="date"] {
+    padding: 1rem;
+    border: 1px solid #000;
+    margin: 1rem 0;
+}
+
+.application_1 .text input[type="file"] {
+    padding: 1rem;
+    width: 100%;
+    border: 1px solid #000;
+    margin: 1rem 0;
+}
+
+.application_1 .text select {
+    padding: 1rem;
+    border: 1px solid #000;
+    margin: 1rem 0;
+}
+
+.application_1 .text .check {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+.application_1 .text .check .radio_box {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.application_1 .text .check .radio_box input {
+    margin-right: 0.9rem;
+}
+
+.application_1 .text .check .radio_box .gender_name {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.application_1 .text .check input[type="radio"] {
+    display: grid;
+    place-content: center;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    /* margin: 0; */
+    color: #fff;
+    font: inherit;
+    width: 2.15em;
+    height: 2.15em;
+    border: 1px solid #000;
+    transform: translateY(-0.075em);
+}
+
+.application_1 .text .check input[type="radio"]::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1.5rem 1.5rem #BB5327;
+}
+
+.application_1 .text .check input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+@media(max-width:768px){
+    .application_1 .img_area{
+        display: none;
+    }
+    .application_1 .text{
+        padding: 3rem 2rem 1rem 2rem;
+    }
+    .application_1 .text .check p{
+        margin-right: 1rem;
+    }
+    .application_1 .text .check .radio_box input {
+        margin-right: 0.2rem;
+    }
+    .application_1 .text .check .radio_box  {
+        flex-direction: column-reverse;
+    }
+}

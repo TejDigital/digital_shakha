@@ -1,0 +1,144 @@
+.ex_opportunities_1{
+    padding: 3rem 4rem;
+}
+.ex_opportunities_1 .text{
+    padding: 1rem;
+}
+.ex_opportunities_1 .text h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 50px;
+}
+.ex_opportunities_1 .text p{
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 2rem;
+}
+.ex_opportunities_1 .text a{
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    line-height: 30px;
+}
+.ex_opportunities_1 .text a i{ 
+    color: #BB5327;
+    font-size: 0.9rem;
+}
+.ex_opportunities_1 .img{
+    width: 90%;
+    padding: 2rem;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ex_opportunities_1 .img img{
+    width: 100%;
+    height: 100%;
+}
+
+@media(max-width:768px){
+    .ex_opportunities_1{
+        padding: 2rem 0;
+    }
+}
+/* ----------------ex_opportunities_2------------------ */
+.ex_opportunities_2{
+    padding: 2rem 4rem;
+}
+.ex_opportunities_2 .heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #AAA0A0;
+    padding: 1rem 1rem 0 1rem;
+    cursor: pointer;
+}
+.ex_opportunities_2 .heading h1{
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 40px;
+    margin: 0;
+}
+.ex_opportunities_2 .heading p{
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 30px;
+    margin: 0;
+    color: #BB5327;
+    cursor: pointer;
+}
+
+.ex_opportunities_2 .toggle-content{
+    display: block;
+    padding: 0 3rem;
+    transition: all 0.5s ease; 
+}
+
+.ex_opportunities_2 .toggle-content .col-md-4{
+    padding: 1.4rem;
+}
+.ex_opportunities_2 .toggle-content .col-md-4 .box{
+    padding: 1rem;
+}
+.ex_opportunities_2  .box h2{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #615D5D;
+    line-height: 40px;
+}
+
+.ex_opportunities_2  .box .flex-box{
+   display: flex;
+   align-items: start;
+   justify-content: start;
+}
+.ex_opportunities_2  .box .flex-box:nth-child(2){
+   display: flex;
+   align-items: start;
+   justify-content: start;
+   margin-top: 2rem;
+}
+.ex_opportunities_2  .box .flex-box i{
+   font-size: 0.9rem;
+   color: #BB5327;
+   margin-right: 0.9rem;
+   line-height: 24px;
+}
+.ex_opportunities_2  .box .flex-box p{
+   font-size: 0.9rem;
+   font-weight: 400;
+   margin: 0;
+   line-height: 24px;
+}
+.active_toggel_content{
+    background-color: #dddddd;
+    border-radius: 5px;
+}
+.ex_opportunities_2 .end_text{
+    padding: 1rem;
+    width: 90%;
+    margin: auto;
+}
+.ex_opportunities_2 .end_text p{
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 28px;
+    text-align: justify;
+}
+.ex_opportunities_2 .end_text p span{
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 28px;
+}
+@media(max-width:768px){
+    .ex_opportunities_2{
+        padding: 2rem 0;
+    }
+    .ex_opportunities_2 .toggle-content{
+        padding: 0 1rem;
+    }
+
+}

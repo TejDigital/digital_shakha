@@ -1,0 +1,21 @@
+{
+  "name": "webcito/jquery-bs-calendar",
+  "description": "description",
+  "minimum-stability": "stable",
+  "version": "1.0.0",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "thomas",
+      "email": "t.kirsch@webcito.de"
+    }
+  ],
+  "require": {
+    "components/font-awesome": "6.2.0",
+    "components/jquery": "3.6.0",
+    "twbs/bootstrap": "5.2.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  }
+}
