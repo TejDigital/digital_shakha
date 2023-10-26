@@ -1,0 +1,166 @@
+.contact_1 {
+    position: relative;
+}
+
+.contact_1 .img {
+    width: 100%;
+    height: 100%;
+}
+
+.contact_1 .img img {
+    width: 100%;
+    height: 100%;
+}
+
+.contact_1 .text {
+    padding: 1rem 3rem;
+}
+
+.contact_1 .text .heading {
+    padding: 1rem 0;
+}
+
+.contact_1 .text .heading h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.contact_1 .text .heading p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.contact_1 .text .heading p:last-child {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+
+.contact_1 .inputs form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact_1 .inputs form .input_box {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #000;
+}
+
+.contact_1 .inputs form .btn_contact {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    background-color: #BB5327;
+    padding: 0.7rem 1rem;
+    border: 1px solid transparent;
+}
+
+@media(max-width:768px){
+    .contact_1 .text {
+        padding: 1rem 1rem;
+    }
+}
+/* ---------------------------contact_2------------------ */
+.contact_2{
+    padding: 2rem 4rem;
+}
+.contact_2 .heading{
+    padding: 1rem 2rem ;
+}
+.contact_2 .heading p{
+    font-size: 1.3rem;
+    line-height: 30px;
+    font-weight: 500;
+}
+.contact_2 .col-md-4{
+    padding: 2rem;
+}
+.contact_2 .head{
+    font-size: 1.3rem;
+    line-height: 30px;
+    font-weight: 500;
+    padding: 0 2rem;
+}
+.contact_2 .col-md-4 .box{
+    padding: 1rem;
+    border: 1px solid #BB5327;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+.contact_2 .col-md-4 .box p{
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 28px;
+}
+.contact_2 .col-md-4 .box p:nth-child(2){
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 28px;
+    color: #BB5327;
+    word-wrap: break-word;
+    margin: 0;
+}
+.contact_2 .col-md-4 .box p a{
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    line-height: 28px;
+    color: #BB5327;
+    margin: 0;
+}
+.contact_2 .col-md-4 .box p:nth-child(3){
+    font-size: 1rem;
+    font-weight: 600;
+    color: #BB5327;
+    line-height: 28px;
+}
+
+.contact_2 .col-md-12{
+    padding: 1rem 2rem;
+}
+.contact_2 .col-md-12 p{
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+.contact_2 .end_text{
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contact_2 .end_text p{
+    font-size: 1.2rem;
+    color: #BB5327;
+    font-weight: 600;
+    text-align: center;
+    line-height: 28px;
+}
+
+.contact_2 .end_text .img{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contact_2 .end_text .img img{
+    width: 100%;
+}
+
+@media(max-width:768px){
+    .contact_2 {
+        padding: 1rem 1rem;
+    }
+    .contact_2 .heading{
+        padding: 1rem 1rem;
+    }
+}

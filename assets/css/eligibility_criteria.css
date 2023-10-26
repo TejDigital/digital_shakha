@@ -1,0 +1,438 @@
+.eligibility_criteria_1 {
+    padding: 2rem 4rem;
+}
+
+.eligibility_criteria_1 .text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 50px;
+}
+
+.eligibility_criteria_1 .text p:nth-child(2) {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 30px;
+    color: #615D5D;
+}
+
+.eligibility_criteria_1 .text p:nth-child(3) {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 30px;
+    color: #615D5D;
+}
+
+.eligibility_criteria_1 .dot-position {
+
+    position: relative;
+}
+
+.eligibility_criteria_1 .img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.eligibility_criteria_1 .img .dot1 {
+    /* position: absolute; */
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #BB5327;
+}
+
+.eligibility_criteria_1 .img .dot2 {
+    position: absolute;
+    display: block;
+    right: 1rem;
+    top: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #BB5327;
+}
+
+.eligibility_criteria_1 .img .dot3 {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: #BB5327;
+}
+
+.eligibility_criteria_1 .img .dot4 {
+    position: absolute;
+    right: 3rem;
+    display: block;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: #5C2109;
+}
+
+.eligibility_criteria_1 .img img {
+    width: 95%;
+    /* height: 90%; */
+    aspect-ratio: 2/25C2109;
+}
+
+@media(max-width:768px) {
+    .eligibility_criteria_1 {
+        padding: 2rem 0;
+    }
+}
+
+
+
+/* ----------------------eligibility_criteria_2-------------- */
+.eligibility_criteria_2 {
+    padding: 2rem 4rem;
+}
+
+.eligibility_criteria_2 h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 40px;
+    padding-bottom: 2rem;
+}
+
+.eligibility_criteria_2 p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 24px;
+    padding-bottom: 2rem;
+}
+
+.eligibility_criteria_2 a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: #BB5327;
+}
+
+.eligibility_criteria_2 a svg {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+@media(max-width:768px){
+    .eligibility_criteria_2{
+        padding: 2rem 0;
+    }
+}
+/* ------------eligibility_criteria_3----------------------- */
+.eligibility_criteria_3 {
+    padding: 2rem 4rem;
+}
+
+.eligibility_criteria_3 .heading {
+    padding: 1rem 0;
+}
+
+.eligibility_criteria_3 .heading h1 {
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.eligibility_criteria_3 .heading p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #615D5D;
+}
+
+.eligibility_criteria_3 .heading:last-child {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #615D5D;
+}
+
+.eligibility_criteria_3 .container .row>p {
+    font-size: 0.9rem;
+    color: #BB5327;
+    font-weight: 500;
+}
+
+.eligibility_criteria_3 .col-md-6 {
+    padding: 0 2rem;
+}
+
+.eligibility_criteria_3 .col-md-6 ul li {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 0.4rem 0;
+    font-style: italic;
+}
+
+.eligibility_criteria_3 .end_text_end {
+    padding: 1rem 0;
+}
+
+.eligibility_criteria_3 .end_text_end p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #BB5327;
+    line-height: 26px;
+}
+
+.eligibility_criteria_3 .end_text_end p span {
+    color: #BB5327;
+}
+
+.eligibility_criteria_3 .end_text_end p:last-child {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #615D5D;
+    line-height: 24px;
+}
+
+@media(max-width:768px){
+    .eligibility_criteria_3{
+        padding: 2rem 0;
+    }
+}
+
+/* -------------------------------eligibility_criteria_4---------------------------------- */
+.eligibility_criteria_4 {
+    padding: 2rem 4rem;
+}
+
+.eligibility_criteria_4 .heading {
+    padding: 1rem 0;
+}
+
+.eligibility_criteria_4 .heading h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.eligibility_criteria_4 .heading p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #615D5D;
+}
+
+.eligibility_criteria_4 .heading:last-child {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #615D5D;
+    line-height: 26px;
+}
+
+.eligibility_criteria_4 .col-md-2 {
+    padding: 0.4rem;
+}
+
+.eligibility_criteria_4 .box {
+    padding: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 210px;
+}
+
+.eligibility_criteria_4 .box .head h1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.eligibility_criteria_4 .box .head p {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.eligibility_criteria_4 .box p {
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.eligibility_criteria_4 .box1 {
+    background-color: #BB532733;
+    color: #BB5327;
+}
+
+.eligibility_criteria_4 .box2 {
+    background-color: rgba(187, 83, 39, 0.4);
+    color: #BB5327;
+}
+
+.eligibility_criteria_4 .box2 {
+    background-color: rgba(187, 83, 39, 0.4);
+    color: #BB5327;
+}
+
+.eligibility_criteria_4 .box3 {
+    background-color: rgba(187, 83, 39, 0.6);
+    color: #fff;
+}
+
+.eligibility_criteria_4 .box4 {
+    background-color: rgba(187, 83, 39, 0.8);
+    color: #fff;
+}
+
+.eligibility_criteria_4 .box5 {
+    background-color: rgba(187, 83, 39, 1);
+    color: #fff;
+}
+
+.eligibility_criteria_4 .end_text_end .row>p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #BB5327;
+}
+
+.eligibility_criteria_4 .deadline {
+    padding: 1rem 0;
+}
+
+.eligibility_criteria_4 .deadline h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.eligibility_criteria_4 .deadline p {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.eligibility_criteria_4 .deadline p:nth-child(3) {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #615D5D;
+}
+
+.eligibility_criteria_4 .deadline a {
+    color: #BB5327;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.eligibility_criteria_4 .deadline a svg {
+    margin-left: 0.4rem;
+}
+@media(max-width:768px){
+    .eligibility_criteria_4{
+        padding: 2rem 0;
+    }
+}
+
+/* --------------------eligibility_criteria_5------------------- */
+.eligibility_criteria_5 {
+    padding: 2rem 4rem;
+}
+
+.eligibility_criteria_5 .heading {
+    padding: 1rem 0;
+}
+
+.eligibility_criteria_5 .heading h1 {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+.eligibility_criteria_5 .heading p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.eligibility_criteria_5 .heading p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.eligibility_criteria_5 .main-box {
+    margin-bottom: 0.5rem;
+}
+
+.eligibility_criteria_5 .toggle_heading {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #000;
+    justify-content: space-between;
+}
+
+.eligibility_criteria_5 .toggle_heading h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 28px;
+}
+
+.eligibility_criteria_5 .toggle_heading p {
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0;
+    color: #BB5327;
+    cursor: pointer;
+}
+.eligibility_criteria_5 .toggle_heading .minus {
+    display: none;
+}
+.eligibility_criteria_5 .toggle_heading .plus {
+    display: block;
+}
+
+.eligibility_criteria_5 .toggle_content {
+    background-color: #5C2109;
+    color: #fff;
+    padding: 1rem;
+    display: none;
+}
+
+.eligibility_criteria_5 .toggle_content p {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+.eligibility_criteria_5 .end_toggle_link{
+    text-align: center;
+    padding: 1rem 0;
+}
+.eligibility_criteria_5 .end_toggle_link a{
+    text-align: center;
+    color: #BB5327;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+.eligibility_criteria_5 .end_toggle_link a svg{
+    text-align: center;
+    color: #BB5327;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.eligibility_criteria_5 .end_text_end{
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.eligibility_criteria_5 .end_text_end p{
+    font-size: 1.2rem;
+    color: #BB5327;
+    font-weight: 600;
+    text-align: center;
+    line-height: 28px;
+}
+
+.eligibility_criteria_5 .end_text_end .img{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.eligibility_criteria_5 .end_text_end .img img{
+    width: 100%;
+}
+
+@media(max-width:768px){
+    .eligibility_criteria_5{
+        padding: 2rem 0;
+    }
+}

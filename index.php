@@ -28,7 +28,7 @@
 <section class="home_2">
     <div class="container px-5">
         <div class="home_2_top">
-            <h1>Your Future Starts </h1>
+            <h1 class="paroller">Your Future Starts </h1>
             <div class="row">
                 <div class="col-md-3 video_container">
                     <div class="video_box">
@@ -301,7 +301,7 @@
         <div class="heading">
             <h1>Let’s craft cool things</h1>
             <div class="row">
-                <div class="col-md-6 d-flex align-content-center justify-content-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="text">
                         <div>
                             <p>Let us help you build delightfulexperiences to propel yourcompany's growth.</p>
@@ -310,7 +310,7 @@
                         <a href="#!">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
                     </div>
                 </div>
-                <div class="padding-top col-md-6 d-flex align-content-center justify-content-center">
+                <div class="padding-top col-md-6 d-flex align-items-center justify-content-start">
                     <div class="img_area">
                         <div class="img">
                             <img src="./assets/images/Rectangle 6.png" alt="">
@@ -324,8 +324,15 @@
         </div>
     </div>
 </section>
-<?php
-require('./includes/footer.php');
-require('./includes/script.php');
-require('./includes/end_html.php');
-?>
+<?php require('./includes/footer.php'); ?>
+<?php require('./includes/script.php'); ?>
+<script>
+    $(".paroller, [data-paroller-factor]").paroller({
+        factor: 0.3, // multiplier for scrolling speed and offset
+        factorXs: 0.1, // multiplier for scrolling speed and offset
+        type: 'foreground', // background, foreground
+        direction: 'horizontal', // vertical, horizontal
+        transition: 'transform 0.2s ease-out' // CSS transition
+    });
+</script>
+<?php require('./includes/end_html.php'); ?>

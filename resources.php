@@ -1,4 +1,25 @@
 <?php require('./includes/header.php'); ?>
+<section class="resources_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6  d-flex align-content-center justify-content-center">
+                <div class="text">
+                    <h1>Resources</h1>
+                    <p>We’ve curated good stuff like playlists, technical development resources, and other material to help you be your best.</p>
+                </div>
+            </div>
+            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
+                <div class="img">
+                    <span class="dot1"></span>
+                    <span class="dot2"></span>
+                    <img src="./assets/images/opportunities_bg_1.png" alt="">
+                    <span class="dot3"></span>
+                    <span class="dot4"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="resources_2">
     <div class="container">
         <div class="row">

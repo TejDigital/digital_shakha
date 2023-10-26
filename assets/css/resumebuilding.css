@@ -18,14 +18,43 @@
     line-height: 30px;
     color: #615D5D;
 }
+.resume_1 .dot-position{
+    position: relative;
+}
 .resume_1 .img{
     width: 100%;
     max-width: 300px;
-    
+}
+.resume_1 .img .dot1{
+    /* position: absolute; */
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #BB5327;
+}
+
+.resume_1 .img .dot3{
+    /* position: absolute; */
+    display: block;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: #BB5327;
+}
+.resume_1 .img .dot4{
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+    display: block;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: #5C2109;
 }
 .resume_1 .img img{
-    width: 100%;
-    height: 100%;
+    width: 95%;
+  aspect-ratio: 2/2;
 }
 @media(max-width:768px){
     .resume_1{

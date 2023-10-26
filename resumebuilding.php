@@ -12,9 +12,12 @@
                         you stand out in the competitive job market.</p>
                 </div>
             </div>
-            <div class="col-md-6 d-flex align-content-center justify-content-center">
+            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
                 <div class="img">
-                    <img src="./assets/images/resume_1.png" alt="">
+                <span class="dot1"></span>
+                <img src="./assets/images/resume_1.png" alt="">
+                <span class="dot3"></span>
+                    <span class="dot4"></span>
                 </div>
             </div>
         </div>

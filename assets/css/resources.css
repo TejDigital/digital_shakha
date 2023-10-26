@@ -1,3 +1,86 @@
+.resources_1 {
+    padding: 2rem 4rem;
+}
+
+.resources_1 .text{
+ 
+}
+
+.resources_1 .text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 50px;
+}
+
+.resources_1 .text p:nth-child(2) {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 30px;
+    color: #615D5D;
+}
+
+.resources_1 .dot-position{
+    position: relative;
+}
+
+.resources_1 .img {
+    width: 100%;
+    max-width: 300px;
+}
+
+.resources_1 .img .dot1 {
+    display: block;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #BB5327;
+}
+
+.resources_1 .img .dot2 {
+    position: absolute;
+    display: block;
+    right: 1rem ;
+    top: 0;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #BB5327;
+}
+
+.resources_1 .img .dot3 {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: #BB5327;
+}
+
+.resources_1 .img .dot4 {
+    position: absolute;
+    right: 3rem;
+    display: block;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background-color: #5C2109;
+}
+
+.resources_1 .img img {
+    width: 95%;
+    aspect-ratio: 2/25C2109;
+}
+
+@media(max-width:768px) {
+    .resources_1 {
+        padding: 2rem 0;
+    }
+}
+
+
+
+
+
 .resources_2{
     padding: 2rem 6rem;
 }

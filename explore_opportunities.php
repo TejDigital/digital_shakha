@@ -189,7 +189,7 @@
         <div class="heading">
             <h1>Let’s craft cool things</h1>
             <div class="row">
-                <div class="col-md-6 d-flex align-content-center justify-content-center">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="text">
                         <div>
                             <p>Let us help you build delightfulexperiences to propel yourcompany's growth.</p>
@@ -198,7 +198,7 @@
                         <a href="#!">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
                     </div>
                 </div>
-                <div class="padding-top col-md-6 d-flex align-content-center justify-content-center">
+                <div class="padding-top col-md-6 d-flex align-items-center justify-content-start">
                     <div class="img_area">
                         <div class="img">
                             <img src="./assets/images/Rectangle 6.png" alt="">

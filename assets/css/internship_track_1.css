@@ -1,0 +1,467 @@
+.internship_track_1 {
+    padding: 2rem 4rem;
+}
+
+.internship_track_1 .heading {
+    padding: 1rem 0;
+
+}
+
+.internship_track_1 .heading h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+.internship_track_1 .heading a {
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000;
+    line-height: 30px;
+}
+
+.internship_track_1 .heading a svg {
+    margin-left: 0.4rem;
+    color: #BB5327;
+}
+
+.internship_track_1 .progress_category {
+    position: relative;
+}
+
+
+.internship_track_1 .progress_category .heading {
+    padding-bottom: 3rem;
+}
+
+.internship_track_1 .progress_category .heading p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.internship_track_1 .progress_category .progress_list ul {
+    list-style: none;
+}
+
+.internship_track_1 .progress_category .progress_list ul li {
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: 0.5s ease;
+}
+
+.internship_track_1 .progress_category .progress_list ul li .arrow_icon {
+    color: #BB5327;
+    margin-right: 0.4rem;
+    font-size: 0.9rem;
+    display: none;
+}
+.internship_track_1 .progress_category .progress_list ul li:hover .arrow_icon {
+    display: block;
+}
+.internship_track_1 .progress_category .progress_list ul li.active-icon .arrow_icon {
+    color: #BB5327;
+    margin-right: 0.4rem;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.internship_track_1 .main-box {
+    border: 1px solid #BB5327;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.internship_track_1 .main-box .heading {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.internship_track_1 .main-box .heading .name_text h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 40px;
+}
+
+.internship_track_1 .main-box .heading .name_text p {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.internship_track_1 .main-box .heading .img {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.internship_track_1 .main-box .heading .img img {
+    width: 100%;
+    height: 100%;
+}
+
+.internship_track_1 .main-box .program_name {
+    padding: 1rem;
+}
+
+.internship_track_1 .main-box .program_name p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.internship_track_1 .main-box .progress_box {
+    padding: 1rem 0;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.internship_track_1 .main-box .progress_box>p {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.internship_track_1 .main-box .progress_box:nth-child(1) {
+    width: 80%;
+}
+
+.internship_track_1 .main-box .progress_box:nth-child(2) {
+    width: 20%;
+}
+
+.internship_track_1 .main-box .progress_box .main_bar {
+    display: flex;
+    width: 100%;
+    align-items: start;
+}
+
+.internship_track_1 .main-box .progress_box .main_bar>p {
+    margin-left: 0.4rem;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #5C2109;
+}
+
+.internship_track_1 .main-box .progress_box .progress_bar {
+    width: 100%;
+    border: 1px solid #BB5327;
+}
+
+.internship_track_1 .main-box .progress_box .progress_bar .bar {
+    background-color: #BB5327;
+    width: 60%;
+    height: 15px;
+}
+
+.internship_track_1 .main-box .progress_area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.internship_track_1 .main-box .progress_area p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.internship_track_1 .main-box .progress_area p:nth-child(2) {
+    margin-left: 0.4rem;
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #5C2109;
+}
+
+.internship_track_1 .down-box {
+    border: 1px solid #BB5327;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.internship_track_1 .down-box .program_progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.internship_track_1 .down-box .program_progress p:nth-child(2) {
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #5C2109;
+}
+
+.internship_track_1 .down-box .program_status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.internship_track_1 .down-box .program_status p:nth-child(2) {
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #008F17;
+}
+
+.internship_track_1 .down-box .complete_btn {
+    text-align: end;
+}
+
+.internship_track_1 .down-box .complete_btn button {
+    padding: 0.6rem 2rem;
+    text-align: center;
+    color: #BB5327;
+    border: 1px solid #BB5327;
+    background-color: #fff;
+}
+
+
+
+
+
+.internship_track_1 .right_box {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.internship_track_1 .right_box .schedule {
+    position: relative;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #000;
+}
+
+.internship_track_1 .right_box .schedule h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 40px;
+}
+
+.internship_track_1 .right_box .schedule p {
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 24px;
+}
+
+.internship_track_1 .right_box .schedule p img {
+    width: 10px;
+    margin-right: 0.3rem;
+}
+
+.internship_track_1 .right_box .schedule p svg {
+    margin-right: 0.3rem;
+    width: 10px;
+}
+
+.internship_track_1 .right_box .schedule p span {
+    color: #BB5327;
+    font-weight: 500;
+}
+
+.internship_track_1 .right_box .bottom_text {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #000;
+}
+
+.internship_track_1 .right_box .bottom_text h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+.internship_track_1 .right_box .bottom_text p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.internship_track_1 .right_box .bottom_text a {
+    padding: 0.6rem 1rem;
+    background-color: transparent;
+    color: #BB5327;
+    border: 1px solid #BB5327;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* -------------------internship_track_1-course_materials--------- */
+.internship_track_1 .course_materials {
+    position: relative;
+}
+
+.internship_track_1 .course_materials .main-box {
+    padding: 2rem;
+}
+
+.internship_track_1 .course_materials .heading {
+    padding: 1rem;
+}
+
+.internship_track_1 .course_materials .heading p {
+    font-size: 1rem;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.internship_track_1 .course_materials .courses {
+    position: relative;
+}
+
+.internship_track_1 .course_materials .courses .course {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #000;
+    margin-bottom: 1rem;
+}
+
+.internship_track_1 .course_materials .courses .course p {
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 24px;
+    font-weight: 600;
+}
+
+.internship_track_1 .course_materials .courses .course a {
+    text-decoration: none;
+}
+
+.internship_track_1 .course_materials .courses .course a img {
+    width: 30px;
+    height: 30px;
+}
+
+
+
+/* -------------------internship_track_1-grade--------- */
+
+
+.internship_track_1 .grade .main-box .main-grade table {
+    width: 100%;
+}
+
+.internship_track_1 .grade .main-box .main-grade table thead {
+    border-bottom: 1.5px solid #BB5327;
+}
+
+
+.internship_track_1 .grade .main-box .main-grade table tbody {
+    padding-top: 1rem;
+}
+
+.internship_track_1 .grade .main-box .main-grade table tbody tr {
+    border-bottom: 1px solid #000;
+}
+.internship_track_1 .grade .main-box .main-grade table tbody tr td {
+   padding: 1.5rem 0;
+}
+.internship_track_1 .grade .main-box .main-grade table tbody tr td p{
+   font-size: 1.1rem;
+   font-weight: 700;
+   margin: 0;
+}
+.internship_track_1 .grade .main-box .main-grade table tbody tr td:last-child{
+   color: #BB5327;
+}
+
+.internship_track_1 .grade .main-box .main-grade table tbody tr .padding{
+    padding:2rem 0 2.5rem 0;
+}
+
+
+/* -------------------internship_track_1-course_info--------- */
+
+
+
+.internship_track_1 .course_info .course_info_box .title{
+   padding: 1rem 0;
+}
+.internship_track_1 .course_info .course_info_box .title p{
+   font-size: 1.1rem;
+   font-weight: 700;
+   line-height: 28px;
+}
+.internship_track_1 .course_info .course_info_box .title p span{
+   font-size: 1.1rem;
+   font-weight: 500;
+   line-height: 28px;
+}
+.internship_track_1 .course_info .course_info_box .overview{
+   padding: 1rem 0;
+}
+.internship_track_1 .course_info .course_info_box .overview p:nth-child(1){
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.internship_track_1 .course_info .course_info_box .overview p{
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.internship_track_1 .course_info .course_info_box .courses p:nth-child(1){
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.internship_track_1 .course_info .course_info_box .courses p{
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 24px;
+  list-style:circle;
+}
+.internship_track_1 .course_info .course_info_box .courses p span{
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+
+
+
+
+
+
+.change_box{
+    display: none;
+}
+.active-tab{
+    display: block;
+}
+
+@media(max-width:768px) {
+
+    .internship_track_1 {
+        padding: 2rem 1rem;
+    }
+}

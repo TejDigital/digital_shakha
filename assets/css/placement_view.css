@@ -1,0 +1,122 @@
+.place_view_1 {
+    padding-bottom: 2rem;
+}
+
+.place_view_1 .left-main {
+    padding-left: 3rem;
+}
+
+.place_view_1 .left-main .heading {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.place_view_1 .left-main .heading a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 28px;
+}
+
+.place_view_1 .left-main .heading a svg {
+    color: #BB5327;
+    margin-left: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.place_view_1 .left-main .heading h1 {
+    text-decoration: none;
+    color: #000;
+    font-size: 2.3rem;
+    line-height: 40px;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.place_view_1 .left-main .heading p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 28px;
+}
+
+.place_view_1 .left-main .heading p span {
+    color: #BB5327;
+}
+
+.place_view_1 .left-main .des {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.place_view_1 .left-main .des p {
+    font-size: 1.2rem;
+    line-height: 28px;
+    font-weight: 500;
+}
+
+.place_view_1 .left-main .des a {
+    font-size: 1rem;
+    line-height: 28px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #000;
+    padding-bottom: 1rem;
+}
+
+.place_view_1 .left-main .des a svg {
+    color: #BB5327;
+}
+
+.place_view_1 .left-main .des a:last-child {
+    padding: 0.7rem 1rem;
+    background-color: transparent;
+    border: 1px solid #BB5327;
+    border-radius: 3px;
+    color: #BB5327;
+    width: 30%;
+}
+
+.place_view_1  .img_area {
+    padding: 3rem 1rem 1rem 1rem ;
+}
+
+.place_view_1  .img_area .img {
+    width: 100%;
+    padding: 2rem;
+    height: 100%;
+}
+
+.place_view_1  .img_area .img img {
+    width: 100%;
+    height: 100%;
+}
+
+.place_view_1 .category_main {
+    border: 1px solid #AAA0A0;
+    padding: 2rem;
+}
+
+.place_view_1 .category_main .category {
+    position: relative;
+}
+
+.place_view_1 .category_main .category ul {
+    list-style: none;
+}
+.place_view_1 .category_main .category ul li h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 30px;
+}
+.place_view_1 .category_main .category ul li a{
+   font-size: 1rem;
+   font-weight: 600;
+   text-decoration: none;
+   color: #000;
+}
+.place_view_1 .category_main .category ul li {
+   padding-bottom: 0.6rem;
+}

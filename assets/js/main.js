@@ -26,7 +26,6 @@ $(function () {
 
 const currentlink = location.href;
 const menuitems = document.getElementsByClassName("nav-link");
-// console.log(menuitems);
 for (let i = 0; i < menuitems.length; i++) {
   if (menuitems[i].href === currentlink) {
     menuitems[i].className = "current";
