@@ -1,4 +1,11 @@
 <?php require('./includes/header.php'); ?>
+<?php require('./admin/config/dbcon.php'); ?>
+<?php
+// if (isset($_SESSION['digital_msg'])) {
+//     echo "<script>alert('" . $_SESSION['digital_msg'] . "')</script>";
+//     unset($_SESSION['digital_msg']);
+// }
+?>
 <section class="contact_1">
     <div class="container-fluid p-0 m-0">
         <div class="row m-0">
@@ -14,13 +21,13 @@
                         <p> Let's Connect</p>
                         <p>For any specific inquiries or feedback, please utilize our convenient online form below. Our team is committed to responding promptly and providing the information or assistance you seek.</p>
                     </div>
-                    <div class="inputs">
-                        <form action="">
-                            <input type="text" placeholder="Full Name" class="input_box">
-                            <input type="number" placeholder="Contact Number" class="input_box">
-                            <input type="email" placeholder="Email Address" class="input_box">
-                            <textarea cols="30" rows="5" class="input_box" placeholder="Your Message"></textarea>
-                            <button class="btn_contact">Register</button>
+                    <div class="inputs form-click">
+                        <form class="formID" id="formReset">
+                            <input type="text" name="full_name" placeholder="Full Name" class="input_box">
+                            <input type="number" name="mobile" placeholder="Contact Number" class="input_box">
+                            <input type="email" name="email" placeholder="Email Address" class="input_box">
+                            <textarea cols="30" rows="5" name="message" class="input_box" placeholder="Your Message"></textarea>
+                            <button class="btn_contact" type="submit" name="submit">Register</button>
                         </form>
                     </div>
                 </div>
@@ -67,7 +74,7 @@
             <div class="col-md-4">
                 <div class="box">
                     <p>PROGRAMS</p>
-                        <p><a href="#!">info.digitalshakha@gmail.com</a></p>
+                    <p><a href="#!">info.digitalshakha@gmail.com</a></p>
                 </div>
             </div>
             <div class="col-md-4">

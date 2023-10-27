@@ -96,6 +96,15 @@
     border: 1px solid #000;
     margin: 1rem 0;
 }
+.application_1 .text .wrapper  {
+    padding:1rem;
+    width: 100%;
+    border: 1px solid #000;
+    margin: 1rem 0;
+}
+.application_1 .text .wrapper label {
+    cursor: pointer;
+}
 
 .application_1 .text select {
     padding: 1rem;

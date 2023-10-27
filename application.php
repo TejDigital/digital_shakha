@@ -67,12 +67,25 @@
                         <option value="">3</option>
                     </select>
                     <input type="text" placeholder="Referral Code">
-                    <input type="file">
+                    <div class="wrapper d-flex justify-content-between ">
+                        <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center">
+                            <p id="fileNameDisplay1" class="text-start m-0">Candidate Passport Size Photo</p>
+                            <input type="file" name="offer_letter" class="input_box" id="fileInput1" hidden>
+                            <i class="fa-solid fa-paperclip"></i>
+                        </label>
+                    </div>
+
                     <div class="payment">
                         <div class="img">
                             <img src="./assets/images/qr 1.png" alt="">
                         </div>
-                        <input type="file">
+                        <div class="wrapper d-flex justify-content-between ">
+                        <label for="fileInput2" class="d-flex justify-content-between w-100 align-items-center">
+                            <p id="fileNameDisplay2" class="text-start m-0">Upload Payment Screenshot</p>
+                            <input type="file" name="offer_letter" class="input_box" id="fileInput2" hidden>
+                            <i class="fa-solid fa-paperclip"></i>
+                        </label>
+                    </div>
                         <p>Review your selections and information. Click the "Apply" button to complete your
                             application process.</p>
                         <a href="#!">Apply</a>
@@ -83,7 +96,36 @@
     </div>
 </section>
 <?php
-require('./includes/footer.php');
-require('./includes/script.php');
-require('./includes/end_html.php');
+require('./includes/footer.php'); ?>
+<?php require('./includes/script.php'); ?>
+<script>
+    const fileInput1 = document.getElementById('fileInput1');
+    const fileNameDisplay1 = document.getElementById('fileNameDisplay1');
+
+    fileInput1.addEventListener('change', function() {
+        const selectedFile1 = fileInput1.files[0];
+
+        if (selectedFile1) {
+            fileNameDisplay1.textContent = `Selected file: 
+            ${selectedFile1.name}`;
+        } else {
+            fileNameDisplay1.textContent = '';
+        }
+    });
+
+    const fileInput2 = document.getElementById('fileInput2');
+    const fileNameDisplay2 = document.getElementById('fileNameDisplay2');
+
+    fileInput2.addEventListener('change', function() {
+        const selectedFile2 = fileInput2.files[0];
+
+        if (selectedFile2) {
+            fileNameDisplay2.textContent = `Selected file: 
+            ${selectedFile2.name}`;
+        } else {
+            fileNameDisplay2.textContent = '';
+        }
+    });
+</script>
+<?php require('./includes/end_html.php');
 ?>

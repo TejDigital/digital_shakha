@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="./assets/splide-4.1.3/dist/css/splide.min.css">
     <link rel="stylesheet" href="./assets/css/preloading/effect.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <title>Digitalshakha</title>
 
 </head>

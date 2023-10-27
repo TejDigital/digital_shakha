@@ -1,20 +1,25 @@
 <?php require('./includes/header.php'); ?>
 <section class="resources_1">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6  d-flex align-content-center justify-content-center">
+        <div class="row flex-change " >
+            <div class="col-md-6  d-flex align-items-center justify-content-start">
                 <div class="text">
                     <h1>Resources</h1>
                     <p>We’ve curated good stuff like playlists, technical development resources, and other material to help you be your best.</p>
                 </div>
             </div>
-            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
+            <div class="col-md-6 dot-position ">
                 <div class="img">
-                    <span class="dot1"></span>
-                    <span class="dot2"></span>
-                    <img src="./assets/images/opportunities_bg_1.png" alt="">
-                    <span class="dot3"></span>
-                    <span class="dot4"></span>
+                    <div class="img_area1">
+                        <img src="./assets/images/resources_bg_1.png" alt="">
+                        <span class="dot1"></span>
+                        <img src="./assets/images/resources_bg_2.png" alt="">
+                    </div>
+                    <div class="img_area2">
+                        <p class="dot2"></p>
+                        <img src="./assets/images/resources_bg_3.png" alt="">
+                        <p class="dot3"></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -125,11 +130,11 @@
             <div class="col-md-6 d-flex align-content-center justify-content-end flex-column">
                 <div class="img_area">
                     <div class="img">
-                        <img src="./assets/images/telegram-logo.png" alt="">
+                        <a href="#!"><img src="./assets/images/telegram-logo.png" alt=""></a>
                     </div>
-                    <div class="img">
-                        <img src="./assets/images/slack-logo.png" alt="">
-                        <img src="./assets/images/channels-logo.png" alt="">
+                    <div class="img img2">
+                        <a href="#!"><img src="./assets/images/slack-logo.png" alt=""></a>
+                       <a href="#!"> <img src="./assets/images/channels-logo.png" alt=""></a>
                     </div>
                 </div>
             </div>
