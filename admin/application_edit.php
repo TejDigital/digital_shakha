@@ -34,7 +34,9 @@ if (isset($_GET['id'])) {
             <form action="./application_edit_code.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="<?= $row['id'] ?>" name="id">
                 <div class="text">
+                    <label for="">First Name</label>
                     <input type="text" name="first_name" value="<?= $row['name'] ?>" class="form-control mb-2" placeholder="First Name*">
+                    <label for="">Last Name</label>
                     <input type="text" name="last_name" value="<?= $row['last_name'] ?>" class="form-control mb-2" placeholder="Last Name*">
                     <div class="check">
                         <p class="">Gender</p>
@@ -63,8 +65,11 @@ if (isset($_GET['id'])) {
                             </label>
                         </div>
                     </div>
+                    <label for="">Date of birth</label>
                     <input type="date" class="form-control mb-2" value="<?= $row['dob'] ?>" placeholder="Date of birth*" name="dob">
-                    <input type="text" class="form-control mb-2" value="<?= $row['phone'] ?>" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Mobile Number*" name="phone">
+                    <label for="">Phone</label>
+                    <input type="text" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" class="form-control mb-2" value="<?= $row['phone'] ?>" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Mobile Number*" name="phone">
+                    <label for="">Email</label>
                     <input type="email" class="form-control mb-2" value="<?= $row['email'] ?>" placeholder="E-mail Address*" name="email">
                     <div class="permanent_address">
                         <div class="row">
@@ -72,10 +77,13 @@ if (isset($_GET['id'])) {
                                 <p>Permanent Address</p>
                             </div>
                             <div class="col-md-7">
+                                <label for="">Address 1</label>
                                 <input type="text" class="form-control mb-2" value="<?= $row['address_1'] ?>" placeholder="Street Address Line 1" name="address1">
+                                <label for="">Address 2</label>
                                 <input type="text" class="form-control mb-2" value="<?= $row['address_2'] ?>" placeholder="Street Address Line 2" name="address2">
                                 <div class="flex-box">
                                     <!-- <input type="text" class="form-control mb-2" value="<?= $row['country'] ?>" placeholder="Country" name="country"> -->
+                                    <label for="">Country</label>
                                     <select name="country" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
                                         <?php
                                         $sql_country = "SELECT * from tbl_countries";
@@ -94,6 +102,7 @@ if (isset($_GET['id'])) {
                                         ?>
                                     </select>
                                     <!-- <input type="text" class="form-control mb-2" value="<?= $row['state'] ?>" placeholder="State" name="state"> -->
+                                    <label for="">State</label>
                                     <select name="state" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
                                         <?php
                                         $sql_state = "SELECT * from tbl_states";
@@ -114,6 +123,7 @@ if (isset($_GET['id'])) {
                                 </div>
                                 <div class="flex-box">
                                     <!-- <input type="text" class="form-control mb-2" value="<?= $row['city'] ?>" placeholder="City" name="city"> -->
+                                    <label for="">City</label>
                                     <select name="city" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
                                         <?php
                                         $sql_city = "SELECT * from tbl_cities";
@@ -131,35 +141,47 @@ if (isset($_GET['id'])) {
                                         }
                                         ?>
                                     </select>
-                                    <input type="text" class="form-control mb-2" value="<?= $row['pin_code'] ?>" placeholder="Postal Code" name="pin_code">
+                                    <label for="">Pin Code</label>
+                                    <input type="text" maxlength="6" onkeypress="return event.charCode>=48 && event.charCode<=57" class="form-control mb-2" value="<?= $row['pin_code'] ?>" placeholder="Postal Code" name="pin_code">
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <label for="">Collage</label>
                     <input type="text" class="form-control mb-2" value="<?= $row['collage'] ?>" placeholder="College Name*" name="college">
-                    <input type="text" class="form-control mb-2 " value="<?= $row['degree'] ?>" placeholder="Degree Specialization*" name="degree">
-                    <select name="course" class="form-select mb-2">
-                        <option value="">Select Course </option>
-                        <option value="UX UI Design">UX UI Design</option>
-                        <option value="Front-End Development">Front-End Development</option>
-                        <option value="Back-End Development">Back-End Development</option>
-                        <option value="Digital Marketing">Digital Marketing</option>
-                        <option value="Mobile App Development">Mobile App Development</option>
-                        <option value="Full Stack Python">Full Stack Python</option>
-                        <option value="Full Stack Web Development">Full Stack Web Development</option>
-                        <option value="Full Stack Django">Full Stack Django</option>
-                        <option value="Data Analytics">Data Analytics</option>
-                        <option value="Machine Learning">Machine Learning</option>
-                        <option value="Artificial Intelligence">Artificial Intelligence</option>
-                        <option value="Internet of Things (IoT)">Internet of Things (IoT)</option>
-                        <option value="Campus Ambassador Program (CAP)">Campus Ambassador Program (CAP)</option>
+                    <!-- <input type="text" class="form-control mb-2 " value="<?= $row['degree'] ?>" placeholder="Degree Specialization*" name="degree"> -->
+                    <label for="">Degree</label>
+                    <select name="degree" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                            <option value="">Select Degree</option>
+                            <option value="1">BCA</option>
+                            <option value="2">MCA</option>
+                            <option value="3">B-Tech</option>
+                        </select>
+                    <label for="">Course</label>
+                    <select name="course" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                    <?php
+                                        $sql = "SELECT * from program_tbl WHERE program_status = 1";
+                                        $sql_run = mysqli_query($con, $sql);
+                                        if (mysqli_num_rows($sql_run) > 0) {
+                                            foreach ($sql_run as $data) {
+                                        ?>
+                                                <option <?php
+                                                        if ($row['course'] == $data['program_id']) {
+                                                            echo "selected"; 
+                                                        }
+                                                        ?> value="<?= $data['program_id']?>"><?= $data['program_name']?></option>
+                                        <?php
+                                            }
+                                        }
+                                        ?>
                     </select>
-                    <select name="find" class="form-select mb-2">
-                        <option value="">Where you got to know about us?</option>
+                    <label for="">Where you got to know about us?</label>
+                    <select name="find" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
                         <option value="From Friend<">From Friend</option>
                         <option value="From Instagram">From Instagram</option>
                     </select>
-                    <select name="payment_status" class="form-select mb-2">
+                    <label for="">Payment status</label>
+                    <select name="payment_status" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
                         <option <?php if ($row['payment_status'] == 1) {
                                     echo "selected";
                                 } ?> value="1">Done</option>
@@ -167,6 +189,7 @@ if (isset($_GET['id'])) {
                                     echo "selected";
                                 } ?> value="0">Pending</option>
                     </select>
+                    <label for="">Referral code</label>
                     <input type="text" class="form-control mb-2" value="<?= $row['referral_code'] ?>" placeholder="Referral Code" name="referral_code">
                     <div class="row">
                         <input type="hidden" value="<?= $row['profile_photo'] ?>" name="old_photo">

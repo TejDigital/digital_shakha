@@ -7,7 +7,7 @@ require('./config/dbcon.php');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM application_tbl WHERE id = '$id'";
+    $sql = "SELECT * FROM application_tbl left join program_tbl on application_tbl.course = program_tbl.program_id WHERE id = '$id'";
     $sql_run = mysqli_query($con, $sql);
     if (mysqli_num_rows($sql_run) > 0) {
         $row = mysqli_fetch_assoc($sql_run);
@@ -97,7 +97,7 @@ if (isset($_GET['id'])) {
                 <div class="col-md-3">
                     <label>Selected Course</label>
                     <?php if ($row['course'] != '') : ?>
-                    <p><?= $row['course'] ?></p>
+                    <p><?php if($row['course'] == $row['program_id']){echo $row['program_name'];}?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>

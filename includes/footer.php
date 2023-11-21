@@ -37,10 +37,10 @@
                             <li>
                                 <h5>INTERNSHIPS</h5>
                             </li>
-                            <li><a href="#!">Programs</a></li>
+                            <li><a href="./program_option.php">Programs</a></li>
                             <li><a href="#!">Curriculums</a></li>
                             <li><a href="#!">Help and support</a></li>
-                            <li><a href="./login.php">Student Login</a></li>
+                            <li><a href="#!">Student Login</a></li>
                         </ul>
                     </div>
                 </div>

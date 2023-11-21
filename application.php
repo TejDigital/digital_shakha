@@ -89,19 +89,17 @@ require('./admin/config/dbcon.php');
                         </select>
                         <select name="course">
                             <option value="">Select Course </option>
-                            <option value="1">UX UI Design</option>
-                            <option value="2">Front-End Development</option>
-                            <option value="3">Back-End Development</option>
-                            <option value="4">Digital Marketing</option>
-                            <option value="5">Mobile App Development</option>
-                            <option value="6">Full Stack Python</option>
-                            <option value="7">Full Stack Web Development</option>
-                            <option value="Full Stack Django">Full Stack Django</option>
-                            <option value="Data Analytics">Data Analytics</option>
-                            <option value="Machine Learning">Machine Learning</option>
-                            <option value="Artificial Intelligence">Artificial Intelligence</option>
-                            <option value="Internet of Things (IoT)">Internet of Things (IoT)</option>
-                            <option value="Campus Ambassador Program (CAP)">Campus Ambassador Program (CAP)</option>
+                        <?php
+                        $sql = "SELECT * FROM program_tbl WHERE program_status = 1";
+                        $sql_run = mysqli_query($con , $sql);
+                        if(mysqli_num_rows($sql_run) > 0){
+                            foreach($sql_run as $data){
+                                ?>
+                                <option value="<?=$data['program_id']?>"><?=$data['program_name']?></option>
+                                <?php
+                            }
+                        }
+                        ?>
                         </select>
                         <select name="find">
                             <option value="">Where you got to know about us?</option>

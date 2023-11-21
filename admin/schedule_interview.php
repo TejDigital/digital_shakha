@@ -32,7 +32,7 @@ if (isset($_SESSION['digi_meg'])) {
         <h5 class="modal-title" id="exampleModalLabel">Delete Schedule Request</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <form action="./application_delete_code.php" method="POST">
+      <form action="./schedule_interview_delete_code.php" method="POST">
         <div class="modal-body">
           <input type="hidden" name="interview_delete_id" class="interview_delete_id">
           <p>Are you sure , you want to delete this data ?</p>

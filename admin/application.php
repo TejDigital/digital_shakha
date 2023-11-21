@@ -66,11 +66,12 @@ unset($_SESSION['digi_meg']);
             </thead>
             <tbody>
               <?php
-              $sql = "SELECT * FROM application_tbl  ORDER BY created_at DESC";
+              $sql = "SELECT * FROM application_tbl left join program_tbl on application_tbl.course = program_tbl.program_id  ORDER BY application_tbl.created_at DESC";
               $query = mysqli_query($con, $sql);
               $count = 1;
               if (mysqli_num_rows($query)) {
                 foreach ($query as $data) {
+                 $course =  $data['course'];
               ?>
                   <tr>
                     <td><?= $count++ ?></td>
@@ -78,7 +79,7 @@ unset($_SESSION['digi_meg']);
                     <td><?= $data['name'] ?></td>
                     <td><?= $data['phone'] ?></td>
                     <td><?= $data['email'] ?></td>
-                    <td><?= $data['course'] ?></td>
+                    <td><?php if($data['course']  == $data['program_id']){ echo $data['program_name'] ; }?></td>
                     <td><?php if ($data['payment_status'] == 1) {
                           echo "<p class='m-0 d-inline-block' style='background:blue; color:#fff; padding:0.3rem; border-radius:3px' >Done</p>";
                         } else {

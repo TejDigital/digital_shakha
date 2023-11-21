@@ -1,4 +1,7 @@
-<?php require('./includes/header.php'); ?>
+<?php
+require('./includes/header.php');
+require('./admin/config/dbcon.php');
+?>
 <section class="program_option_1">
     <div class="container">
         <div class="row">
@@ -27,7 +30,28 @@
             <h1>Explore the Possibilities</h1>
         </div>
         <div class="row d-flex align-items-center justify-content-center">
-            <div class="col-md-3 p-2">
+            <?php
+            $sql = "SELECT * FROM program_tbl WHERE program_status = 1";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run) > 0) {
+                while ($data = mysqli_fetch_assoc($sql_run)) {
+            ?>
+                    <div class="col-md-3 p-2">
+                        <div class="box">
+                            <div class="text">
+                                <h4><?=$data['program_name']?></h4>
+                                <p><?=$data['program_detail']?></p>
+                            </div>
+                            <div class="img">
+                                <img src="./admin/program_images/<?=$data['program_image']?>" alt="">
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+            <!-- <div class="col-md-3 p-2">
                 <div class="box">
                     <div class="text">
                         <h4>UX UI Design</h4>
@@ -169,7 +193,7 @@
                         <img src="./assets/images/program_box_bg_13.png" alt="">
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="row end_text">
             <div class="col-md-12 d-flex align-items-center justify-content-center flex-column">

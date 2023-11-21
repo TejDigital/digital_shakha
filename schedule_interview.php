@@ -4,18 +4,18 @@
         <div class="row m-0">
             <div class="col-md-8 p-0 m-0">
                 <div class="text_area">
+                    <div class="heading">
+                        <h1>Schedule Interview</h1>
+                        <p>Welcome to the interview scheduling portal. Please follow the steps below to select your interview dates and fill in all the required information.</p>
+                    </div>
+                    <div class="box">
+                        <p>Is this interview ready to be scheduled? Please indicate your confirmation.</p>
+                        <div class="btn-box">
+                            <button>YES</button>
+                            <button>NO</button>
+                        </div>
+                    </div>
                     <form class="interview_form" id="interview_form">
-                        <div class="heading">
-                            <h1>Schedule Interview</h1>
-                            <p>Welcome to the interview scheduling portal. Please follow the steps below to select your interview dates and fill in all the required information.</p>
-                        </div>
-                        <div class="box">
-                            <p>Is this interview ready to be scheduled? Please indicate your confirmation.</p>
-                            <div class="btn-box">
-                                <button>YES</button>
-                                <button>NO</button>
-                            </div>
-                        </div>
                         <div class="box">
                             <p>Enter the unique confirmation code you received in your email, post Application:</p>
                             <input type="text" name="unique_id" placeholder="Enter Code here">
@@ -74,13 +74,13 @@
                             <input type="text" name="name" placeholder="Full Name">
                             <input type="email" name="email" placeholder="E-mail Address">
                             <input type="text" name="phone" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Phone Number">
-                            <select name="position" >
+                            <select name="position">
                                 <option value="">Select the position that you applied for</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="1">Intern</option>
+                                <option value="2">executive</option>
+                                <option value="3">Other</option>
                             </select>
-                            <textarea name="message"  cols="30" rows="5" placeholder="Additional Comments"></textarea>
+                            <textarea name="message" cols="30" rows="5" placeholder="Additional Comments"></textarea>
                         </div>
                         <div class="box">
                             <p>Review your selections and information. Click the "Submit" button to confirm your interview schedule.</p>
