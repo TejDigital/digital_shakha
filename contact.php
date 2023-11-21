@@ -22,7 +22,7 @@
                         <p>For any specific inquiries or feedback, please utilize our convenient online form below. Our team is committed to responding promptly and providing the information or assistance you seek.</p>
                     </div>
                     <div class="inputs form-click">
-                        <form class="formID" id="formReset">
+                        <form class="formID" id="formReset" name="uploader">
                             <input type="text" name="full_name" placeholder="Full Name" class="input_box">
                             <input type="number" name="mobile" placeholder="Contact Number" class="input_box">
                             <input type="email" name="email" placeholder="Email Address" class="input_box">

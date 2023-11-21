@@ -1,27 +1,11 @@
 <?php
-include('authentication.php');
-
-include('config/dbcon.php');
-
-
-// session_start();
-if(isset($_POST['logout_btn'])){
-    
-    // unset($_SESSION['auth']);
-    
-    // unset($_SESSION['auth_user']);
-    
+session_start();
+if (isset($_POST['logout_btn'])) {
     session_destroy();
-
-
-
-
-    // session_unset();
-
-    // $_SESSION['alert_msg'] = "logged out successfuly";
-
-    header('location:adminlogin.php');
-  
-
+    header('location: adminlogin.php');
+    exit();
 }
+
+include('authentication.php'); // Include this after handling the logout
+include('config/dbcon.php');
 ?>

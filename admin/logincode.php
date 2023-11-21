@@ -18,17 +18,23 @@ if(isset($_POST['login_btn']))
                 $user_id = $row['id'];
                 $user_name = $row['name'];
                 $user_email = $row['email'];
-                $status    =$row['status'];
+                $type    =$row['type'];
                 }
-            $_SESSION['auth'] = "$status";
+            $_SESSION['auth'] = "$type";
             $_SESSION['auth_user'] = [
                 'user_id'=>$user_id,
                 'user_name'=>$user_name,
                 'user_email'=>$user_email,
             ];
-            
-                header('location:index.php');
+
+            if(isset($_SESSION['auth']) && $_SESSION['auth'] == "user"){
+                $_SESSION['alert_msg'] = "You are not authorized as admin";
+                unset($_SESSION['auth']);
+                header('location:adminlogin.php');
+            }else{
                 $_SESSION['alert_msg']= "Login Successful";
+                header('location:index.php');
+            }
     }
     else{
         $_SESSION['alert_msg'] = "invalid Password or id !";

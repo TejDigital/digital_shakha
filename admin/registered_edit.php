@@ -1,8 +1,7 @@
 <?php
 require('authentication.php');
-require('includes/header.php');
-require('includes/top-bar.php');
 require('includes/sidebar.php');
+require('includes/header.php');
 require('config/dbcon.php');
 ?>
 
@@ -40,31 +39,35 @@ require('config/dbcon.php');
                         ?>
                                     <input type="hidden" name="user_id" value=" <?php echo $row['id'] ?>">
                                     <div class="form-group">
-                                        <label for="">Name</label>
+                                        <label for="" class="text-secondary">Name</label>
                                         <input type="text" name="name" value="<?php echo $row['name'] ?>" class="form-control" placeholder="name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Email</label>
+                                        <label for="" class="text-light">Email</label>
                                         <input type="email" name="email" value="<?php echo $row['email'] ?>" class="form-control" placeholder="email">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Password</label>
+                                        <label for="" class="text-light">Email</label>
+                                        <input type="number" name="phone" value="<?php echo $row['phone'] ?>" class="form-control" placeholder="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=""  class="text-light">Password</label>
                                         <input type="text" name="password" value="<?php echo $row['password'] ?>" class="form-control" placeholder="password">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Give role</label>
-                                        <select name="status" class="form-control" >
-                                            <option value="">select</option>
-                                            <option value="0" <?php
-                                                                if ($row['status'] == 0) {
-                                                                    echo "Selected";
+                                        <label for="" class="text-light">Give role</label>
+                                        <select name="type" class="form-control text-light" >
+                                          
+                                            <option value="employee" <?php
+                                                                if ($row['type'] == "employee") {
+                                                                    echo "selected";
+                                                                }
+                                                                ?>>Employee</option>
+                                            <option value="user" <?php
+                                                                if ($row['type'] == "user") {
+                                                                    echo "selected";
                                                                 }
                                                                 ?>>User</option>
-                                            <option value="1" <?php
-                                                                if ($row['status'] == 1) {
-                                                                    echo "Selected";
-                                                                }
-                                                                ?>>Admin</option>
                                         </select>
                                     </div>
 

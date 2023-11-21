@@ -15,7 +15,7 @@
 .application_1 .text {
     display: flex;
     flex-direction: column;
-    padding: 3rem 4rem 1rem 4rem;
+    padding: 1rem 4rem 1rem 4rem;
 
 }
 
@@ -33,15 +33,21 @@
     justify-content: space-between;
 
 }
+.application_1 .text .permanent_address .flex-box select{
+    width: 50%;
+}
+.application_1 .text .permanent_address .flex-box input{
+    width: 50%;
+}
 
 .application_1 .text .permanent_address .flex-box input:nth-child(2) {
     margin-left: 10px;
 }
 
 .application_1 .text input[type="text"] {
-    padding: 1rem;
+    padding: 0.8rem;
     border: 1px solid #000;
-    margin: 1rem 0;
+    margin: 0.8rem 0;
     width: 100%;
 }
 
@@ -72,12 +78,12 @@
     color: #615D5D;
 }
 
-.application_1 .text .payment a {
+.application_1 .text .payment button {
     font-size: 1.1rem;
     font-weight: 500;
+    border: 1px solid transparent;
     background-color: #BB5327;
     color: #fff;
-    text-decoration: none;
     padding: 0.7rem 4rem;
     width: 100%;
     text-align: center;
@@ -85,22 +91,29 @@
 
 
 .application_1 .text input[type="date"] {
-    padding: 1rem;
+    padding: 0.8rem;
     border: 1px solid #000;
-    margin: 1rem 0;
+    margin: 0.8rem 0;
+}
+.application_1 .text input[type="email"] {
+    padding: 0.8rem;
+    border: 1px solid #000;
+    margin: 0.8rem 0;
 }
 
 .application_1 .text input[type="file"] {
-    padding: 1rem;
-    width: 100%;
+    padding: 0.8rem;
     border: 1px solid #000;
-    margin: 1rem 0;
+    margin: 0.8rem 0;
+    width: 100%;
 }
 .application_1 .text .wrapper  {
     padding:1rem;
     width: 100%;
     border: 1px solid #000;
     margin: 1rem 0;
+    box-shadow: none !important;
+    border-radius: 0 !important;
 }
 .application_1 .text .wrapper label {
     cursor: pointer;

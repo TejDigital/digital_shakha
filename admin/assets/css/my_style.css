@@ -1,0 +1,54 @@
+.app_view label{
+    color: gray;
+}
+.app_view p{
+    color: rgb(204, 200, 200);
+}
+.app_view h3{
+    color: gray;
+}
+.table-responsive table thead{
+    font-weight: 600;
+}
+.table-responsive table{
+   color: rgb(150, 150, 160);
+}
+.action_btn_delete{
+    color: #dc4f4f; 
+    outline:1px solid;
+}
+.action_btn_delete:hover{
+    color: #ffffff;
+    background-color: #dc4f4f;
+}
+.action_btn_edit{
+    color: #000ce6; 
+    outline:1px solid;
+}
+.action_btn_edit:hover{
+    color: #ffffff;
+    background-color: #000ce6;
+}
+
+.action_btn_view{
+    color: #17d636; 
+    outline:1px solid;
+}
+.action_btn_view:hover{
+    color: #ffffff;
+    background-color: #17d636;
+}
+.navbar{
+    left:215px ;
+}
+.table th, .jsgrid .jsgrid-table th, .table td, .jsgrid .jsgrid-table td{
+    padding: 0.7rem;
+  
+}
+table thead th{
+    color: #d2d5e6 !important;
+    font-weight: 800 !important;
+}
+table tbody td{
+    color: #c6c4d3 !important;
+}

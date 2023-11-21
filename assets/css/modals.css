@@ -1,0 +1,469 @@
+#loginModal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    padding-top: 10px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: ease 0.3s;
+}
+
+#loginModal .modal-content {
+    transition: ease 0.3s;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 1px;
+    width: 30%;
+}
+
+#loginModal .modal-content .box {
+    width: 100%;
+    height: 100%;
+}
+
+#loginModal .modal-content .box .close_login {
+    /* padding: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#loginModal .modal-content .box .close_login p {
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+}
+
+#loginModal .modal-content .box .close_login p svg {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+#loginModal .modal-content .box .heading {
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 40px;
+    padding: 1rem 0;
+}
+
+#loginModal .modal-content .box .heading h1 {
+    margin: 0;
+}
+
+#loginModal .modal-content .box .form {
+    padding: 1rem 0;
+}
+
+#loginModal .modal-content .box .form .form-group {
+    padding: 0.5rem 0;
+    width: 100%;
+    position: relative;
+}
+
+#loginModal .modal-content .box .form .form-group .input_box {
+    padding:0.8rem 1rem;
+    border: 1px solid #000;
+    position: relative;
+    width: 100%;
+    font-weight: 500;
+}
+#loginModal .modal-content .box .form .form-group .input_box[type='password']{
+    padding:0.1rem 1rem;
+    border: 1px solid #000;
+    position: relative;
+    width: 100%;
+    font-weight: 500;
+    font-size: 2rem;
+}
+#loginModal .modal-content .box .form .form-group .input_box[type='password']::placeholder{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+#loginModal .modal-content .box .form .form-group svg {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    right: 5%;
+}
+
+#loginModal .modal-content .box .form a {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#loginModal .modal-content .box .form button {
+    width: 100%;
+    background-color: #BB5327;
+    color: #fff;
+    padding: 0.5rem;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+#loginModal .modal-content .box .page_link {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+#loginModal .modal-content .box .page_link p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+#loginModal .modal-content .box .page_link p a {
+    color: #BB5327;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#loginModal .modal-content .box .end_text {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#loginModal .modal-content .box .end_text p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #615D5D;
+}
+
+#loginModal .modal-content .box .end_text p a {
+    color: #615D5D;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+
+/* ----------------------------register---------------------- */
+
+#registerModal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    padding-top: 10px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: ease 0.3s;
+}
+
+#registerModal .modal-content {
+    transition: ease 0.3s;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 1px;
+    width: 30%;
+}
+
+#registerModal .modal-content .box {
+    width: 100%;
+    height: 100%;
+}
+
+#registerModal .modal-content .box .close_signup {
+    /* padding: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#registerModal .modal-content .box .close_signup p {
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+}
+
+#registerModal .modal-content .box .close_signup p svg {
+    font-size: 1.3rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+#registerModal .modal-content .box .heading {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+#registerModal .modal-content .box .heading h1 {
+    font-size: 2.3rem;
+    font-weight: 500;
+    line-height: 40px;
+    margin: 0;
+}
+
+#registerModal .modal-content .box .heading p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+}
+
+#registerModal .modal-content .box .form {
+    padding: 1rem 0;
+}
+
+#registerModal .modal-content .box .form .form-group {
+    padding: 0.5rem 0;
+    width: 100%;
+    position: relative;
+}
+
+#registerModal .modal-content .box .form .form-group .input_box {
+    padding: 1rem;
+    border: 1px solid #000;
+    position: relative;
+    width: 100%;
+}
+
+#registerModal .modal-content .box .form .form-group svg {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    right: 5%;
+}
+
+#registerModal .modal-content .box .form .form-group span {
+    position: absolute;
+    top: 50%;
+    font-weight: 300;
+    transform: translate(-50%, -50%);
+    right: 5%;
+}
+
+#registerModal .modal-content .box .form a {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 28px;
+    color: #000;
+    text-decoration: none;
+}
+
+#registerModal .modal-content .box .form button {
+    width: 100%;
+    background-color: #BB5327;
+    color: #fff;
+    padding: 0.5rem;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+#registerModal .modal-content .box .page_link {
+    padding: 1rem 0;
+    text-align: center;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+#registerModal .modal-content .box .page_link p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+#registerModal .modal-content .box .page_link p a {
+    color: #BB5327;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#registerModal .modal-content .box .end_text {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+#registerModal .modal-content .box .end_text p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #615D5D;
+}
+
+#registerModal .modal-content .box .end_text p a {
+    color: #615D5D;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* -------------------------------#forgetPassModal--------- */
+#forgetPassModal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: ease 0.3s;
+}
+
+#forgetPassModal .modal-content {
+    transition: ease 0.3s;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 1px;
+    width: 30%;
+}
+
+#forgetPassModal .modal-content .box {
+    width: 100%;
+    height: 100%;
+}
+
+#forgetPassModal .modal-content .box .close_forgetPass {
+    /* padding: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#forgetPassModal .modal-content .box .close_forgetPass p {
+    display: inline-block;
+    margin: 0;
+    cursor: pointer;
+}
+
+#forgetPassModal .modal-content .box .close_forgetPass p svg {
+    font-size: 1.3rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+#forgetPassModal .modal-content .box .heading {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+#forgetPassModal .modal-content .box .heading h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+#forgetPassModal .modal-content .box .heading p {
+    font-size: .9rem;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+}
+
+#forgetPassModal .modal-content .box .form {
+    padding: 1rem 0;
+}
+
+#forgetPassModal .modal-content .box .form .form-group {
+    padding: 0.5rem 0;
+    width: 100%;
+    position: relative;
+}
+
+#forgetPassModal .modal-content .box .form .form-group .input_box {
+    padding: 0.7rem 1rem;
+    border: 1px solid #000;
+    position: relative;
+    width: 100%;
+}
+
+#forgetPassModal .modal-content .box .form .form-group svg {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    right: 5%;
+}
+
+#forgetPassModal .modal-content .box .form .form-group span {
+    position: absolute;
+    top: 50%;
+    font-weight: 300;
+    transform: translate(-50%, -50%);
+    right: 5%;
+}
+
+#forgetPassModal .modal-content .box .form button {
+    width: 100%;
+    background-color: #BB5327;
+    color: #fff;
+    padding: 0.5rem;
+    font-weight: 400;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+#forgetPassModal .modal-content .box .page_link {
+    padding: 1rem 0;
+    text-align: center;
+    border-top: 1px solid #000;
+}
+
+#forgetPassModal .modal-content .box .page_link p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+#forgetPassModal .modal-content .box .page_link p a {
+    color: #BB5327;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media(max-width:998px) {
+    .modal-content {
+        width: 50% !important;
+    }
+}
+
+@media(max-width:768px) {
+    .modal-content {
+        width: 83% !important;
+    }
+
+    .modal-content .box .heading {
+        padding: 0.5rem 0 !important;
+    }
+
+    .modal-content .box .form {
+        padding: 0.6rem 0 !important;
+    }
+
+    .modal-content .box .form .form-group {
+        padding: 0.5rem 0 !important;
+    }
+
+    .modal-content .box .form .form-group .input_box {
+        padding: 0.5rem 1rem !important;
+    }
+}

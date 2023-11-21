@@ -76,8 +76,8 @@
                     <p>We fill the gap, bridging aspirations and opportunities, empowering individuals to reach
                         their full potential</p>
                 </div>
-                <div class="col-md-12 link_1">
-                    <a href="#!">See More About Digitalshakha <img src="./assets/images/arrow.png" alt=""></a>
+                <div class="col-md-12 link_1 ">
+                    <a href="#!" class="button_animate">See More About Digitalshakha <img src="./assets/images/arrow.png" alt=""></a>
                 </div>
             </div>
         </div>

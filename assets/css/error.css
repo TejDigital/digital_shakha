@@ -1,0 +1,76 @@
+.error1{
+    padding: 5rem 4rem;
+}
+.error1 .heading{
+    padding: 1rem 0;
+}
+.error1 .heading h1{
+    color: #BB5327;
+    font-weight: 600;
+    line-height: 40px;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+}
+.error1 .heading p{
+    color: #5C2109;
+    font-weight: 500;
+    line-height: 20px;
+    font-size: 1.1rem;
+}
+.error1 .text{
+    padding: 1rem 0;
+}
+.error1 .text p:first-child{
+    color: #BB5327;
+    font-size: 1rem;
+    font-weight: 500;
+}
+.error1 .text p:last-child{
+   color: #5C2109;
+   font-size: 1.2rem;
+   font-weight: 500;
+   margin-top: 3rem;
+   margin-top: 4rem;
+}
+.error1 .text p span{ 
+   font-weight: 600;
+}
+.error1 .end { 
+   display: flex;
+   align-items: center;
+   justify-content:center;
+   padding: 1rem;
+}
+.error1 .end a{ 
+  padding:0.8rem 3rem;
+  text-decoration: none;
+  background: #BB5327;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  margin-right: 1rem;
+  border: 1px solid transparent;
+}
+.error1 .end a:last-child{ 
+  padding: 0.8rem 3rem;
+  text-align: center;
+  width: 100%;
+  text-decoration: none;
+  background: transparent;
+  color: #BB5327;
+  border: 1px solid #BB5327;
+}
+.error1 .img{
+    width: 100%;
+    height: 100%;
+}
+.error1 .img img{
+    width: 100%;
+    height: 100%;
+}
+
+@media(max-width:768px){
+    .error1{
+        padding: 5rem 1rem;
+    }
+}

@@ -1,8 +1,8 @@
 <?php
 session_start();
-if (isset($_SESSION['auth']) == 1) {
-    $_SESSION['alert_msg'] = "You already logged in";
-    header('location:index.php');
+if (isset($_SESSION['auth']) && ($_SESSION['auth'] == "admin" || $_SESSION['auth'] == "employee")) {
+    $_SESSION['alert_msg'] = "You are already logged in";
+    header('location: index.php');
     exit();
 }
 ?>
@@ -11,13 +11,13 @@ if (isset($_SESSION['auth']) == 1) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Corona Admin</title>
+  <title>Digitalshakha Admin Login</title>
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="shortcut icon" href="assets/images/favicon.png" />
+  <link rel="shortcut icon" href="./assets/images/d_logo.png" />
 </head>
 
 <body>

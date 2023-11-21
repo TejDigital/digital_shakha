@@ -6,9 +6,9 @@ require('./includes/header.php');
 ?>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content p-2">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Add Member</h5>
                 <button type="button" class="close btn  btn-sm-square btn-sm btn-danger" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -20,10 +20,16 @@ require('./includes/header.php');
                         <input type="text" name="name" class="form-control" placeholder="name">
                     </div>
                     <div class="form-group">
+                        <label for="">Phone</label>
+                        <span class="number-error" style="margin-left: 10px;"></span>
+                        <input type="number" name="phone" class="form-control" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
                         <label for="">Email</label>
                         <span class="email-error" style="margin-left: 10px;"></span>
                         <input type="email" name="email" class="email_id form-control" placeholder="email">
                     </div>
+                    <input type="text" value="employee" name="type" hidden>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -96,21 +102,33 @@ require('./includes/header.php');
             <div class="card-header">
                 <h3 class="card-title float-start ">Registered User</h3>
                 <!-- <a href="#" class="btn btn-primary btn-sm float-end " data-bs-toggle="modal" data-bs-target="#exampleModal">Add User</a> -->
+                <?php
+                if ($_SESSION['auth'] == "admin") {
+                    echo '<a href="#" class="btn btn-primary btn-sm float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Member</a>';
+                }
+                ?>
             </div>
             <div class="card-body">
-                <table id="example1" class="table table-bordered">
+                <table id="example1" class="table table-bordered" style="background: transparent;">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Name</th>
+                            <th>Mobile</th>
                             <th>Email</th>
                             <th>Role us</th>
-                            <th colspan="2" class="text-center">Action</th>
+                            <?php
+                            if ($_SESSION['auth'] == "admin") {
+                            ?>
+                                <th colspan="2" class="text-center">Action</th>
+                            <?php
+                            }
+                            ?>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $query = "SELECT * FROM users";
+                        $query = "SELECT * FROM users WHERE type = 'admin' OR type = 'employee'";
                         $db_query_connect = mysqli_query($con, $query);
                         if (mysqli_num_rows($db_query_connect) > 0) {
                             foreach ($db_query_connect as $row) {
@@ -118,26 +136,40 @@ require('./includes/header.php');
                                 <tr>
                                     <td><?php echo $row['id'];  ?></td>
                                     <td><?php echo $row['name']; ?></td>
+                                    <td><?php echo $row['phone']; ?></td>
                                     <td><?php echo $row['email']; ?></td>
                                     <td>
                                         <?php
-                                        if ($row['status'] == "0") {
-                                            echo "User";
-                                        } elseif ($row['status'] == "1") {
+                                        if ($row['type'] == "admin") {
                                             echo "Admin";
+                                        } elseif ($row['type'] == "employee") {
+                                            echo "employee";
                                         } else {
-                                            echo "invalid";
+                                            echo "User";
                                         }
                                         ?>
                                     </td>
 
-                                    <td class="text-center">
-                                        <a href="registered_edit.php?user_id=<?php echo $row['id']; ?>" class='btn btn-square btn-outline-primary m-2'><i class="fa-regular fa-pen-to-square"></i></a>
-                                    </td>
-                                    <td class="text-center">
-                                        <button type='button' value=<?php echo $row['id']; ?> class='btn tn-square btn-outline-danger m-2 deletebtn '><i class="fa-solid fa-trash"></i></button>
+                                    <?php
+                                    if ($_SESSION['auth'] == "admin") {
+                                    ?>
+                                        <td class="text-center">
+                                            <a href="registered_edit.php?user_id=<?php echo $row['id']; ?>" class='btn btn-square btn-outline-primary m-2'><i class="fa-regular fa-pen-to-square m-0"></i></a>
+                                        </td>
+                                    <?php
+                                    }
+                                    ?>
+                                    <?php
+                                    if ($_SESSION['auth'] == "admin") {
+                                    ?>
 
-                                    </td>
+                                        <td class="text-center">
+                                            <button type='button' value=<?php echo $row['id']; ?> class='btn tn-square btn-outline-danger m-2 deletebtn '><i class="fa-solid fa-trash m-0"></i></button>
+
+                                        </td>
+                                    <?php
+                                    }
+                                    ?>
                                 </tr>
                         <?php
                             }

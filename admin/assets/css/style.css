@@ -7571,7 +7571,7 @@ sup {
   top: -.5em; }
 
 a {
-  color: #007bff;
+  color: #ffffff;
   text-decoration: none;
   background-color: transparent; }
   a:hover {
@@ -8821,9 +8821,12 @@ pre {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch; }
   .table-responsive > .table-bordered {
-    border: 0; }
+    /* border: 0; */
+   }
 
-.form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
+  
+
+.form-control,.form-select, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
 .tt-hint {
@@ -8858,7 +8861,7 @@ pre {
   .tt-hint:-moz-focusring {
     color: transparent;
     text-shadow: 0 0 0 #495057; }
-  .form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
+  .form-control:focus,.form-select:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
   .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
   .tt-query:focus,
   .tt-hint:focus {
@@ -10656,7 +10659,7 @@ input[type="button"].btn-block {
 .input-group-sm > .custom-select {
   height: 2.575rem; }
 
-.input-group-sm > .form-control, .input-group-sm > .asColorPicker-input, .dataTables_wrapper .input-group-sm > select, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input[type=text],
+.input-group-sm > .form-control,.form-select, .input-group-sm > .asColorPicker-input, .dataTables_wrapper .input-group-sm > select, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > select, .jsgrid .jsgrid-table .jsgrid-filter-row .input-group-sm > input[type=number], .select2-container--default .input-group-sm > .select2-selection--single, .select2-container--default .select2-selection--single .input-group-sm > .select2-search__field, .input-group-sm > .typeahead,
 .input-group-sm > .tt-query,
 .input-group-sm > .tt-hint,
@@ -11399,7 +11402,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #191c24;
+  background-color: #191C24;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -15280,6 +15283,7 @@ a.text-dark:hover, a.text-dark:focus {
     display: none; }
   .badge {
     border: 1px solid #000; }
+    
   .table, .jsgrid .jsgrid-table {
     border-collapse: collapse !important; }
     
@@ -15372,23 +15376,23 @@ body {
   margin: 0;
   overflow-x: hidden; }
 
-.form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
+.form-control, .form-select,.asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
-.tt-hint, .form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
+.tt-hint, .form-control:focus, .form-select:focus,.asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
 .tt-query:focus,
 .tt-hint:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none; }
 
-.form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
+.form-control,.form-select, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
 .tt-hint {
   box-shadow: none; }
 
-.form-control:focus, .asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
+.form-control:focus, .form-select,.asColorPicker-input:focus, .dataTables_wrapper select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select:focus, .jsgrid .jsgrid-table .jsgrid-filter-row input:focus[type=number], .select2-container--default .select2-selection--single:focus, .select2-container--default .select2-selection--single .select2-search__field:focus, .typeahead:focus,
 .tt-query:focus,
 .tt-hint:focus {
@@ -15522,29 +15526,7 @@ input:focus {
   outline: none; }
 
 /* Fonts */
-@font-face {
-  font-family: 'Rubik';
-  font-weight: 300;
-  src: url("../fonts/Rubik/Rubik-Light.ttf");
-  /* IE9 Compat Modes */ }
 
-@font-face {
-  font-family: 'Rubik';
-  font-weight: 400;
-  src: url("../fonts/Rubik/Rubik-Regular.ttf");
-  /* IE9 Compat Modes */ }
-
-@font-face {
-  font-family: 'Rubik';
-  font-weight: 500;
-  src: url("../fonts/Rubik/Rubik-Medium.ttf");
-  /* IE9 Compat Modes */ }
-
-@font-face {
-  font-family: 'Rubik';
-  font-weight: 700;
-  src: url("../fonts/Rubik/Rubik-Bold.ttf");
-  /* IE9 Compat Modes */ }
 
 /* Backgrounds  */
 .bg-gradient-primary {
@@ -15739,14 +15721,18 @@ code {
   border-radius: 4px; }
 
 .page-header {
-  margin: 0 0 1.5rem 0; }
+  /* margin: 0 0 1.5rem 0; */
+  padding: 0.5rem 0;
+ }
   .page-header .breadcrumb {
     border: 0;
     margin-bottom: 0; }
 
 .page-title {
   color: #ffffff;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #c7c7c7;
   margin-bottom: 0; }
   .page-title .page-title-icon {
     display: inline-block;
@@ -15770,7 +15756,7 @@ code {
   font-size: calc(0.875rem - 0.05rem);
   font-weight: 300; }
   .footer a {
-    color: #00d25b;
+    color: #ff9200;
     font-size: inherit; }
   @media (max-width: 991px) {
     .footer {
@@ -16936,7 +16922,9 @@ code {
   .tt-query:focus,
   .tt-hint:focus {
     border: 1px solid rgba(71, 164, 71, 0.5);
-    background-color: #2A3038; }
+    background-color: #2A3038; 
+    color: #fff;
+  }
   .form-control.form-control-lg, .form-control-lg.asColorPicker-input, .dataTables_wrapper select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type=text],
   .jsgrid .jsgrid-table .jsgrid-filter-row select.form-control-lg, .jsgrid .jsgrid-table .jsgrid-filter-row input.form-control-lg[type=number], .select2-container--default .form-control-lg.select2-selection--single, .select2-container--default .select2-selection--single .form-control-lg.select2-search__field, .form-control-lg.typeahead,
   .form-control-lg.tt-query,
@@ -17886,8 +17874,9 @@ div.tagsinput {
   .table thead th, .jsgrid .jsgrid-table thead th {
     border-top: 0;
     border-bottom-width: 1px;
-    font-weight: 500;
-    color: #6c7293; }
+    font-weight: 900;
+    color: #a1a4b2;
+; }
     .table thead th i, .jsgrid .jsgrid-table thead th i {
       margin-left: 0.325rem; }
   .table th, .jsgrid .jsgrid-table th,
@@ -17895,6 +17884,7 @@ div.tagsinput {
   .jsgrid .jsgrid-table td {
     vertical-align: middle;
     font-size: 0.875rem;
+    font-weight: 400;
     line-height: 1;
     white-space: nowrap; }
     .table th img, .jsgrid .jsgrid-table th img,
@@ -20410,7 +20400,11 @@ div.tagsinput {
       height: 70px;
       border-radius: 0px; }
       .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
-        font-size: 0.875rem; }
+        font-size: 1.3rem; 
+      }
+        .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) span::before{
+          color: #fff;
+        }
         @media (max-width: 991px) {
           .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
             display: none; } }
@@ -20661,7 +20655,7 @@ div.tagsinput {
       .sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini {
         display: none; }
         .sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini img {
-          width: calc(70px - 50px);
+          width: calc(85px - 50px);
           max-width: 100%;
           height: 28px;
           margin: auto; }
@@ -20911,7 +20905,7 @@ div.tagsinput {
     .sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-category):not(.account-dropdown) > .nav-link {
       background: #0f1015;
       color: #ffffff; }
-    .sidebar .nav .menu-items:nth-child(5n+1) .nav-link .menu-icon i {
+    /* .sidebar .nav .menu-items:nth-child(5n+1) .nav-link .menu-icon i {
       color: #0090e7; }
     .sidebar .nav .menu-items:nth-child(5n+2) .nav-link .menu-icon i {
       color: #00d25b; }
@@ -20920,7 +20914,7 @@ div.tagsinput {
     .sidebar .nav .menu-items:nth-child(5n+4) .nav-link .menu-icon i {
       color: #ffab00; }
     .sidebar .nav .menu-items:nth-child(5n+5) .nav-link .menu-icon i {
-      color: #fc424a; }
+      color: #fc424a; } */
 
 /* style for off-canvas menu*/
 @media screen and (max-width: 991px) {
@@ -20968,7 +20962,7 @@ div.tagsinput {
 
 @media (min-width: 992px) {
   .sidebar-icon-only .navbar {
-    left: 70px; }
+    left: 63px; }
     .sidebar-icon-only .navbar .navbar-menu-wrapper {
       width: 100%; }
   .sidebar-icon-only .sidebar {
@@ -21126,8 +21120,8 @@ div.tagsinput {
       width: 100%; } }
 
 .content-wrapper {
-  background: #000000;
-  padding: 1.875rem 1.75rem;
+  background: #13151A;
+  padding: 0 1.75rem;
   width: 100%;
   -webkit-flex-grow: 1;
   flex-grow: 1; }

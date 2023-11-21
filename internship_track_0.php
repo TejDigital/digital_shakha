@@ -26,7 +26,18 @@
         <div class="row">
             <div class="heading">
                 <h1>Track Progress</h1>
-                <a href="#!">Login First<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <?php
+                if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth']) {
+                ?>
+                    <a href="#!">Login First<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+
+                <?php
+                } else {
+                ?>
+
+                <?php
+                }
+                ?>
             </div>
             <div class="list">
                 <ul>
@@ -39,7 +50,18 @@
                 </ul>
             </div>
             <div class="login-btn">
-                <a href="./internship_track_1.php">Login</a>
+            <?php
+                if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth']) {
+                    ?>
+                    <a href="<?php echo $_SERVER['PHP_SELF']; ?>?redirect=success">Login</a>
+                    <?php
+                } else {
+                    ?>
+                    <a href="./internship_track_1.php">Track</a>
+
+                <?php
+                }
+                ?>
             </div>
             <div class="new-apply-btn">
                 <p>Not an Intern at digitalshakha? <a href="#!">Apply for internship here.</a></p>

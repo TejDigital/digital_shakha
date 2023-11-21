@@ -51,7 +51,7 @@ body {
 }
 
 .header .navbar-brand img {
-	width: 100%;
+	/* width: 100%; */
 	max-width: 200px;
 	margin: -3px 0px 0px 0px;
 }
@@ -77,16 +77,16 @@ body {
 	color: #ffffff;
 }
 .padding2{
-	padding-left: 3rem;
+	padding-left: 1.5rem;
 }
 .nav-item .nav-link {
 	display:inline-block;
 	line-height: 36px;
 	font-size: 16px;
 	font-weight: 600;
-	color: #282713;
+	color: #1A0E09;
 	transition: 0.15s ease;
-	padding: 0.8rem 2rem !important;
+	padding: 0.8rem 1.5rem !important;
 }
 
 .nav-item .current {
@@ -95,7 +95,7 @@ body {
 	line-height: 36px;
 	font-size: 16px;
 	font-weight: 700;
-	color: #282713;
+	color: #1A0E09;
 	text-decoration: none;
 
 	position: relative;
@@ -147,7 +147,42 @@ body {
 	z-index: -1;
 }
 
-
+.nav-item .btns{
+	display: flex;
+	width: 100%;
+	height: 100%;
+	align-items: center;
+}
+.nav-item .btns span{
+	font-size:2rem;
+	font-weight: 300;
+}
+.nav-item .btns a{
+	margin: 0;
+	display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #BB5327;
+    transition: 0.15s ease;
+    padding: 0.8rem 1rem !important;
+	cursor: pointer;
+}
+.nav-item .btns button{
+	margin: 0;
+	display: inline-block;
+	background: transparent;
+	border: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #BB5327;
+    transition: 0.15s ease;
+    padding: 0.8rem 1rem !important;
+	cursor: pointer;
+}
+.nav-item .btns a:last-child{
+    color: #1A0E09;
+	/* border-left: 1px solid #000; */
+}
 
 @media(max-width:998px) {
 	.header .navbar .toggel_btns {
@@ -267,3 +302,27 @@ body {
         display: flex;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,13 @@
-<?php require('./includes/header.php'); ?>
+<?php
+// if (!isset($_SESSION['std_auth_user']['user_email']) && !$_SESSION['std_auth_user']['user_email']) {
+//     $_SESSION['message'] = "Please Login first to access this page";
+//     header('Location:./index.php');
+//     exit();
+// }
+require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
+?>
 <section class="application_1">
     <div class="container-fluid p-0 m-0">
         <div class="row m-0">
@@ -9,123 +18,151 @@
                     <img src="./assets/images/application_bg_3.png" alt="">
                 </div>
             </div>
-            <div class="col-md-6 p-0">
-                <div class="text">
-                    <div class="heading">
-                        <h1>Application</h1>
-                        <p>Candidate Application Form</p>
-                    </div>
-                    <input type="text" name="first_name" placeholder="First Name*">
-                    <input type="text" name="last_name" placeholder="Last Name*">
-                    <div class="check">
-                        <p class="">Gender</p>
-                        <label class="radio_box"><span class="gender_name">Male</span>
-                            <input type="radio" checked="checked" name="radio">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio_box"><span class="gender_name">Female</span>
-                            <input type="radio" name="radio">
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="radio_box"><span class="gender_name">Other</span>
-                            <input type="radio" name="radio">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <input type="date">
-                    <input type="text" placeholder="Mobile Number*">
-                    <input type="text" placeholder="E-mail Address*">
-                    <div class="permanent_address">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <p>Permanent Address</p>
-                            </div>
-                            <div class="col-md-7">
-                                <input type="text" placeholder="Street Address Line 1">
-                                <input type="text" placeholder="Street Address Line 2">
-                                <div class="flex-box">
-                                    <input type="text" placeholder="Postal Code">
-                                    <input type="text" placeholder="City">
+            <div class="col-md-6 p-0 app-click">
+                <form class="formID" id="app_form" enctype="multipart/form-data">
+                    <div class="text">
+                        <div class="heading">
+                            <h1>Application</h1>
+                            <p>Candidate Application Form</p>
+                        </div>
+                        <input type="text" name="first_name" placeholder="First Name*">
+                        <input type="text" name="last_name" placeholder="Last Name*">
+                        <div class="check">
+                            <p class="">Gender</p>
+                            <label class="radio_box"><span class="gender_name">Male</span>
+                                <input type="radio" value="male" checked="checked" name="gender">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio_box"><span class="gender_name">Female</span>
+                                <input type="radio" value="female" name="gender">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio_box"><span class="gender_name">Other</span>
+                                <input type="radio" value="other" name="gender">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <input type="text" placeholder="Date of birth*" onfocus="(this.type='date')" name="dob">
+                        <input type="text" placeholder="Mobile Number*" onkeypress="return event.charCode>=48 && event.charCode<=57" name="phone">
+                        <input type="email" placeholder="E-mail Address*" name="email">
+                        <div class="permanent_address">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <p>Permanent Address</p>
                                 </div>
-                                <div class="flex-box">
-                                    <input type="text" placeholder="State">
-                                    <input type="text" placeholder="Country">
+                                <div class="col-md-7">
+                                    <input type="text" placeholder="Street Address Line 1" name="address1">
+                                    <input type="text" placeholder="Street Address Line 2" name="address2">
+                                    <div class="flex-box">
+                                        <select name="country" id="country">
+                                            <option value="">Select country</option>
+                                            <?php
+                                            $sql_country = "SELECT * FROM tbl_countries ORDER BY country_name ASC";
+                                            $sql_country_run = mysqli_query($con, $sql_country);
+                                            if (mysqli_num_rows($sql_country_run) > 0) {
+                                                foreach ($sql_country_run as $country) {
+                                            ?>
+                                                    <option value="<?= $country['country_id'] ?>"><?= $country['country_name'] ?></option>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </select>
+                                        <select name="state" id="state">
+                                        </select>
+                                    </div>
+                                    <div class="flex-box">
+                                        <select name="city" id="city">
+                                            
+                                        </select>
+                                        <input type="text" placeholder="Postal Code" name="pin_code">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <input type="text" placeholder="College Name*">
-                    <input type="text" placeholder="Degree Specialization*">
-                    <select name="" id="">
-                        <option value="">Select Course </option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                    </select>
-                    <select name="" id="">
-                        <option value="">Where you got to know about us?</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                    </select>
-                    <input type="text" placeholder="Referral Code">
-                    <div class="wrapper d-flex justify-content-between ">
-                        <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center">
-                            <p id="fileNameDisplay1" class="text-start m-0">Candidate Passport Size Photo</p>
-                            <input type="file" name="offer_letter" class="input_box" id="fileInput1" hidden>
-                            <i class="fa-solid fa-paperclip"></i>
-                        </label>
-                    </div>
-
-                    <div class="payment">
-                        <div class="img">
-                            <img src="./assets/images/qr 1.png" alt="">
-                        </div>
+                        <input type="text" placeholder="College Name*" name="college">
+                        <select name="degree">
+                            <option value="">Select Degree</option>
+                            <option value="1">BCA</option>
+                            <option value="2">MCA</option>
+                            <option value="3">B-Tech</option>
+                        </select>
+                        <select name="course">
+                            <option value="">Select Course </option>
+                            <option value="1">UX UI Design</option>
+                            <option value="2">Front-End Development</option>
+                            <option value="3">Back-End Development</option>
+                            <option value="4">Digital Marketing</option>
+                            <option value="5">Mobile App Development</option>
+                            <option value="6">Full Stack Python</option>
+                            <option value="7">Full Stack Web Development</option>
+                            <option value="Full Stack Django">Full Stack Django</option>
+                            <option value="Data Analytics">Data Analytics</option>
+                            <option value="Machine Learning">Machine Learning</option>
+                            <option value="Artificial Intelligence">Artificial Intelligence</option>
+                            <option value="Internet of Things (IoT)">Internet of Things (IoT)</option>
+                            <option value="Campus Ambassador Program (CAP)">Campus Ambassador Program (CAP)</option>
+                        </select>
+                        <select name="find">
+                            <option value="">Where you got to know about us?</option>
+                            <option value="1">From Friend</option>
+                            <option value="2">From Instagram</option>
+                        </select>
+                        <input type="text" placeholder="Referral Code" name="referral_code">
                         <div class="wrapper d-flex justify-content-between ">
-                        <label for="fileInput2" class="d-flex justify-content-between w-100 align-items-center">
-                            <p id="fileNameDisplay2" class="text-start m-0">Upload Payment Screenshot</p>
-                            <input type="file" name="offer_letter" class="input_box" id="fileInput2" hidden>
-                            <i class="fa-solid fa-paperclip"></i>
-                        </label>
-                    </div>
-                        <p>Review your selections and information. Click the "Apply" button to complete your
-                            application process.</p>
-                        <a href="#!">Apply</a>
-                    </div>
-                </div>
+                            <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center">
+                                <p id="fileNameDisplay1" class="text-start m-0">Candidate Passport Size Photo</p>
+                                <input type="file" name="photo" class="input_box" id="fileInput1" onchange="checkFileSize(this)" hidden>
+                                <i class="fa-solid fa-paperclip"></i>
+                            </label>
+                        </div>
+
+                        <div class="payment">
+                            <div class="img">
+                                <img src="./assets/images/qr 1.png" alt="">
+                            </div>
+                            <div class="wrapper d-flex justify-content-between ">
+                                <label for="fileInput2" class="d-flex justify-content-between w-100 align-items-center">
+                                    <p id="fileNameDisplay2" class="text-start m-0">Upload Payment Screenshot</p>
+                                    <input type="file" name="payment_ss" class="p-0 m-0" id="fileInput2" onchange="checkFileSize(this)" hidden>
+                                    <i class="fa-solid fa-paperclip"></i>
+                                </label>
+                            </div>
+                            <p>Review your selections and information. Click the "Apply" button to complete your
+                                application process.</p>
+                            <button type="submit" name="apply">Apply</button>
+                        </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 </section>
 <?php
 require('./includes/footer.php'); ?>
 <?php require('./includes/script.php'); ?>
+
 <script>
-    const fileInput1 = document.getElementById('fileInput1');
-    const fileNameDisplay1 = document.getElementById('fileNameDisplay1');
+    function checkFileSize(input) {
+        const fileInput = input;
+        const inputId = fileInput.id;
+        const idNumber = inputId.match(/\d+/)[0]; // Extract the number from the input ID
+        const fileSizeMessage = document.getElementById(`fileNameDisplay${idNumber}`);
+        const maxSizeInBytes = 1024 * 1024; // 1 MB (you can change this to your desired maximum file size)
 
-    fileInput1.addEventListener('change', function() {
-        const selectedFile1 = fileInput1.files[0];
+        if (fileInput.files.length > 0) {
+            const fileSize = fileInput.files[0].size;
 
-        if (selectedFile1) {
-            fileNameDisplay1.textContent = `Selected file: 
-            ${selectedFile1.name}`;
-        } else {
-            fileNameDisplay1.textContent = '';
+            if (fileSize > maxSizeInBytes) {
+                fileSizeMessage.innerHTML = ` <span style="color:red;">File size is too large. Please select a smaller file.</span> `;
+                fileInput.value = ""; // Clear the file input
+            } else {
+                fileSizeMessage.innerHTML = `<span style="color:#BB5327;"> Selected file: <b> ${fileInput.files[0].name} </b> </span>`;
+            }
         }
-    });
-
-    const fileInput2 = document.getElementById('fileInput2');
-    const fileNameDisplay2 = document.getElementById('fileNameDisplay2');
-
-    fileInput2.addEventListener('change', function() {
-        const selectedFile2 = fileInput2.files[0];
-
-        if (selectedFile2) {
-            fileNameDisplay2.textContent = `Selected file: 
-            ${selectedFile2.name}`;
-        } else {
-            fileNameDisplay2.textContent = '';
-        }
-    });
+    }
 </script>
+
+
 <?php require('./includes/end_html.php');
 ?>

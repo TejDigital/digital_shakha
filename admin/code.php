@@ -23,7 +23,9 @@ if (isset($_POST['adduser'])) {
 
     $name = $_POST["name"];
     $email = $_POST["email"];
+    $phone = $_POST["phone"];
     $password = $_POST["password"];
+    $type = $_POST["type"];
     $confirmpassword = $_POST["confirmpassword"];
 
     if ($password == $confirmpassword) {
@@ -36,7 +38,7 @@ if (isset($_POST['adduser'])) {
             $_SESSION['cons_msg'] = "Email Already teken !";
             header('location:registered.php');
         } else {
-            $adduser_qurey = "INSERT INTO users(name ,email,password) values('$name','$email','$password')";
+            $adduser_qurey = "INSERT INTO users(name ,phone,email,password,type) values('$name','$phone','$email','$password','$type')";
 
             $adduser_connect_db = mysqli_query($con, $adduser_qurey);
 
@@ -61,10 +63,11 @@ if (isset($_POST['updateuser'])) {
     $user_id = $_POST["user_id"];
     $name = $_POST["name"];
     $email = $_POST["email"];
+    $phone = $_POST["phone"];
     $password = $_POST["password"];
-    $role_as = $_POST["status"];
+    $role_as = $_POST["type"];
 
-    $query = "UPDATE users SET  name='$name',email='$email',password='$password',status='$role_as' WHERE id='$user_id'";
+    $query = "UPDATE users SET  name='$name',email='$email', phone='$phone' ,password='$password',type='$role_as' WHERE id='$user_id'";
 
     $query_run = mysqli_query($con, $query);
 
