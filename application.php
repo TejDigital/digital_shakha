@@ -43,7 +43,7 @@ require('./admin/config/dbcon.php');
                             </label>
                         </div>
                         <input type="text" placeholder="Date of birth*" onfocus="(this.type='date')" name="dob">
-                        <input type="text" placeholder="Mobile Number*" onkeypress="return event.charCode>=48 && event.charCode<=57" name="phone">
+                        <input type="text" placeholder="Mobile Number*"  maxlength="10"  onkeypress="return event.charCode>=48 && event.charCode<=57" name="phone">
                         <input type="email" placeholder="E-mail Address*" name="email">
                         <div class="permanent_address">
                             <div class="row">
@@ -75,7 +75,7 @@ require('./admin/config/dbcon.php');
                                         <select name="city" id="city">
                                             
                                         </select>
-                                        <input type="text" placeholder="Postal Code" name="pin_code">
+                                        <input type="text" maxlength="6"  onkeypress="return event.charCode>=48 && event.charCode<=57"  placeholder="Postal Code" name="pin_code">
                                     </div>
                                 </div>
                             </div>

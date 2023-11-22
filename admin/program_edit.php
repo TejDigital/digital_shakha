@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="col-md-12 p-0 app-click">
             <form action="./program_edit_code.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" value="<?= $row['id'] ?>" name="id">
+                <input type="hidden" value="<?= $row['program_id'] ?>" name="id">
                 <Label>interview status</Label>
                 <select name="status" class="form-select mb-2"  style="background:#2A3038 !important; color:#fff !important;">
                         <option <?php if ($row['program_status'] == 1) {
@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
                 <label for="Image">Current Image</label> <br>
                 <img src="./program_images/<?=$row['program_image']?>" class="mb-4" style="width: 200px;" alt="">
                  <br>
-                 <input type="hidden" name="old_img">
+                 <input type="hidden" name="old_img" value="<?=$row['program_image']?>">
                  <label for="">Choose New Image</label>
                 <input type="file" name="new_img" class="form-control">
               

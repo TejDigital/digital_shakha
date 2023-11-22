@@ -181,7 +181,7 @@ session_start();
                                     <li class="list-group-item"><a href="./program_option.php">Program Options <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./internship_track_0.php">Internship Tracks <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./seasonal_placements.php">Seasonal Placements <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="#!">Explore Programs <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./eligibility_criteria.php">Eligibility Criteria  <i class="color-ball"></i></a></li>
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">

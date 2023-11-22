@@ -1,4 +1,8 @@
-<?php require('./includes/header.php'); ?>
+<?php 
+require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
+ ?>
 <section class="seasonal_placements_1">
     <div class="container">
         <div class="row">
@@ -27,7 +31,32 @@
             <div class="heading">
                 <h1>Explore Our Seasonal Placements:</h1>
             </div>
-            <div class="col-md-6">
+
+            <?php
+            $sql = "SELECT * FROM seasonal_placement_tbl WHERE placement_status = 1";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run) > 0) {
+                while ($data = mysqli_fetch_assoc($sql_run)) {
+            ?>
+                    <div class="col-md-6">
+                        <div class="box">
+                            <a href="./placement_view.php?id=<?=$data['placement_id']?>">
+                                <div class="head">
+                                    <h1><?=$data['placement_name']?></h1>
+                                    <p><?=$data['placement_detail']?></p>
+                                    <p><b>Start Date: <span><?=$data['placement_date']?></span></b></p>
+                                </div>
+                                <div class="img">
+                                    <img src="./admin/seasonal_placement_images/<?=$data['placement_front_image']?>" alt="">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+            <!-- <div class="col-md-6">
                 <div class="box">
                     <a href="./placement_view.php">
                         <div class="head">
@@ -82,7 +111,7 @@
                         </div>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="row end_text">
             <div class="col-md-12 d-flex align-items-center justify-content-center flex-column">

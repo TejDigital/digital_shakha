@@ -22,7 +22,7 @@ if (isset($_POST['add'])) {
             $_SESSION['cm_msg'] = "file only in jpg ,png or jpeg ext";
             header('location:./programs.php');
         }else{
-            $sql = "INSERT INTO program_tbl(name,detail,image)VALUES('$name','$detail','$image')";
+            $sql = "INSERT INTO program_tbl(program_name,program_detail,program_image)VALUES('$name','$detail','$image')";
             $sql_run = mysqli_query($con , $sql);
 
             if ($sql_run) {

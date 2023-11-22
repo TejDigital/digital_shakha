@@ -84,6 +84,14 @@
           </a>
         </li>
         <li class="nav-item menu-items">
+          <a class="nav-link" href="./seasonal_placement.php">
+            <span class="menu-icon">
+              <i class="mdi mdi-table-large"></i>
+            </span>
+            <span class="menu-title">Seasonal Placement</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
           <a class="nav-link" href="users.php">
             <span class="menu-icon">
             <i class="mdi mdi-account-group"></i>
