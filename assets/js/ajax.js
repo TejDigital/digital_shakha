@@ -164,18 +164,18 @@ $(document).ready(function () {
 });
 
 //-------------------------for-redirecting from gmail------------
-$(document).ready(function () {
-  // Check if the 'redirect' parameter is in the URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const redirectParam = urlParams.get("redirect");
+// $(document).ready(function () {
+//   // Check if the 'redirect' parameter is in the URL
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const redirectParam = urlParams.get("redirect");
 
-  if (redirectParam === "success") {
-    // Open the login modal when the user is successfully verified
-    $("#loginModal").show(); // You may need to use the appropriate method to show the modal
-  } else if (redirectParam === "error") {
-    $("#registerModal").show(); // You may need to use the appropriate method to show the modal
-  }
-});
+//   if (redirectParam === "success") {
+//     // Open the login modal when the user is successfully verified
+//     $("#loginModal").show(); // You may need to use the appropriate method to show the modal
+//   } else if (redirectParam === "error") {
+//     $("#registerModal").show(); // You may need to use the appropriate method to show the modal
+//   }
+// });
 
 //--------------Student-login-------------
 
@@ -183,19 +183,22 @@ $(document).ready(function () {
   $("#std_login_form").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = form.serialize();
+    var formData = new FormData(form[0]);
+
     $.ajax({
       type: "POST",
       url: "././admin/std_login_code.php",
       data: formData,
+      processData: false,
+      contentType: false,
       success: function (response) {
-        console.log(response);
-        if (response == "login successfully") {
-          console.log("login");
+        var result = JSON.parse(response);
+        if (result.res == "1") {
+          closeLoginModal();
           Swal.fire({
             position: "center",
             icon: "success",
-            text: response,
+            text: "Welcome Back",
             showConfirmButton: false,
             showClass: {
               popup: "animate__animated animate__fadeInDown",
@@ -210,20 +213,17 @@ $(document).ready(function () {
             width: 600,
             color: "#EBAB56",
             background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
+            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
             timer: 2500,
           }).then(function () {
             location.reload();
           });
-        } else if (response == "invalid id or password") {
+        } else if (result.res == "2") {
           closeLoginModal();
           Swal.fire({
             position: "center",
             icon: "error",
-            text: response,
+            text: "You are Not verified",
             showConfirmButton: false,
             showClass: {
               popup: "animate__animated animate__fadeInDown",
@@ -238,20 +238,16 @@ $(document).ready(function () {
             width: 600,
             color: "#EBAB56",
             background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
+            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
             timer: 2500,
-          }).then(function () {
-            location.reload();
           });
-        } else if (response == "you are not verified") {
+          clearForm();
+        } else if (result.res == "3") {
           closeLoginModal();
           Swal.fire({
             position: "center",
             icon: "error",
-            text: response,
+            text: "Password not Match",
             showConfirmButton: false,
             showClass: {
               popup: "animate__animated animate__fadeInDown",
@@ -266,19 +262,59 @@ $(document).ready(function () {
             width: 600,
             color: "#EBAB56",
             background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
+            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
             timer: 2500,
-          }).then(function () {
-            location.reload();
           });
+          clearForm();
+        } else if (result.res == "4") {
+          closeLoginModal();
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            text: "User id not found",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+            timer: 2500,
+          });
+          clearForm();
         }
       },
       error: function (response) {
         closeLoginModal();
-        alert("Something went wrong");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          text: "Something went wrong",
+          showConfirmButton: false,
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+          customClass: {
+            icon: "custom-icon-color",
+            modal: "custom-border",
+          },
+          width: 600,
+          color: "#EBAB56",
+          background: "#fff",
+          backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+          timer: 2500,
+        });
         console.log(response);
       },
     });
@@ -286,9 +322,14 @@ $(document).ready(function () {
 
   function closeLoginModal() {
     $("#loginModal").hide();
-    console.log("login close");
+  }
+
+  var log_form = $("#std_login_form")[0];
+  function clearForm() {
+    log_form.reset();
   }
 });
+
 
 //--------------Student-Logout-------------
 

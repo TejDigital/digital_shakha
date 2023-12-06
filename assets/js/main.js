@@ -35,18 +35,18 @@ for (let i = 0; i < menuitems.length; i++) {
 //*************************************************MODAL************************ */
 
 var loginModal = document.getElementById("loginModal");
-var loginBtn = document.querySelector(".login_popup");
+var loginBtns = document.querySelectorAll(".login_popup");
 var closeLoginBtn = document.getElementById("close_login_btn");
 
-loginBtn.onclick = function() {
-  loginModal.style.display = "block";
-}
+loginBtns.forEach(function(loginBtn) {
+  loginBtn.onclick = function() {
+    loginModal.style.display = "block";
+  }
+});
 
 closeLoginBtn.onclick = function() {
   loginModal.style.display = "none";
 }
-
-
 
 
 var registerModal = document.getElementById("registerModal");

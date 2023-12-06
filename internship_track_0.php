@@ -1,4 +1,6 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php'); 
+
+?>
 <section class="internship_track_1">
     <div class="container">
         <div class="row">
@@ -29,7 +31,7 @@
                 <?php
                 if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth']) {
                 ?>
-                    <a href="#!">Login First<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                    <a href="#!" class="login_popup">Login First<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 
                 <?php
                 } else {
@@ -53,7 +55,7 @@
             <?php
                 if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth']) {
                     ?>
-                    <a href="<?php echo $_SERVER['PHP_SELF']; ?>?redirect=success">Login</a>
+                    <a href="#!" class="login_popup">Login</a>
                     <?php
                 } else {
                     ?>

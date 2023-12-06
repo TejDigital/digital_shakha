@@ -1,4 +1,9 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php'); 
+if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
+    echo '<script>window.location.href = "index.php";</script>';
+    exit(); // Stop further execution
+}
+?>
 <section class="internship_track_1">
     <div class="container">
         <div class="row">

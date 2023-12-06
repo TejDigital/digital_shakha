@@ -101,7 +101,9 @@ if (isset($_POST['add_pass'])) {
 
   if (mysqli_num_rows($check_query) > 0) {
     if ($password == $confirm_password) {
-      $update_pass = "UPDATE users SET password ='$password' WHERE verification_token='$token' limit 1";
+      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+      $update_pass = "UPDATE users SET password ='$hashed_password' WHERE verification_token='$token' limit 1";
       $update_pass_query = mysqli_query($con, $update_pass);
 
       if ($update_pass_query) {

@@ -1,11 +1,11 @@
 <?php
-// if (!isset($_SESSION['std_auth_user']['user_email']) && !$_SESSION['std_auth_user']['user_email']) {
-//     $_SESSION['message'] = "Please Login first to access this page";
-//     header('Location:./index.php');
-//     exit();
-// }
 require('./includes/header.php');
 require('./admin/config/dbcon.php');
+
+if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
+    echo '<script>window.location.href = "index.php";</script>';
+    exit(); // Stop further execution
+}
 
 ?>
 <section class="application_1">

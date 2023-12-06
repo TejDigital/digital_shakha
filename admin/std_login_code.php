@@ -1,18 +1,19 @@
-    <?php
-    session_start();
-    require('config/dbcon.php');
+<?php
+session_start();
+require('config/dbcon.php');
 
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $password = mysqli_real_escape_string($con, $_POST['password']);
+$email = mysqli_real_escape_string($con, $_POST['email']);
+$password = mysqli_real_escape_string($con, $_POST['password']);
 
-    $login  = "SELECT * FROM users WHERE email = '$email' AND password = '$password' limit 1";
-    $login_query = mysqli_query($con, $login);
+$login  = "SELECT * FROM users WHERE email = ? limit 1";
+$stmt = mysqli_prepare($con, $login);
+mysqli_stmt_bind_param($stmt, "s", $email);
+mysqli_stmt_execute($stmt);
+$login_query = mysqli_stmt_get_result($stmt);
 
-    if (mysqli_num_rows($login_query) > 0) {
-        $row = mysqli_fetch_assoc($login_query);
-
+if ($row = mysqli_fetch_assoc($login_query)) {
+    if (password_verify($password, $row['password'])) {
         if ($row['verification_status'] == '1') {
-
             $user_name = $row['name'];
             $user_email = $row['email'];
 
@@ -22,13 +23,20 @@
                 'user_email' => $user_email,
             ];
 
-            echo "login successfully";
+            header('HTTP/1.1 200 OK');
+            echo json_encode(array("res" => '1'));
         } else {
-            echo "you are not verified";
+            // header('HTTP/1.1 401 Unauthorized');
+            echo json_encode(array("res" => '2'));
         }
     } else {
-        echo "invalid id or password";
+        // header('HTTP/1.1 401 Unauthorized');
+        echo json_encode(array("res" => '3'));
     }
+} else {
+    // header('HTTP/1.1 401 Unauthorized');
+    echo json_encode(array("res" => '4'));
+}
 
-
-    ?>
+mysqli_close($con);
+?>

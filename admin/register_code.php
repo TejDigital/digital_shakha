@@ -16,7 +16,9 @@ $reenter_pass = $_POST['confirm_password'];
 $token = md5(rand());
 
 if ($password == $reenter_pass) {
-  $sql = "INSERT INTO users (name,email,phone,password,verification_token) values('$username','$email','$phone','$password','$token')";
+  $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+  $sql = "INSERT INTO users (name,email,phone,password,verification_token) values('$username','$email','$phone','$hashed_password','$token')";
   $sql_run = mysqli_query($con, $sql);
 
   if ($sql_run) {
