@@ -238,21 +238,26 @@
 <?php require('./includes/script.php'); ?>
 <script>
     $(document).ready(function() {
-      
-        $(".toggle_btn").click(function() {
-            $(this).toggleClass("active_toggle_content");
-            var panel = $(this).next();
 
-            var plusIcon = $(this).find('.plus');
-            var minusIcon = $(this).find('.minus');
+        $(".toggle_btn").click(function() {
+            // Close all other toggle_content elements
+            $(".toggle_content").slideUp();
+            $(".toggle_btn").removeClass("active_toggle_content");
+            $(".plus").show();
+            $(".minus").hide();
+
+            // Toggle the clicked toggle_content
+            var panel = $(this).next(".toggle_content");
+            $(this).toggleClass("active_toggle_content");
+
             if (panel.is(":hidden")) {
-                panel.css("display", "block");
-                plusIcon.css("display", "none");
-                minusIcon.css("display", "block");
+                panel.slideDown();
+                $(this).find('.plus').hide();
+                $(this).find('.minus').show();
             } else {
-                panel.css("display", "none");
-                plusIcon.css("display", "block");
-                minusIcon.css("display", "none");
+                panel.slideUp();
+                $(this).find('.plus').show();
+                $(this).find('.minus').hide();
             }
         });
     });

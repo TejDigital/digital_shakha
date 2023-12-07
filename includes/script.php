@@ -1,6 +1,5 @@
 <script src="./assets/js/jquery.js"></script>
 <script src="./bootstrap/js/bootstrap.js"></script>
-<script src="./assets/js/main.js"></script>
 <script src="./assets/js/calender.js"></script>
 <script src="./assets/js/ajax.js"></script>
 <script src="./assets/fontawesome-free-6.4.2-web/js/all.js"></script>
@@ -14,6 +13,8 @@
 <script src="./sweetalert2/sweetalert2.all.min.js"></script>
 <script src="./sweetalert2/sweetalert2.min.js"></script>
 <script src="./sweetalert2/sweetalert2.all.js"></script>
+<script src="./assets/OwlCarousel2/dist/owl.carousel.js"></script>
+<script src="./assets/js/main.js"></script>
 <script>
     window.onload = function() {
         setTimeout(function() {

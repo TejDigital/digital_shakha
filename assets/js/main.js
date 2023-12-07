@@ -115,3 +115,31 @@ window.onclick = function(event) {
     forgetPassModal.style.display = "none";
   }
 }
+
+
+// ---------------------------------Program-view-testimonial--------------
+$(".testimonial_program_view").owlCarousel({
+  // autoplay: true,
+  // slideSpeed: 1000,
+  // autoplayTimeout:2000,
+  items: 1,
+  loop: true,
+  nav: true,
+  navText: ["<img src='././assets/images/arrow_left.svg'>", "<img src='././assets/images/arrow_right.svg'>"],
+  dots: true,
+  responsive: {
+      320: {
+          items: 1
+      },
+      767: {
+          items: 1
+      },
+      600: {
+          items: 1
+      },
+      1000: {
+          items: 1
+      }
+  }
+
+});

@@ -119,7 +119,7 @@
         </div>
     </div>
 </section>
-<section class="home_3">
+<!-- <section class="home_3">
     <div class="container">
         <div class="heading">
             <h1>Our Courses</h1>
@@ -295,7 +295,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <section class="home_4">
     <div class="container">
         <div class="heading">

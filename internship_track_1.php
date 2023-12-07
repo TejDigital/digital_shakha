@@ -346,7 +346,7 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                         <p>Tell us what you want to learn or if </p>
                         <p>you have any questions.</p>
                         <p>We're here to help !</p>
-                        <a href="./application.php">Request</a>
+                        <a href="#!">Request</a>
                     </div>
                 </div>
             </div>

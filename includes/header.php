@@ -29,7 +29,9 @@ session_start();
     <link rel="stylesheet" href="./assets/css/seasonal_placements.css">
     <link rel="stylesheet" href="./assets/css/placement_view.css">
     <link rel="stylesheet" href="./assets/css/eligibility_criteria.css">
+    <link rel="stylesheet" href="./assets/css/program_view.css">
     <link rel="stylesheet" href="./assets/css/contact.css">
+    <link rel="stylesheet" href="./assets/css/opportunities_view.css">
     <link rel="stylesheet" href="./assets/css/modals.css">
     <link rel="stylesheet" href="./assets/css/error.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css">
@@ -38,6 +40,8 @@ session_start();
     <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="./sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./assets/OwlCarousel2/dist/assets/owl.carousel.css">
+    <link rel="stylesheet" href="./assets/OwlCarousel2/dist/assets/owl.theme.default.css">
     <title>Digitalshakha</title>
 
 </head>
