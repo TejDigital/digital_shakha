@@ -1,4 +1,7 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
+?>
 <section class="log_reg_1">
     <div class="container-fluid px-0">
         <div class="row px-0">
@@ -13,14 +16,26 @@
                         <h1>Event Register</h1>
                     </div>
                     <div class="input_area">
-                        <input type="text" class="input_box" placeholder="Full Name">
-                        <input type="text" class="input_box" placeholder="Contact Number">
-                        <input type="text" class="input_box" placeholder="Email Addressr">
-                        <select name="" class="input_box" style="padding: 1rem;
-                            margin-bottom: 1rem;" id="">
-                            <option value="">Select Events</option>
-                        </select>
-                        <button>Register</button>
+                        <form class="event_register" id="event_register">
+                            <input type="text" name="name" class="input_box" placeholder="Full Name">
+                            <input type="text" name="phone" class="input_box" maxlength="10" placeholder="Contact Number" onkeypress="return event.charCode>=48 && event.charCode<=57">
+                            <input type="Email" name="email" class="input_box" placeholder="Email Address">
+                            <select name="event" class="input_box">
+                                <option value="">Select Events</option>
+                                <?php
+                                $sql = "SELECT * FROM event_tbl WHERE event_status = 1";
+                                $sql_run = mysqli_query($con, $sql);
+                                if (mysqli_num_rows($sql_run) > 0) {
+                                    foreach ($sql_run as $data) {
+                                ?>
+                                        <option value="<?= $data['event_id'] ?>"><?= $data['event_title'] ?></option>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                            <button type="submit">Register</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -57,4 +72,6 @@
 </section>
 <?php require('./includes/footer.php'); ?>
 <?php require('./includes/script.php'); ?>
+
+
 <?php require('./includes/end_html.php'); ?>

@@ -370,7 +370,8 @@
 #upcoming_modal .form {
     padding: 1rem 0;
 }
-#upcoming_modal .form .col-md-6{
+
+#upcoming_modal .form .col-md-6 {
     margin-bottom: 1rem;
 }
 
@@ -452,6 +453,7 @@
     max-width: 300px;
     aspect-ratio: 4/5;
 }
+
 .upcoming_batch .sold1 {
     padding: 1.5rem;
     background: #B838278C;
@@ -496,6 +498,7 @@
     color: #ffffff;
     width: 100%;
 }
+
 .upcoming_batch .box .btn_area {
     text-align: center;
     width: 100%;
@@ -569,12 +572,27 @@
     color: #000;
 }
 
+.program_options .btn_area {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.program_options .btn_area button {
+    text-align: center;
+    background-color: #BB5327;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+
+}
+
 .program_options .box {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    height: 330px;
+    height: 340px;
     border: 2px solid #AAA0A0;
 }
 
@@ -603,7 +621,7 @@
 }
 
 .program_options .box .text p {
-    font-size: 1.4vw;
+    font-size: 1.3vw;
     font-weight: 500;
     line-height: 28px;
 }

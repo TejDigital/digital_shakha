@@ -1,4 +1,7 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
+ ?>
 <section class="opportunities_1">
     <div class="container">
         <div class="row">
@@ -28,7 +31,25 @@
     <div class="container">
         <div class="row">
             <h1>Open Opportunities:</h1>
-            <div class="col-md-12 mb-4">
+            <?php
+            $sql = "SELECT * FROM opportunities_tbl WHERE opp_status = 1";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run) > 0) {
+                while ($data = mysqli_fetch_assoc($sql_run)) {
+            ?>
+                 <div class="col-md-12 mb-4">
+                <div class="big_box">
+                    <div class="box">
+                        <p><?=$data['opp_name']?></p>
+                    </div>
+                    <a href="./opportunities_view.php?id=<?=$data['opp_id']?>">Know More</a>
+                </div>
+            </div>
+            <?php
+                }
+            }
+            ?>
+            <!-- <div class="col-md-12 mb-4">
                 <div class="big_box">
                     <div class="box">
                         <p>Business Development Executive </p>
@@ -63,7 +84,7 @@
                     </div>
                     <a href="#!">Know More</a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

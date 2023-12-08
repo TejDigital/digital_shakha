@@ -7,10 +7,6 @@ if (isset($_POST['add'])) {
     $detail = $_POST['detail'];
     $image = $_FILES['image']['name'];
 
-    // print_r($_POST);
-    // print_r($_FILES);
-    // die();
-
     if ($_FILES['image']['size'] > 5000000) {
         $_SESSION['digi_meg'] = "File is too big";
         header('location:./programs.php');

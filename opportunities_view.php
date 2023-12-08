@@ -1,5 +1,18 @@
 <?php require('./includes/header.php');
 require('./admin/config/dbcon.php');
+
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $sql = "SELECT * FROM opportunities_tbl WHERE opp_id = '$id'";
+
+    $sql_run = mysqli_query($con, $sql);
+
+    if (mysqli_num_rows($sql_run) > 0) {
+        $row = mysqli_fetch_assoc($sql_run);
+    }
+}
  ?>
  <section class="opportunities_view_1">
     <div class="container">
@@ -19,10 +32,10 @@ require('./admin/config/dbcon.php');
         <div class="row">
             <div class="col-md-8">
                 <div class="heading">
-                    <h1>Business Development Executive</h1>
+                    <h1><?=$row['opp_name']?></h1>
                 </div>
                 <div class="text">
-
+                <?=$row['opp_description']?>
                 </div>
             </div>
             <div class="col-md-4">

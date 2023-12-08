@@ -1,7 +1,10 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
+?>
 <section class="resume_1">
     <div class="container">
-        <div class="row flex_change" >
+        <div class="row flex_change">
             <div class="col-md-6">
                 <div class="text">
                     <h1>Success Stories</h1>
@@ -11,9 +14,9 @@
             </div>
             <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
                 <div class="img">
-                <span class="dot1"></span>
-                <img src="./assets/images/success_stories_1.png" alt="">
-                <span class="dot3"></span>
+                    <span class="dot1"></span>
+                    <img src="./assets/images/success_stories_1.png" alt="">
+                    <span class="dot3"></span>
                     <span class="dot4"></span>
                 </div>
             </div>
@@ -27,7 +30,39 @@
             <p>Meet our trailblazers, each with a unique narrative that unfolds the chapters of their professional growth. These success stories embody the essence of DigitalShakha's commitment to nurturing talent, fostering innovation, and providing a platform for individuals to shine.</p>
         </div>
         <div class="story_slider owl-carousel owl-theme">
-            <div class="row">
+            <?php
+            $sql = "SELECT * FROM success_story_tbl WHERE status = 1";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run) > 0) {
+                while ($data = mysqli_fetch_assoc($sql_run)) {
+            ?>
+                    <div class="row">
+                        <div class="col-md-4 p-0">
+                            <div class="img">
+                                <img src="./admin/success_story_images/<?=$data['image']?>" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="text">
+                                <div class="head">
+                                    <h1><?=$data['name']?></h1>
+                                    <p><?=$data['designation']?></p>
+                                </div>
+                                <div class="main_text">
+                                    <p><?=$data['description']?></p>
+                                </div>
+                                <div class="tips">
+                                    <strong>TIPS FOR YOU:</strong>
+                                    <p>"<?=$data['tips']?>"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+            <!-- <div class="row">
                 <div class="col-md-4 p-0">
                     <div class="img">
                         <img src="./assets/images/success_stories_slider_img.png" alt="">
@@ -92,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="end_text">
             <h1>Your Success Story Awaits: Join the Journey</h1>

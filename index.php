@@ -318,33 +318,33 @@ require('./admin/config/dbcon.php');
                         <p>Get personalised advice and responses to your questions 🙂</p>
                     </div>
                     <div class="form">
-                        <form action="">
+                        <form class="upcoming_batch_request" id="upcoming_batch_request">
                             <input type="hidden" name="upcoming_batch_id" class="upcoming_batch_id">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Name" class="input_area">
+                                    <input type="text" placeholder="Name" name="name" class="input_area">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Number" class="input_area">
+                                    <input type="text" placeholder="Number" name="phone" class="input_area">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="Email Address" class="input_area">
+                                    <input type="email" placeholder="Email Address" name="email" class="input_area">
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="input_area" class="input_area">
+                                    <select name="designation" class="input_area">
                                         <option value="">Select Designation</option>
                                         <option value="Student">Student</option>
                                         <option value="Working professional">Working professional</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="input_area" class="input_area">
+                                    <select name="location" class="input_area">
                                         <option value="">Select location</option>
-                                        <option value="Student">Bhilai</option>
+                                        <option value="Bhilai">Bhilai</option>
                                     </select>
                                 </div>
                                 <div class="btn_area">
-                                    <button>Submit</button>
+                                    <button type="submit">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -382,128 +382,61 @@ require('./admin/config/dbcon.php');
             ?>
                     <div class="col-md-4">
                         <?php
-                            if ($data['availability'] == 1) {
-                                ?>
-                                <div class="box">
-                                    <?php
-                            } else {
-                                ?>
-                                <div class="sold1">
+                        if ($data['availability'] == 1) {
+                        ?>
+                            <div class="box">
                             <?php
-                            }
+                        } else {
                             ?>
-                            <div class="text">
-                                <h6>OFFLINE - <?= $data['batch_address'] ?></h6>
-                                <h2><?php if ($data['batch_name'] == $data['program_id']) {
-                                        echo $data['program_name'];
-                                    } ?></h2>
-                            </div>
-                            <div class="text">
-                                <h3><?= $day ?></h3>
-                                <p><?= $month ?></p>
-                            </div>
-                            <div class="text">
-                                <h4>MON, WED, Fri</h4>
-                                <h4><?= $formatted_time ?> - <?= $formatted_time2 ?></h4>
-                            </div>
-                            <div class="btn_area">
+                                <div class="sold1">
                                 <?php
-                                if ($data['availability'] == 1) {
+                            }
                                 ?>
-                                    <button class="upcoming_btn" data-id="<?= $data['batch_id'] ?>">Request a Call Back</button>
-                                <?php
-                                } else {
-                                ?>
-                                    <button class="upcoming_btn_sold" data-id="<?= $data['batch_id'] ?>">Batch Full</button>
-                                <?php
-                                }
-                                ?>
+                                <div class="text">
+                                    <h6>OFFLINE - <?= $data['batch_address'] ?></h6>
+                                    <h2><?php if ($data['batch_name'] == $data['program_id']) {
+                                            echo $data['program_name'];
+                                        } ?></h2>
+                                </div>
+                                <div class="text">
+                                    <h3><?= $day ?></h3>
+                                    <p><?= $month ?></p>
+                                </div>
+                                <div class="text">
+                                    <h4>MON, WED, Fri</h4>
+                                    <h4><?= $formatted_time ?> - <?= $formatted_time2 ?></h4>
+                                </div>
+                                <div class="btn_area">
+                                    <?php
+                                    if ($data['availability'] == 1) {
+                                    ?>
+                                        <button class="upcoming_btn" data-id="<?= $data['batch_id'] ?>">Request a Call Back</button>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <button class="upcoming_btn_sold" data-id="<?= $data['batch_id'] ?>">Batch Full</button>
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-            <?php
+                    <?php
                 }
             }
-            ?>
-            <!-- <div class="col-md-4">
-                <div class="box">
-                    <div class="text">
-                        <h6>OFFLINE - BHILAI</h6>
-                        <h2>WEB DEVELOPMENT</h2>
+                    ?>
+
+
                     </div>
-                    <div class="text">
-                        <h3>08</h3>
-                        <p>September</p>
-                    </div>
-                    <div class="text">
-                        <h4>MON, WED, Fri</h4>
-                        <h4>11:00 am - 01:00 Pm</h4>
-                    </div>
-                    <div class="btn_area">
-                        <button class="upcoming_btn">Request a Call Back</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box">
-                    <div class="text">
-                        <h6>OFFLINE - BHILAI</h6>
-                        <h2>WEB DEVELOPMENT</h2>
-                    </div>
-                    <div class="text">
-                        <h3>08</h3>
-                        <p>September</p>
-                    </div>
-                    <div class="text">
-                        <h4>MON, WED, Fri</h4>
-                        <h4>11:00 am - 01:00 Pm</h4>
-                    </div>
-                    <div class="btn_area">
-                        <button>Request a Call Back</button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box">
-                    <div class="text">
-                        <h6>OFFLINE - BHILAI</h6>
-                        <h2>WEB DEVELOPMENT</h2>
-                    </div>
-                    <div class="text">
-                        <h3>08</h3>
-                        <p>September</p>
-                    </div>
-                    <div class="text">
-                        <h4>MON, WED, Fri</h4>
-                        <h4>11:00 am - 01:00 Pm</h4>
-                    </div>
-                    <div class="btn_area">
-                        <button>Request a Call Back</button>
-                    </div>
-                </div>
-            </div> -->
         </div>
-    </div>
 </section>
 <section class="program_options">
     <div class="container">
         <div class="heading">
             <h1>Program Options</h1>
         </div>
-        <div class="row">
-            <div class="col-md-3">
-                <a href="#!">
-                    <div class="box">
-                        <div class="img">
-                            <img src="./assets/images/program_box_bg_1.png" alt="">
-                        </div>
-                        <div class="text">
-                            <h4>UX UI Design</h4>
-                            <p>Shape user-friendly, visually appealing websites and apps.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+        <div class="row" id="load_data">
+
         </div>
     </div>
 </section>
@@ -534,36 +467,26 @@ require('./admin/config/dbcon.php');
         </div>
         <div class="testimonial_home ">
             <div class="testimonial_slider owl-carousel owl-theme">
-                <div class="box">
-                    <div class="img">
-                        <img src="./assets/images/testimonial_profile.png" alt="">
-                    </div>
-                    <h1>Parvathi Dewangan</h1>
-                    <p><img src="./assets/images/Location.svg" alt="">Bhilai</p>
-                    <div class="description">
-                        <p>“Enrolling in DigitalShakha's courses was one of the best decisions I made. The engaging content, supportive community, and practical projects have not only expanded my knowledge but also boosted my confidence in the tech industry.”</p>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img">
-                        <img src="./assets/images/testimonial_profile.png" alt="">
-                    </div>
-                    <h1>Parvathi Dewangan</h1>
-                    <p><img src="./assets/images/Location.svg" alt="">Bhilai</p>
-                    <div class="description">
-                        <p>“Enrolling in DigitalShakha's courses was one of the best decisions I made. The engaging content, supportive community, and practical projects have not only expanded my knowledge but also boosted my confidence in the tech industry.”</p>
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="img">
-                        <img src="./assets/images/testimonial_profile.png" alt="">
-                    </div>
-                    <h1>Parvathi Dewangan</h1>
-                    <p><img src="./assets/images/Location.svg" alt="">Bhilai</p>
-                    <div class="description">
-                        <p>“Enrolling in DigitalShakha's courses was one of the best decisions I made. The engaging content, supportive community, and practical projects have not only expanded my knowledge but also boosted my confidence in the tech industry.”</p>
-                    </div>
-                </div>
+                <?php
+                $sql = "SELECT * FROM testimonial_tbl WHERE test_status = 1";
+                $sql_run = mysqli_query($con, $sql);
+                if (mysqli_num_rows($sql_run) > 0) {
+                    while ($data = mysqli_fetch_assoc($sql_run)) {
+                ?>
+                        <div class="box">
+                            <div class="img">
+                                <img src="./admin/home_testimonial_images/<?= $data['test_image'] ?>" alt="">
+                            </div>
+                            <h1><?= $data['test_name'] ?></h1>
+                            <p><img src="./assets/images/Location.svg" alt=""><?= $data['test_address'] ?></p>
+                            <div class="description">
+                                <p>“<?= $data['test_description'] ?>”</p>
+                            </div>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -631,6 +554,30 @@ require('./admin/config/dbcon.php');
             var batch_id = $(this).data("id");
             $('.upcoming_batch_id').val(batch_id);
             $('#upcoming_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+        function loadMore(page){
+            $.ajax({
+                type: "POST",
+                url: "./admin/program_view_ajax_call.php",
+                data: {page_no: page},
+                success: function (response) {
+                    if(response){
+                        $("#btn_id").remove();
+                        $("#load_data").append(response);
+                    }else{
+                        $("#load_page_btn").prop("disabled",true);
+                    }
+                }
+            });
+        }
+        loadMore();
+        $(document).on("click","#load_page_btn",function(){
+            var p_id = $(this).data("id");
+            loadMore(p_id);
         });
     });
 </script>

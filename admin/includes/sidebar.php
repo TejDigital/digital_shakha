@@ -69,7 +69,7 @@
           <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="./events.php">Event</a></li>
-              <li class="nav-item"> <a class="nav-link" href="#!">Event Registration</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./event_register_table.php">Event Registration</a></li>
             </ul>
           </div>
         </li>
@@ -84,9 +84,33 @@
           <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="./upcoming_batches.php">Upcoming Batches</a></li>
-              <li class="nav-item"> <a class="nav-link" href="#!">Event Registration</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./upcoming_batch_request_table.php">Batch Request</a></li>
             </ul>
           </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="./opportunities.php">
+            <span class="menu-icon">
+              <i class="mdi mdi-application"></i>
+            </span>
+            <span class="menu-title">Opportunities</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="./success_story.php">
+            <span class="menu-icon">
+              <i class="mdi mdi-application"></i>
+            </span>
+            <span class="menu-title">Success Story</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="./home_testimonial.php">
+            <span class="menu-icon">
+              <i class="mdi mdi-application"></i>
+            </span>
+            <span class="menu-title">Home Testimonial</span>
+          </a>
         </li>
         <li class="nav-item menu-items">
           <a class="nav-link" href="./application.php">

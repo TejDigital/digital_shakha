@@ -583,3 +583,113 @@ $(document).ready(function () {
     });
   });
 });
+
+
+//-------------------------Event-register----------------
+$(document).ready(function () {
+  $(".event_register").on("submit", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = form.serialize();
+    console.log(formData)
+    $.ajax({
+      type: "POST",
+      url: "././admin/event_register.php",
+      data: formData,
+      success: function (response) {
+        console.log(response);
+        var result = JSON.parse(response);
+        if (result.res == "1") {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Thank You ! We are connect soon",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                          rgba(40, 39, 19,0.4)
+                          left top
+                          no-repeat`,
+            timer: 2500,
+          });
+        }
+      },
+      error: function (response) {
+        alert("Something went wrong");
+        console.log(response);
+      },
+    });
+    clearInput();
+  });
+  let formReset = document.getElementById("event_register");
+  function clearInput() {
+    formReset.reset();
+  }
+});
+//-------------------------upcoming_batch_request----------------
+$(document).ready(function () {
+  $(".upcoming_batch_request").on("submit", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = form.serialize();
+    console.log(formData)
+    $.ajax({
+      type: "POST",
+      url: "././admin/upcoming_batch_request.php",
+      data: formData,
+      success: function (response) {
+        $('#upcoming_modal').modal('hide');
+        console.log(response);
+        var result = JSON.parse(response);
+        if (result.res == "1") {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Thank You ! We are connect soon",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                          rgba(40, 39, 19,0.4)
+                          left top
+                          no-repeat`,
+            timer: 2500,
+          });
+        }
+      },
+      error: function (response) {
+        $('#upcoming_modal').hide();
+        alert("Something went wrong");
+        console.log(response);
+      },
+    });
+    clearInput();
+  });
+  let formReset = document.getElementById("upcoming_batch_request");
+  function clearInput() {
+    formReset.reset();
+  }
+});
