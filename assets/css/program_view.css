@@ -1010,7 +1010,7 @@
 }
 
 .program_testimonial .testimonial_program_view .owl-nav button:hover {
-    background-color: transparent;
+    background-color: transparent !important;
 }
 
 .program_testimonial .testimonial_program_view .owl-nav button img {

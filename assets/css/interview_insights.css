@@ -1,0 +1,56 @@
+.interview_insights_2{
+    padding: 2rem 4rem;
+    color: #615D5D;
+}
+.interview_insights_2 .heading{
+    padding: 2rem 0;
+}
+.interview_insights_2 .heading h1{
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 50px;
+}
+.interview_insights_2 .heading p{
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height:24px;
+}
+.interview_insights_2 .text{
+   margin-bottom: 1rem;
+}
+.interview_insights_2 .text p{
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height:28px;
+    margin-bottom: 0;
+}
+.interview_insights_2 .text h2{
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 40px;
+}
+.interview_insights_2 .text p:last-child{
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height:28px;
+}
+.interview_insights_2 .end_text{
+    padding: 3rem 0;
+}
+.interview_insights_2 .end_text h1{
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height:28px;
+}
+.interview_insights_2 .end_text p{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: start;
+    line-height:28px;
+}
+@media(max-width:768px){
+    .interview_insights_2{
+        padding: 2rem 0.2rem;
+    }
+}

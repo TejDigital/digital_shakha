@@ -1,0 +1,177 @@
+.employee_contact_1{
+    padding: 0;
+}
+.employee_contact_1 .img{
+    width: 100%;
+}
+.employee_contact_1 .img img{
+    width: 100%;
+    height: 100%;
+}
+.employee_contact_1 .text{
+    padding: 2rem;
+}
+.employee_contact_1 .text .heading{
+    padding: 1rem  0;
+}
+.employee_contact_1 .text .heading h1{
+   font-size: 2.5rem;
+   font-weight: 700;
+   line-height: 40px;
+}
+.employee_contact_1 .text .heading p{
+   font-size: 0.9rem;
+   font-weight: 400;
+   line-height: 22px;
+}
+.employee_contact_1 .text > p{
+   font-size: 1.2rem;
+   font-weight: 500;
+   line-height: 28px;
+}
+
+/* ----------------employee_contact_2----------- */
+.employee_contact_2{
+    padding: 2rem 4rem;
+}
+.employee_contact_2 .heading{
+    padding: 1rem 0;
+}
+.employee_contact_2 .heading h1{
+    font-size: 2.5rem;
+   font-weight: 700;
+   line-height: 40px;
+}
+.employee_contact_2 .input_box{
+    padding: 1rem;
+}
+
+.employee_contact_2 .input_box .input_area{
+    padding: 0.7rem 1rem;
+    border: 1px solid #000;
+    width: 100%;
+}
+.employee_contact_2 .input_box2 {
+    padding: 1rem;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+.employee_contact_2 .input_box2 .input_area{
+    padding: 0.7rem 1rem;
+    border: 1px solid #000;
+    width: 100%;
+   
+}
+.employee_contact_2 .input_box2 p{
+ margin: 0;
+ font-size: 0.8rem;
+ line-height: 18px;
+}
+.employee_contact_2 .input_box2 .btn_area{
+ padding: 1rem;
+}
+.employee_contact_2 .btn_area button{
+ padding: 1rem;
+ font-weight: 600;
+ border: 1px solid transparent;
+ text-align: center;
+ width: 100%;
+ background-color: #BB5327;
+ color: #ffffff;
+}
+.employee_contact_2 .img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.employee_contact_2 .img img{
+    width: 100%;
+    height: 100%;
+}
+@media(max-width:768px){
+    .employee_contact_2{
+        padding: 2rem 0.2rem;
+    }
+}
+
+/* --------------------------employee_contact_3--------------------- */
+.employee_contact_3{
+    padding: 2rem 4rem;
+}
+.employee_contact_3 .heading h1{
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 40px;
+}
+.employee_contact_3 .heading p{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+
+.employee_contact_3 .box{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    padding: 1.5rem;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    border: 1px solid #BB5327;
+}
+.employee_contact_3 .box p{
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 30px;
+}
+.employee_contact_3 .box p a{
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 30px;
+    color: #BB5327;
+    text-decoration: none;
+}
+.employee_contact_3 .text{
+    padding: 1rem 0;
+}
+.employee_contact_3 .text p{
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+.employee_contact_3 .end_text{
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.employee_contact_3 .end_text p{
+    font-size: 1.2rem;
+    color: #BB5327;
+    font-weight: 600;
+    text-align: center;
+    line-height: 28px;
+}
+
+.employee_contact_3 .end_text .img{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.employee_contact_3 .end_text .img img{
+    width: 100%;
+}
+
+@media(max-width:768px){
+    .employee_contact_3{
+        padding: 2rem 0.2rem;
+    }
+}

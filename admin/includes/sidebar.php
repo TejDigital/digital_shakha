@@ -59,21 +59,35 @@
           </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="mdi mdi-laptop"></i>
-              </span>
-              <span class="menu-title">Basic UI Elements</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#!">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#!">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#!">Typography</a></li>
-              </ul>
-            </div>
-          </li>
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Events</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./events.php">Event</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#!">Event Registration</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Batches</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./upcoming_batches.php">Upcoming Batches</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#!">Event Registration</a></li>
+            </ul>
+          </div>
+        </li>
         <li class="nav-item menu-items">
           <a class="nav-link" href="./application.php">
             <span class="menu-icon">
@@ -109,7 +123,7 @@
         <li class="nav-item menu-items">
           <a class="nav-link" href="users.php">
             <span class="menu-icon">
-            <i class="mdi mdi-account-group"></i>
+              <i class="mdi mdi-account-group"></i>
             </span>
             <span class="menu-title">User Dashboard</span>
           </a>

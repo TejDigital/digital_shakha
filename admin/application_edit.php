@@ -84,7 +84,7 @@ if (isset($_GET['id'])) {
                                 <div class="flex-box">
                                     <!-- <input type="text" class="form-control mb-2" value="<?= $row['country'] ?>" placeholder="Country" name="country"> -->
                                     <label for="">Country</label>
-                                    <select name="country" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                                    <select name="country" class="form-select mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                         <?php
                                         $sql_country = "SELECT * from tbl_countries";
                                         $sql_country_run = mysqli_query($con, $sql_country);
@@ -103,7 +103,7 @@ if (isset($_GET['id'])) {
                                     </select>
                                     <!-- <input type="text" class="form-control mb-2" value="<?= $row['state'] ?>" placeholder="State" name="state"> -->
                                     <label for="">State</label>
-                                    <select name="state" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                                    <select name="state" class="form-select mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                         <?php
                                         $sql_state = "SELECT * from tbl_states";
                                         $sql_state_run = mysqli_query($con, $sql_state);
@@ -124,7 +124,7 @@ if (isset($_GET['id'])) {
                                 <div class="flex-box">
                                     <!-- <input type="text" class="form-control mb-2" value="<?= $row['city'] ?>" placeholder="City" name="city"> -->
                                     <label for="">City</label>
-                                    <select name="city" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                                    <select name="city" class="form-select mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                         <?php
                                         $sql_city = "SELECT * from tbl_cities";
                                         $sql_city_run = mysqli_query($con, $sql_city);
@@ -151,14 +151,14 @@ if (isset($_GET['id'])) {
                     <input type="text" class="form-control mb-2" value="<?= $row['collage'] ?>" placeholder="College Name*" name="college">
                     <!-- <input type="text" class="form-control mb-2 " value="<?= $row['degree'] ?>" placeholder="Degree Specialization*" name="degree"> -->
                     <label for="">Degree</label>
-                    <select name="degree" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                    <select name="degree" class="form-select mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                             <option value="">Select Degree</option>
                             <option value="1">BCA</option>
                             <option value="2">MCA</option>
                             <option value="3">B-Tech</option>
                         </select>
                     <label for="">Course</label>
-                    <select name="course" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                    <select name="course" class="form-select mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                     <?php
                                         $sql = "SELECT * from program_tbl WHERE program_status = 1";
                                         $sql_run = mysqli_query($con, $sql);
@@ -176,12 +176,12 @@ if (isset($_GET['id'])) {
                                         ?>
                     </select>
                     <label for="">Where you got to know about us?</label>
-                    <select name="find" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                    <select name="find" class="form-select mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                         <option value="From Friend<">From Friend</option>
                         <option value="From Instagram">From Instagram</option>
                     </select>
                     <label for="">Payment status</label>
-                    <select name="payment_status" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                    <select name="payment_status" class="form-select mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                         <option <?php if ($row['payment_status'] == 1) {
                                     echo "selected";
                                 } ?> value="1">Done</option>

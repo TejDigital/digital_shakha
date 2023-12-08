@@ -119,13 +119,69 @@ window.onclick = function(event) {
 
 // ---------------------------------Program-view-testimonial--------------
 $(".testimonial_program_view").owlCarousel({
-  // autoplay: true,
-  // slideSpeed: 1000,
-  // autoplayTimeout:2000,
+  autoplay: true,
+  slideSpeed: 1000,
+  autoplayTimeout:2000,
+  autoplayHoverPause:true,
   items: 1,
   loop: true,
   nav: true,
   navText: ["<img src='././assets/images/arrow_left.svg'>", "<img src='././assets/images/arrow_right.svg'>"],
+  dots: true,
+  responsive: {
+      320: {
+          items: 1
+      },
+      767: {
+          items: 1
+      },
+      600: {
+          items: 1
+      },
+      1000: {
+          items: 1
+      }
+  }
+
+});
+
+$(".testimonial_slider").owlCarousel({
+  autoplay: true,
+  slideSpeed: 1000,
+  autoplayTimeout:2000,
+  autoplayHoverPause:true,
+  items: 1,
+  loop: true,
+  nav: true,
+  navText: ["<img src='././assets/images/arrow_left.svg'>", "<img src='././assets/images/arrow_right.svg'>"],
+  dots: true,
+  responsive: {
+      320: {
+          items: 1
+      },
+      767: {
+          items: 1
+      },
+      600: {
+          items: 1
+      },
+      1000: {
+          items: 1
+      }
+  }
+
+});
+
+$(".story_slider").owlCarousel({
+  autoplay: true,
+  slideSpeed: 1000,
+  autoplayTimeout:2000,
+  autoplayHoverPause:true,
+  items: 1,
+  loop: true,
+  center:true,
+  nav: true,
+  navText: ['<i class="fa-solid fa-caret-left"></i>', '<i class="fa-solid fa-caret-right"></i>'],
   dots: true,
   responsive: {
       320: {

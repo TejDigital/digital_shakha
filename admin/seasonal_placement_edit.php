@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
             <form action="./seasonal_placement_edit_code.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="<?= $row['placement_id'] ?>" name="id">
                 <Label>Placement status</Label>
-                <select name="status" class="form-select mb-2"  style="background:#2A3038 !important; color:#fff !important;">
+                <select name="status" class="form-select mb-2"   style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                         <option <?php if ($row['placement_status'] == 1) {
                                     echo "selected";
                                 } ?> value="1">Active</option>

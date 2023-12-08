@@ -1,5 +1,5 @@
 .resources_1 {
-    padding: 2rem 4rem;
+    padding: 3rem 4rem;
 }
 
 
@@ -7,6 +7,7 @@
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 50px;
+    margin: 0;
 }
 
 .resources_1 .text p {
@@ -14,6 +15,7 @@
     font-weight: 500;
     line-height: 30px;
     color: #000;
+    margin: 0;
 }
 
 .resources_1 .dot-position {

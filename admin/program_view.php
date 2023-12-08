@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
                 <div class="col-md-12">
                     <label>Image</label>
                     <br>
-                    <?php if ($row['image']!= '') : ?>
+                    <?php if ($row['program_image']!= '') : ?>
                         <img src="./program_images/<?=$row['program_image']?>" style="width: 200px;" alt="">
                     <?php else : ?>
                         <p>Not Found</p>

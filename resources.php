@@ -4,13 +4,15 @@
         <div class="row flex-change " >
             <div class="col-md-6  d-flex align-items-center justify-content-start">
                 <div class="text">
-                    <h1>Resources</h1>
-                    <p>We’ve curated good stuff like playlists, technical development resources, and other material to help you be your best.</p>
+                    <h1 class="mb-2">Resources</h1>
+                    <p>We’ve curated good stuff like playlists,</p>
+                    <p>technical development resources, and </p>
+                    <p> other material to help you be your best.</p>
                 </div>
             </div>
             <div class="col-md-6 dot-position ">
                 <div class="img">
-                    <div class="img_area1">
+                <div class="img_area1">
                         <img src="./assets/images/resources_bg_1.png" alt="">
                         <span class="dot1"></span>
                         <img src="./assets/images/resources_bg_2.png" alt="">
@@ -23,6 +25,7 @@
                 </div>
             </div>
         </div>
+       
     </div>
 </section>
 <section class="resources_2">
@@ -37,7 +40,7 @@
                 <div class="text">
                     <h1>Resume Tips</h1>
                     <p>Create a standout resume that speaks volumes about your skills and experiences.</p>
-                    <a href="./resumebuilding.html">Know More <img src="./assets/images/arrow.png" alt=""></a>
+                    <a href="./resumebuilding.php">Know More <img src="./assets/images/arrow.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -52,7 +55,7 @@
                     <h1>Cover Letter Guidance</h1>
                     <p>Boost your job application with a compelling cover letter that reflects your unique
                         strengths.</p>
-                    <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
+                    <a href="./cover_letter.php">Know More <img src="./assets/images/arrow.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -67,7 +70,7 @@
                     <h1>Interview Preparation</h1>
                     <p>Get ready to make a lasting impression in interviews by preparing confidently and
                         effectively.</p>
-                    <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
+                    <a href="./interview_insights.php">Know More <img src="./assets/images/arrow.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -95,7 +98,7 @@
                 <div class="text">
                     <h1>Internship Success Stories</h1>
                     <p>Create a standout resume that speaks volumes about your skills and experiences.</p>
-                    <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
+                    <a href="./success_stories.php">Know More <img src="./assets/images/arrow.png" alt=""></a>
                 </div>
             </div>
         </div>
@@ -109,7 +112,7 @@
                 <div class="text">
                     <h1>Blogs/ Articles</h1>
                     <p>Create a standout resume that speaks volumes about your skills and experiences.</p>
-                    <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
+                    <a href="./blog.php">Know More <img src="./assets/images/arrow.png" alt=""></a>
                 </div>
             </div>
         </div>

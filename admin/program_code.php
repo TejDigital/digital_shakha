@@ -19,7 +19,7 @@ if (isset($_POST['add'])) {
 
         $file_ext = pathinfo($image, PATHINFO_EXTENSION);
         if (!in_array($file_ext, $img_ext)) {
-            $_SESSION['cm_msg'] = "file only in jpg ,png or jpeg ext";
+            $_SESSION['digi_meg'] = "file only in jpg ,png or jpeg ext";
             header('location:./programs.php');
         }else{
             $sql = "INSERT INTO program_tbl(program_name,program_detail,program_image)VALUES('$name','$detail','$image')";

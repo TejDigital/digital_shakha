@@ -1,4 +1,7 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
+?>
 
 <section class="home_1">
     <div class="container mb-5">
@@ -296,6 +299,292 @@
         </div>
     </div>
 </section> -->
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="upcoming_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="box">
+                    <div class="heading">
+                        <h1>Request a Callback</h1>
+                        <p>Get personalised advice and responses to your questions 🙂</p>
+                    </div>
+                    <div class="form">
+                        <form action="">
+                            <input type="hidden" name="upcoming_batch_id" class="upcoming_batch_id">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Name" class="input_area">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" placeholder="Number" class="input_area">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" placeholder="Email Address" class="input_area">
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="input_area" class="input_area">
+                                        <option value="">Select Designation</option>
+                                        <option value="Student">Student</option>
+                                        <option value="Working professional">Working professional</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="input_area" class="input_area">
+                                        <option value="">Select location</option>
+                                        <option value="Student">Bhilai</option>
+                                    </select>
+                                </div>
+                                <div class="btn_area">
+                                    <button>Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="end_text">
+                        <p>By submitting this form, you agree to our privacy policy and consent to DigitalShakha contacting you for the purpose of addressing your query or providing assistance.</p>
+
+                        <p>We look forward to connecting with you and providing the support you need. Your success is our priority.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="upcoming_batch">
+    <div class="container">
+        <div class="heading">
+            <h1>Upcoming Batches</h1>
+        </div>
+        <div class="row">
+            <?php
+            $sql = "SELECT * FROM upcoming_batch_tbl left join program_tbl on upcoming_batch_tbl.batch_name = program_tbl.program_id WHERE batch_status = 1  ORDER BY upcoming_batch_tbl.created_at DESC ";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run) > 0) {
+                while ($data = mysqli_fetch_assoc($sql_run)) {
+                    $timestamp = strtotime($data['batch_date']);
+                    $day = date('d', $timestamp);
+                    $month = date('F', $timestamp);
+
+                    $time = strtotime($data['batch_start_time']);
+                    $formatted_time = date('g:i A', $time);
+
+                    $time2 = strtotime($data['batch_end_time']);
+                    $formatted_time2 = date('g:i A', $time2);
+            ?>
+                    <div class="col-md-4">
+                        <?php
+                            if ($data['availability'] == 1) {
+                                ?>
+                                <div class="box">
+                                    <?php
+                            } else {
+                                ?>
+                                <div class="sold1">
+                            <?php
+                            }
+                            ?>
+                            <div class="text">
+                                <h6>OFFLINE - <?= $data['batch_address'] ?></h6>
+                                <h2><?php if ($data['batch_name'] == $data['program_id']) {
+                                        echo $data['program_name'];
+                                    } ?></h2>
+                            </div>
+                            <div class="text">
+                                <h3><?= $day ?></h3>
+                                <p><?= $month ?></p>
+                            </div>
+                            <div class="text">
+                                <h4>MON, WED, Fri</h4>
+                                <h4><?= $formatted_time ?> - <?= $formatted_time2 ?></h4>
+                            </div>
+                            <div class="btn_area">
+                                <?php
+                                if ($data['availability'] == 1) {
+                                ?>
+                                    <button class="upcoming_btn" data-id="<?= $data['batch_id'] ?>">Request a Call Back</button>
+                                <?php
+                                } else {
+                                ?>
+                                    <button class="upcoming_btn_sold" data-id="<?= $data['batch_id'] ?>">Batch Full</button>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+            <!-- <div class="col-md-4">
+                <div class="box">
+                    <div class="text">
+                        <h6>OFFLINE - BHILAI</h6>
+                        <h2>WEB DEVELOPMENT</h2>
+                    </div>
+                    <div class="text">
+                        <h3>08</h3>
+                        <p>September</p>
+                    </div>
+                    <div class="text">
+                        <h4>MON, WED, Fri</h4>
+                        <h4>11:00 am - 01:00 Pm</h4>
+                    </div>
+                    <div class="btn_area">
+                        <button class="upcoming_btn">Request a Call Back</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="text">
+                        <h6>OFFLINE - BHILAI</h6>
+                        <h2>WEB DEVELOPMENT</h2>
+                    </div>
+                    <div class="text">
+                        <h3>08</h3>
+                        <p>September</p>
+                    </div>
+                    <div class="text">
+                        <h4>MON, WED, Fri</h4>
+                        <h4>11:00 am - 01:00 Pm</h4>
+                    </div>
+                    <div class="btn_area">
+                        <button>Request a Call Back</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="text">
+                        <h6>OFFLINE - BHILAI</h6>
+                        <h2>WEB DEVELOPMENT</h2>
+                    </div>
+                    <div class="text">
+                        <h3>08</h3>
+                        <p>September</p>
+                    </div>
+                    <div class="text">
+                        <h4>MON, WED, Fri</h4>
+                        <h4>11:00 am - 01:00 Pm</h4>
+                    </div>
+                    <div class="btn_area">
+                        <button>Request a Call Back</button>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+<section class="program_options">
+    <div class="container">
+        <div class="heading">
+            <h1>Program Options</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <a href="#!">
+                    <div class="box">
+                        <div class="img">
+                            <img src="./assets/images/program_box_bg_1.png" alt="">
+                        </div>
+                        <div class="text">
+                            <h4>UX UI Design</h4>
+                            <p>Shape user-friendly, visually appealing websites and apps.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="home_testimonial">
+    <div class="container">
+        <div class="heading">
+            <h1>Testimonials</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="text">
+                    <h1>Hear It From Those</h1>
+                    <h1>Who Thrived with</h1>
+                    <h1>Digitalshakha</h1>
+                    <p>Read their stories of growth, success, and the impact DigitalShakha has had on their professional journeys.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="img">
+                    <img src="./assets/images/home_testimonial_1.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p>72% of learners on Digitalshakha experience tangible career benefits, ranging from promotions and salary increases to successful career transitions.</p>
+            </div>
+        </div>
+        <div class="testimonial_home ">
+            <div class="testimonial_slider owl-carousel owl-theme">
+                <div class="box">
+                    <div class="img">
+                        <img src="./assets/images/testimonial_profile.png" alt="">
+                    </div>
+                    <h1>Parvathi Dewangan</h1>
+                    <p><img src="./assets/images/Location.svg" alt="">Bhilai</p>
+                    <div class="description">
+                        <p>“Enrolling in DigitalShakha's courses was one of the best decisions I made. The engaging content, supportive community, and practical projects have not only expanded my knowledge but also boosted my confidence in the tech industry.”</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img">
+                        <img src="./assets/images/testimonial_profile.png" alt="">
+                    </div>
+                    <h1>Parvathi Dewangan</h1>
+                    <p><img src="./assets/images/Location.svg" alt="">Bhilai</p>
+                    <div class="description">
+                        <p>“Enrolling in DigitalShakha's courses was one of the best decisions I made. The engaging content, supportive community, and practical projects have not only expanded my knowledge but also boosted my confidence in the tech industry.”</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="img">
+                        <img src="./assets/images/testimonial_profile.png" alt="">
+                    </div>
+                    <h1>Parvathi Dewangan</h1>
+                    <p><img src="./assets/images/Location.svg" alt="">Bhilai</p>
+                    <div class="description">
+                        <p>“Enrolling in DigitalShakha's courses was one of the best decisions I made. The engaging content, supportive community, and practical projects have not only expanded my knowledge but also boosted my confidence in the tech industry.”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="social_links">
+    <div class="container p-0">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="links">
+                    <p>Follow Digitalshakha on:</p>
+                    <a href="#!"><img src="./assets/images/Instagram.svg" alt=""></a>
+                    <a href="#!"><img src="./assets/images/LinkedIn_link.svg" alt=""></a>
+                    <a href="#!"><img src="./assets/images/Facebook.svg" alt=""></a>
+                    <a href="#!"><img src="./assets/images/Behance.svg" alt=""></a>
+                    <a href="#!"><img src="./assets/images/Pinterest.svg" alt=""></a>
+                    <a href="#!"><img src="./assets/images/YouTube.svg" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="home_4">
     <div class="container">
         <div class="heading">
@@ -333,6 +622,16 @@
         type: 'foreground', // background, foreground
         direction: 'horizontal', // vertical, horizontal
         transition: 'transform 0.2s ease-out' // CSS transition
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.upcoming_btn').click(function(e) {
+            e.preventDefault();
+            var batch_id = $(this).data("id");
+            $('.upcoming_batch_id').val(batch_id);
+            $('#upcoming_modal').modal('show');
+        });
     });
 </script>
 <?php require('./includes/end_html.php'); ?>

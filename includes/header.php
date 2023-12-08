@@ -33,6 +33,11 @@ session_start();
     <link rel="stylesheet" href="./assets/css/contact.css">
     <link rel="stylesheet" href="./assets/css/opportunities_view.css">
     <link rel="stylesheet" href="./assets/css/modals.css">
+    <link rel="stylesheet" href="./assets/css/cover_letter.css">
+    <link rel="stylesheet" href="./assets/css/interview_insights.css">
+    <link rel="stylesheet" href="./assets/css/success_stories.css">
+    <link rel="stylesheet" href="./assets/css/partner_with_us.css">
+    <link rel="stylesheet" href="./assets/css/employee_contact.css">
     <link rel="stylesheet" href="./assets/css/error.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="./assets/splide-4.1.3/dist/css/splide.min.css">
@@ -72,16 +77,6 @@ session_start();
 
     .preloader {
         overflow: hidden;
-        /* position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 9999; */
     }
 
     .preloader1 .text {
@@ -129,21 +124,7 @@ session_start();
 </style>
 
 <body>
-    <!-- <div class="demo-1">
-            <div id="ip-container" class="ip-container">
-                <header class="ip-header">
-                    <div class="ip-loader">
-                        <div class="ip-inner">
-                            <div id="ip-loader-circle" class="ip-loader-circle" style="text-align: center;">
-                                <h1>Think</h1>
-                                <h1>Think</h1>
-                                <h1>Think</h1>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-            </div>
-        </div> -->
+
     <div class="preloader">
         <div class="preloader1">
             <div class="text">
@@ -190,18 +171,18 @@ session_start();
                                 <a class="nav-link nav-after-effect hover-link" href="./resources.php" id="">resources</a>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./resumebuilding.php" class="">Resume Building <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="#!">Cover Letter Tips <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="#!">Interview Insights <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./cover_letter.php">Cover Letter Tips <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./interview_insights.php">Interview Insights <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="#!">Networking Guide <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="#!">Success Stories <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="#!">Articles <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./success_stories.php">Success Stories <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./blog.php">Blog <i class="color-ball"></i></a></li>
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
                                 <a class="nav-link nav-after-effect hover-link" href="#!" id="">employers</a>
                                 <ul class="list-group bg-dark drop-item">
-                                    <li class="list-group-item"><a href="#!" class="">Partner with Us <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="#!">Post an Internship <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./partner_with_us.php" class="">Partner with Us <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./post_job_internship.php">Post an Internship <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="#!">Employer Stories <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./contact.php">Contact <i class="color-ball"></i></a></li>
                                 </ul>

@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
             <form action="./program_edit_code.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="<?= $row['program_id'] ?>" name="id">
                 <Label>interview status</Label>
-                <select name="status" class="form-select mb-2"  style="background:#2A3038 !important; color:#fff !important;">
+                <select name="status" class="form-select mb-2"   style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                         <option <?php if ($row['program_status'] == 1) {
                                     echo "selected";
                                 } ?> value="1">Active</option>
@@ -48,7 +48,7 @@ if (isset($_GET['id'])) {
                 <textarea name="detail" class="form-control mb-3" cols="30" rows="10"><?=$row['program_detail']?></textarea>
 
                 <label for="Image">Current Image</label> <br>
-                <img src="./program_images/<?=$row['program_image']?>" class="mb-4" style="width: 200px;" alt="">
+                <img src="./program_images/<?=$row['program_image']?>" class="mb-4" style="height: 200px;" alt="">
                  <br>
                  <input type="hidden" name="old_img" value="<?=$row['program_image']?>">
                  <label for="">Choose New Image</label>

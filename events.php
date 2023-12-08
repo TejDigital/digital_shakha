@@ -1,8 +1,14 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
+?>
 
 <section class="event_1">
     <div class="container ">
-        <div class="row">
+        <div class="heading">
+            <h1>Upcoming event</h1>
+        </div>
+        <div class="row py-4">
             <div class="col-md-12">
                 <section class="splide">
                     <div class="splide__arrows">
@@ -15,7 +21,39 @@
                     </div>
                     <div class="splide__track">
                         <ul class="splide__list">
-                            <li class="splide__slide">
+                            <?php
+                            $sql = "SELECT * FROM event_tbl WHERE event_status = 1";
+                            $sql_run = mysqli_query($con, $sql);
+                            if (mysqli_num_rows($sql_run) > 0) {
+                                while ($data = mysqli_fetch_assoc($sql_run)) {
+                                    $timestamp = strtotime($data['event_date']);
+                                    $day = date('d', $timestamp);
+                                    $month = date('F', $timestamp);
+
+                                    $time = strtotime($data['event_start_time']);
+                                    $formatted_time = date('g:i A', $time);
+
+                                    $time2 = strtotime($data['event_end_time']);
+                                    $formatted_time2 = date('g:i A', $time2);
+                            ?>
+                                    <li class="splide__slide">
+                                        <div class="box">
+                                            <div class="date">
+                                                <p><?= $day ?></p>
+                                                <p><?= $month ?></p>
+                                            </div>
+                                            <div class="text">
+                                                <p><?= $data['event_title'] ?></p>
+                                                <p><span><?= $formatted_time ?> - </span> <span> <?= $formatted_time2 ?></span></p>
+                                                <p>Office, <?= $data['event_address'] ?></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                            <?php
+                                }
+                            }
+                            ?>
+                            <!-- <li class="splide__slide">
                                 <div class="box">
                                     <div class="date">
                                         <p>08</p>
@@ -79,7 +117,7 @@
                                         <p>Office, Bhilai</p>
                                     </div>
                                 </div>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </section>
@@ -91,7 +129,46 @@
     <div class="container">
         <div class="row">
             <h1>All Events</h1>
-            <div class="col-md-12">
+            <?php
+            $sql = "SELECT * FROM event_tbl WHERE event_status = 1";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run) > 0) {
+                while ($data = mysqli_fetch_assoc($sql_run)) {
+                    $timestamp = strtotime($data['event_date']);
+                    $day = date('d', $timestamp);
+                    $month = date('F', $timestamp);
+            ?>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="video_content">
+                                    <div class="flex-box">
+                                        <div class="date">
+                                            <p><?=$day?></p>
+                                            <p><?=$month?></p>
+                                        </div>
+                                        <div class="video">
+                                            <video autoplay loop muted>
+                                                <source src="./admin/event_videos/<?=$data['event_video']?>" type="">
+                                            </video>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text">
+                                    <h1><?= $data['event_title'] ?></h1>
+                                    <p><?=implode(' ',array_slice(str_word_count($data['event_description'], 1), 0, 35)) ?>...</p>
+                                    <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+            <!-- <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="video_content">
@@ -282,7 +359,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -335,4 +412,4 @@
 
     splide.mount();
 </script>
-<?php require('./includes/end_html.php');?>
+<?php require('./includes/end_html.php'); ?>

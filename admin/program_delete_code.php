@@ -12,7 +12,7 @@ if(isset($_POST['program_delete'])){
         $_SESSION['digi_meg'] = "delete done";
         header('Location:./programs.php');
     }else{
-        $_SESSION['digi_meg'] = "deletaion Failed";
+        $_SESSION['digi_meg'] = "deletion Failed";
         header('Location:./programs.php');
     }
 }

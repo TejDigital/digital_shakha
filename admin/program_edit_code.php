@@ -11,7 +11,7 @@ if (isset($_POST['update'])) {
     $new_img = $_FILES['new_img']['name'];
 
     if ($new_img != '') {
-        if ($_FILES['new_img']["size"] > 700000) {
+        if ($_FILES['new_img']["size"] > 7000000) {
             $_SESSION['digi_meg'] = " image size is to Big";
             header('location:./program_edit.php');
         }

@@ -1,7 +1,7 @@
 <?php require('./includes/header.php'); ?>
 <section class="resume_1">
     <div class="container">
-        <div class="row">
+        <div class="row flex_change" >
             <div class="col-md-6">
                 <div class="text">
                     <h1>Resume Building</h1>
