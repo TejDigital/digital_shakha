@@ -77,6 +77,10 @@
     color: #AAA0A0;
     margin-left: 2.2rem;
 }
+.blog_2 a{
+    text-decoration: none;
+    color: #000;
+}
 .blog_2 .blog_box{
     display: flex;
     flex-direction: column;
@@ -141,6 +145,10 @@
 }
 .blog_3 .col-md-4{
     margin-bottom: 3rem;
+}
+.blog_3 a{
+    text-decoration: none;
+    color: #000;
 }
 .blog_3 .blog_box {
     display: flex;

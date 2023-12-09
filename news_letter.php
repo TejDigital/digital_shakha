@@ -13,9 +13,9 @@
                 <p>Stay Connect , Stay Empowered</p>
             </div>
             <div class="form_area">
-                <form action="">
-                    <input type="text" placeholder="Enter E-mail Address">
-                    <button>SUBSCRIBE</button>
+                <form class="news_letter" id="news_letter">
+                    <input type="text" name="email" placeholder="Enter E-mail Address">
+                    <button type="submit">SUBSCRIBE</button>
                 </form>
             </div>
             <div class="end_area">

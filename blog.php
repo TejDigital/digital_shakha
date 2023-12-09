@@ -1,4 +1,6 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php');
+require('./admin/config/dbcon.php');
+?>
 
 <section class="blog_1">
     <div class="container">
@@ -24,7 +26,30 @@
         <div class="heading">
             <p>Latest Blogs & Articles</p>
         </div>
-        <div class="col-md-4 px-5">
+        <?php
+        $sql = "SELECT * FROM blog_tbl LEFT JOIN blog_category_tbl ON blog_tbl.blog_category = blog_category_tbl.blog_category_id WHERE blog_status = 1 ORDER BY blog_tbl.created_at DESC LIMIT 3";
+        $sql_run = mysqli_query($con, $sql);
+        if (mysqli_num_rows($sql_run) > 0) {
+            while ($data = mysqli_fetch_assoc($sql_run)) {
+        ?>
+                <div class="col-md-4 px-5">
+                    <a href="./blog_view.php?blog_id=<?=$data['blog_id']?>">
+                    <div class="blog_box">
+                        <div class="text">
+                            <b><?php if($data['blog_category'] == $data['blog_category_id']){echo $data['blog_category_name'];}?></b>
+                            <p><?=$data['blog_name']?></p>
+                        </div>
+                        <div class="img">
+                            <img src="./admin/blog_images/<?=$data['blog_image']?>" alt="">
+                        </div>
+                    </div>
+                    </a>
+                </div>
+        <?php
+            }
+        }
+        ?>
+        <!-- <div class="col-md-4 px-5">
             <div class="blog_box">
                 <div class="text">
                     <b>SEMINAR</b>
@@ -56,16 +81,16 @@
                     <img src="./assets/images/blog_img_3.png" alt="">
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <section class="blog_3">
     <div class="container">
-        <div class="row">
+        <div class="row" id="loadBlog">
             <div class="heading">
                 <p>Old Blogs & Articles</p>
             </div>
-            <div class="col-md-4 px-5">
+            <!-- <div class="col-md-4 px-5">
                 <div class="blog_box">
                     <div class="head_text">
                         <p>04 OCT °</p>
@@ -163,10 +188,8 @@
                         <p>Unveiling Horizons: A Seminar on Cutting-Edge Technologies</p>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="load_btn">
-            <button>Load More</button>
+            </div> -->
+           
         </div>
     </div>
 </section>
@@ -200,6 +223,33 @@
 </section>
 <?php
 require('./includes/footer.php');
-require('./includes/script.php');
+require('./includes/script.php'); ?>
+<script>
+    $(document).ready(function() {
+        function loadMore(page) {
+            $.ajax({
+                type: "POST",
+                url: "./admin/blog_ajax_call.php",
+                data: {
+                    page_no: page
+                },
+                success: function(response) {
+                    if (response) {
+                        $("#load_blog_area").remove();
+                        $("#loadBlog").append(response);
+                    } else {
+                        $("#loadBTN").prop("disabled", true);
+                    }
+                }
+            });
+        }
+        loadMore();
+        $(document).on("click", "#loadBTN", function() {
+            var p_id = $(this).data("id");
+            loadMore(p_id);
+        });
+    });
+</script>
+<?php
 require('./includes/end_html.php');
 ?>

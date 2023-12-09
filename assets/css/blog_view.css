@@ -64,3 +64,23 @@ line-height: 40px;
     font-size: 1rem;
     line-height: 24px;
 }
+
+
+/* -----------------------------boxes-in blog_category page----------------- */
+
+.blog_view_1 .boxes{
+    position: relative;
+}
+.blog_view_1 .boxes a{
+    text-decoration: none;
+    color: #000;
+}
+.blog_view_1 .boxes .blog_box{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 1rem;
+    border: 1.5px solid #615D5D;
+    height:200px ;
+}
