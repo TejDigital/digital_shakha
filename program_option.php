@@ -37,15 +37,17 @@ require('./admin/config/dbcon.php');
                 while ($data = mysqli_fetch_assoc($sql_run)) {
             ?>
                     <div class="col-md-3 p-2">
-                        <div class="box">
-                            <div class="text">
-                                <h4><?=$data['program_name']?></h4>
-                                <p><?=$data['program_detail']?></p>
+                        <a href="./program_view.php?id=<?= $data['program_id'] ?>">
+                            <div class="box">
+                                <div class="text">
+                                    <h4><?= $data['program_name'] ?></h4>
+                                    <p><?= $data['program_detail'] ?></p>
+                                </div>
+                                <div class="img">
+                                    <img src="./admin/program_images/<?= $data['program_image'] ?>" alt="">
+                                </div>
                             </div>
-                            <div class="img">
-                                <img src="./admin/program_images/<?=$data['program_image']?>" alt="">
-                            </div>
-                        </div>
+                        </a>
                     </div>
             <?php
                 }

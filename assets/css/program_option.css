@@ -94,7 +94,10 @@
     font-weight: 600;
     line-height: 40px;
 }
-
+.program_option_2 a{
+    text-decoration: none;
+    color: #000;
+}
 .program_option_2 .box {
     display: flex;
     align-items: center;

@@ -1,4 +1,7 @@
-<?php require('./includes/header.php'); ?>
+<?php require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
+ ?>
 <section class="eligibility_criteria_1">
     <div class="container">
         <div class="row">
@@ -140,7 +143,27 @@
             <p>Your Path to Answers</p>
         </div>
         <div class="row">
-            <div class="main-box">
+        <?php
+            $sql = "SELECT * FROM faqs_tbl WHERE faq_status = 1";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run) > 0) {
+                while ($data = mysqli_fetch_assoc($sql_run)) {
+            ?>
+                         <div class="main-box">
+                <div class="toggle_heading toggle_btn">
+                    <h1>Q: <?=$data['faq_question']?></h1>
+                    <p class="plus"> <i class="fa-solid fa-plus"></i></p>
+                    <p class="minus"><i class="fa-solid fa-minus"></i></p>
+                </div>
+                <div class="toggle_content">
+                    <p>A: <?=$data['faq_ans']?></p>
+                </div>
+            </div>
+            <?php
+                }
+            }
+            ?>
+            <!-- <div class="main-box">
                 <div class="toggle_heading toggle_btn">
                     <h1>Q: What are the eligibility criteria for enrolling in your programs?</h1>
                     <p class="plus"> <i class="fa-solid fa-plus"></i></p>
@@ -219,9 +242,9 @@
                 <div class="toggle_content">
                     <p>A: Eligibility criteria vary by program. You can find specific details on each program's eligibility on our website.</p>
                 </div>
-            </div>
+            </div> -->
             <div class="col-md-12 end_toggle_link">
-                <a href="#!">Any Other Queries, Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="./contact.php">Any Other Queries, Contact Us <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
         </div>
         <div class="row end_text_end">

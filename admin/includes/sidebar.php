@@ -104,6 +104,14 @@
           </div>
         </li>
         <li class="nav-item menu-items">
+          <a class="nav-link" href="./faqs.php">
+            <span class="menu-icon">
+              <i class="mdi mdi-application"></i>
+            </span>
+            <span class="menu-title">FAQs</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
           <a class="nav-link" href="./news_letter.php">
             <span class="menu-icon">
               <i class="mdi mdi-application"></i>
