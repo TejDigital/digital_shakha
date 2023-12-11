@@ -1,6 +1,15 @@
 <?php
 require('./includes/header.php');
 require('./admin/config/dbcon.php');
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM program_tbl WHERE program_id = '$id'";
+    $sql_run = mysqli_query($con, $sql);
+    if (mysqli_num_rows($sql_run) > 0) {
+        $row = mysqli_fetch_assoc($sql_run);
+    }
+}
 ?>
 <section class="program_view_1">
     <div class="container">
@@ -9,7 +18,7 @@ require('./admin/config/dbcon.php');
                 <div class="nav_box">
                     <a href="./index.php"><img src="./assets/images/home.svg">Home<i class="fa-solid fa-angle-right"></i></a>
                     <a href="./program_option.php">Program Option<i class="fa-solid fa-angle-right"></i></a>
-                    <p class="m-0">UI/UX Design</p>
+                    <p class="m-0"><?= $row['program_name'] ?></p>
                 </div>
             </div>
         </div>
@@ -21,24 +30,48 @@ require('./admin/config/dbcon.php');
             <div class="col-md-8">
                 <div class="text">
                     <div class="heading">
-                        <h1>UX/UI Design</h1>
-                        <p>Transform your career with our UX/UI Design Program, where hands-on projects, industry mentorship, and a comprehensive curriculum prepare you to confidently step into the job market as a skilled and job-ready. No experience required. </p>
+                        <h1><?= $row['program_name'] ?></h1>
+                        <p><?= $row['program_view_description'] ?></p>
                     </div>
                     <div class="language">
                         <p><img src="./assets/images/language.svg">Taught in English & Hindi</p>
                     </div>
                     <div class="classes">
-                        <p>Live Class | 1:1 mentorship | Industry projects</p>
+                        <p><?= $row['program_type_class'] ?></p>
                     </div>
                     <div class="enroll_btn_area">
                         <button>Enroll</button>
                         <div class="batch">
                             <p>Next Batch</p>
-                            <p>30 September</p>
+                            <p><?= $row['program_next_batch'] ?></p>
                         </div>
                     </div>
                     <div class="enroll_count">
-                        <p><span>1,023</span> already enrolled</p>
+                        <p><span><?= $row['program_enroll_count'] ?></span> already enrolled</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exp_text_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <h1 style="font-size: 1.8rem; font-weight:700; line-height:40px; color:#BB5327">Recommended Experience </h1>
+                            <p style="font-size: 0.9rem; font-weight:400; line-height:20px;"><?php if ($row['program_experience'] == 1) {
+                                                                                                    echo "Beginner Level";
+                                                                                                } else if ($row['program_experience'] == 2) {
+                                                                                                    echo "Min Level";
+                                                                                                } else {
+                                                                                                    echo "Advanced Level";
+                                                                                                }
+                                                                                                ?></p>
+                            <!-- <input type="hidden" name="program_delete_id" class="program_delete_id"> -->
+                            <h3 style="font-size: 1.4rem; font-weight:600; line-height:32px; color:#615D5D;"><?= $row['program_experience_text'] ?></h3>
+                            <button type="button" style="font-weight:600; background-color: #BB5327; color:#fff; padding:0.7rem 1.1rem; border:0;" class="my-3" data-bs-dismiss="modal">OK</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,15 +82,23 @@ require('./admin/config/dbcon.php');
                         <p>Attain a professional credential showcasing your expertise and skills in the field.</p>
                     </div>
                     <div class="review">
-                        <p>4.5 <img src="./assets/images/star.svg" alt=""></p>
-                        <p>( 1,000 reviews )</p>
+                        <p><?= $row['program_rating_no'] ?><img src="./assets/images/star.svg" alt=""></p>
+                        <p>( <?= $row['program_review_no'] ?> reviews )</p>
                     </div>
                     <div class="level">
-                        <h2>Beginner level</h2>
-                        <p>Recommended Experience <button><img src="./assets/images/info.svg" alt=""></button></p>
+                        <h2><?php if ($row['program_experience'] == 1) {
+                                echo "Beginner Level";
+                            } else if ($row['program_experience'] == 2) {
+                                echo "Min Level";
+                            } else {
+                                echo "Advanced Level";
+                            }
+                            ?>
+                        </h2>
+                        <p>Recommended Experience <button class="ext_text_btn"><img src="./assets/images/info.svg" alt=""></button></p>
                     </div>
                     <div class="time_taken">
-                        <h3>6 months at 10 hours a week</h3>
+                        <h3><?= $row['program_duration'] ?></h3>
                         <h3>Capstone Projects</h3>
                     </div>
                     <div class="btn_area">
@@ -83,30 +124,26 @@ require('./admin/config/dbcon.php');
                         <h1>What You will Learn</h1>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="box">
-                                <img src="./assets/images/right-tick.svg" alt="">
-                                <p>Understand how to design by considering users, identifying problems, creating ideas, making drafts and models, testing and improving designs.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="box">
-                                <img src="./assets/images/right-tick.svg" alt="">
-                                <p>Learn the basics of UX research, like planning studies, talking to people, testing designs, and putting research findings together.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="box">
-                                <img src="./assets/images/right-tick.svg" alt="">
-                                <p>Use important UX concepts, such as making designs centered around users, making things accessible, and designing with fairness in mind.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="box">
-                                <img src="./assets/images/right-tick.svg" alt="">
-                                <p>Build a professional portfolio that shows three complete projects: a mobile app, a website that works on different screens, and an experience that works on various platforms.</p>
-                            </div>
-                        </div>
+                        <?php
+                        $sql = "SELECT * FROM program_about_tbl WHERE program = '$id'";
+                        $sql_run = mysqli_query($con, $sql);
+                        if (mysqli_num_rows($sql_run)) {
+                            foreach ($sql_run as $data) {
+                                if ($data['program_about_text'] != '') {
+
+                        ?>
+                                    <div class="col-md-6">
+                                        <div class="box">
+                                            <img src="./assets/images/right-tick.svg" alt="">
+                                            <p><?= $data['program_about_text'] ?></p>
+                                        </div>
+                                    </div>
+
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="skills">
@@ -338,6 +375,17 @@ require('./admin/config/dbcon.php');
 </section>
 <?php require('./includes/footer.php'); ?>
 <?php require('./includes/script.php'); ?>
+<script>
+    $(document).ready(function() {
+        $('.ext_text_btn').click(function(e) {
+            e.preventDefault();
+            var user_id = $(this).val();
+            // console.log(user_id);
+            $('.program').val(user_id);
+            $('#exp_text_modal').modal('show');
+        });
+    });
+</script>
 <script>
     $(document).ready(function() {
         var textContainer = $('.toggle_text');

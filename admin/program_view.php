@@ -37,15 +37,70 @@ if (isset($_GET['id'])) {
                     <?php endif ?>
                 </div>
                 <div class="col-md-4">
-                    <label>Detail</label>
-                    <?php if ($row['program_detail'] != '') : ?>
-                    <p><?= $row['program_detail'] ?></p>
+                    <label>Type of class</label>
+                    <?php if ($row['program_type_class'] != '') : ?>
+                        <p><?= $row['program_type_class'] ?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
-            
                 <div class="col-md-4">
+                    <label>Next Batch</label>
+                    <?php if ($row['program_next_batch'] != '') : ?>
+                        <p><?= $row['program_next_batch'] ?></p>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-4">
+                    <label>How many Enrolled</label>
+                    <?php if ($row['program_enroll_count'] != '') : ?>
+                        <p><?= $row['program_enroll_count'] ?></p>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-4">
+                    <label>Ratings</label>
+                    <?php if ($row['program_rating_no'] != '') : ?>
+                        <p><?= $row['program_rating_no'] ?></p>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-4">
+                    <label>Review No</label>
+                    <?php if ($row['program_review_no'] != '') : ?>
+                        <p><?= $row['program_review_no'] ?></p>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-4">
+                    <label>Experience Level</label>
+                    <?php if ($row['program_experience'] != '') : ?>
+                        <p><?= $row['program_experience'] ?></p>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-4">
+                    <label>Experience text</label>
+                    <?php if ($row['program_experience_text'] != '') : ?>
+                        <p><?= $row['program_experience_text'] ?></p>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-4">
+                    <label>Program duration</label>
+                    <?php if ($row['program_duration'] != '') : ?>
+                        <p><?= $row['program_duration'] ?></p>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+              <div class="col-md-4">
                     <label>Status</label>
                     <?php if ($row['program_status']!= '') : ?>
                     <p><?php if($row['program_status'] == 1){
@@ -58,11 +113,36 @@ if (isset($_GET['id'])) {
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <label>Image</label>
                     <br>
                     <?php if ($row['program_image']!= '') : ?>
                         <img src="./program_images/<?=$row['program_image']?>" style="width: 200px;" alt="">
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-4">
+                    <label>Image 2</label>
+                    <br>
+                    <?php if ($row['program_image2']!= '') : ?>
+                        <img src="./program_images/<?=$row['program_image2']?>" style="width: 200px;" alt="">
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-12">
+                    <label>Detail</label>
+                    <?php if ($row['program_detail'] != '') : ?>
+                    <p><?= $row['program_detail'] ?></p>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-12">
+                    <label>View Description</label>
+                    <?php if ($row['program_view_description'] != '') : ?>
+                    <p><?= $row['program_view_description'] ?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>

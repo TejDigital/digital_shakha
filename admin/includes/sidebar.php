@@ -93,6 +93,22 @@
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
+            <span class="menu-title">Programs</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./programs.php">Program</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./program_about.php">Program about</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./program_skill.php">Program skill</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
             <span class="menu-title">Blog</span>
             <i class="menu-arrow"></i>
           </a>
@@ -157,14 +173,6 @@
               <i class="mdi mdi-table-large"></i>
             </span>
             <span class="menu-title">Schedule Interview</span>
-          </a>
-        </li>
-        <li class="nav-item menu-items">
-          <a class="nav-link" href="./programs.php">
-            <span class="menu-icon">
-              <i class="mdi mdi-table-large"></i>
-            </span>
-            <span class="menu-title">Programs</span>
           </a>
         </li>
         <li class="nav-item menu-items">

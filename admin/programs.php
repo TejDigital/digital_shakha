@@ -35,7 +35,7 @@ if (isset($_SESSION['digi_meg'])) {
 </div>
 
 <div class="modal fade" id="Add_program" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form action="./program_code.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-header">
@@ -43,12 +43,65 @@ if (isset($_SESSION['digi_meg'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <label for="">Name</label>
-                    <input type="text" class="form-control mb-2" name="name">
-                    <label for="">Detail</label>
-                    <input type="text" class="form-control mb-2" name="detail">
-                    <label for="">Image</label>
-                    <input type="file" class="form-control mb-2" name="image">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="">Name</label>
+                            <input type="text" class="form-control mb-2" name="name">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Image</label>
+                            <input type="file" accept=".png , .jpg , .jpeg" class="form-control mb-2" name="image">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">View Image</label>
+                            <input type="file" accept=".png , .jpg , .jpeg"  class="form-control mb-2" name="image2">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Type of class</label>
+                            <input type="text" class="form-control mb-2" name="type_class">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Next Batch</label>
+                            <input type="date" class="form-control mb-2" name="next_batch">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">How many Enrolled</label>
+                            <input type="number" class="form-control mb-2" name="enroll_count">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Ratings</label>
+                            <input type="text" class="form-control mb-2" name="rating_no" placeholder="4.5">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Review No</label>
+                            <input type="text" class="form-control mb-2"  name="reviews">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Experience Level</label>
+                            <select name="experience_level" class="form-select" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                                <option value="">Select Level</option>
+                                <option value="1">Beginner Level</option>
+                                <option value="2">Mid Level</option>
+                                <option value="3">Advance Level</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Experience text</label>
+                            <input type="text" class="form-control mb-2" name="experience_text">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="">Program duration</label>
+                            <input type="text" class="form-control mb-2" name="program_duration">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">Detail</label>
+                            <textarea name="detail" class="form-control mb-2" cols="30" rows="5"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="">View Description</label>
+                           <textarea name="view_description" class="form-control mb-2 textarea" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -108,9 +161,9 @@ if (isset($_SESSION['digi_meg'])) {
                                         <td><?= $data['program_name'] ?></td>
                                         <td><?= $data['program_detail'] ?></td>
                                         <td><?php
-                                            if($data['program_status'] == 1){
+                                            if ($data['program_status'] == 1) {
                                                 echo "Active";
-                                            }else{
+                                            } else {
                                                 echo "inactive";
                                             }
                                             ?></td>
