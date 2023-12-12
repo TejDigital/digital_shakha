@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2023 at 01:23 PM
+-- Generation Time: Dec 12, 2023 at 09:08 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -303,6 +303,133 @@ INSERT INTO `opportunities_tbl` (`opp_id`, `opp_name`, `opp_description`, `opp_s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `program_about_tbl`
+--
+
+CREATE TABLE `program_about_tbl` (
+  `program_about_id` int(11) NOT NULL,
+  `program` tinyint(4) NOT NULL,
+  `program_about_text` text NOT NULL,
+  `program_about_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program_about_tbl`
+--
+
+INSERT INTO `program_about_tbl` (`program_about_id`, `program`, `program_about_text`, `program_about_status`, `created_at`, `updated_at`) VALUES
+(1, 14, '<p>Understand how to design by considering users, identifying problems, creating ideas, making drafts and models, testing and improving designs.</p>', 1, '2023-12-11 11:57:16', '2023-12-11 11:57:16'),
+(2, 14, '<p>Learn the basics of UX research, like planning studies, talking to people, testing designs, and putting research findings together.</p>', 1, '2023-12-11 11:57:53', '2023-12-11 11:57:53'),
+(3, 14, '<p>Use important UX concepts, such as making designs centered around users, making things accessible, and designing with fairness in mind.</p>', 1, '2023-12-11 11:59:36', '2023-12-11 11:59:36'),
+(4, 14, '<p>Build a professional portfolio that shows three complete projects: a mobile app, a website that works on different screens, and an experience that works on various platforms.</p>', 1, '2023-12-11 11:59:53', '2023-12-11 11:59:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program_detail_tbl`
+--
+
+CREATE TABLE `program_detail_tbl` (
+  `program_detail_id` int(11) NOT NULL,
+  `program` int(11) NOT NULL,
+  `program_detail_heading` varchar(100) NOT NULL,
+  `program_detail_description` text NOT NULL,
+  `program_detail_dropdown_heading` varchar(100) NOT NULL,
+  `program_detail_dropdown_days` int(50) NOT NULL,
+  `program_detail_dropdown_description` text NOT NULL,
+  `program_detail_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program_detail_tbl`
+--
+
+INSERT INTO `program_detail_tbl` (`program_detail_id`, `program`, `program_detail_heading`, `program_detail_description`, `program_detail_dropdown_heading`, `program_detail_dropdown_days`, `program_detail_dropdown_description`, `program_detail_status`, `created_at`, `updated_at`) VALUES
+(1, 14, 'Professional Certificate - 7 Module Program', 'Get ready for a career in the thriving UX design field, even without prior experience. Benefit from expert training crafted by Google, putting you on the fast track to a well-paid job. Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ipsum ut saepe suscipit, fugiat, perspiciatis nesciunt rem consequuntur ipsam laboriosam corporis? Quam nesciunt blanditiis iusto accusantium obcaecati molestiae laboriosam autem. ', 'Foundations of UX/UI Design Mastery ', 17, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eos doloremque repellendus reiciendis ducimus? Explicabo? i\'d l\'\'d\'\'d\'d\'', 1, '2023-12-12 19:23:00', '2023-12-12 19:45:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program_image_tbl`
+--
+
+CREATE TABLE `program_image_tbl` (
+  `program_image_id` int(11) NOT NULL,
+  `program` tinyint(4) NOT NULL,
+  `program_view_image` varchar(100) NOT NULL,
+  `program_image_heading_1` varchar(100) NOT NULL,
+  `program_image_description_1` varchar(200) NOT NULL,
+  `program_image_heading_2` varchar(100) NOT NULL,
+  `program_image_description_2` varchar(200) NOT NULL,
+  `program_image_heading_3` varchar(100) NOT NULL,
+  `program_image_description_3` varchar(200) NOT NULL,
+  `program_image_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program_image_tbl`
+--
+
+INSERT INTO `program_image_tbl` (`program_image_id`, `program`, `program_view_image`, `program_image_heading_1`, `program_image_description_1`, `program_image_heading_2`, `program_image_description_2`, `program_image_heading_3`, `program_image_description_3`, `program_image_status`, `created_at`, `updated_at`) VALUES
+(1, 14, 'application_bg_1.png', '$112,000+ ', 'median U.S. salary for UX Design', '138,000+ ', 'U.S. job openings in UX Design', '75%', 'of certificate graduates report positive career outcome', 1, '2023-12-12 10:32:24', '2023-12-12 16:10:09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program_outcome_tbl`
+--
+
+CREATE TABLE `program_outcome_tbl` (
+  `program_outcome_id` int(11) NOT NULL,
+  `program` tinyint(4) NOT NULL,
+  `program_outcome_heading` varchar(100) NOT NULL,
+  `program_outcome_list` varchar(100) NOT NULL,
+  `program_outcome_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program_outcome_tbl`
+--
+
+INSERT INTO `program_outcome_tbl` (`program_outcome_id`, `program`, `program_outcome_heading`, `program_outcome_list`, `program_outcome_status`, `created_at`, `updated_at`) VALUES
+(1, 14, '', 'Expert training provided by industry leaders.', 1, '2023-12-12 06:44:05', '2023-12-12 08:38:12'),
+(2, 14, '', 'Showcase your skills through portfolio-ready projects.', 1, '2023-12-12 08:38:57', '2023-12-12 08:38:57'),
+(3, 14, '', 'Attain a prestigious, employer-recognized certificate.', 1, '2023-12-12 08:39:20', '2023-12-12 08:39:20'),
+(4, 14, '', 'Unlock opportunities for sought-after roles like User Experience (UX) Designer, UI Designer, and Int', 1, '2023-12-12 08:39:42', '2023-12-12 08:40:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program_skill_tbl`
+--
+
+CREATE TABLE `program_skill_tbl` (
+  `program_skill_id` int(11) NOT NULL,
+  `program` tinyint(4) NOT NULL,
+  `program_skill_name` varchar(100) NOT NULL,
+  `program_skill_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program_skill_tbl`
+--
+
+INSERT INTO `program_skill_tbl` (`program_skill_id`, `program`, `program_skill_name`, `program_skill_status`, `created_at`, `updated_at`) VALUES
+(1, 14, '', 1, '2023-12-12 05:03:51', '2023-12-12 12:40:07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `program_tbl`
 --
 
@@ -343,7 +470,8 @@ INSERT INTO `program_tbl` (`program_id`, `program_name`, `program_detail`, `prog
 (10, 'Machine Learning', 'Teach computers to learn and make predictions.', 'program_box_bg_10.png', '', '', '', NULL, 0, 0, 0, 0, '', '', 1, '2023-12-08 19:01:26', '2023-12-08 19:01:26'),
 (11, 'Artificial Intelligence', 'Explore the limitless possibilities of AI.', 'program_box_bg_11.png', '', '', '', NULL, 0, 0, 0, 0, '', '', 1, '2023-12-08 19:01:51', '2023-12-08 19:01:51'),
 (12, 'Internet of Things (IoT)', 'Connect and control devices for a smart world.', 'program_box_bg_12.png', '', '', '', NULL, 0, 0, 0, 0, '', '', 1, '2023-12-08 19:02:13', '2023-12-08 19:02:13'),
-(13, 'Campus Ambassador Program (CAP)', 'Become a brand ambassador for DigitalShakha on your campus.', 'program_box_bg_13.png', '', '', '', NULL, 0, 0, 0, 0, '', '', 1, '2023-12-08 19:02:40', '2023-12-08 19:02:40');
+(13, 'Campus Ambassador Program (CAP)', 'Become a brand ambassador for DigitalShakha on your campus.', 'program_box_bg_13.png', '', '', '', NULL, 0, 0, 0, 0, '', '', 1, '2023-12-08 19:02:40', '2023-12-08 19:02:40'),
+(14, 'Front-End Development ', 'jn fkjn kmd kjdndk dkd dkckd k ', 'application_bg_1.png', 'testimonial_program_view.png', '<p>mjnkdsnidsndn ojijo jcoids cos os coscsoic os c soc joi joij oi ojoi ojso jos&nbsp; kkkkkkkkkkkkkkkk</p>', 'live class | 1:1 time | work ', '2023-12-12', 1024, 5, 1045, 3, 'dhb hjjbdjdi kkkkkkkkkklllllllllllll', '7 month 12 hour', 1, '2023-12-11 04:55:19', '2023-12-11 06:06:59');
 
 -- --------------------------------------------------------
 
@@ -8294,6 +8422,36 @@ ALTER TABLE `opportunities_tbl`
   ADD PRIMARY KEY (`opp_id`);
 
 --
+-- Indexes for table `program_about_tbl`
+--
+ALTER TABLE `program_about_tbl`
+  ADD PRIMARY KEY (`program_about_id`);
+
+--
+-- Indexes for table `program_detail_tbl`
+--
+ALTER TABLE `program_detail_tbl`
+  ADD PRIMARY KEY (`program_detail_id`);
+
+--
+-- Indexes for table `program_image_tbl`
+--
+ALTER TABLE `program_image_tbl`
+  ADD PRIMARY KEY (`program_image_id`);
+
+--
+-- Indexes for table `program_outcome_tbl`
+--
+ALTER TABLE `program_outcome_tbl`
+  ADD PRIMARY KEY (`program_outcome_id`);
+
+--
+-- Indexes for table `program_skill_tbl`
+--
+ALTER TABLE `program_skill_tbl`
+  ADD PRIMARY KEY (`program_skill_id`);
+
+--
 -- Indexes for table `program_tbl`
 --
 ALTER TABLE `program_tbl`
@@ -8424,10 +8582,40 @@ ALTER TABLE `opportunities_tbl`
   MODIFY `opp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `program_about_tbl`
+--
+ALTER TABLE `program_about_tbl`
+  MODIFY `program_about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `program_detail_tbl`
+--
+ALTER TABLE `program_detail_tbl`
+  MODIFY `program_detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `program_image_tbl`
+--
+ALTER TABLE `program_image_tbl`
+  MODIFY `program_image_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `program_outcome_tbl`
+--
+ALTER TABLE `program_outcome_tbl`
+  MODIFY `program_outcome_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `program_skill_tbl`
+--
+ALTER TABLE `program_skill_tbl`
+  MODIFY `program_skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `program_tbl`
 --
 ALTER TABLE `program_tbl`
-  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `schedule_interview_tbl`

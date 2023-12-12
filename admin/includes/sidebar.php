@@ -101,6 +101,9 @@
               <li class="nav-item"> <a class="nav-link" href="./programs.php">Program</a></li>
               <li class="nav-item"> <a class="nav-link" href="./program_about.php">Program about</a></li>
               <li class="nav-item"> <a class="nav-link" href="./program_skill.php">Program skill</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./program_outcome.php">Program outcome</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./program_outcome_image.php">Program outcome image</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./program_details.php">Program Details</a></li>
             </ul>
           </div>
         </li>

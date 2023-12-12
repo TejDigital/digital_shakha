@@ -151,7 +151,22 @@ if (isset($_GET['id'])) {
                         <h1>Skills you will gain</h1>
                     </div>
                     <div class="grid">
-                        <p>User Experience</p>
+                        <?php
+                        $sql = "SELECT * FROM program_skill_tbl WHERE program = '$id'";
+                        $sql_run = mysqli_query($con, $sql);
+                        if (mysqli_num_rows($sql_run)) {
+                            foreach ($sql_run as $data) {
+                                if ($data['program_skill_name'] != '') {
+
+                        ?>
+                                    <p><?= $data['program_skill_name'] ?></p>
+
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
+                        <!-- <p>User Experience</p>
                         <p>User Interface</p>
                         <p>Prototype</p>
                         <p>Wireframe</p>
@@ -160,7 +175,7 @@ if (isset($_GET['id'])) {
                         <p>Figma</p>
                         <p>Usability Mobility</p>
                         <p>User Experience Design (UXD)</p>
-                        <p>UX design Jobs</p>
+                        <p>UX design Jobs</p> -->
                     </div>
                 </div>
                 <div class="must_know_details">
@@ -186,33 +201,70 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="list">
                     <ul>
-                        <li>Expert training provided by industry leaders.</li>
+                        <?php
+                        $sql = "SELECT * FROM program_outcome_tbl WHERE program = '$id'";
+                        $sql_run = mysqli_query($con, $sql);
+                        if (mysqli_num_rows($sql_run)) {
+                            foreach ($sql_run as $data) {
+                                if ($data['program_outcome_list'] != '') {
+                        ?>
+                                    <li><?= $data['program_outcome_list'] ?></li>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
+                        <!-- <li>Expert training provided by industry leaders.</li>
                         <li>Showcase your skills through portfolio-ready projects.</li>
                         <li>Attain a prestigious, employer-recognized certificate.</li>
-                        <li>Unlock opportunities for sought-after roles like User Experience (UX) Designer, UI Designer, and Interaction Designer.</li>
+                        <li>Unlock opportunities for sought-after roles like User Experience (UX) Designer, UI Designer, and Interaction Designer.</li> -->
                     </ul>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="box">
-                    <div class="img">
-                        <img src="./assets/images/program_view_img1.png" alt="">
-                    </div>
+                    <?php
+                    $sql = "SELECT * FROM program_image_tbl WHERE program = '$id' limit 1";
+                    $sql_run = mysqli_query($con, $sql);
+                    if (mysqli_num_rows($sql_run)) {
+                        foreach ($sql_run as $data) {
+                            if ($data['program_view_image'] != '') {
+                    ?>
+                                <div class="img">
+                                    <img src="./admin/program_view_images/<?= $data['program_view_image'] ?>" alt="">
+                                </div>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
                     <div class="text_box">
-                        <div class="mini_box">
-                            <div class="boxes">
-                                <p>$112,000+</p>
-                                <p>median U.S. salary for UX Design</p>
-                            </div>
-                            <div class="boxes">
-                                <p>138,000+</p>
-                                <p>U.S. job openings in UX Design</p>
-                            </div>
-                            <div class="boxes">
-                                <p>75%</p>
-                                <p>of certificate graduates report positive career outcome</p>
-                            </div>
-                        </div>
+                        <?php
+                        $sql = "SELECT * FROM program_image_tbl WHERE program = '$id'";
+                        $sql_run = mysqli_query($con, $sql);
+                        if (mysqli_num_rows($sql_run)) {
+                            foreach ($sql_run as $data) {
+                                if ($data['program_image_heading_1'] != '') {
+                        ?>
+                                    <div class="mini_box">
+                                        <div class="boxes">
+                                            <p><?= $data['program_image_heading_1'] ?></p>
+                                            <p><?= $data['program_image_description_1'] ?></p>
+                                        </div>
+                                        <div class="boxes">
+                                            <p><?= $data['program_image_heading_2'] ?></p>
+                                            <p><?= $data['program_image_description_2'] ?></p>
+                                        </div>
+                                        <div class="boxes">
+                                            <p><?= $data['program_image_heading_3'] ?></p>
+                                            <p><?= $data['program_image_description_3'] ?></p>
+                                        </div>
+                                    </div>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -276,36 +328,59 @@ if (isset($_GET['id'])) {
         <div class="row">
             <div class="col-md-6">
                 <div class="top_text">
-                    <div class="heading">
-                        <h1>Professional Certificate - 6 Module Program</h1>
-                    </div>
-                    <div class="toggle_text">
-                        <p>Get ready for a career in the thriving UX design field, even without prior experience. Benefit from expert training crafted by Google, putting you on the fast track to a well-paid job.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ipsum ut saepe suscipit, fugiat, perspiciatis nesciunt rem consequuntur ipsam laboriosam corporis? Quam nesciunt blanditiis iusto accusantium obcaecati molestiae laboriosam autem.
-                        </p>
-                        <a href="#!" style="display:none;" id="closeButton">Read Less</a>
-                    </div>
-                    <a href="#!" id="readMoreLink">Read More</a>
+                    <?php
+                    $sql = "SELECT * FROM program_detail_tbl WHERE program = '$id' limit 1";
+                    $sql_run = mysqli_query($con, $sql);
+                    if (mysqli_num_rows($sql_run)) {
+                        foreach ($sql_run as $data) {
+                            if ($data['program_detail_heading'] != '') {
+                    ?>
+                                <div class="heading">
+                                    <h1><?= $data['program_detail_heading'] ?></h1>
+                                </div>
+                                <div class="toggle_text">
+                                    <p><?= $data['program_detail_description'] ?></p>
+                                    <a href="#!" style="display:none;" id="closeButton">Read Less</a>
+                                </div>
+                                <a href="#!" id="readMoreLink">Read More</a>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
         <div class="modules">
-            <div class="toggle_box main_box">
-                <div class="left">
-                    <h1>Foundations of UX/UI Design Mastery</h1>
-                    <div class="left_bottom_text">
-                        <p>MODULE - <span>1</span></p>
-                        <p>ESTIMATED TIME: <span>15 Days</span></p>
-                    </div>
-                </div>
-                <div class="right">
-                    <i class="fa-solid fa-angle-down"></i>
-                    <i style="display:none;" class="fa-solid fa-angle-up"></i>
-                </div>
-            </div>
-            <div class="show_content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eos doloremque repellendus reiciendis ducimus? Explicabo?</p>
-            </div>
+            <?php
+            $sql = "SELECT * FROM program_detail_tbl WHERE program = '$id' limit 1";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run)) {
+                foreach ($sql_run as $data) {
+                    $count = 1;
+                    if ($data['program_detail_heading'] != '') {
+            ?>
+                        <div class="toggle_box main_box">
+                            <div class="left">
+                                <h1><?=$data['program_detail_dropdown_heading']?></h1>
+                                <div class="left_bottom_text">
+                                    <p>MODULE - <span><?=$count++?></span></p>
+                                    <p>ESTIMATED TIME: <span><?=$data['program_detail_dropdown_days']?> Days</span></p>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <i class="fa-solid fa-angle-down"></i>
+                                <i style="display:none;" class="fa-solid fa-angle-up"></i>
+                            </div>
+                        </div>
+                        <div class="show_content">
+                            <p><?=$data['program_detail_dropdown_description']?></p>
+                        </div>
+            <?php
+                    }
+                }
+            }
+            ?>
         </div>
     </div>
 </section>
