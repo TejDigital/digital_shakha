@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2023 at 09:08 PM
+-- Generation Time: Dec 13, 2023 at 09:47 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -472,6 +472,32 @@ INSERT INTO `program_tbl` (`program_id`, `program_name`, `program_detail`, `prog
 (12, 'Internet of Things (IoT)', 'Connect and control devices for a smart world.', 'program_box_bg_12.png', '', '', '', NULL, 0, 0, 0, 0, '', '', 1, '2023-12-08 19:02:13', '2023-12-08 19:02:13'),
 (13, 'Campus Ambassador Program (CAP)', 'Become a brand ambassador for DigitalShakha on your campus.', 'program_box_bg_13.png', '', '', '', NULL, 0, 0, 0, 0, '', '', 1, '2023-12-08 19:02:40', '2023-12-08 19:02:40'),
 (14, 'Front-End Development ', 'jn fkjn kmd kjdndk dkd dkckd k ', 'application_bg_1.png', 'testimonial_program_view.png', '<p>mjnkdsnidsndn ojijo jcoids cos os coscsoic os c soc joi joij oi ojoi ojso jos&nbsp; kkkkkkkkkkkkkkkk</p>', 'live class | 1:1 time | work ', '2023-12-12', 1024, 5, 1045, 3, 'dhb hjjbdjdi kkkkkkkkkklllllllllllll', '7 month 12 hour', 1, '2023-12-11 04:55:19', '2023-12-11 06:06:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `program_testimonial_tbl`
+--
+
+CREATE TABLE `program_testimonial_tbl` (
+  `program_testimonial_id` int(11) NOT NULL,
+  `program` tinyint(4) NOT NULL,
+  `program_testimonial_image` varchar(100) NOT NULL,
+  `program_testimonial_text` text NOT NULL,
+  `program_testimonial_name` varchar(100) NOT NULL,
+  `program_testimonial_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `program_testimonial_tbl`
+--
+
+INSERT INTO `program_testimonial_tbl` (`program_testimonial_id`, `program`, `program_testimonial_image`, `program_testimonial_text`, `program_testimonial_name`, `program_testimonial_status`, `created_at`, `updated_at`) VALUES
+(1, 14, 'testimonial_program_view.png', 'The comprehensive curriculum, hands-on projects, and personalized mentorship enabled me to not only grasp the intricacies of design but also apply them to real-world scenarios. Today, I am confidently navigating the field, thanks to the valuable skills and confidence gained at Digitalshakha.', 'Shardha Jain', 1, '2023-12-13 06:20:39', '2023-12-13 06:23:34'),
+(2, 14, 'blog_view.png', 'The comprehensive curriculum, hands-on projects, and personalized mentorship enabled me to not only grasp the intricacies of design but also apply them to real-world scenarios. Today, I am confidently navigating the field, thanks to the valuable skills and confidence gained at Digitalshakha.', 'ashutosh', 1, '2023-12-13 06:27:08', '2023-12-13 06:27:08'),
+(3, 14, 'program_box_bg_13.png', 'The comprehensive curriculum, hands-on projects, and personalized mentorship enabled me to not only grasp the intricacies of design but also apply them to real-world scenarios. Today, I am confidently navigating the field, thanks to the valuable skills and confidence gained at Digitalshakha.', 'bhushan', 1, '2023-12-13 06:27:59', '2023-12-13 06:27:59');
 
 -- --------------------------------------------------------
 
@@ -8458,6 +8484,12 @@ ALTER TABLE `program_tbl`
   ADD PRIMARY KEY (`program_id`);
 
 --
+-- Indexes for table `program_testimonial_tbl`
+--
+ALTER TABLE `program_testimonial_tbl`
+  ADD PRIMARY KEY (`program_testimonial_id`);
+
+--
 -- Indexes for table `schedule_interview_tbl`
 --
 ALTER TABLE `schedule_interview_tbl`
@@ -8616,6 +8648,12 @@ ALTER TABLE `program_skill_tbl`
 --
 ALTER TABLE `program_tbl`
   MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `program_testimonial_tbl`
+--
+ALTER TABLE `program_testimonial_tbl`
+  MODIFY `program_testimonial_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `schedule_interview_tbl`
