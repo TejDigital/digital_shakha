@@ -5,10 +5,14 @@ require('./includes/header.php');
 require('./config/dbcon.php');
 
 
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM program_image_tbl WHERE program_image_id = '$id'";
+
+    $sql = "SELECT * FROM program_testimonial_tbl WHERE program_testimonial_id = '$id'";
+
     $sql_run = mysqli_query($con, $sql);
+
     if (mysqli_num_rows($sql_run) > 0) {
         $row = mysqli_fetch_assoc($sql_run);
     }
@@ -16,10 +20,10 @@ if (isset($_GET['id'])) {
 ?>
 
 <div class="page-header">
-    <h3 class="page-title">Program outcome view </h3>
+    <h3 class="page-title">Program testimonial view </h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./program_outcome_image.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="./program_testimonial.php">Home</a></li>
         </ol>
     </nav>
 </div>
@@ -50,8 +54,8 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="col-md-4">
                     <label>Status</label>
-                    <?php if ($row['program_image_status'] != '') : ?>
-                        <p><?php if ($row['program_image_status'] == 1) {
+                    <?php if ($row['program_testimonial_status'] != '') : ?>
+                        <p><?php if ($row['program_testimonial_status'] == 1) {
                                 echo "Active";
                             } else {
                                 echo "Inactive";
@@ -64,62 +68,28 @@ if (isset($_GET['id'])) {
                 <div class="col-md-4">
                     <label>Image</label>
                     <br>
-                    <?php if ($row['program_view_image'] != '') : ?>
-                        <img src="./program_view_images/<?= $row['program_view_image'] ?>" style="height: 200px;" alt="">
+                    <?php if ($row['program_testimonial_image'] != '') : ?>
+                        <img src="./program_testimonial_images/<?= $row['program_testimonial_image'] ?>" style="height: 200px;" alt="">
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
                 <div class="col-md-4">
-                    <label>Heading 1</label>
+                    <label>Name</label>
                     <br>
-                    <?php if ($row['program_image_heading_1'] != '') : ?>
-                        <p><?=$row['program_image_heading_1']?></p>
+                    <?php if ($row['program_testimonial_name'] != '') : ?>
+                        <p><?=$row['program_testimonial_name']?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
+          
+        
                 <div class="col-md-4">
-                    <label>Heading 2</label>
+                    <label>Description</label>
                     <br>
-                    <?php if ($row['program_image_heading_2'] != '') : ?>
-                        <p><?=$row['program_image_heading_2']?></p>
-                    <?php else : ?>
-                        <p>Not Found</p>
-                    <?php endif ?>
-                </div>
-                <div class="col-md-4">
-                    <label>Heading 3</label>
-                    <br>
-                    <?php if ($row['program_image_heading_3'] != '') : ?>
-                        <p><?=$row['program_image_heading_3']?></p>
-                    <?php else : ?>
-                        <p>Not Found</p>
-                    <?php endif ?>
-                </div>
-                <div class="col-md-4">
-                    <label>Description 1</label>
-                    <br>
-                    <?php if ($row['program_image_description_1'] != '') : ?>
-                        <p><?=$row['program_image_description_1']?></p>
-                    <?php else : ?>
-                        <p>Not Found</p>
-                    <?php endif ?>
-                </div>
-                <div class="col-md-4">
-                    <label>Description 2</label>
-                    <br>
-                    <?php if ($row['program_image_description_2'] != '') : ?>
-                        <p><?=$row['program_image_description_2']?></p>
-                    <?php else : ?>
-                        <p>Not Found</p>
-                    <?php endif ?>
-                </div>
-                <div class="col-md-4">
-                    <label>Description 3</label>
-                    <br>
-                    <?php if ($row['program_image_description_3'] != '') : ?>
-                        <p><?=$row['program_image_description_3']?></p>
+                    <?php if ($row['program_testimonial_text'] != '') : ?>
+                        <p><?=$row['program_testimonial_text']?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>

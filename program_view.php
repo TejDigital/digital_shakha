@@ -362,10 +362,10 @@ if (isset($_GET['id'])) {
             ?>
                         <div class="toggle_box main_box">
                             <div class="left">
-                                <h1><?=$data['program_detail_dropdown_heading']?></h1>
+                                <h1><?= $data['program_detail_dropdown_heading'] ?></h1>
                                 <div class="left_bottom_text">
-                                    <p>MODULE - <span><?=$count++?></span></p>
-                                    <p>ESTIMATED TIME: <span><?=$data['program_detail_dropdown_days']?> Days</span></p>
+                                    <p>MODULE - <span><?= $count++ ?></span></p>
+                                    <p>ESTIMATED TIME: <span><?= $data['program_detail_dropdown_days'] ?> Days</span></p>
                                 </div>
                             </div>
                             <div class="right">
@@ -374,7 +374,7 @@ if (isset($_GET['id'])) {
                             </div>
                         </div>
                         <div class="show_content">
-                            <p><?=$data['program_detail_dropdown_description']?></p>
+                            <p><?= $data['program_detail_dropdown_description'] ?></p>
                         </div>
             <?php
                     }
@@ -390,6 +390,34 @@ if (isset($_GET['id'])) {
             <h1>Why people choose Digitalshakha for their career</h1>
         </div>
         <div class="testimonial testimonial_program_view owl-carousel owl-theme">
+            <?php
+            $sql = "SELECT * FROM program_testimonial_tbl WHERE program = '$id'";
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run)) {
+                foreach ($sql_run as $data) {
+                    if ($data['program_testimonial_image'] != '') {
+            ?>
+                  
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                    <div class="img">
+                        <img src="./admin/program_testimonial_images/<?=$data['program_testimonial_image']?>" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="text">
+                        <img src="./assets/images/dot1.svg" alt="">
+                        <p><?=$data['program_testimonial_text']?></p>
+                        <p><?=$data['program_testimonial_name']?></p>
+                    </div>
+                </div>
+            </div>
+            <?php
+                    }
+                }
+            }
+            ?>
+<!-- 
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                     <div class="img">
@@ -431,7 +459,7 @@ if (isset($_GET['id'])) {
                         <p>Ananya Pandey</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="btn_area">
             <a href="#!">Any Queries, Contact Us<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
