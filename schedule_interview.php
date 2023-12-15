@@ -103,7 +103,7 @@
 <?php require('./includes/footer.php'); ?>
 <?php require('./includes/script.php'); ?>
 <script>
-    const daysTag = document.querySelector(".days");
+const daysTag = document.querySelector(".days");
 const currentDate = document.querySelector(".current-date");
 const prevNextIcon = document.querySelectorAll(".icons span");
 const selectedDateDisplay = document.getElementById("selected-date-display");

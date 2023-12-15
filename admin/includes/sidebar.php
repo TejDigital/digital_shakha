@@ -59,14 +59,14 @@
           </a>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
             <span class="menu-title">Events</span>
             <i class="menu-arrow"></i>
           </a>
-          <div class="collapse" id="ui-basic">
+          <div class="collapse" id="ui-basic1">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="./events.php">Event</a></li>
               <li class="nav-item"> <a class="nav-link" href="./event_register_table.php">Event Registration</a></li>
@@ -74,14 +74,14 @@
           </div>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic2" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
             <span class="menu-title">Batches</span>
             <i class="menu-arrow"></i>
           </a>
-          <div class="collapse" id="ui-basic">
+          <div class="collapse" id="ui-basic2">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="./upcoming_batches.php">Upcoming Batches</a></li>
               <li class="nav-item"> <a class="nav-link" href="./upcoming_batch_request_table.php">Batch Request</a></li>
@@ -89,14 +89,14 @@
           </div>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic3" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
             <span class="menu-title">Programs</span>
             <i class="menu-arrow"></i>
           </a>
-          <div class="collapse" id="ui-basic">
+          <div class="collapse" id="ui-basic3">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="./programs.php">Program</a></li>
               <li class="nav-item"> <a class="nav-link" href="./program_about.php">Program about</a></li>
@@ -109,14 +109,14 @@
           </div>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>
             </span>
             <span class="menu-title">Blog</span>
             <i class="menu-arrow"></i>
           </a>
-          <div class="collapse" id="ui-basic">
+          <div class="collapse" id="ui-basic4">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="./blog.php">Blog</a></li>
               <li class="nav-item"> <a class="nav-link" href="./blog_category.php">Category</a></li>

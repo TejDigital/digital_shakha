@@ -2,8 +2,6 @@
 session_start();
 include('config/dbcon.php');
 
-
-
 if (isset($_POST['check_Emailbtn'])) {
 
     $email = $_POST['email'];
@@ -35,7 +33,7 @@ if (isset($_POST['adduser'])) {
 
         if (mysqli_num_rows($confirmemail_run) > 0) {
 
-            $_SESSION['cons_msg'] = "Email Already teken !";
+            $_SESSION['cons_msg'] = "Email Already taken !";
             header('location:registered.php');
         } else {
             $adduser_qurey = "INSERT INTO users(name ,phone,email,password,type) values('$name','$phone','$email','$password','$type')";
