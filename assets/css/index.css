@@ -720,6 +720,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    width: 80%;
+    margin: auto;
 }
 
 .testimonial_home .box .img {
@@ -758,7 +760,6 @@
 
 .testimonial_home .box .description {
     text-align: center;
-
 }
 
 .testimonial_home .box .description p {
@@ -773,8 +774,8 @@
 .testimonial_slider .owl-nav {
     position: absolute;
     top: 50%;
-    transform: translate(0, -50%);
-    width: 100%;
+    transform: translate(6%, -50%);
+    width: 90%;
     display: flex;
     justify-content: space-between;
 }

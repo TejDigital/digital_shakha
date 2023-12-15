@@ -283,7 +283,7 @@
                         <a href="#!">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
                     </div>
                 </div>
-                <div class="padding-top col-md-6 d-flex align-content-center justify-content-center">
+                <div class="padding-top col-md-6 d-flex align-items-center justify-content-center">
                     <div class="img_area">
                         <div class="img">
                             <img src="./assets/images/Rectangle 6.png" alt="">

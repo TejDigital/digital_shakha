@@ -173,9 +173,9 @@ session_start();
                                     <li class="list-group-item"><a href="./resumebuilding.php" class="">Resume Building <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./cover_letter.php">Cover Letter Tips <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./interview_insights.php">Interview Insights <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="#!">Networking Guide <i class="color-ball"></i></a></li>
+                                    <!-- <li class="list-group-item"><a href="#!">Networking Guide <i class="color-ball"></i></a></li> -->
                                     <li class="list-group-item"><a href="./success_stories.php">Success Stories <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="./blog.php">Blog <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./blog.php">Blog/Article<i class="color-ball"></i></a></li>
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
