@@ -27,6 +27,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
+                <div class="img">
+                    <img src="./assets/images/resume_imgs_1.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Job Target Precision</h1>
                     <p>Clearly define your job target before diving into resume writing.</p>
@@ -35,6 +38,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <div class="img">
+                    <img src="./assets/images/resume_imgs_2.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Self-Knowledge</h1>
                     <p>Understand your strengths, your audience, and prioritize what matters most.</p>
@@ -43,6 +49,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Customization is Key</h1>
                     <p>Tailor your resume for each job; generic resumes fall short.</p>
@@ -51,6 +60,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Show Your Value</h1>
                     <p>Make your unique value known throughout your resume.</p>
@@ -59,6 +71,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Tailored Header</h1>
                     <p>Craft a resume header that aligns with your desired job, not your current one.</p>
@@ -67,6 +82,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Dispelling Myths</h1>
                     <p>Sidestep common resume misconceptions for a stronger impact.</p>
@@ -75,6 +93,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Strategic Employment History</h1>
                     <p>Share your years of recent employment strategically.</p>
@@ -83,6 +104,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Highlight Achievements</h1>
                     <p>Showcase career achievements and provide supporting evidence.</p>
@@ -91,6 +115,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Achievements Over Tasks</h1>
                     <p>Focus on accomplishments, not just responsibilities.</p>
@@ -99,6 +126,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Start Strong</h1>
                     <p>The first third of your resume is critical; make it compelling.</p>
@@ -107,6 +137,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Job Target Precision</h1>
                     <p>Clearly define your job target before diving into resume writing.</p>
@@ -117,6 +150,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Job Target Precision</h1>
                     <p>Clearly define your job target before diving into resume writing.</p>
@@ -125,6 +161,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Results-Driven Approach</h1>
                     <p>Lead with results and emphasize them for maximum impact.</p>
@@ -133,6 +172,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Storytelling Technique</h1>
                     <p>Let your resume tell a compelling story of your career journey.</p>
@@ -141,6 +183,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Keyword Integration</h1>
                     <p>Infuse relevant keywords throughout to resonate with your target role.</p>
@@ -149,6 +194,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Active Voice and Action Words</h1>
                     <p>Utilize an active voice with dynamic action words.</p>
@@ -157,6 +205,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Strategic Design Elements</h1>
                     <p>Incorporate strategic design to highlight key content and stand out.</p>
@@ -165,6 +216,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>White Space Consideration</h1>
                     <p>Ensure readability with well-utilized white space.</p>
@@ -173,6 +227,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Balancing Content and Presentation</h1>
                     <p>Content is king, but presentation matters; strike the right balance.</p>
@@ -181,6 +238,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Addressing Employment Gaps</h1>
                     <p>Strategically handle employment gaps with transparent content.</p>
@@ -189,6 +249,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Red Flag Removal</h1>
                     <p>Eliminate potential red flags for improved application success.</p>
@@ -197,6 +260,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Soft Skills Emphasis</h1>
                     <p>Emphasize soft skills with specificity and real-world examples.</p>
@@ -205,6 +271,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Modern Approach</h1>
                     <p>Use a contemporary design to avoid an outdated impression.</p>
@@ -213,6 +282,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Regular Updates</h1>
                     <p>Keep your resume current by updating it regularly.</p>
@@ -221,6 +293,9 @@
                 </div>
             </div>
             <div class="col-md-6">
+            <div class="img">
+                    <img src="./assets/images/resume_img_test.png" alt="">
+                </div>
                 <div class="text">
                     <h1>Stay Informed</h1>
                     <p>Stay abreast of the latest resume trends and best practices for continued success.</p>

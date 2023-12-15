@@ -15,7 +15,6 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                 <div class="progress_category">
                     <div class="heading">
                         <p>UX UI Designer</p>
-
                         <div class="progress_list">
                             <ul>
                                 <li class="click_btn active-btn active-icon" onclick="ontablink(event,'box1')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right" ></i></span> Overview</li>
@@ -369,8 +368,6 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
         for (tab_box of tab_boxes) {
             tab_box.style.opacity = 0; // Set opacity to 0 for all tab contents
         }
-
-
         // Wait for a short period before showing the new tab content
         setTimeout(function() {
             for (tab_box of tab_boxes) {

@@ -192,7 +192,7 @@ session_start();
                                 <ul class="list-group bg-dark drop-item">
                                     <!-- <li class="list-group-item"><a href="./login.php" class="">Student Reg./Login <i class="color-ball"></i></a></li> -->
                                     <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="./application.php" class="">Application <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./schedule_interview.php" class="">Schedule Interviews <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./internship_resources.php" class="">Internship Resources <i class="color-ball"></i></a></li>
                                 </ul>

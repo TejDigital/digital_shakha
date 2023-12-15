@@ -22,6 +22,9 @@
 </section>
 <section class="interview_insights_2">
     <div class="container">
+        <div class="img">
+            <img src="./assets/images/internship_img_1.png" alt="">
+        </div>
         <div class="heading">
             <h1>Online Interviews: Mastering the Virtual Spotlight</h1>
             <p>The digital age has brought the boardroom to your living room. Here's how to shine in the virtual spotlight.</p>
@@ -69,6 +72,9 @@
                     <p>Tip: Mute your microphone when not speaking to avoid background noise. Active listening is just as important in virtual meetings as it is in person.</p>
                 </div>
             </div>
+        </div>
+        <div class="img">
+            <img src="./assets/images/internship_img_2.png" alt="">
         </div>
         <div class="heading">
             <h1>Offline Interviews: Navigating Face-to-Face Dynamics</h1>

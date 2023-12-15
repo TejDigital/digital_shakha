@@ -1,16 +1,76 @@
 .application_1 {
     position: relative;
+    padding: 2rem 4rem;
 }
 
 .application_1 .img_area {
-    width: 100%;
+    width: 500px;
     height: auto;
+    /* padding-top:4rem; */
+}
+
+.application_1 .step_text {
+    padding-top: 1rem;
+}
+
+.application_1 .step_text p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 20px;
+    color: #615D5D;
+}
+
+.application_1 .step_text p span {
+    font-weight: 700;
+}
+
+.application_1 .step_text p:last-child {
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 20px;
 }
 
 .application_1 .img_area img {
     width: 100%;
     /* height: 100%; */
 }
+
+.application_1 .btn_area {
+    position: relative;
+    /* width: 85%;
+    margin-left: 7.5%; */
+}
+
+.application_1 .btn_area button {
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+    background-color: #BB5327;
+    color: #fff;
+    /* width: 85%;
+    margin-left: 7.5%; */
+    padding: 0.7rem 4rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.application_1 .btn_area p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 20px;
+}
+.application_1 .color_line p{
+    padding:2px;
+    border-bottom: 1px solid #BB5327;
+}
+
+
+
+
+
+
 
 .application_1 .text {
     display: flex;
@@ -33,10 +93,12 @@
     justify-content: space-between;
 
 }
-.application_1 .text .permanent_address .flex-box select{
+
+.application_1 .text .permanent_address .flex-box select {
     width: 50%;
 }
-.application_1 .text .permanent_address .flex-box input{
+
+.application_1 .text .permanent_address .flex-box input {
     width: 50%;
 }
 
@@ -95,6 +157,7 @@
     border: 1px solid #000;
     margin: 0.8rem 0;
 }
+
 .application_1 .text input[type="email"] {
     padding: 0.8rem;
     border: 1px solid #000;
@@ -107,14 +170,16 @@
     margin: 0.8rem 0;
     width: 100%;
 }
-.application_1 .text .wrapper  {
-    padding:1rem;
+
+.application_1 .text .wrapper {
+    padding: 1rem;
     width: 100%;
     border: 1px solid #000;
     margin: 1rem 0;
     box-shadow: none !important;
     border-radius: 0 !important;
 }
+
 .application_1 .text .wrapper label {
     cursor: pointer;
 }
@@ -176,20 +241,27 @@
     transform: scale(1);
 }
 
-@media(max-width:768px){
-    .application_1 .img_area{
+@media(max-width:768px) {
+    .application_1{
+        padding: 2rem 0;
+    }
+    .application_1 .img_area {
         display: none;
     }
-    .application_1 .text{
+
+    .application_1 .text {
         padding: 3rem 2rem 1rem 2rem;
     }
-    .application_1 .text .check p{
+
+    .application_1 .text .check p {
         margin-right: 1rem;
     }
+
     .application_1 .text .check .radio_box input {
         margin-right: 0.2rem;
     }
-    .application_1 .text .check .radio_box  {
+
+    .application_1 .text .check .radio_box {
         flex-direction: column-reverse;
     }
 }

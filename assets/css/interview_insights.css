@@ -2,6 +2,15 @@
     padding: 2rem 4rem;
     color: #615D5D;
 }
+.interview_insights_2 .img{
+    width: 100%;
+    height: 300px;
+    margin-top: 2rem;
+}
+.interview_insights_2 .img img{
+    width: 100%;
+    height: 100%;
+}
 .interview_insights_2 .heading{
     padding: 2rem 0;
 }
@@ -52,5 +61,13 @@
 @media(max-width:768px){
     .interview_insights_2{
         padding: 2rem 0.2rem;
+    }
+    .interview_insights_2 .img{
+        height: auto;
+        width: 100%;
+    }
+    .interview_insights_2 .img img{
+        height: auto;
+        width: 100%;
     }
 }
