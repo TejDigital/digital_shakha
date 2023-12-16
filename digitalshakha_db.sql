@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2023 at 09:47 AM
+-- Generation Time: Dec 16, 2023 at 01:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -50,6 +50,7 @@ CREATE TABLE `application_tbl` (
   `referral_code` int(100) NOT NULL,
   `profile_photo` varchar(200) NOT NULL,
   `payment_photo` varchar(200) NOT NULL,
+  `transaction_id` varchar(100) NOT NULL,
   `payment_status` tinyint(4) NOT NULL DEFAULT 0,
   `status` tinyint(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
@@ -60,9 +61,10 @@ CREATE TABLE `application_tbl` (
 -- Dumping data for table `application_tbl`
 --
 
-INSERT INTO `application_tbl` (`id`, `registration_id`, `name`, `last_name`, `gender`, `dob`, `phone`, `email`, `address_1`, `address_2`, `pin_code`, `city`, `state`, `country`, `collage`, `degree`, `course`, `duration`, `know_about_as`, `referral_code`, `profile_photo`, `payment_photo`, `payment_status`, `status`, `created_at`, `updated_at`) VALUES
-(1, '', 'Rohan ', 'Sahu', 'male', '2023-12-13', 987654323, 'rohan@gmail.com', 'balod 1', 'balod 2', 491223, '9', '7', '101', 'UPU Govt. Polytechnic Durg', 0, 8, 3, 0, 8765456, 'blog_view.png', 'blog_img_3.png', 0, 1, '2023-12-04 10:38:58', '2023-12-04 10:38:58'),
-(2, '', 'Prince', 'Singh', 'male', '2023-12-20', 1234567596, 'prince@gmail.com', 'bhilai 1', 'bhilai 2', 844501, '9', '5', '101', 'LPU', 0, 8, 6, 0, 876543456, 'seasonal_pacements_bg_1.png', 'seasonal_pacement_explore_3.png', 0, 1, '2023-12-04 10:41:41', '2023-12-04 10:41:41');
+INSERT INTO `application_tbl` (`id`, `registration_id`, `name`, `last_name`, `gender`, `dob`, `phone`, `email`, `address_1`, `address_2`, `pin_code`, `city`, `state`, `country`, `collage`, `degree`, `course`, `duration`, `know_about_as`, `referral_code`, `profile_photo`, `payment_photo`, `transaction_id`, `payment_status`, `status`, `created_at`, `updated_at`) VALUES
+(1, '', 'Rohan ', 'Sahu', 'male', '2023-12-13', 987654323, 'rohan@gmail.com', 'balod 1', 'balod 2', 491223, '9', '7', '101', 'UPU Govt. Polytechnic Durg', 0, 8, 3, 0, 8765456, 'blog_view.png', 'blog_img_3.png', '', 0, 1, '2023-12-04 10:38:58', '2023-12-04 10:38:58'),
+(2, '', 'Prince', 'Singh', 'male', '2023-12-20', 1234567596, 'prince@gmail.com', 'bhilai 1', 'bhilai 2', 844501, '9', '5', '101', 'LPU', 0, 8, 6, 0, 876543456, 'seasonal_pacements_bg_1.png', 'seasonal_pacement_explore_3.png', '', 0, 1, '2023-12-04 10:41:41', '2023-12-04 10:41:41'),
+(12, '', 'Nobita', 'singh', 'male', '2023-12-17', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 491223, '1882', '7', '101', 'Rungta R1', 1, 8, 6, 2, 2345678, 'profile-2.png', 'gallery_3.png', '9876556772', 0, 1, '2023-12-16 10:09:30', '2023-12-16 10:09:30');
 
 -- --------------------------------------------------------
 
@@ -8557,7 +8559,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `application_tbl`
 --
 ALTER TABLE `application_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `blog_category_tbl`

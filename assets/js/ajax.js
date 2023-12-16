@@ -383,9 +383,7 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this);
     var formData = new FormData(form[0]);
-
     console.log(formData);
-
     $.ajax({
       type: "POST",
       url: "././admin/application_code.php",
@@ -394,11 +392,16 @@ $(document).ready(function () {
       contentType: false,
       success: function (response) {
         console.log(response);
-        if (response == "We are connect soon") {
+       var  parsed_data = JSON.parse(response);
+        if(parsed_data.success === 1){
+          var ids = parsed_data.data;
+          console.log(ids);
+        } 
+        if (parsed_data.success === 1) {
           Swal.fire({
             position: "center",
             icon: "success",
-            text: response,
+            text: "Fill the next Field",
             showConfirmButton: false,
             showClass: {
               popup: "animate__animated animate__fadeInDown",
@@ -418,8 +421,10 @@ $(document).ready(function () {
                                   left top
                                   no-repeat`,
             timer: 2500,
+          }).then(function () {
+            window.location.href = "././application_2.php?id="+ids;
           });
-        } else if (response == "Something went wrong") {
+        } else if (response == 10) {
           Swal.fire({
             position: "center",
             icon: "error",
@@ -460,8 +465,268 @@ $(document).ready(function () {
     app_form.reset();
   }
 });
+// ---------------------------Application-2-form-------------------------
+$(document).ready(function () {
+  $(".app-click2").on("submit", "form.formID2", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = new FormData(form[0]);
+    console.log(formData);
+    $.ajax({
+      type: "POST",
+      url: "././admin/application_2_code.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        var  parsed_data = JSON.parse(response);
+        if(parsed_data.success === 2){
+          var ids = parsed_data.data;
+          console.log(ids);
+        } 
+        if (parsed_data.success == 2) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Fill the next field",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+            timer: 2500,
+          }).then(function () {
+            window.location.href = "././application_3.php?id="+ids;
+          });
+        } else if (response == 20) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            text: response,
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+            timer: 2500,
+          });
+        }
+        clearInput();
+      },
+      error: function (response) {
+        alert("Something went wrong");
+        console.log(response);
+      },
+    });
+  });
+  let app_form = $("#app_form")[0];
+  function clearInput() {
+    $("#fileNameDisplay1").text("Candidate Passport Size Photo");
+    $("#fileNameDisplay2").text("Upload Payment Screenshot");
+    app_form.reset();
+  }
+});
+// ---------------------------Application-3-form-------------------------
+$(document).ready(function () {
+  $(".app-click3").on("submit", "form.formID3", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = new FormData(form[0]);
+    console.log(formData);
+    $.ajax({
+      type: "POST",
+      url: "././admin/application_3_code.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        var  parsed_data = JSON.parse(response);
+        if(parsed_data.success === 3){
+          var ids = parsed_data.data;
+          console.log(ids);
+        } 
+        if (parsed_data.success == 3) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Fill the next field",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+            timer: 2500,
+          }).then(function () {
+            window.location.href = "././application_4.php?id="+ids;
+          });
+        } else if (response == 30) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            text: response,
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+            timer: 2500,
+          });
+        }
+        clearInput();
+      },
+      error: function (response) {
+        alert("Something went wrong");
+        console.log(response);
+      },
+    });
+  });
+  let app_form = $("#app_form")[0];
+  function clearInput() {
+    $("#fileNameDisplay1").text("Candidate Passport Size Photo");
+    $("#fileNameDisplay2").text("Upload Payment Screenshot");
+    app_form.reset();
+  }
+});
+// ---------------------------Application-4-form-------------------------
+$(document).ready(function () {
+  $(".app-click4").on("submit", "form.formID4", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = new FormData(form[0]);
+    console.log(formData);
+    $.ajax({
+      type: "POST",
+      url: "././admin/application_4_code.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        var  parsed_data = JSON.parse(response);
+        if(parsed_data.success === 4){
+          var ids = parsed_data.data;
+          console.log(ids);
+        } 
+        if (parsed_data.success == 4) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Thank you",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+            timer: 2500,
+          }).then(function () {
+            window.location.href = "././application_success.php?id="+ids;
+          });
+        } else if (response == 40) {
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            text: response,
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+            timer: 2500,
+          });
+        }
+        clearInput();
+      },
+      error: function (response) {
+        alert("Something went wrong");
+        console.log(response);
+      },
+    });
+  });
+  let app_form = $("#app_form")[0];
+  function clearInput() {
+    $("#fileNameDisplay2").text("Upload Payment Screenshot");
+    app_form.reset();
+  }
+});
 
-// ---------------------------Application-form-------------------------
+// ---------------------------interview_form-form-------------------------
 $(document).ready(function () {
   $("#interview_form").on("submit", function (e) {
     e.preventDefault();

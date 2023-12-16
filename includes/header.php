@@ -38,6 +38,7 @@ session_start();
     <link rel="stylesheet" href="./assets/css/success_stories.css">
     <link rel="stylesheet" href="./assets/css/partner_with_us.css">
     <link rel="stylesheet" href="./assets/css/employee_contact.css">
+    <link rel="stylesheet" href="./assets/css/application_success.css">
     <link rel="stylesheet" href="./assets/css/error.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="./assets/splide-4.1.3/dist/css/splide.min.css">
@@ -234,7 +235,14 @@ session_start();
                                     <!-- Display logout button when the user is logged in -->
                                     <div class="btns">
                                         <form id="std_log_out">
-                                            <button type="submit" name="log_out">Logout</button>
+                                            <div class="drop-list">
+                                            <a href="#!" class="hover-link"><img src="./assets/images/logout_icon.svg" alt=""></a>
+                                            <ul class="list-group bg-dark drop-item">
+                                                <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
+                                                <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
+                                            </ul>
+                                            </div>
+                                            <!-- <button type="submit" name="log_out">Logout</button> -->
                                         </form>
                                     </div>
                                 <?php

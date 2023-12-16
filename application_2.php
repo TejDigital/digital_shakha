@@ -6,7 +6,9 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
     echo '<script>window.location.href = "index.php";</script>';
     exit(); // Stop further execution
 }
-
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+}
 ?>
 <section class="application_1">
     <div class="container">
@@ -16,8 +18,9 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                   <img src="./assets/images/application_img_2.png" alt="">
                 </div>
             </div>
-            <div class="col-md-6 app-click">
-                <form class="formID" id="app_form" enctype="multipart/form-data">
+            <div class="col-md-6 app-click2">
+                <form class="formID2" id="app_form" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?=$id?>">
                     <div class="text">
                         <div class="heading">
                             <h1>Application</h1>
