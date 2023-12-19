@@ -36,7 +36,7 @@ if (isset($_POST['adduser'])) {
             $_SESSION['cons_msg'] = "Email Already taken !";
             header('location:registered.php');
         } else {
-            $adduser_qurey = "INSERT INTO users(name ,phone,email,password,type) values('$name','$phone','$email','$password','$type')";
+            $adduser_qurey = "INSERT INTO users(name,phone,email,password,type) values('$name','$phone','$email','$password','$type')";
 
             $adduser_connect_db = mysqli_query($con, $adduser_qurey);
 
@@ -83,9 +83,28 @@ if (isset($_POST['updateuser'])) {
 
 
 
-// ---------------------------------delete-------------------------------
+// ---------------------------------delete-for-user------------------------------
 
 if (isset($_POST['deleteuser'])) {
+
+    $user_id = $_POST['delete_id'];
+
+    $query_delete = " DELETE FROM users WHERE  id ='$user_id'";
+
+    $query_delete_run = mysqli_query($con, $query_delete);
+
+    if ($query_delete_run) {
+
+        $_SESSION['cons_msg'] = "User details deleted";
+        header('location:users.php');
+    } else {
+        $_SESSION['cons_msg'] = "User details deletion failed";
+        header('location:users.php');
+    }
+}
+// ---------------------------------delete-for-employee------------------------------
+
+if (isset($_POST['delete_employee'])) {
 
     $user_id = $_POST['delete_id'];
 

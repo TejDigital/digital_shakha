@@ -9,9 +9,9 @@
                     <div class="link_box">
                         <ul>
                             <li>
-                                <h5>SOCIAL</h5>
+                                <h5>MORE OF US</h5>
                             </li>
-                            <li><a href="#!">Twitter</a></li>
+                            <li><a href="./about.php">About us</a></li>
                             <li><a href="https://www.linkedin.com/company/digitalshakha/">Linkedin</a></li>
                             <li><a href="https://www.behance.net/digitalshakha_?tracking_source=search_projects|digitalshakha">Behance</a></li>
                             <li><a href="https://www.instagram.com/digitalshakha_/?utm_source=ig_web_button_share_sheet&igshid=ZDNlZDc0MzIxNw==">Instagram</a></li>
@@ -24,10 +24,10 @@
                             <li>
                                 <h5>DISCOVER</h5>
                             </li>
-                            <li><a href="#!">Why Us?</a></li>
-                            <li><a href="#!">Product Creation</a></li>
-                            <li><a href="#!">Product R&D</a></li>
-                            <li><a href="#!">Our approach</a></li>
+                            <li><a href="./opportunities.php">Opportunities</a></li>
+                            <li><a href="./program_option.php">Program Option</a></li>
+                            <li><a href="./seasonal_placements.php">Placements</a></li>
+                            <li><a href="./eligibility_criteria.php">Eligibility Criteria</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,11 +35,11 @@
                     <div class="link_box">
                         <ul>
                             <li>
-                                <h5>INTERNSHIPS</h5>
+                                <h5>PROGRAMS</h5>
                             </li>
                             <li><a href="./program_option.php">Programs</a></li>
                             <li><a href="#!">Curriculums</a></li>
-                            <li><a href="#!">Help and support</a></li>
+                            <li><a href="./contact.php">Help and support</a></li>
                             <li><a href="#!">Student Login</a></li>
                         </ul>
                     </div>

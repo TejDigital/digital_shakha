@@ -65,14 +65,14 @@ $(document).ready(function () {
       url: "././admin/register_code.php",
       data: formData,
       success: function (response) {
-        // console.log(response);
-        if (response == "email has been sent to your email id") {
+        let message = JSON.parse(response);
+        if (message.alert === 2) {
           clearRegisterForm();
           closeRegistrationModal();
           Swal.fire({
             position: "center",
             icon: "success",
-            text: response,
+            text: "email has been sent to your email id",
             showConfirmButton: false,
             showClass: {
               popup: "animate__animated animate__fadeInDown",
@@ -94,12 +94,13 @@ $(document).ready(function () {
             timer: 2500,
           });
           submitBtn.prop("disabled", true);
-        } else if (response == "Password and confirm password not match") {
+        } else if (message.alert === 13) {
+          clearRegisterForm();
           closeRegistrationModal();
           Swal.fire({
             position: "center",
             icon: "error",
-            text: response,
+            text: "Password and confirm password not match",
             showConfirmButton: false,
             showClass: {
               popup: "animate__animated animate__fadeInDown",
@@ -121,14 +122,13 @@ $(document).ready(function () {
             timer: 2500,
           });
           submitBtn.prop("disabled", true);
-        } else if (
-          response == "Something went wrong , please try after some time"
-        ) {
+        } else if (message.alert === 12) {
+          clearRegisterForm();
           closeRegistrationModal();
           Swal.fire({
             position: "center",
             icon: "error",
-            text: response,
+            text: "Something went wrong , please try after some time",
             showConfirmButton: false,
             showClass: {
               popup: "animate__animated animate__fadeInDown",
@@ -150,12 +150,17 @@ $(document).ready(function () {
             timer: 2500,
           });
           submitBtn.prop("disabled", true);
+        } else if (message.alert == 1) {
+          clearRegisterForm();
+          var sms = message.message;
+          $("#top").append(sms);
+          window.setTimeout(function () {
+            $("#success-alert").alert("close");
+          }, 4000);
         }
       },
       error: function (response) {
-        closeRegistrationModal();
-        alert("Something went wrong");
-        console.log(response);
+        alert("something wrong");
       },
     });
   });
@@ -335,7 +340,6 @@ $(document).ready(function () {
   }
 });
 
-
 //--------------Student-Logout-------------
 
 $(document).ready(function () {
@@ -397,11 +401,11 @@ $(document).ready(function () {
       contentType: false,
       success: function (response) {
         console.log(response);
-       var  parsed_data = JSON.parse(response);
-        if(parsed_data.success === 1){
+        var parsed_data = JSON.parse(response);
+        if (parsed_data.success === 1) {
           var ids = parsed_data.data;
           console.log(ids);
-        } 
+        }
         if (parsed_data.success === 1) {
           Swal.fire({
             position: "center",
@@ -427,7 +431,7 @@ $(document).ready(function () {
                                   no-repeat`,
             timer: 2500,
           }).then(function () {
-            window.location.href = "././application_2.php?id="+ids;
+            window.location.href = "././application_2.php?id=" + ids;
           });
         } else if (response == 10) {
           Swal.fire({
@@ -484,11 +488,11 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        var  parsed_data = JSON.parse(response);
-        if(parsed_data.success === 2){
+        var parsed_data = JSON.parse(response);
+        if (parsed_data.success === 2) {
           var ids = parsed_data.data;
           console.log(ids);
-        } 
+        }
         if (parsed_data.success == 2) {
           Swal.fire({
             position: "center",
@@ -514,7 +518,7 @@ $(document).ready(function () {
                                   no-repeat`,
             timer: 2500,
           }).then(function () {
-            window.location.href = "././application_3.php?id="+ids;
+            window.location.href = "././application_3.php?id=" + ids;
           });
         } else if (response == 20) {
           Swal.fire({
@@ -571,11 +575,11 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        var  parsed_data = JSON.parse(response);
-        if(parsed_data.success === 3){
+        var parsed_data = JSON.parse(response);
+        if (parsed_data.success === 3) {
           var ids = parsed_data.data;
           console.log(ids);
-        } 
+        }
         if (parsed_data.success == 3) {
           Swal.fire({
             position: "center",
@@ -601,7 +605,7 @@ $(document).ready(function () {
                                   no-repeat`,
             timer: 2500,
           }).then(function () {
-            window.location.href = "././application_4.php?id="+ids;
+            window.location.href = "././application_4.php?id=" + ids;
           });
         } else if (response == 30) {
           Swal.fire({
@@ -658,11 +662,11 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        var  parsed_data = JSON.parse(response);
-        if(parsed_data.success === 4){
+        var parsed_data = JSON.parse(response);
+        if (parsed_data.success === 4) {
           var ids = parsed_data.data;
           console.log(ids);
-        } 
+        }
         if (parsed_data.success == 4) {
           Swal.fire({
             position: "center",
@@ -688,7 +692,7 @@ $(document).ready(function () {
                                   no-repeat`,
             timer: 2500,
           }).then(function () {
-            window.location.href = "././application_success.php?id="+ids;
+            window.location.href = "././application_success.php?id=" + ids;
           });
         } else if (response == 40) {
           Swal.fire({
@@ -854,14 +858,13 @@ $(document).ready(function () {
   });
 });
 
-
 //-------------------------Event-register----------------
 $(document).ready(function () {
   $(".event_register").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
     var formData = form.serialize();
-    console.log(formData)
+    console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/event_register.php",
@@ -914,13 +917,13 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this);
     var formData = form.serialize();
-    console.log(formData)
+    console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/upcoming_batch_request.php",
       data: formData,
       success: function (response) {
-        $('#upcoming_modal').modal('hide');
+        $("#upcoming_modal").modal("hide");
         console.log(response);
         var result = JSON.parse(response);
         if (result.res == "1") {
@@ -951,7 +954,7 @@ $(document).ready(function () {
         }
       },
       error: function (response) {
-        $('#upcoming_modal').hide();
+        $("#upcoming_modal").hide();
         alert("Something went wrong");
         console.log(response);
       },
@@ -969,7 +972,7 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this);
     var formData = form.serialize();
-    console.log(formData)
+    console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/news_letter_ajax.php",
@@ -1005,7 +1008,7 @@ $(document).ready(function () {
         }
       },
       error: function (response) {
-        $('#upcoming_modal').hide();
+        $("#upcoming_modal").hide();
         alert("Something went wrong");
         console.log(response);
       },

@@ -15,7 +15,7 @@ if (isset($_GET['token'])) {
             $token_status_query = mysqli_query($con, $token_status);
 
             if ($token_status_query) {
-                $_SESSION['message'] = "you are verified";
+                $_SESSION['message'] = "You are verified ! Please login ";
                 header("location:.././?redirect=success");
             } else {
                 $_SESSION['message'] = "failed to verification";

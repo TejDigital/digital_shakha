@@ -70,7 +70,7 @@ require('./includes/header.php');
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="deleteuser" class="btn btn-danger">Yes,Delete.!</button>
+                    <button type="submit" name="delete_employee" class="btn btn-danger">Yes,Delete.!</button>
                 </div>
             </form>
         </div>

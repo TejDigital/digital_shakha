@@ -1,4 +1,4 @@
-<?php require('./includes/header.php'); 
+<?php require('./includes/header.php');
 if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
     echo '<script>window.location.href = "index.php";</script>';
     exit(); // Stop further execution
@@ -14,16 +14,34 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
             <div class="col-md-3">
                 <div class="progress_category">
                     <div class="heading">
+                        <h1>Your Dashboard</h1>
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div class="nav_btn toggle_btn mt-3 active_toggle_content">
                         <p>UX UI Designer</p>
-                        <div class="progress_list">
-                            <ul>
-                                <li class="click_btn active-btn active-icon" onclick="ontablink(event,'box1')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right" ></i></span> Overview</li>
-
-                                <li class="click_btn" onclick="ontablink(event,'box2')" id="event"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Materials</li>
-                                <li class="click_btn" onclick="ontablink(event,'box3')"> <span class="arrow_icon"> <i class="fa-solid fa-angle-right"></i></span>Grades</li>
-                                <li class="click_btn" onclick="ontablink(event,'box4')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Info</li>
-                            </ul>
-                        </div>
+                        <p class="plus"><i class="fa-solid fa-plus"></i></p>
+                        <p class="minus"><i class="fa-solid fa-minus "></i></p>
+                    </div>
+                    <div class="progress_list toggle_content">
+                        <ul>
+                            <li class="click_btn active-btn active-icon" onclick="ontablink(event,'box1')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span> Overview</li>
+                            <li class="click_btn" onclick="ontablink(event,'box2')" id="event"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Materials</li>
+                            <li class="click_btn" onclick="ontablink(event,'box3')"> <span class="arrow_icon"> <i class="fa-solid fa-angle-right"></i></span>Grades</li>
+                            <li class="click_btn" onclick="ontablink(event,'box4')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Info</li>
+                        </ul>
+                    </div>
+                    <div class="nav_btn toggle_btn mt-3">
+                        <p>Font-end dev</p>
+                        <p class="plus"><i class="fa-solid fa-plus"></i></p>
+                        <p class="minus"><i class="fa-solid fa-minus "></i></p>
+                    </div>
+                    <div class="progress_list toggle_content">
+                        <ul>
+                            <li class="click_btn active-btn active-icon" onclick="ontablink(event,'box1')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span> Overview</li>
+                            <li class="click_btn" onclick="ontablink(event,'box2')" id="event"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Materials</li>
+                            <li class="click_btn" onclick="ontablink(event,'box3')"> <span class="arrow_icon"> <i class="fa-solid fa-angle-right"></i></span>Grades</li>
+                            <li class="click_btn" onclick="ontablink(event,'box4')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Info</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -340,12 +358,28 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                         <p><i class="fa-solid fa-location-dot"></i> Started at: Started at: </p>
                         <p> <img src="./assets/images/Certificate.png" alt=""> Estimated End Date: <span>12 AUG 2023</span> </p>
                     </div>
+                    <div class="modal fade" id="request_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <h1 style="font-size: 1.8rem; font-weight:700; line-height:40px; color:#BB5327">Write us a message.</h1>
+                                    <p style="font-size: 0.9rem; font-weight:400; line-height:20px;">Tell us what you want to learn or if you have any questions. We're here to help !</p>
+                                    <textarea class="form-control" cols="30" rows="5"></textarea>
+                                    <button type="button" style="font-weight:600; background-color: #BB5327; color:#fff; padding:0.7rem 1.1rem; border:0;" class="my-3" data-bs-dismiss="modal">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="bottom_text">
                         <h1>Your Learning, Your Way!</h1>
                         <p>Tell us what you want to learn or if </p>
                         <p>you have any questions.</p>
                         <p>We're here to help !</p>
-                        <a href="#!">Request</a>
+                        <a href="#!" class="request_btn">Request</a>
                     </div>
                 </div>
             </div>
@@ -355,7 +389,17 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
 <?php require('./includes/footer.php'); ?>
 <?php require('./includes/script.php'); ?>
 <script>
-
+    $(document).ready(function() {
+        $('.request_btn').click(function(e) {
+            e.preventDefault();
+            var user_id = $(this).val();
+            // console.log(user_id);
+            // $('.program').val(user_id);
+            $('#request_modal').modal('show');
+        });
+    });
+</script>
+<script>
     let tab_btns = document.getElementsByClassName("click_btn");
     let tab_boxes = document.getElementsByClassName("change_box");
 
@@ -364,7 +408,7 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
             tab_btn.classList.remove("active-btn");
             tab_btn.classList.remove("active-icon");
         }
-        
+
         for (tab_box of tab_boxes) {
             tab_box.style.opacity = 0; // Set opacity to 0 for all tab contents
         }
@@ -379,5 +423,30 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
         }, 100); // Adjust the duration as needed
         event.currentTarget.classList.add("active-icon");
     }
+</script>
+<script>
+    $(document).ready(function() {
+        $(".toggle_btn").click(function() {
+            // Close all other toggle_content elements
+            $(".toggle_content").slideUp();
+            $(".toggle_btn").removeClass("active_toggle_content");
+            $(".plus").show();
+            $(".minus").hide();
+
+            // Toggle the clicked toggle_content
+            var panel = $(this).next(".toggle_content");
+            $(this).toggleClass("active_toggle_content");
+
+            if (panel.is(":hidden")) {
+                panel.slideDown();
+                $(this).find('.plus').hide();
+                $(this).find('.minus').show();
+            } else {
+                panel.slideUp();
+                $(this).find('.plus').show();
+                $(this).find('.minus').hide();
+            }
+        });
+    });
 </script>
 <?php require('./includes/end_html.php'); ?>

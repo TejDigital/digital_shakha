@@ -40,6 +40,7 @@ session_start();
     <link rel="stylesheet" href="./assets/css/employee_contact.css">
     <link rel="stylesheet" href="./assets/css/application_success.css">
     <link rel="stylesheet" href="./assets/css/error.css">
+    <link rel="stylesheet" href="./assets/css/about.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css">
     <link rel="stylesheet" href="./assets/splide-4.1.3/dist/css/splide.min.css">
     <link rel="stylesheet" href="./assets/css/preloading/effect.css">
@@ -164,7 +165,7 @@ session_start();
                                     <li class="list-group-item"><a href="./program_option.php">Program Options <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./internship_track_0.php">Internship Tracks <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./seasonal_placements.php">Seasonal Placements <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="./eligibility_criteria.php">Eligibility Criteria  <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./eligibility_criteria.php">Eligibility Criteria <i class="color-ball"></i></a></li>
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
@@ -220,7 +221,7 @@ session_start();
                             <li class="nav-item list-group-item padding2">
 
                                 <?php
-                                if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth'] && !isset($_SESSION['std_auth_user']['user_name']) || !$_SESSION['std_auth_user']['user_name'] ) {
+                                if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth'] && !isset($_SESSION['std_auth_user']['user_name']) || !$_SESSION['std_auth_user']['user_name']) {
                                 ?>
                                     <!-- Display login and signup buttons when the user is not logged in -->
                                     <div class="btns">
@@ -235,11 +236,11 @@ session_start();
                                     <div class="btns">
                                         <form id="std_log_out">
                                             <div class="drop-list">
-                                            <a href="#!" class="hover-link"><img src="./assets/images/logout_icon.svg" alt=""></a>
-                                            <ul class="list-group bg-dark drop-item">
-                                                <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
-                                                <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
-                                            </ul>
+                                                <a href="#!" class="hover-link"><img src="./assets/images/logout_icon.svg" alt=""></a>
+                                                <ul class="list-group bg-dark drop-item">
+                                                    <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
+                                                    <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
+                                                </ul>
                                             </div>
                                             <!-- <button type="submit" name="log_out">Logout</button> -->
                                         </form>
@@ -321,6 +322,9 @@ session_start();
                     unset($_SESSION['message']);
                 }
                 ?>
+                <div class="top" id="top">
+                   
+                </div>
                 <div class="btn_box">
                     <div class="close_signup">
                         <p class="close_signup_btn" id="close_signup_btn">

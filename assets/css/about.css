@@ -1,0 +1,355 @@
+.about_1 {
+    padding: 6rem 4rem 2rem 4rem;
+}
+
+.about_1 .text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 50px;
+}
+
+.about_1 .text p:nth-child(2) {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 30px;
+    color: #615D5D;
+}
+
+.about_1 .text p:nth-child(3) {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 30px;
+    color: #615D5D;
+}
+
+.about_1 .dot-position {}
+
+.about_1 .img {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+}
+
+.about_1 .img .dot1 {
+    position: absolute;
+    top: 0;
+    display: block;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #BB5327;
+}
+
+.about_1 .img .dot2 {
+    position: absolute;
+    display: block;
+    right: 0rem;
+    top: 0;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: #BB5327;
+}
+
+.about_1 .img .dot3 {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #BB5327;
+}
+
+.about_1 .img .dot4 {
+    position: absolute;
+    right: 2rem;
+    bottom: -2rem;
+    display: block;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: #5C2109;
+}
+
+.about_1 .img img {
+    width: 95%;
+    /* height: 90%; */
+    aspect-ratio: 2/25C2109;
+}
+
+@media(max-width:768px) {
+    .about_1 {
+        padding: 2rem 0;
+    }
+}
+
+/* ------------------------about_2--------------------- */
+.about_2 {
+    padding: 2rem 4rem;
+}
+
+.about_2 .box {
+    padding: 0.5rem;
+}
+
+.about_2 .box h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 32px;
+    color: #BB5327;
+}
+
+.about_2 .box p {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 24px;
+    color: #615D5D;
+}
+
+/* -----------------about_3-------------------- */
+.about_3 {
+    padding: 2rem 4rem;
+}
+
+.about_3 .container>.heading h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 40px;
+}
+
+.about_3 .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about_3 .col-md-2 {
+    padding: 0.3rem;
+    margin: 0.5rem 0;
+}
+
+.about_3 .box {
+    padding: 0.5rem;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    border: 1px solid #5C2109;
+    flex-direction: column;
+    width: 100%;
+    aspect-ratio: 2/2;
+}
+
+.about_3 .box .heading {
+    padding: 1rem 0;
+}
+
+.about_3 .box .heading h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 24px;
+    color: #BB5327;
+}
+
+.about_3 .box p {
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 20px;
+    color: #BB5327;
+}
+
+@media(max-width:768px) {
+    .about_3 {
+        padding: 2rem 0.1rem;
+    }
+
+    .about_3 .container>.heading h1 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        line-height: 40px;
+    }
+
+    .about_3 .box {
+        padding: 0.5rem;
+        display: flex;
+        align-items: start;
+        justify-content: space-between;
+        border: 1px solid #5C2109;
+        flex-direction: column;
+        width: 100%;
+        aspect-ratio: 3/2;
+    }
+}
+
+/* --------------------about_4------------------- */
+.about_4 {
+    padding: 2rem 4rem;
+}
+
+.about_4 .heading h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 40px;
+}
+
+.about_4 .row {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.about_4 .box {
+    width: 180px;
+    aspect-ratio: 2/2;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about_4 .box .img {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about_4 .box .img img {
+    width: 100%;
+    height: 100%;
+}
+
+.about_4 .box p {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.about_4 .end_text {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.about_4 .end_text a {
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 30px;
+    color: #BB5327;
+}
+
+.about_4 .end_text a svg {
+    margin-left: 0.4rem;
+}
+
+@media(max-width:768px) {
+    .about_4 {
+        padding: 2rem 0.1rem;
+    }
+
+    .about_4 .box {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .about_4 .box p {
+        text-align: center;
+    }
+}
+
+/* ------------------about_5------------ */
+.about_5 {
+    padding: 2rem 4rem;
+}
+
+.about_5 .heading h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 40px;
+}
+
+.about_5 .part_2 .heading h1 {
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 40px;
+    color: #BB5327;
+}
+
+.about_5 .part_3 .heading {
+    text-align: center;
+}
+
+.about_5 .part_3 .heading h1 {
+    text-align: center;
+}
+
+.about_5 .text {
+    padding: 1rem 0;
+}
+
+.about_5 .text p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 1rem 0;
+}
+
+.about_5 .text p a {
+    color: #BB5327;
+}
+
+.about_5 .part_3 .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about_5 .part_3 .row .col-md-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.about_5 .part_3 .box {
+    width: 100px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+}
+
+.about_5 .end_text {
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.about_5 .end_text p {
+    font-size: 1.2rem;
+    color: #BB5327;
+    font-weight: 600;
+    text-align: center;
+    line-height: 28px;
+}
+
+.about_5 .end_text .img {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about_5 .end_text .img img {
+    width: 100%;
+}
+
+@media(max-width:768px) {
+    .about_5 {
+        padding: 2rem 0.1rem;
+    }
+}
