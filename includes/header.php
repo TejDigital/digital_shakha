@@ -62,7 +62,6 @@ session_start();
         padding: 3rem;
         flex-direction: column;
         animation: slideUp 1s linear;
-
     }
 
     .preloader2 {
@@ -117,7 +116,7 @@ session_start();
         }
 
         100% {
-            transform: translateY(-100%);
+            transform: translateY(-100vh);
             opacity: 1;
             animation-timing-function: ease-out;
         }

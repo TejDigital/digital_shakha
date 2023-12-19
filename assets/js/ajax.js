@@ -59,14 +59,15 @@ $(document).ready(function () {
     var submitBtn = $("#submitBtn");
     // Disable the submit button
     submitBtn.prop("disabled", true);
-    console.log(formData);
+    // console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/register_code.php",
       data: formData,
       success: function (response) {
-        console.log(response);
+        // console.log(response);
         if (response == "email has been sent to your email id") {
+          clearRegisterForm();
           closeRegistrationModal();
           Swal.fire({
             position: "center",
@@ -160,6 +161,10 @@ $(document).ready(function () {
   });
   function closeRegistrationModal() {
     $("#registerModal").hide();
+  }
+  var reg_form = $("#std_register_form")[0];
+  function clearRegisterForm() {
+    reg_form.reset();
   }
 });
 

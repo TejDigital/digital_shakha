@@ -30,7 +30,7 @@ if (isset($_SESSION['digi_meg'])) {
 }
 ?>
 <div class="page-header">
-    <h3 class="page-title">Event Edit </h3>
+    <h3 class="page-title">Upcoming batch Edit </h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./upcoming_batches.php">Home</a></li>
@@ -46,7 +46,7 @@ if (isset($_SESSION['digi_meg'])) {
                 <div class="row">
                     <div class="col-md-4">
                         <label for="">Batch Name</label>
-                        <select name="name" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                        <select name="name" class="form-select mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                             <?php
                             $sql = "SELECT * FROM program_tbl WHERE program_status = 1";
                             $sql_run = mysqli_query($con, $sql);
@@ -64,7 +64,7 @@ if (isset($_SESSION['digi_meg'])) {
                     </div>
                     <div class="col-md-4">
                         <Label>Status</Label>
-                        <select name="status" class="form-select mb-2" style="background:#2A3038 !important; color:#fff !important;">
+                        <select name="status" class="form-select mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                             <option <?php if ($row['batch_status'] == 1) {
                                         echo "selected";
                                     } ?> value="1">Active</option>

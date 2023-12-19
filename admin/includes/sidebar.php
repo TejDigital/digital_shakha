@@ -58,6 +58,22 @@
             <span class="menu-title">Dashboard</span>
           </a>
         </li>
+
+        <li class="nav-item menu-items">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Application</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic5">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./application.php">Application</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./application_price.php">Application amount</a></li>
+            </ul>
+          </div>
+        </li>
         <li class="nav-item menu-items">
           <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-icon">
@@ -161,14 +177,6 @@
               <i class="mdi mdi-application"></i>
             </span>
             <span class="menu-title">Home Testimonial</span>
-          </a>
-        </li>
-        <li class="nav-item menu-items">
-          <a class="nav-link" href="./application.php">
-            <span class="menu-icon">
-              <i class="mdi mdi-application"></i>
-            </span>
-            <span class="menu-title">Application</span>
           </a>
         </li>
         <li class="nav-item menu-items">
