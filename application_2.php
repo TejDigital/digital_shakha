@@ -20,7 +20,7 @@ if(isset($_GET['id'])){
             </div>
             <div class="col-md-6 app-click2">
                 <form class="formID2" id="app_form" enctype="multipart/form-data">
-                    <input type="text" name="id" value="<?=$id?>">
+                    <input type="hidden" name="id" value="<?=$id?>">
                     <div class="text">
                         <div class="heading">
                             <h1>Application</h1>

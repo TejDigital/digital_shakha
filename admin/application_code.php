@@ -13,10 +13,10 @@ if (isset($_POST['first_name'])) {
     if (mysqli_num_rows($query) > 0) {
         if ($row = mysqli_fetch_assoc($query)) {
             $Rid = $row['registration_id'];
-            $get_num = str_replace("DS ".date('y'), "",$Rid);
-            $Rid_increase = $get_num+1;
+            $get_num = str_replace("DS".date('y'), "",$Rid);
+            $Rid_increase = $get_num + 1;
             $get_string = str_pad($Rid_increase,3,0,STR_PAD_LEFT);
-            $Reg_id = "DS".$get_string;
+            $Reg_id = "DS".date('y').$get_string;
             $sql = "INSERT INTO application_tbl(registration_id,name, last_name, gender, dob, profile_photo) VALUES ('$Reg_id','$first_name','$last_name','$gender','$dob','$photo')";
 
             $sql_run  = mysqli_query($con, $sql);
