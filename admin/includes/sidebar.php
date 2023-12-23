@@ -60,6 +60,23 @@
         </li>
 
         <li class="nav-item menu-items">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic6" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Internship Track</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic6">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./internship_track_course_material.php">Course Material</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./internship_track_course_info.php">Course Info</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./internship_mentor_grading.php">Mentor Grading</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./internship_track_grade.php">Course Grade</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
           <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic5" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-icon">
               <i class="mdi mdi-laptop"></i>

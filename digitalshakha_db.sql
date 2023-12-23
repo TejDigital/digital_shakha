@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2023 at 01:42 PM
+-- Generation Time: Dec 23, 2023 at 05:56 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `digitalshakha_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `application_price_tbl`
+--
+
+CREATE TABLE `application_price_tbl` (
+  `price_id` int(11) NOT NULL,
+  `course_name` tinyint(4) NOT NULL,
+  `price` varchar(10) NOT NULL,
+  `price_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `application_price_tbl`
+--
+
+INSERT INTO `application_price_tbl` (`price_id`, `course_name`, `price`, `price_status`, `created_at`, `updated_at`) VALUES
+(1, 0, '2000', 0, '2023-12-18 03:49:45', '2023-12-18 03:54:05');
 
 -- --------------------------------------------------------
 
@@ -62,9 +84,9 @@ CREATE TABLE `application_tbl` (
 --
 
 INSERT INTO `application_tbl` (`id`, `registration_id`, `name`, `last_name`, `gender`, `dob`, `phone`, `email`, `address_1`, `address_2`, `pin_code`, `city`, `state`, `country`, `collage`, `degree`, `course`, `duration`, `know_about_as`, `referral_code`, `profile_photo`, `payment_photo`, `transaction_id`, `payment_status`, `status`, `created_at`, `updated_at`) VALUES
-(1, '', 'Rohan ', 'Sahu', 'male', '2023-12-13', 987654323, 'rohan@gmail.com', 'balod 1', 'balod 2', 491223, '9', '7', '101', 'UPU Govt. Polytechnic Durg', 0, 8, 3, 0, 8765456, 'blog_view.png', 'blog_img_3.png', '', 0, 1, '2023-12-04 10:38:58', '2023-12-04 10:38:58'),
-(2, '', 'Prince', 'Singh', 'male', '2023-12-20', 1234567596, 'prince@gmail.com', 'bhilai 1', 'bhilai 2', 844501, '9', '5', '101', 'LPU', 0, 8, 6, 0, 876543456, 'seasonal_pacements_bg_1.png', 'seasonal_pacement_explore_3.png', '', 0, 1, '2023-12-04 10:41:41', '2023-12-04 10:41:41'),
-(12, '', 'Nobita', 'singh', 'male', '2023-12-17', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 491223, '1882', '7', '101', 'Rungta R1', 1, 8, 6, 2, 2345678, 'profile-2.png', 'gallery_3.png', '9876556772', 0, 1, '2023-12-16 10:09:30', '2023-12-16 10:09:30');
+(1, 'DS23101', 'Nobita', 'singh', 'male', '2023-12-23', 2147483647, 'bhoj@gmail.com', 'bhilai 1', 'balod 2', 492230, '9', '7', '101', 'LPU', 3, 1, 6, 1, 987679, 'resources_bg_3.png', 'cover_letter_img_4.png', '567890', 0, 1, '2023-12-19 05:06:02', '2023-12-19 05:06:02'),
+(5, 'DS23102', 'Doremon ', 'gupta', 'male', '2023-12-23', 1234567596, 'rohan@gmail.com', 'balod 1', 'bhilai 2', 987656, '1064', '12', '101', 'LPU', 2, 4, 4, 2, 987679, 'application_bg_1.png', 'cover_letter_img_3.png', '9876545', 0, 1, '2023-12-20 07:31:52', '2023-12-20 07:31:52'),
+(7, 'DS23103', 'Gian', 'singh', 'male', '2023-12-20', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 456787, '30', '13', '101', 'UPU Govt. Polytechnic Durg', 1, 3, 4, 1, 8765456, 'resources_bg_1.png', 'program_box_bg_6.png', '9876545', 0, 1, '2023-12-20 07:32:07', '2023-12-20 07:32:07');
 
 -- --------------------------------------------------------
 
@@ -257,6 +279,104 @@ INSERT INTO `faqs_tbl` (`faqs_id`, `faq_question`, `faq_ans`, `faq_status`, `cre
 (7, 'What is the duration of the programs?', 'Eligibility criteria vary by program. You can find specific details on each program\'s eligibility on our website.', 1, '2023-11-24 12:10:20', '2023-11-24 12:10:20'),
 (8, 'Can I complete the programs online, or do I need to be on-site?', 'Eligibility criteria vary by program. You can find specific details on each program\'s eligibility on our website.', 1, '2023-11-24 12:10:44', '2023-11-24 12:10:44'),
 (9, 'What happens after I complete a program?', 'Eligibility criteria vary by program. You can find specific details on each program\'s eligibility on our website.', 1, '2023-11-24 12:11:03', '2023-11-24 12:11:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `internship_course_info_tbl`
+--
+
+CREATE TABLE `internship_course_info_tbl` (
+  `course_info_id` int(11) NOT NULL,
+  `program` tinyint(4) NOT NULL,
+  `course_info` mediumtext NOT NULL,
+  `info_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `internship_course_info_tbl`
+--
+
+INSERT INTO `internship_course_info_tbl` (`course_info_id`, `program`, `course_info`, `info_status`, `created_at`, `updated_at`) VALUES
+(2, 3, '<div class=\"\\&quot;\\\\&quot;\\\\\\\\&quot;overview\\\\\\\\&quot;\\\\&quot;\\&quot;\">\r\n<div class=\"overview\">\r\n<p>Overview:</p>\r\n<p>DigitalShakha\\\'s UX UI Design Program is a comprehensive 6-month course designed to equip you with the skills and knowledge needed to excel in the field of User Experience (UX) and User Interface (UI) design. This program offers a deep dive into the principles, tools, and practices required to create seamless and visually appealing digital experiences.</p>\r\n</div>\r\n<div class=\"courses\">\r\n<p>Course Highlights:</p>\r\n<ul>\r\n<li>\r\n<p>Duration:&nbsp;6 months of intensive learning.</p>\r\n</li>\r\n<li>\r\n<p>Instructors:&nbsp;Learn from industry experts with extensive experience in UX UI design.</p>\r\n</li>\r\n<li>\r\n<p>Curriculum:&nbsp;A well-structured curriculum covering the fundamentals of UX UI design, including user research, wireframing, prototyping, and design principles.</p>\r\n</li>\r\n<li>\r\n<p>Practical Projects:&nbsp;Gain hands-on experience by working on real-world projects, enhancing your design portfolio.</p>\r\n</li>\r\n<li>\r\n<p>Tool Proficiency:&nbsp;Become proficient in industry-standard design tools such as Adobe XD, Figma, and Sketch.</p>\r\n</li>\r\n<li>\r\n<p>Portfolio Development:&nbsp;Craft an impressive design portfolio to showcase your skills to potential employers.</p>\r\n</li>\r\n<li>\r\n<p>Career Support:&nbsp;Benefit from career guidance, job placement assistance, and networking opportunities.</p>\r\n</li>\r\n<li>\r\n<p>Certification:&nbsp;Upon successful completion, receive a certificate recognized in the industry.</p>\r\n</li>\r\n</ul>\r\n</div>\r\n<div class=\"courses\">\r\n<p>Course Structure:</p>\r\n<ul>\r\n<li>\r\n<p>Fundamentals of UX UI Design:&nbsp;Understand the core principles, methodologies, and best practices.</p>\r\n</li>\r\n<li>\r\n<p>User Research:&nbsp;Learn how to conduct user research to inform your design decisions.</p>\r\n</li>\r\n<li>\r\n<p>Wireframing and Prototyping:&nbsp;Create wireframes and interactive prototypes for user testing.</p>\r\n</li>\r\n<li>\r\n<p>Visual Design:&nbsp;Develop a keen eye for aesthetics and UI design elements.</p>\r\n</li>\r\n<li>\r\n<p>Design Tools:&nbsp;Master design software and tools for efficient design work.</p>\r\n</li>\r\n<li>\r\n<p>Project Work:&nbsp;Apply your knowledge in real-world projects to build a professional portfolio.</p>\r\n</li>\r\n<li>\r\n<p>Career Development:&nbsp;Receive guidance on job hunting, interview preparation, and industry networking.</p>\r\n</li>\r\n</ul>\r\n</div>\r\n</div>', 1, '2023-12-20 06:46:34', '2023-12-20 07:04:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `internship_course_material_tbl`
+--
+
+CREATE TABLE `internship_course_material_tbl` (
+  `course_material_id` int(11) NOT NULL,
+  `material_name` varchar(100) NOT NULL,
+  `program` tinyint(4) NOT NULL,
+  `material` varchar(100) NOT NULL,
+  `material_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `internship_course_material_tbl`
+--
+
+INSERT INTO `internship_course_material_tbl` (`course_material_id`, `material_name`, `program`, `material`, `material_status`, `created_at`, `updated_at`) VALUES
+(3, 'Digital', 3, 'cover_letter_img_6.png', 1, '2023-12-20 06:21:37', '2023-12-20 07:12:18');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `internship_grade_tbl`
+--
+
+CREATE TABLE `internship_grade_tbl` (
+  `grade_id` int(11) NOT NULL,
+  `program` tinyint(4) NOT NULL,
+  `app_id` tinyint(4) NOT NULL,
+  `grade_status_main` tinyint(4) NOT NULL DEFAULT 0,
+  `grade_weight` varchar(10) NOT NULL,
+  `grade_percent` varchar(10) NOT NULL,
+  `mentor_grading` int(10) NOT NULL,
+  `milestone_completed` int(10) NOT NULL,
+  `grade_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `internship_grade_tbl`
+--
+
+INSERT INTO `internship_grade_tbl` (`grade_id`, `program`, `app_id`, `grade_status_main`, `grade_weight`, `grade_percent`, `mentor_grading`, `milestone_completed`, `grade_status`, `created_at`, `updated_at`) VALUES
+(1, 3, 7, 2, '20', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:01'),
+(2, 3, 7, 0, '20', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:10'),
+(3, 3, 7, 0, '12', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:16'),
+(4, 3, 7, 0, '', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `internship_mentor_grading_tbl`
+--
+
+CREATE TABLE `internship_mentor_grading_tbl` (
+  `mentor_grading_id` int(11) NOT NULL,
+  `app_id` tinyint(4) NOT NULL,
+  `mentor_grading` int(11) NOT NULL,
+  `milestone_completed` int(11) NOT NULL,
+  `mentor_grading_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `internship_mentor_grading_tbl`
+--
+
+INSERT INTO `internship_mentor_grading_tbl` (`mentor_grading_id`, `app_id`, `mentor_grading`, `milestone_completed`, `mentor_grading_status`, `created_at`, `updated_at`) VALUES
+(2, 7, 7, 4, 1, '2023-12-22 09:33:34', '2023-12-22 09:33:34');
 
 -- --------------------------------------------------------
 
@@ -8347,7 +8467,7 @@ CREATE TABLE `upcoming_batch_tbl` (
 --
 
 INSERT INTO `upcoming_batch_tbl` (`batch_id`, `batch_name`, `batch_mode`, `batch_address`, `batch_date`, `batch_start_time`, `batch_end_time`, `batch_status`, `availability`, `created_at`, `updated_at`) VALUES
-(1, 16, 'Offline', 'Bhilai', '2023-11-17', '07:20:00', '21:20:00', 1, 1, '2023-11-23 12:50:55', '2023-12-08 09:42:46'),
+(1, 12, 'Offline', 'Bhilai', '2023-11-17', '07:20:00', '21:20:00', 1, 1, '2023-11-23 12:50:55', '2023-12-19 09:46:53'),
 (3, 5, 'Online', 'Bhilai', '2023-11-24', '10:01:00', '17:01:00', 1, 1, '2023-11-23 13:31:18', '2023-12-08 09:42:32'),
 (4, 4, 'Offline', 'Bhilai', '2023-11-26', '11:01:00', '15:01:00', 1, 0, '2023-11-23 13:31:46', '2023-12-08 10:31:19');
 
@@ -8378,16 +8498,19 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `registration_id`, `name`, `phone`, `email`, `password`, `type`, `verification_token`, `verification_status`, `status`, `created_at`, `updated_at`) VALUES
 (1, '', 'Super Admin', '1234567890', 'admin@gmail.com', '12345', 'admin', '', 1, 1, '2023-10-27 10:19:00', '2023-10-31 05:23:16'),
-(2, '', 'Tejpratap', '0987654321', 'tejpratap.digitalshakha@gmail.com', '12345', 'employee', '', 0, 1, '2023-10-27 11:17:42', '2023-10-28 12:48:07'),
-(4, '', 'Bhoj kumar', '987654323', 'bhoj@gmail.com', '12345', 'user', '', 0, 1, '2023-10-27 13:14:46', '2023-10-28 12:48:07'),
 (5, '', 'ashutosh', '1233445678', 'ashutosh@gmail.com', '12345', 'employee', '', 0, 1, '2023-10-27 13:31:39', '2023-10-28 12:48:07'),
-(6, '', 'Shubham', '12345678', 'shubham@gmail.com', '12345', 'user', '', 0, 1, '2023-10-28 09:02:38', '2023-10-28 12:48:07'),
-(17, '', 'tejpratap sahu', '6543234567', 'tejpratapsahu00@gmail.com', '$2y$10$A0CpaT/LdwvMN/9bdHvnw.qt/nMKFiO17naG4d.S6Fp07UqRPVD8G', 'user', '7669e77aad98b55457aed970cb2eae4b', 1, 1, '2023-12-03 22:07:26', '2023-12-03 22:07:39'),
-(18, '', 'tejpratap', '0987654323', 'tejpratap.digitalshakha@gmail.com', '$2y$10$lkWY6IDfxHm.uBZvya8ZFegzeG.u2gURqW0nXCC6cf1eI0lcj1gwy', 'user', 'd54c6955ce3079c0e4f9fe6a82c64a61', 0, 1, '2023-12-03 22:14:34', '2023-12-03 22:15:29');
+(19, '', 'tejpratap sahu', '8765432345', 'tejpratap.digitalshakha@gmail.com', '$2y$10$WmJyh8/dwWN2tkbP4V6iUuRBCzQlSYoBgCGOa7SfE7Etq.VkiVJOi', 'user', '74eb3d26adb230521ccc7f205b928f66', 1, 1, '2023-12-19 06:46:33', '2023-12-19 06:47:07'),
+(24, '', 'tejpratap sahu', '6260131302', 'tejpratapsahu00@gmail.com', '$2y$10$L3SHQu49P4wQy0qEWbOZYuB2TDGPWwuSujaO.xmS5ttV4sx0dNx4G', 'user', 'dcbb3c9d82f55cbcc68539403f838aa5', 1, 1, '2023-12-19 09:37:42', '2023-12-19 09:37:54');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `application_price_tbl`
+--
+ALTER TABLE `application_price_tbl`
+  ADD PRIMARY KEY (`price_id`);
 
 --
 -- Indexes for table `application_tbl`
@@ -8436,6 +8559,30 @@ ALTER TABLE `event_tbl`
 --
 ALTER TABLE `faqs_tbl`
   ADD PRIMARY KEY (`faqs_id`);
+
+--
+-- Indexes for table `internship_course_info_tbl`
+--
+ALTER TABLE `internship_course_info_tbl`
+  ADD PRIMARY KEY (`course_info_id`);
+
+--
+-- Indexes for table `internship_course_material_tbl`
+--
+ALTER TABLE `internship_course_material_tbl`
+  ADD PRIMARY KEY (`course_material_id`);
+
+--
+-- Indexes for table `internship_grade_tbl`
+--
+ALTER TABLE `internship_grade_tbl`
+  ADD PRIMARY KEY (`grade_id`);
+
+--
+-- Indexes for table `internship_mentor_grading_tbl`
+--
+ALTER TABLE `internship_mentor_grading_tbl`
+  ADD PRIMARY KEY (`mentor_grading_id`);
 
 --
 -- Indexes for table `news_letter_tbl`
@@ -8556,10 +8703,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `application_price_tbl`
+--
+ALTER TABLE `application_price_tbl`
+  MODIFY `price_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `application_tbl`
 --
 ALTER TABLE `application_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `blog_category_tbl`
@@ -8602,6 +8755,30 @@ ALTER TABLE `event_tbl`
 --
 ALTER TABLE `faqs_tbl`
   MODIFY `faqs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `internship_course_info_tbl`
+--
+ALTER TABLE `internship_course_info_tbl`
+  MODIFY `course_info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `internship_course_material_tbl`
+--
+ALTER TABLE `internship_course_material_tbl`
+  MODIFY `course_material_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `internship_grade_tbl`
+--
+ALTER TABLE `internship_grade_tbl`
+  MODIFY `grade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `internship_mentor_grading_tbl`
+--
+ALTER TABLE `internship_mentor_grading_tbl`
+  MODIFY `mentor_grading_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `news_letter_tbl`
@@ -8715,7 +8892,7 @@ ALTER TABLE `upcoming_batch_tbl`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,8 +1,6 @@
 <?php require('./includes/header.php');
 require('./admin/config/dbcon.php');
-
 ?>
-
 <section class="event_1">
     <div class="container ">
         <div class="heading">

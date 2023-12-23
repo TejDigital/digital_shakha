@@ -50,6 +50,12 @@
     margin: 0;
     line-height: 30px;
 }
+.internship_track_1 .progress_category .heading h1.active-icon{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 30px;
+}
 .internship_track_1 .progress_category{
     margin: 1rem 0;
 }
@@ -335,7 +341,7 @@
     line-height: 28px;
 }
 
-.internship_track_1 .right_box .bottom_text a {
+.internship_track_1 .right_box .bottom_text button {
     padding: 0.6rem 1rem;
     background-color: transparent;
     color: #BB5327;
@@ -500,4 +506,8 @@
     .internship_track_1 {
         padding: 2rem 1rem;
     }
+}
+
+.grade table tbody .table_row td:last-child p{
+    /* background-color: #008F17; */
 }

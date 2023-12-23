@@ -22,6 +22,7 @@
             document.querySelector('.preloader2').style.display = 'flex';
             setTimeout(function() {
                 document.querySelector('.preloader2').style.display = 'none';
+                document.querySelector('.preloader').style.display = 'none';
             }, 500);
         }, 1000);
     }

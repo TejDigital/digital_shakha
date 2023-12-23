@@ -34,14 +34,14 @@ if (isset($_GET['id'])) {
             <form action="./schedule_interview_edit_code.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="<?= $row['id'] ?>" name="id">
                 <Label>interview status</Label>
-                <select name="interview_status" class="form-select mb-2"   style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
-                        <option <?php if ($row['interview_status'] == 1) {
-                                    echo "selected";
-                                } ?> value="1">Done</option>
-                        <option <?php if ($row['interview_status'] == 0) {
-                                    echo "selected";
-                                } ?> value="0">Pending</option>
-                    </select>
+                <select name="interview_status" class="form-select mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                    <option <?php if ($row['interview_status'] == 1) {
+                                echo "selected";
+                            } ?> value="1">Done</option>
+                    <option <?php if ($row['interview_status'] == 0) {
+                                echo "selected";
+                            } ?> value="0">Pending</option>
+                </select>
                 <label for="">Unique Id</label>
                 <input type="text" name="unique_id" class="form-control my-2" value="<?= $row['unique_id'] ?>">
                 <label for="">Name</label>
@@ -49,9 +49,9 @@ if (isset($_GET['id'])) {
                 <label for="">email</label>
                 <input type="email" name="email" class="form-control my-2" value="<?= $row['email'] ?>">
                 <label for="">Phone</label>
-                <input type="text" name="phone"  maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" class="form-control my-2" value="<?= $row['phone'] ?>">
+                <input type="text" name="phone" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" class="form-control my-2" value="<?= $row['phone'] ?>">
                 <label for="">Position</label>
-                <select name="position" class="form-select"   style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                <select name="position" class="form-select" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

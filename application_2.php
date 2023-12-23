@@ -6,7 +6,7 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
     echo '<script>window.location.href = "index.php";</script>';
     exit(); // Stop further execution
 }
-if(isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
 }
 ?>
@@ -15,23 +15,26 @@ if(isset($_GET['id'])){
         <div class="row">
             <div class="col-md-6  d-flex align-items-center justify-content-center">
                 <div class="img_area">
-                  <img src="./assets/images/application_img_2.png" alt="">
+                    <img src="./assets/images/application_img_2.png" alt="">
                 </div>
             </div>
             <div class="col-md-6 app-click2">
                 <form class="formID2" id="app_form" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?=$id?>">
+                    <input type="hidden" name="id" value="<?= $id ?>">
                     <div class="text">
                         <div class="heading">
                             <h1>Application</h1>
-                            <p>Candidate Application Form</p>
+                            <p>Candidate Application Form</p> 
                             <div class="step_text">
-                                <p class="m-0"><span>Step 1 >> Step 2 >> </span>  Step 3 >> Step 4</p>
+                                <p class="m-0"><span>Step 1 >> Step 2 >> </span> Step 3 >> Step 4</p>
                                 <p>Basic Details</p>
                             </div>
                         </div>
-                        <input type="text" placeholder="Mobile Number*"  maxlength="10"  onkeypress="return event.charCode>=48 && event.charCode<=57" name="phone">
-                        <input type="email" placeholder="E-mail Address*" name="email">
+                        <div class="app_top" id="app_top">
+
+                        </div>
+                        <input type="text" placeholder="Mobile Number*" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" name="phone">
+                        <input type="email" placeholder="E-mail Address*" name="email" value="<?=$_SESSION['std_auth_user']['user_email']?>">
                         <div class="permanent_address">
                             <div class="row">
                                 <div class="col-md-5">
@@ -60,9 +63,9 @@ if(isset($_GET['id'])){
                                     </div>
                                     <div class="flex-box">
                                         <select name="city" id="city">
-                                            
+
                                         </select>
-                                        <input type="text" maxlength="6"  onkeypress="return event.charCode>=48 && event.charCode<=57"  placeholder="Postal Code" name="pin_code">
+                                        <input type="text" maxlength="6" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Postal Code" name="pin_code">
                                     </div>
                                 </div>
                             </div>
@@ -78,9 +81,9 @@ if(isset($_GET['id'])){
                             <option value="3">B-Tech</option>
                         </select>
                         <div class="btn_area">
-                        <button type="submit" name="apply">Save & Next</button>
-                        <p>Review your selections and information. Click the "Save & Next" button to save the details filled and move forward with your application process.</p>
-                    </div>
+                            <button type="submit" name="apply">Save & Next</button>
+                            <p>Review your selections and information. Click the "Save & Next" button to save the details filled and move forward with your application process.</p>
+                        </div>
                 </form>
             </div>
         </div>

@@ -392,7 +392,6 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this);
     var formData = new FormData(form[0]);
-    console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/application_code.php",
@@ -400,7 +399,6 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        console.log(response);
         var parsed_data = JSON.parse(response);
         if (parsed_data.success === 1) {
           var ids = parsed_data.data;
@@ -480,7 +478,6 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this);
     var formData = new FormData(form[0]);
-    console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/application_2_code.php",
@@ -491,7 +488,6 @@ $(document).ready(function () {
         var parsed_data = JSON.parse(response);
         if (parsed_data.success === 2) {
           var ids = parsed_data.data;
-          console.log(ids);
         }
         if (parsed_data.success == 2) {
           Swal.fire({
@@ -545,6 +541,12 @@ $(document).ready(function () {
                                   no-repeat`,
             timer: 2500,
           });
+        }else if(parsed_data.success === 22){
+          var sms = parsed_data.msg;
+          $("#app_top").append(sms);
+          window.setTimeout(function () {
+            $("#success-alert2").alert("close");
+          }, 4000);
         }
         clearInput();
       },
@@ -567,7 +569,7 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this);
     var formData = new FormData(form[0]);
-    console.log(formData);
+    // console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/application_3_code.php",
@@ -578,7 +580,7 @@ $(document).ready(function () {
         var parsed_data = JSON.parse(response);
         if (parsed_data.success === 3) {
           var ids = parsed_data.data;
-          console.log(ids);
+          // console.log(ids);
         }
         if (parsed_data.success == 3) {
           Swal.fire({
@@ -637,7 +639,7 @@ $(document).ready(function () {
       },
       error: function (response) {
         alert("Something went wrong");
-        console.log(response);
+        // console.log(response);
       },
     });
   });
@@ -654,7 +656,7 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this);
     var formData = new FormData(form[0]);
-    console.log(formData);
+    // console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/application_4_code.php",
@@ -665,7 +667,7 @@ $(document).ready(function () {
         var parsed_data = JSON.parse(response);
         if (parsed_data.success === 4) {
           var ids = parsed_data.data;
-          console.log(ids);
+          // console.log(ids);
         }
         if (parsed_data.success == 4) {
           Swal.fire({

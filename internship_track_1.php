@@ -1,7 +1,41 @@
-<?php require('./includes/header.php');
+<?php
+require('./includes/header.php');
+require('./admin/config/dbcon.php');
+
 if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
     echo '<script>window.location.href = "index.php";</script>';
     exit(); // Stop further execution
+}
+$email = $_SESSION['std_auth_user']['user_email'];
+$sql = "SELECT * FROM application_tbl WHERE email = '$email'";
+$sql_run = mysqli_query($con, $sql);
+if (mysqli_num_rows($sql_run) > 0) {
+    $data = mysqli_fetch_assoc($sql_run);
+    $app_id = $data['id'];
+    $city = $data['city'];
+    $course = $data['course'];
+    $duration = $data['duration'];
+    $timestamp = strtotime($data['created_at']);
+    $day = date('d', $timestamp);
+    $month = date('M', $timestamp);
+    $month_number = date('m', $timestamp);
+    $year = date('Y', $timestamp);
+
+    $query = "SELECT * FROM program_tbl Where program_id = '$course'";
+    $query_run = mysqli_query($con, $query);
+    if (mysqli_num_rows($query_run) > 0) {
+        $row = mysqli_fetch_assoc($query_run);
+    }
+    $city_query = "SELECT * FROM tbl_cities WHERE city_id = '$city'";
+    $city_run = mysqli_query($con, $city_query);
+    if (mysqli_num_rows($city_run) > 0) {
+        $city_name = mysqli_fetch_assoc($city_run);
+    }
+    $mentor_grading_query = "SELECT * FROM internship_mentor_grading_tbl WHERE app_id = '$app_id'";
+    $mentor_grading_query_run = mysqli_query($con, $mentor_grading_query);
+    if (mysqli_num_rows($mentor_grading_query_run) > 0) {
+        $grading = mysqli_fetch_assoc($mentor_grading_query_run);
+    }
 }
 ?>
 <section class="internship_track_1">
@@ -9,40 +43,28 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
         <div class="row">
             <div class="heading">
                 <h1>Track Progress</h1>
-                <a href="#!">Apply For New Program <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="./program_option.php">Apply For New Program <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
             <div class="col-md-3">
                 <div class="progress_category">
                     <div class="heading">
-                        <h1>Your Dashboard</h1>
-                        <i class="fa-regular fa-user"></i>
+                        <h1 class="active-btn click_btn" onclick="ontablink(event,'box1')" style="cursor: pointer;">Your Dashboard</h1>
+                        <i onclick="ontablink(event,'box1')" style="cursor: pointer;" class="fa-regular fa-user active-btn"></i>
                     </div>
                     <div class="nav_btn toggle_btn mt-3 active_toggle_content">
-                        <p>UX UI Designer</p>
+                        <p><?= $row['program_name'] ?></p>
                         <p class="plus"><i class="fa-solid fa-plus"></i></p>
                         <p class="minus"><i class="fa-solid fa-minus "></i></p>
                     </div>
                     <div class="progress_list toggle_content">
                         <ul>
-                            <li class="click_btn active-btn active-icon" onclick="ontablink(event,'box1')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span> Overview</li>
+                            <!-- <li class="click_btn active-btn active-icon" onclick="ontablink(event,'box1')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span> Overview</li> -->
                             <li class="click_btn" onclick="ontablink(event,'box2')" id="event"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Materials</li>
                             <li class="click_btn" onclick="ontablink(event,'box3')"> <span class="arrow_icon"> <i class="fa-solid fa-angle-right"></i></span>Grades</li>
                             <li class="click_btn" onclick="ontablink(event,'box4')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Info</li>
                         </ul>
                     </div>
-                    <div class="nav_btn toggle_btn mt-3">
-                        <p>Font-end dev</p>
-                        <p class="plus"><i class="fa-solid fa-plus"></i></p>
-                        <p class="minus"><i class="fa-solid fa-minus "></i></p>
-                    </div>
-                    <div class="progress_list toggle_content">
-                        <ul>
-                            <li class="click_btn active-btn active-icon" onclick="ontablink(event,'box1')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span> Overview</li>
-                            <li class="click_btn" onclick="ontablink(event,'box2')" id="event"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Materials</li>
-                            <li class="click_btn" onclick="ontablink(event,'box3')"> <span class="arrow_icon"> <i class="fa-solid fa-angle-right"></i></span>Grades</li>
-                            <li class="click_btn" onclick="ontablink(event,'box4')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Info</li>
-                        </ul>
-                    </div>
+                 
                 </div>
             </div>
             <div class="col-md-6">
@@ -52,93 +74,138 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                             <div class="row flex-change">
                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                                     <div class="name_text">
-                                        <h1>Saurabh Deshmukh</h1>
-                                        <p>Bhilai </p>
+                                        <h1><?= $data['name'] ?> <?= $data['last_name'] ?></h1>
+                                        <p><?= $city_name['city_name'] ?></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                                     <div class="img">
-                                        <img src="./assets/images/internship_track_profile.png" alt="">
+                                        <img src="./admin/student_application_photo/<?= $data['profile_photo'] ?>" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="program_name">
-                            <p> Program | UX UI Design</p>
+                            <p> Program | <?= $row['program_name'] ?></p>
                         </div>
                         <div class="progress_box">
+                            <?php
+                            // Dynamic data from the database
+
+                            $startDate =   "$year-$month_number-$day";
+                            $durationMonths = $duration;
+
+                            // Calculate the end date based on the start date and duration
+                            $endDate = date('Y-m-d', strtotime($startDate . ' + ' . $durationMonths . ' months'));
+
+                            // Calculate the progress percentage
+                            $currentDate = date('Y-m-d');
+
+                            $progressPercentage = round((strtotime($currentDate) - strtotime($startDate)) / (strtotime($endDate) - strtotime($startDate)) * 100, 2);
+
+                            ?>
                             <div class="main_bar">
                                 <div class="progress_bar">
-                                    <div class="bar"></div>
+                                    <div class="bar" style="width: <?php if ($progressPercentage >= 100) {
+                                                                        echo "100%";
+                                                                    } else {
+                                                                        echo $progressPercentage . "%";
+                                                                    } ?>;"></div>
                                 </div>
-                                <p class="">60% </p>
+                                <p class=""><?php if ($progressPercentage >= 100) {
+                                                echo "complete";
+                                            } else {
+                                                echo $progressPercentage . "%";
+                                            } ?></p>
                             </div>
                             <p>Overall Progress</p>
                         </div>
                         <div class="progress_area">
                             <p>Current Percentage: </p>
-                            <p>89%</p>
+                            <?php
+                            $grade_query = "SELECT * FROM internship_grade_tbl WHERE app_id = '$app_id'";
+                            $grade_query_run = mysqli_query($con, $grade_query);
+                            $total_percentage = 0;
+                            $total_grades = 0;
+
+                            if (mysqli_num_rows($grade_query_run) > 0) {
+                                foreach ($grade_query_run as $grade) {
+                                    if ($grade['grade_percent'] != '') {
+                                        $total_percentage += $grade['grade_percent'];
+                                        $total_grades++;
+                                    }
+                                }
+                            }
+                            $average_percentage = ($total_grades > 0) ? ($total_percentage / $total_grades) : 0;
+                            ?>
+                            <p><?= number_format($average_percentage, 1) ?>%</p>
                         </div>
                         <div class="progress_area">
                             <p>Mentor Grading:</p>
-                            <p>8/10</p>
+                            <p><?= $grading['mentor_grading'] ?>/10</p>
                         </div>
                         <div class="progress_area">
                             <p>Milestone Completed:</p>
-                            <p>4/8</p>
+                            <p><?= $grading['milestone_completed'] ?>/8</p>
                         </div>
                     </div>
                     <div class="down-box">
                         <div class="program_progress">
-                            <p>Program | Web Development</p>
-                            <p>89%</p>
+                            <p>Program | <?= $row['program_name'] ?></p>
+                            <p><?= number_format($average_percentage, 1) ?>%</p>
                         </div>
                         <div class="program_status">
                             <p>Program Completion Status:</p>
-                            <p>Completed</p>
+                            <?php
+                        if ($progressPercentage == 100) {
+                        ?>
+                           <p>Completed</p>
+                        <?php
+                        }else{
+                            echo "<p style='color:#BB5327'>Process</p>";
+                        }
+                        ?>
+                            
                         </div>
-                        <div class="complete_btn">
-                            <button>Download Certificate</button>
-                        </div>
+                        <?php
+                        if ($progressPercentage == 100) {
+                        ?>
+                            <div class="complete_btn">
+                                <button>Download Certificate</button>
+                            </div>
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="course_materials change_box" id="box2">
                     <div class="main-box">
                         <div class="heading">
-                            <p>Program | UX UI Design | Course Materials</p>
+                            <p>Program | <?= $row['program_name'] ?> | Course Materials</p>
                         </div>
                         <div class="courses">
-                            <div class="course">
-                                <p>File 1 | UX UI Design</p>
-                                <a href="#!"><img src="./assets/images/download.png" alt=""></a>
-                            </div>
-                            <div class="course">
-                                <p>File 2 | UX UI Design</p>
-                                <a href="#!"><img src="./assets/images/download.png" alt=""></a>
-                            </div>
-                            <div class="course">
-                                <p>File 3 | UX UI Design</p>
-                                <a href="#!"><img src="./assets/images/download.png" alt=""></a>
-                            </div>
-                            <div class="course">
-                                <p>File 4 | UX UI Design</p>
-                                <a href="#!"><img src="./assets/images/download.png" alt=""></a>
-                            </div>
-                            <div class="course">
-                                <p>File 5 | UX UI Design</p>
-                                <a href="#!"><img src="./assets/images/download.png" alt=""></a>
-                            </div>
-                            <div class="course">
-                                <p>File 6 | UX UI Design</p>
-                                <a href="#!"><img src="./assets/images/download.png" alt=""></a>
-                            </div>
+                            <?php
+                            $material_query = "SELECT * FROM internship_course_material_tbl WHERE material_status = 1 And program = '$course'";
+                            $material_query_run = mysqli_query($con, $material_query);
+                            if (mysqli_num_rows($material_query_run) > 0) {
+                                foreach ($material_query_run as $material) {
+                                    $count = 1;
+                            ?>
+                                    <div class="course">
+                                        <p>File <?= $count++ ?> | <?= $material['material_name'] ?></p>
+                                        <a href="./admin/course_material_files/<?= $material['material'] ?>" target="_blank"><img src="./assets/images/download.png" alt=""></a>
+                                    </div>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
                 <div class="grade change_box" id="box3">
                     <div class="main-box">
                         <div class="heading">
-                            <p>Program | UX UI Design | Grades</p>
+                            <p>Program | <?= $row['program_name'] ?> | Grades</p>
                         </div>
                         <div class="main-grade">
                             <table>
@@ -159,102 +226,69 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <p>Month 1 Basics</p>
-                                        </td>
-                                        <td>
-                                            <p>Completed</p>
-                                        </td>
-                                        <td>
-                                            <p>20%</p>
-                                        </td>
-                                        <td>
-                                            <p>78%</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Month 2</p>
-                                        </td>
-                                        <td>
-                                            <p>Completed</p>
-                                        </td>
-                                        <td>
-                                            <p>20%</p>
-                                        </td>
-                                        <td>
-                                            <p>78%</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Month 3</p>
-                                        </td>
-                                        <td>
-                                            <p>Completed</p>
-                                        </td>
-                                        <td>
-                                            <p>20%</p>
-                                        </td>
-                                        <td>
-                                            <p>78%</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Month 4</p>
-                                        </td>
-                                        <td>
-                                            <p>Due</p>
-                                        </td>
-                                        <td>
-                                            <p>20%</p>
-                                        </td>
-                                        <td>
-                                            <p>--</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Month 5</p>
-                                        </td>
-                                        <td>
-                                            <p>--</p>
-                                        </td>
-                                        <td>
-                                            <p>20%</p>
-                                        </td>
-                                        <td>
-                                            <p>--</p>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p>Month 6</p>
-                                        </td>
-                                        <td>
-                                            <p>--</p>
-                                        </td>
-                                        <td>
-                                            <p>20%</p>
-                                        </td>
-                                        <td>
-                                            <p>--</p>
-                                        </td>
-                                    </tr>
-                                    <tr id="mentor_grades" style="border-top: 2px solid #BB5327;border-bottom: 0;">
+                                    <?php
+                                    $grade_query = "SELECT * FROM internship_grade_tbl WHERE app_id = '$app_id'";
+                                    $grade_query_run = mysqli_query($con, $grade_query);
+                                    $month_count = 1;
+                                    $total_percentage = 0;
+                                    $total_grades = 0;
+
+                                    if (mysqli_num_rows($grade_query_run) > 0) {
+                                        foreach ($grade_query_run as $grade) {
+                                            if ($grade['grade_percent'] != '') {
+                                                $total_percentage += $grade['grade_percent'];
+                                                $total_grades++;
+                                            }
+
+                                    ?>
+                                            <tr class="table_row">
+                                                <td>
+                                                    <p>Month <?= $month_count++ ?></p>
+                                                </td>
+                                                <td>
+                                                    <p><?php if ($grade['grade_status_main'] == 2) {
+                                                            echo "Due";
+                                                        } elseif ($grade['grade_status_main'] == 1) {
+                                                            echo "Complete";
+                                                        } else {
+                                                            echo "--";
+                                                        } ?></p>
+                                                </td>
+                                            
+                                                <td>
+                                                    <p><?php if ($grade['grade_weight'] != '') {
+                                                            echo $grade['grade_weight'];
+                                                            echo "%";
+                                                        } else {
+                                                            echo "--";
+                                                        } ?></p>
+                                                </td>
+                                                <td>
+                                                    <p><?php if ($grade['grade_percent'] != '') {
+                                                            echo $grade['grade_percent'];
+                                                            echo "%";
+                                                        } else {
+                                                            echo "--";
+                                                        } ?></p>
+                                                </td>
+                                            </tr>
+                                    <?php
+                                        }
+                                    }
+                                    $average_percentage = ($total_grades > 0) ? ($total_percentage / $total_grades) : 0;
+                                    ?>
+                                    <tr id="mentor_grades " class="mentor_grade" style="border-top: 2px solid #BB5327;border-bottom: 0;">
                                         <td class="padding">
                                             <p>Mentor Grades</p>
                                         </td>
                                         <td class="padding">
-                                            <p>Due</p>
+                                            <p><?php if($grade['grade_status_main'] == 1){echo'Complete';}else{echo "Due";}?></p>
                                         </td>
                                         <td class="padding">
                                             <p>20%</p>
                                         </td>
-                                        <td class="padding">
-                                            <p>78%</p>
+                                        <td class="padding" id="show_percent">
+                                            <p><?= number_format($average_percentage, 2) ?>%</p>
                                         </td>
                                     </tr>
                                     <tr class="mentor_grades" style="border-top: 2px solid #BB5327;border-bottom: 0;">
@@ -262,13 +296,19 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                                             <p>Total Grades</p>
                                         </td>
                                         <td class="padding" style="color: #D9C618;">
-                                            <p>In-Process</p>
+                                        <?php
+                                        if($progressPercentage == 100){
+                                            echo"<p style='color:green;'>Complete</p>";
+                                        }else{
+                                            echo "<p>In-Process</p>";
+                                        }
+                                        ?>
                                         </td>
                                         <td class="padding">
                                             <p>100%</p>
                                         </td>
                                         <td class="padding">
-                                            <p>--</p>
+                                            <p><?= number_format($average_percentage, 2) ?>%</p>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -279,13 +319,24 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                 <div class="course_info change_box" id="box4">
                     <div class="main-box">
                         <div class="heading">
-                            <p>Program | UX UI Design | Course Info</p>
+                            <p>Program | <?= $row['program_name'] ?> | Course Info</p>
                         </div>
                         <div class="course_info_box">
                             <div class="title">
-                                <p> <span>Course Title:</span> UX UI Design Program (6 Months)</p>
+                                <p> <span>Course Title:</span> <?= $row['program_name'] ?> Program (<?= $data['duration'] ?> Months)</p>
                             </div>
-                            <div class="overview">
+                            <?php
+                            $info_query = "SELECT * FROM internship_course_info_tbl WHERE info_status = 1 And program = '$course'";
+                            $info_query_run = mysqli_query($con, $info_query);
+                            if (mysqli_num_rows($info_query_run) > 0) {
+                                foreach ($info_query_run as $info_name) {
+                            ?>
+                                    <?= $info_name['course_info'] ?>
+                            <?php
+                                }
+                            }
+                            ?>
+                            <!-- <div class="overview">
                                 <p>Overview:</p>
                                 <p> DigitalShakha's UX UI Design Program is a comprehensive 6-month course designed to equip you with the skills and knowledge needed to excel in the field of User Experience (UX) and User Interface (UI) design. This program offers a deep dive into the principles, tools, and practices required to create seamless and visually appealing digital experiences.</p>
                             </div>
@@ -346,7 +397,7 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                                 </ul>
 
 
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -356,7 +407,7 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                     <div class="schedule">
                         <h1>Schedule</h1>
                         <p><i class="fa-solid fa-location-dot"></i> Started at: Started at: </p>
-                        <p> <img src="./assets/images/Certificate.png" alt=""> Estimated End Date: <span>12 AUG 2023</span> </p>
+                        <p> <img src="./assets/images/Certificate.png" alt=""> Estimated End Date: <span><?= $day ?> <?= $month ?> <?= $year ?></span> </p>
                     </div>
                     <div class="modal fade" id="request_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -368,6 +419,7 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                                 <div class="modal-body">
                                     <h1 style="font-size: 1.8rem; font-weight:700; line-height:40px; color:#BB5327">Write us a message.</h1>
                                     <p style="font-size: 0.9rem; font-weight:400; line-height:20px;">Tell us what you want to learn or if you have any questions. We're here to help !</p>
+                                    <input type="text" class="request_id">
                                     <textarea class="form-control" cols="30" rows="5"></textarea>
                                     <button type="button" style="font-weight:600; background-color: #BB5327; color:#fff; padding:0.7rem 1.1rem; border:0;" class="my-3" data-bs-dismiss="modal">OK</button>
                                 </div>
@@ -379,7 +431,7 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                         <p>Tell us what you want to learn or if </p>
                         <p>you have any questions.</p>
                         <p>We're here to help !</p>
-                        <a href="#!" class="request_btn">Request</a>
+                        <button value="<?=$app_id?>" href="#!" class="request_btn">Request</button>
                     </div>
                 </div>
             </div>
@@ -389,12 +441,27 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
 <?php require('./includes/footer.php'); ?>
 <?php require('./includes/script.php'); ?>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var totalPercentage = 0;
+        var totalGradesCount = 0;
+        var mentor_grade = document.querySelectorAll('.grade table tbody .mentor_grade td:last-child p');
+        var grade_percent = document.querySelectorAll('.grade table tbody .table_row td:last-child p');
+        console.log(grade_percent);
+        if (grade_percent.innerText !== '--') {
+            console.log(grade_percent.innerText);
+            totalPercentage += parseInt(grade_percent.innerText);
+            totalGradesCount++;
+        }
+        console.log(totalPercentage);
+    })
+</script>
+<script>
     $(document).ready(function() {
         $('.request_btn').click(function(e) {
             e.preventDefault();
             var user_id = $(this).val();
             // console.log(user_id);
-            // $('.program').val(user_id);
+            $('.request_id').val(user_id);
             $('#request_modal').modal('show');
         });
     });

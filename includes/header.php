@@ -77,7 +77,12 @@ session_start();
     }
 
     .preloader {
-        overflow: hidden;
+        /* overflow: hidden; */
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100vh;
+        /* background: #BB5327; */
     }
 
     .preloader1 .text {
@@ -146,6 +151,115 @@ session_start();
     <header class="header">
         <div class="header-inner">
             <div class="container-fluid px-lg-5">
+                <!-- <nav class="navbar bg-body-tertiary fixed-top">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.php">
+                            <img src="./assets/images/digital_logo.png" class="logo1">
+                            <img src="./assets/images/digital_logo.png" class="logo2">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menus</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                    <li class="nav-item drop-list">
+                                        <a class="nav-link nav-after-effect hover-link" href="./index.php" id="header_link_home">
+                                            discover
+                                        </a>
+                                        <ul class="list-group bg-dark drop-item">
+                                            <li class="list-group-item"><a href="./opportunities.php" class="">Opportunities <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./program_option.php">Program Options <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./internship_track_0.php">Internship Tracks <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./seasonal_placements.php">Seasonal Placements <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./eligibility_criteria.php">Eligibility Criteria <i class="color-ball"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item drop-list">
+                                        <a class="nav-link nav-after-effect hover-link" href="./resources.php" id="">resources</a>
+                                        <ul class="list-group bg-dark drop-item">
+                                            <li class="list-group-item"><a href="./resumebuilding.php" class="">Resume Building <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./cover_letter.php">Cover Letter Tips <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./interview_insights.php">Interview Insights <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./success_stories.php">Success Stories <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./blog.php">Blog/Article<i class="color-ball"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item drop-list">
+                                        <a class="nav-link nav-after-effect hover-link" href="#!" id="">employers</a>
+                                        <ul class="list-group bg-dark drop-item">
+                                            <li class="list-group-item"><a href="./partner_with_us.php" class="">Partner with Us <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./post_job_internship.php">Post an Internship <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="#!">Employer Stories <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./contact.php">Contact <i class="color-ball"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item drop-list">
+                                        <a class="nav-link hover-link nav-after-effect" href="#!" id="">students</a>
+                                        <ul class="list-group bg-dark drop-item">
+                                            <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./schedule_interview.php" class="">Schedule Interviews <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./internship_resources.php" class="">Internship Resources <i class="color-ball"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item drop-list">
+                                        <a class="nav-link nav-after-effect hover-link" href="#!" id="">events</a>
+                                        <ul class="list-group bg-dark drop-item">
+                                            <li class="list-group-item"><a href="./events.php" class="">Our Events <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./event_register.php" class="">Register <i class="color-ball"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item drop-list">
+                                        <a class="nav-link nav-after-effect hover-link" href="#!" id="">updates</a>
+                                        <ul class="list-group bg-dark drop-item">
+                                            <li class="list-group-item"><a href="./blog.php" class="">Blog <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./news_letter.php" class="">Newsletters <i class="color-ball"></i></a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item list-group-item">
+                                        <a class="nav-link nav-after-effect" href="./contact.php" id="">
+                                            contact
+                                        </a>
+                                    </li>
+                                    <li class="nav-item list-group-item padding2">
+
+                                        <?php
+                                        if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth'] && !isset($_SESSION['std_auth_user']['user_name']) || !$_SESSION['std_auth_user']['user_name']) {
+                                        ?>
+                                            <div class="btns">
+                                                <a class="login_popup">Login</a>
+                                                <span>|</span>
+                                                <a class="signup_popup">Signup</a>
+                                            </div>
+                                        <?php
+                                        } else {
+                                        ?>
+                                            <div class="btns">
+                                                <form id="std_log_out">
+                                                    <div class="drop-list">
+                                                        <a href="#!" class="hover-link"><img src="./assets/images/logout_icon.svg" alt=""></a>
+                                                        <ul class="list-group bg-dark drop-item">
+                                                            <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
+                                                            <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
+                                                        </ul>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav> -->
                 <nav class="navbar navbar-expand-lg border-bottom my-navbar">
                     <a class="navbar-brand" href="index.php">
                         <img src="./assets/images/digital_logo.png" class="logo1">
@@ -323,7 +437,7 @@ session_start();
                 }
                 ?>
                 <div class="top" id="top">
-                   
+
                 </div>
                 <div class="btn_box">
                     <div class="close_signup">
