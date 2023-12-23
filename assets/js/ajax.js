@@ -890,7 +890,7 @@ $(document).ready(function () {
           Swal.fire({
             position: "center",
             icon: "success",
-            text: "Thank you",
+            text: "Thank you ! confirmation sent to your email id",
             showConfirmButton: false,
             showClass: {
               popup: "animate__animated animate__fadeInDown",
