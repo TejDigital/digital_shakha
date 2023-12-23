@@ -340,6 +340,223 @@ $(document).ready(function () {
   }
 });
 
+
+//--------------Student-forget-password-------------
+
+$(document).ready(function () {
+  $("#std_forget_pass").on("submit", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = form.serialize();
+    var submitBtn = $("#forgetBtn");
+    submitBtn.prop("disabled", true);
+    $.ajax({
+      type: "POST",
+      url: "././admin/forget_password_code.php",
+      data: formData,
+      success: function (response) {
+        console.log(response);
+        let message = JSON.parse(response);
+        if (message.forget_msg === 2) {
+          clearForgetPass();
+          closeForgetPassModal();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Check your email for reset password",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                    rgba(40, 39, 19,0.4)
+                                    left top
+                                    no-repeat`,
+            timer: 2500,
+          });
+          submitBtn.prop("disabled", true);
+        } 
+      },
+      error: function (response) {
+        alert("something wrong");
+      },
+    });
+  });
+  function closeForgetPassModal() {
+    $("#forgetPassModal").hide();
+  }
+  var reg_form = $("#std_forget_pass")[0];
+  function clearForgetPass() {
+    reg_form.reset();
+  }
+});
+
+//--------------Student-reset-password-------------
+
+$(document).ready(function () {
+  $("#std_reset_password").on("submit", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = form.serialize();
+    var submitBtn = $("#resetBtn");
+    // submitBtn.prop("disabled", true);
+    console.log(formData);
+    $.ajax({
+      type: "POST",
+      url: "././admin/forget_password_code.php",
+      data: formData,
+      success: function (response) {
+        // console.log(response);
+        let message = JSON.parse(response);
+        if (message.reset_msg === 3) {
+          var token = message.token;
+          var email = message.email;
+        }
+        if (message.reset_msg === 4) {
+          var token = message.token;
+          var email = message.email;
+        }
+        if (message.reset_msg === 5) {
+          var token = message.token;
+          var email = message.email;
+        }
+        if (message.reset_msg === 2) {
+          clearResetPassFrom();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "New Password Updated",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                    rgba(40, 39, 19,0.4)
+                                    left top
+                                    no-repeat`,
+            timer: 2500,
+          }).then(function () {
+            window.location.href = "././index.php?";
+          });;
+          submitBtn.prop("disabled", true);
+        } else if(message.reset_msg === 3){
+          clearResetPassFrom();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Something went wrong",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                    rgba(40, 39, 19,0.4)
+                                    left top
+                                    no-repeat`,
+            timer: 2500,
+          }).then(function () {
+            window.location.href = "././reset_password.php?token=" + token +"&email="+email;
+          });
+        } else if(message.reset_msg === 4){
+          clearResetPassFrom();
+          Swal.fire({
+            position: "center",
+            icon: "error",
+            text: "Password not match ! check it",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                    rgba(40, 39, 19,0.4)
+                                    left top
+                                    no-repeat`,
+            timer: 2500,
+          }).then(function () {
+            window.location.href = "././reset_password.php?token=" + token +"&email="+email;
+          });;
+        } else if(message.reset_msg === 5){
+          clearResetPassFrom();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Invalid token",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                                    rgba(40, 39, 19,0.4)
+                                    left top
+                                    no-repeat`,
+            timer: 2500,
+          }).then(function () {
+            window.location.href = "././reset_password.php?token=" + token +"&email="+email;
+          });;
+        }
+      },
+      error: function (response) {
+        alert("something wrong");
+      },
+    });
+  });
+ 
+  var reg_form = $("#std_reset_password")[0];
+  function clearResetPassFrom() {
+    reg_form.reset();
+  }
+});
+
 //--------------Student-Logout-------------
 
 $(document).ready(function () {

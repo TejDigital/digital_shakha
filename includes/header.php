@@ -514,15 +514,15 @@ session_start();
                             <p>Enter the email address you use on Digitalshakha. We'll send you a link to reset your password.</p>
                         </div>
                         <div class="form">
-                            <form action="./admin/forget_password_code.php" method="post">
+                            <form id="std_forget_pass" >
                                 <div class="form-group">
-                                    <input type="email" class="input_box" name="email" placeholder="Email Address">
+                                    <input type="email" class="input_box" name="forget_email" placeholder="Email Address">
                                     <span class="material-symbols-outlined">
                                         mail
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="f_pass">Reset Password</button>
+                                    <button type="submit" id="forgetBtn" name="f_pass">Reset Password</button>
                                 </div>
                             </form>
                         </div>

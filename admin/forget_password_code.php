@@ -50,15 +50,18 @@ function send_reset_pass($name, $get_email, $token)
           <p><strong>Name:</strong> ' . $name . '</p>
           <p><strong>Email:</strong> ' . $get_email . '</p>
           <p><strong>Message:</strong></p>
-          <p> <a href="http://localhost/digital_shakha/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
-        </body>
-      </html>';
-
+          <p> <a href="https://digitalshakha.com/internship/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
+          </body>
+          </html>';
+          // <p> <a href="http://localhost/digital_shakha/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
+          
   $mail->send();
 }
 
-if (isset($_POST['f_pass'])) {
-  $email = mysqli_real_escape_string($con,  $_POST['email']);
+if (isset($_POST['forget_email'])) {
+
+
+  $email = mysqli_real_escape_string($con,  $_POST['forget_email']);
   $token = md5(rand());
 
   $resend = "SELECT * FROM users WHERE email = '$email'";
@@ -74,9 +77,9 @@ if (isset($_POST['f_pass'])) {
 
     if ($update_token_query) {
       send_reset_pass($name, $get_email, $token);
-      $_SESSION['message'] = "Check your email for reset password";
-      header('Location:../index.php');
-      // echo  "Check your email for reset password";
+      // $_SESSION['message'] = "Check your email for reset password";
+      // header('Location:../index.php');
+      echo json_encode(array("forget_msg" => 2)); //Check your email for reset password
     } else {
       $_SESSION['message'] = "Something went wrong";
       header('location:../index.php');
@@ -90,8 +93,8 @@ if (isset($_POST['f_pass'])) {
 }
 
 
-if (isset($_POST['add_pass'])) {
-  $email = mysqli_real_escape_string($con, $_POST['email']);
+if (isset($_POST['new_forget_email'])) {
+  $email = mysqli_real_escape_string($con, $_POST['new_forget_email']);
   $password = mysqli_real_escape_string($con, $_POST['password']);
   $confirm_password =  mysqli_real_escape_string($con, $_POST['confirm_password']);
   $token = mysqli_real_escape_string($con, $_POST['token']);
@@ -107,19 +110,23 @@ if (isset($_POST['add_pass'])) {
       $update_pass_query = mysqli_query($con, $update_pass);
 
       if ($update_pass_query) {
-        $_SESSION['message'] = "New Password Updated";
-        header('location:../index.php');
-        // echo "New Password Updated";
+        // $_SESSION['message'] = "New Password Updated";
+        // header('location:../index.php');
+        echo json_encode(array("reset_msg" => 2));//New Password Updated
+  
       } else {
-        $_SESSION['message'] = "Something went wrong";
-        header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
+        // $_SESSION['message'] = "Something went wrong";
+        echo json_encode(array("reset_msg" => 3 , "token" => $token , "email" => $email));//Something went wrong
+        // header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
       }
     } else {
-      $_SESSION['message'] = "Password not match";
-      header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
+      // $_SESSION['message'] = "Password not match";
+      echo json_encode(array("reset_msg" => 4 , "token" => $token , "email" => $email));//Password not match
+      // header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
     }
   } else {
-    $_SESSION['message'] = "Invalid token";
-    header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
+    // $_SESSION['message'] = "Invalid token";
+    echo json_encode(array("reset_msg" => 5 , "token" => $token , "email" => $email));//Invalid token
+    // header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
   }
 }

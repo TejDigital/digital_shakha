@@ -17,8 +17,8 @@
                                                         } ?></b></p>
                     </div>
                     <div class="input_area">
-                        <form action="./admin/forget_password_code.php" method="post">
-                            <input type="hidden" name="email" value="<?php if (isset($_GET['email'])) {echo $_GET['email'];} ?>">
+                        <form  id="std_reset_password" >
+                            <input type="hidden" name="new_forget_email" value="<?php if (isset($_GET['email'])) {echo $_GET['email'];} ?>">
                             <input type="hidden" name="token" value="<?php if (isset($_GET['token'])) {echo $_GET['token'];} ?>">
                             <div class="form-group">
                                 <input type="password" class="input_box" name="password" placeholder="Create Password">
@@ -33,7 +33,7 @@
                                     lock
                                 </span>
                             </div>
-                            <button type="submit" name="add_pass">Change Password</button>
+                            <button type="submit" id="resetBtn" name="add_pass">Change Password</button>
                         </form>
                     </div>
                     <div class="end">

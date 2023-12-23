@@ -64,7 +64,19 @@ if (mysqli_num_rows($sql_run) > 0) {
                             <li class="click_btn" onclick="ontablink(event,'box4')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Info</li>
                         </ul>
                     </div>
-                 
+                    <div class="nav_btn toggle_btn mt-3">
+                        <p>Font-end dev</p>
+                        <p class="plus"><i class="fa-solid fa-plus"></i></p>
+                        <p class="minus"><i class="fa-solid fa-minus "></i></p>
+                    </div>
+                    <div class="progress_list toggle_content">
+                        <ul>
+                            <!-- <li class="click_btn active-btn active-icon" onclick="ontablink(event,'box1')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span> Overview</li> -->
+                            <li class="click_btn" onclick="ontablink(event,'box2')" id="event"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Materials</li>
+                            <li class="click_btn" onclick="ontablink(event,'box3')"> <span class="arrow_icon"> <i class="fa-solid fa-angle-right"></i></span>Grades</li>
+                            <li class="click_btn" onclick="ontablink(event,'box4')"> <span class="arrow_icon"><i class="fa-solid fa-angle-right"></i></span>Course Info</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
