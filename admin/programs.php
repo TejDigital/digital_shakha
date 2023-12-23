@@ -63,6 +63,20 @@ if (isset($_SESSION['digi_meg'])) {
                         <div class="col-md-3">
                             <label for="">Next Batch</label>
                             <input type="date" class="form-control mb-2" name="next_batch">
+                            <!-- <select name="next_batch" class="form-select" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <option value="">Select batch</option>
+                            <?php
+                            $sql = "SELECT * FROM upcoming_batch_tbl Where availability = '1'";
+                            $sql_run = mysqli_query($con , $sql);
+                            if(mysqli_num_rows($sql_run) > 0){
+                                foreach($sql_run as $row){
+                                    ?>
+                                <option value="<?=$row['batch_id']?>"><?=$row['batch_name']?></option>
+                                <?php
+                                }
+                            }
+                            ?>
+                            </select> -->
                         </div>
                         <div class="col-md-3">
                             <label for="">How many Enrolled</label>

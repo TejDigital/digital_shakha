@@ -73,6 +73,7 @@
               <li class="nav-item"> <a class="nav-link" href="./internship_track_course_info.php">Course Info</a></li>
               <li class="nav-item"> <a class="nav-link" href="./internship_mentor_grading.php">Mentor Grading</a></li>
               <li class="nav-item"> <a class="nav-link" href="./internship_track_grade.php">Course Grade</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./internship_track_request_msg.php">Request Messages</a></li>
             </ul>
           </div>
         </li>

@@ -101,10 +101,10 @@ if (isset($_SESSION['digi_meg'])) {
                         <select name="availability" class="form-select mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                             <option <?php if ($row['availability'] == 1) {
                                         echo "selected";
-                                    } ?> value="1">Active</option>
+                                    } ?> value="1">Available</option>
                             <option <?php if ($row['availability'] == 0) {
                                         echo "selected";
-                                    } ?> value="0">inactive</option>
+                                    } ?> value="0">Batch Full</option>
                         </select>
                     </div>
                     <div class="col-md-4">

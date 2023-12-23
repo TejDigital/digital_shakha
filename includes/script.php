@@ -16,14 +16,33 @@
 <script src="./assets/OwlCarousel2/dist/owl.carousel.js"></script>
 <script src="./assets/js/main.js"></script>
 <script>
-    window.onload = function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        var percentage = 0;
+
+        function updatePercentage() {
+            document.querySelector('.preloader1 .count span').textContent = percentage + '%';
+        }
+
+        function simulateLoading() {
+            var interval = setInterval(function() {
+                if (percentage >= 100) {
+                    clearInterval(interval);
+                    document.querySelector('.preloader1 .count').style.display = 'none';
+                    document.querySelector('.preloader2').style.display = 'flex';
+                    setTimeout(function() {
+                        document.querySelector('.preloader').style.display = 'none';
+                    }, 1000);
+                } else {
+                    percentage += 1;
+                    updatePercentage();
+                }
+            }, 8);
+        }
+
         setTimeout(function() {
-            document.querySelector('.preloader1').style.display = 'none';
-            document.querySelector('.preloader2').style.display = 'flex';
-            setTimeout(function() {
-                document.querySelector('.preloader2').style.display = 'none';
-                document.querySelector('.preloader').style.display = 'none';
-            }, 500);
-        }, 1000);
-    }
+            document.querySelector('.preloader1').style.display = 'flex';
+            simulateLoading();
+        }, 2);
+    });
 </script>
+

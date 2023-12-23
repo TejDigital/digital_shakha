@@ -130,7 +130,7 @@ if (isset($_SESSION['digi_meg'])) {
                                 <th> Date</th>
                                 <th> Mode</th>
                                 <th> Address</th>
-                                <th> Status</th>
+                                <th> Availability</th>
                                 <th colspan="3" class="text-center"> Active </th>
                             </tr>
                         </thead>
@@ -153,10 +153,10 @@ if (isset($_SESSION['digi_meg'])) {
                                         <td><?= $data['batch_date'] ?></td>
                                         <td><?= $data['batch_address'] ?></td>
                                         <td><?php
-                                            if ($data['batch_status'] == 1) {
-                                                echo "Active";
+                                            if ($data['availability'] == 1) {
+                                                echo "Available";
                                             } else {
-                                                echo "inactive";
+                                                echo "Batch Full";
                                             }
                                             ?></td>
                                         <td class="text-center">

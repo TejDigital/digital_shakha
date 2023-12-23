@@ -1191,13 +1191,13 @@ $(document).ready(function () {
     e.preventDefault();
     var form = $(this);
     var formData = form.serialize();
-    console.log(formData);
+    // console.log(formData);
     $.ajax({
       type: "POST",
       url: "././admin/news_letter_ajax.php",
       data: formData,
       success: function (response) {
-        console.log(response);
+        // console.log(response);
         var result = JSON.parse(response);
         if (result.res == "1") {
           Swal.fire({
@@ -1235,6 +1235,58 @@ $(document).ready(function () {
     clearInput();
   });
   let formReset = document.getElementById("news_letter");
+  function clearInput() {
+    formReset.reset();
+  }
+});
+//-------------------------Request-internship-track--------------
+$(document).ready(function () {
+  $("#internship_request_from").on("submit", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = form.serialize();
+    $.ajax({
+      type: "POST",
+      url: "././admin/internship_track_msg_code.php",
+      data: formData,
+      success: function (response) {
+        var result = JSON.parse(response);
+        if (result.res == "1") {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Thank You ! We are connect soon",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `  
+                          rgba(40, 39, 19,0.4)
+                          left top
+                          no-repeat`,
+            timer: 2500,
+          });
+        }
+      },
+      error: function (response) {
+        $("#request_modal").hide();
+        alert("Something went wrong");
+        console.log(response);
+      },
+    });
+    clearInput();
+  });
+  let formReset = document.getElementById("internship_request_from");
   function clearInput() {
     formReset.reset();
   }

@@ -53,17 +53,7 @@ session_start();
 
 </head>
 <style>
-    .preloader1 {
-        background-color: #1A0E09;
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        align-items: start;
-        justify-content: start;
-        padding: 3rem;
-        flex-direction: column;
-        animation: slideUp 1s linear;
-    }
+   
 
     .preloader2 {
         background-color: #BB5327;
@@ -73,9 +63,19 @@ session_start();
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        animation: slideUp 0.5s linear;
+        animation: slideUp 1s linear;
     }
-
+    .preloader1 {
+        background-color: #1A0E09;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        padding: 3rem;
+        flex-direction: column;
+        /* animation: slideUp 1s linear; */
+    }
     .preloader {
         /* overflow: hidden; */
         position: fixed;
@@ -98,10 +98,16 @@ session_start();
         margin: 1rem 0;
     }
 
-    .preloader1 .text .count {
+    .preloader1 .count {
+        padding: 1rem 3rem;
         font-size: 1rem;
         font-weight: 500;
         margin: 1rem 0;
+        color: #FFFFFF;
+    }
+
+    .preloader1 .count span {
+        color: #FFFFFF;
     }
 
     .preloader1 .img {
@@ -139,7 +145,7 @@ session_start();
                 <h1>Design</h1>
             </div>
             <div class="count">
-                <span>10%</span>
+                <span></span>
             </div>
             <div class="img">
                 <img src="./assets/images/digital_logo_2.png" alt="">
@@ -514,7 +520,7 @@ session_start();
                             <p>Enter the email address you use on Digitalshakha. We'll send you a link to reset your password.</p>
                         </div>
                         <div class="form">
-                            <form id="std_forget_pass" >
+                            <form id="std_forget_pass">
                                 <div class="form-group">
                                     <input type="email" class="input_box" name="forget_email" placeholder="Email Address">
                                     <span class="material-symbols-outlined">

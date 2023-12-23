@@ -22,7 +22,7 @@ if (isset($_POST['add'])) {
 
     if ($stmt) {
         $_SESSION['digi_meg'] = "Grade added";
-        header('Location: ./grade.php');
+        header('Location: ./grade.php?grade_id=' . $app_id);
     } else {
         $_SESSION['digi_meg'] = "Failed to add Grade: " . mysqli_error($con);
         header('Location: ./grade.php');
