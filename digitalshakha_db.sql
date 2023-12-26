@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2023 at 05:56 AM
+-- Generation Time: Dec 26, 2023 at 01:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -86,7 +86,9 @@ CREATE TABLE `application_tbl` (
 INSERT INTO `application_tbl` (`id`, `registration_id`, `name`, `last_name`, `gender`, `dob`, `phone`, `email`, `address_1`, `address_2`, `pin_code`, `city`, `state`, `country`, `collage`, `degree`, `course`, `duration`, `know_about_as`, `referral_code`, `profile_photo`, `payment_photo`, `transaction_id`, `payment_status`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'DS23101', 'Nobita', 'singh', 'male', '2023-12-23', 2147483647, 'bhoj@gmail.com', 'bhilai 1', 'balod 2', 492230, '9', '7', '101', 'LPU', 3, 1, 6, 1, 987679, 'resources_bg_3.png', 'cover_letter_img_4.png', '567890', 0, 1, '2023-12-19 05:06:02', '2023-12-19 05:06:02'),
 (5, 'DS23102', 'Doremon ', 'gupta', 'male', '2023-12-23', 1234567596, 'rohan@gmail.com', 'balod 1', 'bhilai 2', 987656, '1064', '12', '101', 'LPU', 2, 4, 4, 2, 987679, 'application_bg_1.png', 'cover_letter_img_3.png', '9876545', 0, 1, '2023-12-20 07:31:52', '2023-12-20 07:31:52'),
-(7, 'DS23103', 'Gian', 'singh', 'male', '2023-12-20', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 456787, '30', '13', '101', 'UPU Govt. Polytechnic Durg', 1, 3, 4, 1, 8765456, 'resources_bg_1.png', 'program_box_bg_6.png', '9876545', 0, 1, '2023-12-20 07:32:07', '2023-12-20 07:32:07');
+(7, 'DS23103', 'Gian', 'singh', 'male', '2023-12-20', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 456787, '30', '13', '101', 'UPU Govt. Polytechnic Durg', 1, 3, 4, 1, 8765456, 'resources_bg_1.png', 'program_box_bg_6.png', '9876545', 0, 1, '2023-12-20 07:32:07', '2023-12-20 07:32:07'),
+(8, 'DS23104', 'tej', 'Sahu', 'male', '2023-07-11', 2147483647, 'tejpratap.digitalshakha@gmail.com', 'balod 1', 'bhilai 2', 987656, '1928', '7', '101', 'LPU', 2, 4, 6, 1, 987679, 'application_bg_3.png', 'cover_letter_img_5.png', '567890', 0, 1, '2023-12-23 06:26:29', '2023-12-23 06:26:29'),
+(10, 'DS23103', 'Gian', 'singh', 'male', '2023-12-20', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 456787, '30', '13', '101', 'UPU Govt. Polytechnic Durg', 1, 4, 4, 1, 8765456, 'resources_bg_1.png', 'program_box_bg_6.png', '9876545', 0, 1, '2023-12-23 09:37:22', '2023-12-23 09:37:22');
 
 -- --------------------------------------------------------
 
@@ -197,6 +199,29 @@ CREATE TABLE `employee_contact_tbl` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `event_category_tbl`
+--
+
+CREATE TABLE `event_category_tbl` (
+  `event_category_id` int(11) NOT NULL,
+  `event_category_name` varchar(100) NOT NULL,
+  `event_category_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `event_category_tbl`
+--
+
+INSERT INTO `event_category_tbl` (`event_category_id`, `event_category_name`, `event_category_status`, `created_at`, `updated_at`) VALUES
+(1, 'Game', 1, '2023-12-26 07:27:36', '2023-12-26 07:27:36'),
+(2, 'Seminar', 1, '2023-12-26 07:28:20', '2023-12-26 07:28:20'),
+(3, 'Workshop', 1, '2023-12-26 07:28:33', '2023-12-26 07:28:33');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `event_register_tbl`
 --
 
@@ -227,9 +252,10 @@ INSERT INTO `event_register_tbl` (`id`, `name`, `phone`, `email`, `event`, `stat
 
 CREATE TABLE `event_tbl` (
   `event_id` int(11) NOT NULL,
+  `event_category` tinyint(4) NOT NULL,
   `event_title` varchar(100) NOT NULL,
   `event_date` date NOT NULL,
-  `event_video` varchar(100) NOT NULL,
+  `event_image` varchar(100) NOT NULL,
   `event_description` text NOT NULL,
   `event_start_time` time NOT NULL,
   `event_end_time` time NOT NULL,
@@ -243,13 +269,11 @@ CREATE TABLE `event_tbl` (
 -- Dumping data for table `event_tbl`
 --
 
-INSERT INTO `event_tbl` (`event_id`, `event_title`, `event_date`, `event_video`, `event_description`, `event_start_time`, `event_end_time`, `event_address`, `event_status`, `created_at`, `updated_at`) VALUES
-(1, 'Unveiling Horizons: A Seminar on Cutting-Edge Technologies', '2023-11-26', 'home_video_5.mp4', '<p>Opening Remarks: Setting the Stage for Innovation The seminar kicks off with insightful opening remarks that set the stage for a day of exploration and discovery. Attendees are welcomed into an environment where the boundaries of technology are pushed, and new horizons are constantly being unveiled. Session 1: The Rise of Artificial Intelligence The first session delves into the fascinating world of Artificial Intelligence (AI). Experts unravel the mysteries behind machine learning algorithms, neural networks, and the transformative impact AI is having on various sectors. From healthcare to finance, attendees gain a comprehensive understanding of how AI is reshaping industries. Session 2: Machine Learning in Practice Building on the foundations of AI, the second session focuses on the practical applications of Machine Learning (ML). Case studies and real-world examples showcase how ML algorithms are solving complex problems, making data-driven decisions, and opening up new possibilities for innovation. Interactive Workshops: Hands-On Learning The seminar isn\'t just about theory; it\'s about hands-on learning. Interactive workshops provide attendees with the opportunity to engage directly with the technologies discussed. Whether it\'s coding exercises or problem-solving scenarios, participants leave with practical skills that they can apply in their own endeavors. Session 3: Future Tech Trends Panel Discussion A panel of experts takes the stage to discuss the future trends in technology. From advancements in quantum computing to the integration of augmented reality, the panel explores the frontiers that await us. Attendees gain valuable insights into the skills and knowledge that will be crucial in the tech landscape of tomorrow. Networking Lunch: Connecting Innovators A networking lunch provides the perfect opportunity for attendees to connect, share ideas, and build relationships. The seminar is not just a learning experience; it\'s a community of innovators coming together to shape the future. Closing Keynote: Navigating the Uncharted As the day concludes, a closing keynote reflects on the insights gained and challenges attendees to navigate the uncharted territories of technology. The call to action is clear: take the knowledge acquired and be a pioneer in shaping the future of technology. Conclusion: Unveiling New Perspectives The \"Unveiling Horizons\" seminar is more than an event; it\'s a journey of discovery. Attendees leave with a broader perspective, a deeper understanding of cutting-edge technologies, and the inspiration to be at the forefront of innovation. In a world where technology evolves rapidly, the \"Unveiling Horizons\" seminar is a beacon, guiding individuals toward a future where the possibilities are limitless.</p>', '14:00:00', '19:00:00', 'Bhilai', 1, '2023-11-23 06:38:01', '2023-11-27 08:41:28'),
-(2, 'Lorem ipsum dolor sit amet consectetur.', '2023-11-13', 'home_video_6.mp4', '<p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis dui nam a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi massa pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim risus vitae nibh euismod. Maecenas eget luctus phasellus molestie lobortis</p>', '11:00:00', '13:00:00', 'Bhilai', 1, '2023-11-23 06:38:59', '2023-12-08 08:20:30'),
-(3, 'Lorem ipsum dolor sit amet consectetur.', '2023-11-14', 'home_video_7.mp4', '<p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis dui nam a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi massa pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim risus vitae nibh euismod. Maecenas eget luctus phasellus molestie lobortis</p>', '11:00:00', '13:00:00', 'Bhilai', 1, '2023-11-23 06:40:30', '2023-12-08 08:20:21'),
-(4, 'Lorem ipsum dolor sit amet consectetur.', '2023-11-15', 'home_video_2.mp4', '<p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis dui nam a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi massa pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim risus vitae nibh euismod. Maecenas eget luctus phasellus molestie lobortis</p>', '11:00:00', '13:00:00', 'Bhilai', 1, '2023-11-23 06:41:43', '2023-12-08 08:20:06'),
-(5, 'Lorem ipsum dolor sit amet consectetur.', '2023-11-16', 'home_video_1.mp4', 'Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis dui nam a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi massa pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim risus vitae nibh euismod. Maecenas eget luctus phasellus molestie lobortis\r\n\r\n', '11:04:00', '15:00:00', 'Bhilai', 1, '2023-11-23 06:42:30', '2023-11-27 07:09:18'),
-(8, 'UX UI Design', '2023-12-06', 'home_video_1.mp4', '<p>eiudbjndjn jknknk</p>', '17:12:00', '22:12:00', 'Raipur2', 1, '2023-12-08 07:43:03', '2023-12-08 08:22:43');
+INSERT INTO `event_tbl` (`event_id`, `event_category`, `event_title`, `event_date`, `event_image`, `event_description`, `event_start_time`, `event_end_time`, `event_address`, `event_status`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Fun Friday', '2023-12-27', 'application_bg_1.png', '<div>\r\n<h1 style=\"text-align: center;\"><strong>&nbsp; Lorem ipsum dolor</strong></h1>\r\n<div>&nbsp;sit amet consectetur adipisicing elit. Deserunt consequatur a nesciunt iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n</div>', '10:00:00', '16:00:00', 'Raipur', 1, '2023-12-26 07:30:51', '2023-12-26 07:30:51'),
+(2, 2, 'UX UI Design', '2023-12-28', 'application_bg_3.png', '<div>\r\n<h1 style=\"text-align: center;\"><strong>&nbsp; Lorem ipsum dolor </strong></h1>\r\n<div><strong>sit amet consectetur adipisicing elit. Deserunt consequatur a nesciunt : -</strong>iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<div>\r\n<div><strong>&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt : - </strong>onsequatur a nesciunt iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<div>\r\n<div><strong>&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt : -</strong>consequatur a nesciunt iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', '11:00:00', '16:00:00', 'Bhilai', 1, '2023-12-26 09:28:18', '2023-12-26 09:28:18'),
+(3, 3, 'Business Development ', '2023-12-31', 'cover_letter_img_7.png', '<div>\r\n<h1 style=\"text-align: center;\"><strong>&nbsp; Lorem ipsum dolor </strong></h1>\r\n<div><strong>sit amet consectetur adipisicing elit. Deserunt consequatur a nesciunt : -</strong>iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<div>\r\n<div><strong>&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt : - </strong>onsequatur a nesciunt iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<div>\r\n<div><strong>&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt : -</strong>consequatur a nesciunt iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', '10:00:00', '14:00:00', 'Raipur2', 1, '2023-12-26 09:29:12', '2023-12-26 09:29:12'),
+(4, 3, 'Back-End Development', '2024-01-01', 'cover_letter_img_4.png', '<div>\r\n<h1 style=\"text-align: center;\"><strong>&nbsp; Lorem ipsum dolor </strong></h1>\r\n<div><strong>sit amet consectetur adipisicing elit. Deserunt consequatur a nesciunt : -</strong>iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<div>\r\n<div><strong>&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt : - </strong>onsequatur a nesciunt iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n<div>&nbsp;</div>\r\n<div>\r\n<div>\r\n<div><strong>&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt : -</strong>consequatur a nesciunt iusto natus delectus ea id nemo aperiam tempora, voluptate sed temporibus quas velit repellat voluptas minima assumenda veritatis, voluptates, iste sapiente? Sunt, aliquid praesentium. Rerum soluta tempora laudantium! Dolore quidem, nemo repudiandae vero sapiente, fuga mollitia amet magnam accusamus deserunt ea blanditiis voluptatum laborum beatae eligendi sequi. Quasi architecto dolor quod illo cumque eligendi, et ipsum quaerat debitis officiis unde laudantium quos suscipit laboriosam adipisci ducimus error velit magnam ex ipsa mollitia libero doloremque? Magni, iste nesciunt officiis a explicabo harum illo ut enim, maiores at, aspernatur optio?</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>\r\n</div>', '10:00:00', '16:00:00', 'Raipur2', 1, '2023-12-26 09:44:56', '2023-12-26 09:44:56');
 
 -- --------------------------------------------------------
 
@@ -353,7 +377,13 @@ INSERT INTO `internship_grade_tbl` (`grade_id`, `program`, `app_id`, `grade_stat
 (1, 3, 7, 2, '20', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:01'),
 (2, 3, 7, 0, '20', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:10'),
 (3, 3, 7, 0, '12', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:16'),
-(4, 3, 7, 0, '', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:23');
+(4, 3, 7, 0, '', '', 7, 4, 1, '2023-12-21 09:47:24', '2023-12-22 10:25:23'),
+(5, 4, 8, 0, '20', '12', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
+(6, 4, 8, 0, '20', '34', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
+(7, 4, 8, 0, '20', '45', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
+(8, 4, 8, 0, '20', '55', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
+(9, 4, 8, 0, '20', '43', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
+(10, 4, 8, 0, '20', '23', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02');
 
 -- --------------------------------------------------------
 
@@ -376,7 +406,30 @@ CREATE TABLE `internship_mentor_grading_tbl` (
 --
 
 INSERT INTO `internship_mentor_grading_tbl` (`mentor_grading_id`, `app_id`, `mentor_grading`, `milestone_completed`, `mentor_grading_status`, `created_at`, `updated_at`) VALUES
-(2, 7, 7, 4, 1, '2023-12-22 09:33:34', '2023-12-22 09:33:34');
+(2, 7, 7, 4, 1, '2023-12-22 09:33:34', '2023-12-22 09:33:34'),
+(3, 8, 4, 4, 1, '2023-12-23 06:48:26', '2023-12-23 06:48:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `internship_request_msg_tbl`
+--
+
+CREATE TABLE `internship_request_msg_tbl` (
+  `request_id` int(11) NOT NULL,
+  `app_id` tinyint(4) NOT NULL,
+  `request_msg` text NOT NULL,
+  `request_status` int(11) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `internship_request_msg_tbl`
+--
+
+INSERT INTO `internship_request_msg_tbl` (`request_id`, `app_id`, `request_msg`, `request_status`, `created_at`, `updated_at`) VALUES
+(1, 7, 'dsdc ddccx dcdx x dvghnkjmb b hnhjmhbfgthuik v koivcx ', 1, '2023-12-23 08:45:27', '2023-12-23 08:45:27');
 
 -- --------------------------------------------------------
 
@@ -398,6 +451,33 @@ CREATE TABLE `news_letter_tbl` (
 
 INSERT INTO `news_letter_tbl` (`news_id`, `news_email`, `news_status`, `created_at`, `updated_at`) VALUES
 (2, 'admin@gmail.com', 1, '2023-11-24 13:22:42', '2023-11-24 13:22:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `opportunities_request_tbl`
+--
+
+CREATE TABLE `opportunities_request_tbl` (
+  `opportunities_request_id` int(11) NOT NULL,
+  `opportunities_id` tinyint(4) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `opportunities_request_status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `opportunities_request_tbl`
+--
+
+INSERT INTO `opportunities_request_tbl` (`opportunities_request_id`, `opportunities_id`, `name`, `phone`, `email`, `image`, `opportunities_request_status`, `created_at`, `updated_at`) VALUES
+(2, 2, 'UX UI Design', '6543234567', 'ashutosh@gmail.com', 'application_img_1.png', 1, '2023-12-26 11:47:11', '2023-12-26 11:47:11'),
+(3, 2, 'tejpratap sahu', '6260131302', 'ashutosh@gmail.com', 'application_img_2.png', 1, '2023-12-26 11:48:47', '2023-12-26 11:48:47'),
+(5, 3, 'tejpratap digitalshakaha', '0987654323', 'rohan@gmail.com', 'success_stories_slider_img.png', 1, '2023-12-26 12:21:23', '2023-12-26 12:21:23');
 
 -- --------------------------------------------------------
 
@@ -8467,9 +8547,9 @@ CREATE TABLE `upcoming_batch_tbl` (
 --
 
 INSERT INTO `upcoming_batch_tbl` (`batch_id`, `batch_name`, `batch_mode`, `batch_address`, `batch_date`, `batch_start_time`, `batch_end_time`, `batch_status`, `availability`, `created_at`, `updated_at`) VALUES
-(1, 12, 'Offline', 'Bhilai', '2023-11-17', '07:20:00', '21:20:00', 1, 1, '2023-11-23 12:50:55', '2023-12-19 09:46:53'),
+(1, 12, 'Offline', 'Bhilai', '2023-11-17', '07:20:00', '21:20:00', 1, 0, '2023-11-23 12:50:55', '2023-12-23 11:00:27'),
 (3, 5, 'Online', 'Bhilai', '2023-11-24', '10:01:00', '17:01:00', 1, 1, '2023-11-23 13:31:18', '2023-12-08 09:42:32'),
-(4, 4, 'Offline', 'Bhilai', '2023-11-26', '11:01:00', '15:01:00', 1, 0, '2023-11-23 13:31:46', '2023-12-08 10:31:19');
+(4, 4, 'Offline', 'Bhilai', '2023-11-26', '11:01:00', '15:01:00', 1, 1, '2023-11-23 13:31:46', '2023-12-23 10:57:20');
 
 -- --------------------------------------------------------
 
@@ -8499,8 +8579,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `registration_id`, `name`, `phone`, `email`, `password`, `type`, `verification_token`, `verification_status`, `status`, `created_at`, `updated_at`) VALUES
 (1, '', 'Super Admin', '1234567890', 'admin@gmail.com', '12345', 'admin', '', 1, 1, '2023-10-27 10:19:00', '2023-10-31 05:23:16'),
 (5, '', 'ashutosh', '1233445678', 'ashutosh@gmail.com', '12345', 'employee', '', 0, 1, '2023-10-27 13:31:39', '2023-10-28 12:48:07'),
-(19, '', 'tejpratap sahu', '8765432345', 'tejpratap.digitalshakha@gmail.com', '$2y$10$WmJyh8/dwWN2tkbP4V6iUuRBCzQlSYoBgCGOa7SfE7Etq.VkiVJOi', 'user', '74eb3d26adb230521ccc7f205b928f66', 1, 1, '2023-12-19 06:46:33', '2023-12-19 06:47:07'),
-(24, '', 'tejpratap sahu', '6260131302', 'tejpratapsahu00@gmail.com', '$2y$10$L3SHQu49P4wQy0qEWbOZYuB2TDGPWwuSujaO.xmS5ttV4sx0dNx4G', 'user', 'dcbb3c9d82f55cbcc68539403f838aa5', 1, 1, '2023-12-19 09:37:42', '2023-12-19 09:37:54');
+(24, '', 'tejpratap sahu', '6260131302', 'tejpratapsahu00@gmail.com', '$2y$10$H8Tho56Wd4gAS8u5/wXHxuTQKs412A5tfIjAxPh3YDOCzSyrLgt/O', 'user', '64cfaabc1ec3380026b3b0723e0c075f', 1, 1, '2023-12-19 09:37:42', '2023-12-23 06:06:28'),
+(25, '', 'tejpratap digitalshakaha', '8765432345', 'tejpratap.digitalshakha@gmail.com', '$2y$10$5x6cykIVSYL0UMgnlgU2qOTsWMPXwckKzLnNtOy0fJj45gvuJaAIe', 'user', 'e19c87622bd0745dc9925e3157101832', 1, 1, '2023-12-23 06:24:01', '2023-12-23 06:24:18');
 
 --
 -- Indexes for dumped tables
@@ -8541,6 +8621,12 @@ ALTER TABLE `contact_tbl`
 --
 ALTER TABLE `employee_contact_tbl`
   ADD PRIMARY KEY (`employee_id`);
+
+--
+-- Indexes for table `event_category_tbl`
+--
+ALTER TABLE `event_category_tbl`
+  ADD PRIMARY KEY (`event_category_id`);
 
 --
 -- Indexes for table `event_register_tbl`
@@ -8585,10 +8671,22 @@ ALTER TABLE `internship_mentor_grading_tbl`
   ADD PRIMARY KEY (`mentor_grading_id`);
 
 --
+-- Indexes for table `internship_request_msg_tbl`
+--
+ALTER TABLE `internship_request_msg_tbl`
+  ADD PRIMARY KEY (`request_id`);
+
+--
 -- Indexes for table `news_letter_tbl`
 --
 ALTER TABLE `news_letter_tbl`
   ADD PRIMARY KEY (`news_id`);
+
+--
+-- Indexes for table `opportunities_request_tbl`
+--
+ALTER TABLE `opportunities_request_tbl`
+  ADD PRIMARY KEY (`opportunities_request_id`);
 
 --
 -- Indexes for table `opportunities_tbl`
@@ -8712,7 +8810,7 @@ ALTER TABLE `application_price_tbl`
 -- AUTO_INCREMENT for table `application_tbl`
 --
 ALTER TABLE `application_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `blog_category_tbl`
@@ -8739,6 +8837,12 @@ ALTER TABLE `employee_contact_tbl`
   MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `event_category_tbl`
+--
+ALTER TABLE `event_category_tbl`
+  MODIFY `event_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `event_register_tbl`
 --
 ALTER TABLE `event_register_tbl`
@@ -8748,7 +8852,7 @@ ALTER TABLE `event_register_tbl`
 -- AUTO_INCREMENT for table `event_tbl`
 --
 ALTER TABLE `event_tbl`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `faqs_tbl`
@@ -8772,19 +8876,31 @@ ALTER TABLE `internship_course_material_tbl`
 -- AUTO_INCREMENT for table `internship_grade_tbl`
 --
 ALTER TABLE `internship_grade_tbl`
-  MODIFY `grade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `grade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `internship_mentor_grading_tbl`
 --
 ALTER TABLE `internship_mentor_grading_tbl`
-  MODIFY `mentor_grading_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `mentor_grading_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `internship_request_msg_tbl`
+--
+ALTER TABLE `internship_request_msg_tbl`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `news_letter_tbl`
 --
 ALTER TABLE `news_letter_tbl`
   MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `opportunities_request_tbl`
+--
+ALTER TABLE `opportunities_request_tbl`
+  MODIFY `opportunities_request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `opportunities_tbl`
@@ -8892,7 +9008,7 @@ ALTER TABLE `upcoming_batch_tbl`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

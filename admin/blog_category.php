@@ -39,7 +39,7 @@ if (isset($_SESSION['digi_meg'])) {
         <div class="modal-content">
             <form action="./blog_category_code.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Program</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Delete</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">

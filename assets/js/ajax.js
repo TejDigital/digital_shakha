@@ -339,8 +339,6 @@ $(document).ready(function () {
     log_form.reset();
   }
 });
-
-
 //--------------Student-forget-password-------------
 
 $(document).ready(function () {
@@ -385,7 +383,7 @@ $(document).ready(function () {
             timer: 2500,
           });
           submitBtn.prop("disabled", true);
-        } 
+        }
       },
       error: function (response) {
         alert("something wrong");
@@ -457,9 +455,9 @@ $(document).ready(function () {
             timer: 2500,
           }).then(function () {
             window.location.href = "././index.php?";
-          });;
+          });
           submitBtn.prop("disabled", true);
-        } else if(message.reset_msg === 3){
+        } else if (message.reset_msg === 3) {
           clearResetPassFrom();
           Swal.fire({
             position: "center",
@@ -485,9 +483,10 @@ $(document).ready(function () {
                                     no-repeat`,
             timer: 2500,
           }).then(function () {
-            window.location.href = "././reset_password.php?token=" + token +"&email="+email;
+            window.location.href =
+              "././reset_password.php?token=" + token + "&email=" + email;
           });
-        } else if(message.reset_msg === 4){
+        } else if (message.reset_msg === 4) {
           clearResetPassFrom();
           Swal.fire({
             position: "center",
@@ -513,9 +512,10 @@ $(document).ready(function () {
                                     no-repeat`,
             timer: 2500,
           }).then(function () {
-            window.location.href = "././reset_password.php?token=" + token +"&email="+email;
-          });;
-        } else if(message.reset_msg === 5){
+            window.location.href =
+              "././reset_password.php?token=" + token + "&email=" + email;
+          });
+        } else if (message.reset_msg === 5) {
           clearResetPassFrom();
           Swal.fire({
             position: "center",
@@ -541,8 +541,9 @@ $(document).ready(function () {
                                     no-repeat`,
             timer: 2500,
           }).then(function () {
-            window.location.href = "././reset_password.php?token=" + token +"&email="+email;
-          });;
+            window.location.href =
+              "././reset_password.php?token=" + token + "&email=" + email;
+          });
         }
       },
       error: function (response) {
@@ -550,7 +551,7 @@ $(document).ready(function () {
       },
     });
   });
- 
+
   var reg_form = $("#std_reset_password")[0];
   function clearResetPassFrom() {
     reg_form.reset();
@@ -758,7 +759,7 @@ $(document).ready(function () {
                                   no-repeat`,
             timer: 2500,
           });
-        }else if(parsed_data.success === 22){
+        } else if (parsed_data.success === 22) {
           var sms = parsed_data.msg;
           $("#app_top").append(sms);
           window.setTimeout(function () {
@@ -1288,6 +1289,64 @@ $(document).ready(function () {
   });
   let formReset = document.getElementById("internship_request_from");
   function clearInput() {
+    formReset.reset();
+  }
+});
+
+//-------------------------opportunities_request----------------
+$(document).ready(function () {
+  $("#opportunities_request").on("submit", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var formData = new FormData(form[0]); 
+    $.ajax({
+      type: "POST",
+      url: "././admin/opportunities_request.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        $("#opportunities_modal").modal("hide");
+        var result = JSON.parse(response);
+        console.log(result);
+        if (result.res === 1) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Thank You ! We are connect soon",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `
+                          rgba(40, 39, 19,0.4)
+                          left top
+                          no-repeat`,
+            timer: 2500,
+          });
+        }
+      },
+      error: function (response) {
+        $("#opportunities_modal").hide();
+        alert("Something went wrong");
+        console.log(response);
+      },
+    });
+    clearInput();
+  });
+  let formReset = document.getElementById("opportunities_request");
+  function clearInput() {
+    $("#fileNameDisplay1").text("Attach CV or Resume");
     formReset.reset();
   }
 });

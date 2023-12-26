@@ -9,17 +9,17 @@ if (isset($_POST['update'])) {
     $date = mysqli_real_escape_string($con, $_POST['date']);
     $category = mysqli_real_escape_string($con, $_POST['category']);
   
-    $description = mysqli_real_escape_string($con, $_POST['description']);
+    $description = $_POST['description'];
     $description = str_replace("'", "\'", $description);
 
-    $mini_description = mysqli_real_escape_string($con, $_POST['mini_description']);
+    $mini_description =  $_POST['mini_description'];
     $mini_description = str_replace("'", "\'", $mini_description);
     
     $old_image = mysqli_real_escape_string($con, $_POST['old_image']);
     $new_image = $_FILES['new_image']['name'];
 
     if ($new_image != '') {
-        if ($_FILES['new_image']["size"] > 15000000) {
+        if ($_FILES['new_image']["size"] > 7000000) {
             $_SESSION['digi_meg'] = "File size is too big";
             header('Location: ./blog_edit.php?id='.$id.'');
             exit();

@@ -12,7 +12,7 @@ if(isset($_POST['blog_category_delete'])){
         $_SESSION['digi_meg'] = "delete done";
         header('Location:./blog_category.php');
     }else{
-        $_SESSION['digi_meg'] = "deletaion Failed";
+        $_SESSION['digi_meg'] = "deletion Failed";
         header('Location:./blog_category.php');
     }
 }

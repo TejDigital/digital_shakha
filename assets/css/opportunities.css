@@ -89,7 +89,7 @@
 }
 
 .opportunities_2 .container {
-    padding: 0 4rem;
+    /* padding: 0 4rem; */
 }
 
 .opportunities_2 h1 {
@@ -313,7 +313,7 @@ margin-bottom: 2rem;
 .opportunities_5 .main_box {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 

@@ -7,10 +7,10 @@ if (isset($_POST['add'])) {
     $date = mysqli_real_escape_string($con, $_POST['date']);
     $category = mysqli_real_escape_string($con, $_POST['category']);
   
-    $description = mysqli_real_escape_string($con, $_POST['description']);
+    $description = $_POST['description'];
     $description = str_replace("'", "\'", $description);
 
-    $mini_description = mysqli_real_escape_string($con, $_POST['mini_description']);
+    $mini_description =$_POST['mini_description'];
     $mini_description = str_replace("'", "\'", $mini_description);
     $image = $_FILES['image']['name'];
 

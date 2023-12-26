@@ -31,7 +31,7 @@ require('./admin/config/dbcon.php');
 <section class="home_2">
     <div class="container px-5">
         <div class="home_2_top">
-            <h1 >Your Future Starts </h1>
+            <h1>Your Future Starts </h1>
             <div class="row">
                 <div class="col-md-3 video_container">
                     <div class="video_box">
@@ -558,24 +558,26 @@ require('./admin/config/dbcon.php');
     });
 </script>
 <script>
-    $(document).ready(function(){
-        function loadMore(page){
+    $(document).ready(function() {
+        function loadMore(page) {
             $.ajax({
                 type: "POST",
                 url: "./admin/program_view_ajax_call.php",
-                data: {page_no: page},
-                success: function (response) {
-                    if(response){
+                data: {
+                    page_no: page
+                },
+                success: function(response) {
+                    if (response) {
                         $("#btn_id").remove();
                         $("#load_data").append(response);
-                    }else{
-                        $("#load_page_btn").prop("disabled",true);
+                    } else {
+                        $("#load_page_btn").prop("disabled", true);
                     }
                 }
             });
         }
         loadMore();
-        $(document).on("click","#load_page_btn",function(){
+        $(document).on("click", "#load_page_btn", function() {
             var p_id = $(this).data("id");
             loadMore(p_id);
         });

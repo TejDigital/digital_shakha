@@ -10,43 +10,37 @@ if (isset($_POST['update'])) {
     $address = mysqli_real_escape_string($con, $_POST['address']);
     $start_time = mysqli_real_escape_string($con, $_POST['start_time']);
     $end_time = mysqli_real_escape_string($con, $_POST['end_time']);
-    $description = mysqli_real_escape_string($con, $_POST['description']);
+    $description = $_POST['description'];
     $description = str_replace("'", "\'", $description);
-    $old_video = mysqli_real_escape_string($con, $_POST['old_video']);
-    $new_video = $_FILES['new_video']['name'];
-
-    if ($new_video != '') {
-        if ($_FILES['new_video']["size"] > 15000000) {
+    $category = mysqli_real_escape_string($con, $_POST['category']);
+    $old_image = mysqli_real_escape_string($con, $_POST['old_image']);
+    $new_image = $_FILES['new_image']['name'];
+    $updated_image = $old_image;
+    if ($new_image != '') {
+        if ($_FILES['new_image']["size"] > 7000000) {
             $_SESSION['digi_meg'] = "File size is too big";
-            header('Location: ./event_edit.php?id='.$id.'');
+            header('Location: ./event_edit.php?id=' . $id . '');
             exit();
         }
 
-        $video_ext = ['mp4', 'avi', 'mov'];
-        $file_ext = pathinfo($new_video, PATHINFO_EXTENSION);
+        $image_ext = ['jpg', 'png', 'jpeg'];
+        $file_ext = pathinfo($new_image, PATHINFO_EXTENSION);
 
-        if (!in_array($file_ext, $video_ext)) {
-            $_SESSION['digi_meg'] = "File must have mp4, avi, or mov extension";
-            header('Location: ./event_edit.php?id='.$id.'');
+        if (!in_array($file_ext, $image_ext)) {
+            $_SESSION['digi_meg'] = "File must have jpg, png, or jpeg extension";
+            header('Location: ./event_edit.php?id=' . $id . '');
             exit();
         }
 
-        if (!empty($new_video)) {
-            $updated_video = $new_video;
-            move_uploaded_file($_FILES['new_video']['tmp_name'], './event_videos/' . $new_video);
-            unlink("./program_images/" . $old_video);
-        } else {
-            $updated_video = $old_video;
+        if (!empty($new_image)) {
+            $updated_image = $new_image;
+            move_uploaded_file($_FILES['new_image']['tmp_name'], './event_image/' . $new_image);
+            unlink("./program_image/" . $old_image);
         }
 
-        $sql = "UPDATE event_tbl SET event_title=?, event_date=?, event_video=?, event_description=?, event_start_time=?, event_end_time=?, event_address=?, event_status=? WHERE event_id = ?";
+        $sql = "UPDATE event_tbl SET event_title=?, event_category=?, event_date=?, event_image=?, event_description=?, event_start_time=?, event_end_time=?, event_address=?, event_status=? WHERE event_id = ?";
         $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, "sssssssii", $name, $date, $updated_video, $description, $start_time, $end_time, $address, $status, $id);
-        mysqli_stmt_execute($stmt);
-    } else {
-        $sql = "UPDATE event_tbl SET event_title=?, event_date=?, event_description=?, event_start_time=?, event_end_time=?, event_address=?, event_status=? WHERE event_id = ?";
-        $stmt = mysqli_prepare($con, $sql);
-        mysqli_stmt_bind_param($stmt, "ssssssii", $name, $date, $description, $start_time, $end_time, $address, $status, $id);
+        mysqli_stmt_bind_param($stmt, "sissssssii", $name, $category, $date, $updated_image, $description, $start_time, $end_time, $address, $status, $id);
         mysqli_stmt_execute($stmt);
     }
 
@@ -58,4 +52,3 @@ if (isset($_POST['update'])) {
         header('Location: ./events.php');
     }
 }
-?>

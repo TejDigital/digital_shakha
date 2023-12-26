@@ -140,7 +140,7 @@ require('./admin/config/dbcon.php');
             </div>
             <div class="col-md-12 text-center pt-5">
                 <div class="btn">
-                    <a href="#!">Explore Learning Paths</a>
+                    <a href="./program_option.php">Explore Learning Paths</a>
                 </div>
             </div>
         </div>

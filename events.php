@@ -2,7 +2,7 @@
 require('./admin/config/dbcon.php');
 ?>
 <section class="event_1">
-    <div class="container ">
+    <div class="container">
         <div class="heading">
             <h1>Upcoming event</h1>
         </div>
@@ -51,71 +51,6 @@ require('./admin/config/dbcon.php');
                                 }
                             }
                             ?>
-                            <!-- <li class="splide__slide">
-                                <div class="box">
-                                    <div class="date">
-                                        <p>08</p>
-                                        <p>SEPTEMBER</p>
-                                    </div>
-                                    <div class="text">
-                                        <p>Capture the Flag - Professional Assesment </p>
-                                        <p><span>11:00 am - </span> <span> 01:00 Pm</span></p>
-                                        <p>Office, Bhilai</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="splide__slide">
-                                <div class="box">
-                                    <div class="date">
-                                        <p>09</p>
-                                        <p>SEPTEMBER</p>
-                                    </div>
-                                    <div class="text">
-                                        <p>Capture the Flag - Professional Assesment </p>
-                                        <p><span>11:00 am - </span> <span> 01:00 Pm</span></p>
-                                        <p>Office, Bhilai</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="splide__slide">
-                                <div class="box">
-                                    <div class="date">
-                                        <p>10</p>
-                                        <p>SEPTEMBER</p>
-                                    </div>
-                                    <div class="text">
-                                        <p>Capture the Flag - Professional Assesment </p>
-                                        <p><span>11:00 am - </span> <span> 01:00 Pm</span></p>
-                                        <p>Office, Bhilai</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="splide__slide">
-                                <div class="box">
-                                    <div class="date">
-                                        <p>11</p>
-                                        <p>SEPTEMBER</p>
-                                    </div>
-                                    <div class="text">
-                                        <p>Capture the Flag - Professional Assesment </p>
-                                        <p><span>11:00 am - </span> <span> 01:00 Pm</span></p>
-                                        <p>Office, Bhilai</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="splide__slide">
-                                <div class="box">
-                                    <div class="date">
-                                        <p>12</p>
-                                        <p>SEPTEMBER</p>
-                                    </div>
-                                    <div class="text">
-                                        <p>Capture the Flag - Professional Assesment </p>
-                                        <p><span>11:00 am - </span> <span> 01:00 Pm</span></p>
-                                        <p>Office, Bhilai</p>
-                                    </div>
-                                </div>
-                            </li> -->
                         </ul>
                     </div>
                 </section>
@@ -139,16 +74,14 @@ require('./admin/config/dbcon.php');
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="video_content">
+                                <div class="image_content">
                                     <div class="flex-box">
                                         <div class="date">
                                             <p><?=$day?></p>
                                             <p><?=$month?></p>
                                         </div>
-                                        <div class="video">
-                                            <video autoplay loop muted>
-                                                <source src="./admin/event_videos/<?=$data['event_video']?>" type="">
-                                            </video>
+                                        <div class="img">
+                                          <img src="./admin/event_image/<?=$data['event_image']?>" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +90,7 @@ require('./admin/config/dbcon.php');
                                 <div class="text">
                                     <h1><?= $data['event_title'] ?></h1>
                                     <p><?=implode(' ',array_slice(str_word_count($data['event_description'], 1), 0, 35)) ?>...</p>
-                                    <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
+                                    <a href="./event_view.php?event_id=<?=$data['event_id']?>">Know More <img src="./assets/images/arrow.png" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -166,198 +99,6 @@ require('./admin/config/dbcon.php');
                 }
             }
             ?>
-            <!-- <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="video_content">
-                            <div class="flex-box">
-                                <div class="date">
-                                    <p>08</p>
-                                    <p>SEPTEMBER</p>
-                                </div>
-                                <div class="video">
-                                    <video autoplay loop muted>
-                                        <source src="./assets/images/home_video_5.mp4" type="">
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text">
-                            <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis
-                                dui nam
-                                a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi
-                                massa
-                                pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim
-                                risus vitae
-                                nibh euismod. Maecenas eget luctus phasellus molestie lobortis </p>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="video_content">
-                            <div class="flex-box">
-                                <div class="date">
-                                    <p>09</p>
-                                    <p>SEPTEMBER</p>
-                                </div>
-                                <div class="video">
-                                    <video autoplay loop muted>
-                                        <source src="./assets/images/home_video_6.mp4" type="">
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text">
-                            <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis
-                                dui nam
-                                a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi
-                                massa
-                                pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim
-                                risus vitae
-                                nibh euismod. Maecenas eget luctus phasellus molestie lobortis </p>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="video_content">
-                            <div class="flex-box">
-                                <div class="date">
-                                    <p>10</p>
-                                    <p>SEPTEMBER</p>
-                                </div>
-                                <div class="video">
-                                    <video autoplay loop muted>
-                                        <source src="./assets/images/home_video_7.mp4" type="">
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text">
-                            <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis
-                                dui nam
-                                a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi
-                                massa
-                                pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim
-                                risus vitae
-                                nibh euismod. Maecenas eget luctus phasellus molestie lobortis </p>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="video_content">
-                            <div class="flex-box">
-                                <div class="date">
-                                    <p>11</p>
-                                    <p>SEPTEMBER</p>
-                                </div>
-                                <div class="video">
-                                    <video autoplay loop muted>
-                                        <source src="./assets/images/home_video_4.mp4" type="">
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text">
-                            <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis
-                                dui nam
-                                a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi
-                                massa
-                                pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim
-                                risus vitae
-                                nibh euismod. Maecenas eget luctus phasellus molestie lobortis </p>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="video_content">
-                            <div class="flex-box">
-                                <div class="date">
-                                    <p>12</p>
-                                    <p>SEPTEMBER</p>
-                                </div>
-                                <div class="video">
-                                    <video autoplay loop muted>
-                                        <source src="./assets/images/home_video_3.mp4" type="">
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text">
-                            <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis
-                                dui nam
-                                a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi
-                                massa
-                                pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim
-                                risus vitae
-                                nibh euismod. Maecenas eget luctus phasellus molestie lobortis </p>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="video_content">
-                            <div class="flex-box">
-                                <div class="date">
-                                    <p>14</p>
-                                    <p>SEPTEMBER</p>
-                                </div>
-                                <div class="video">
-                                    <video autoplay loop muted>
-                                        <source src="./assets/images/home_video_7.mp4" type="">
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="text">
-                            <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur. Ultrices ut sed tristique elit mus sagittis
-                                dui nam
-                                a. Fermentum ipsum amet leo maecenas. Vitae nisl dolor eu lectus arcu. Tortor morbi
-                                massa
-                                pellentesque morbi bibendum aliquet. Sed tincidunt ut morbi tempor euismod. Enim
-                                risus vitae
-                                nibh euismod. Maecenas eget luctus phasellus molestie lobortis </p>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
 </section>
@@ -396,7 +137,7 @@ require('./admin/config/dbcon.php');
         type: 'loop',
         perPage: 4,
         perMove: 1,
-        gap: '1rem',
+        gap: '0.7rem',
         pagination: false,
         breakpoints: {
             998: {

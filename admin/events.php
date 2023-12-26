@@ -39,7 +39,7 @@ if (isset($_SESSION['digi_meg'])) {
         <div class="modal-content">
             <form action="./event_code.php" method="POST" enctype="multipart/form-data">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Program</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Event</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
@@ -47,6 +47,23 @@ if (isset($_SESSION['digi_meg'])) {
                         <div class="col-md-4">
                             <label for="">Name</label>
                             <input type="text" class="form-control mb-2" name="name">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Category</label>
+                            <select name="category" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                                <option value="">Select Category</option>
+                                <?php
+                                $sql = "SELECT * FROM event_category_tbl where event_category_status = 1";
+                                $sql_run = mysqli_query($con,$sql);
+                                if(mysqli_num_rows($sql_run) > 0){
+                                    foreach($sql_run as $row){
+                                        ?>
+                                        <option value="<?=$row['event_category_id']?>"><?=$row['event_category_name']?></option>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="col-md-4">
                             <label for="">Date</label>
@@ -65,8 +82,8 @@ if (isset($_SESSION['digi_meg'])) {
                             <input type="time" class="form-control mb-2" name="end_time">
                         </div>
                         <div class="col-md-4">
-                            <label for="">Video</label>
-                            <input type="file" class="form-control mb-2" name="video">
+                            <label for="">Image</label>
+                            <input type="file" class="form-control mb-2" name="image">
                         </div>
                         <div class="col-md-12">
                             <label for="">Description</label>
@@ -113,6 +130,7 @@ if (isset($_SESSION['digi_meg'])) {
                         <thead>
                             <tr>
                                 <th> # </th>
+                                <th> Category </th>
                                 <th> Name </th>
                                 <th> Date</th>
                                 <th> Address</th>
@@ -122,7 +140,7 @@ if (isset($_SESSION['digi_meg'])) {
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT * FROM event_tbl  ORDER BY created_at DESC";
+                            $sql = "SELECT * FROM event_tbl left join event_category_tbl on event_tbl.event_category =  event_category_tbl.event_category_id  ORDER BY event_tbl.created_at DESC";
                             $query = mysqli_query($con, $sql);
                             $count = 1;
                             if (mysqli_num_rows($query)) {
@@ -131,6 +149,7 @@ if (isset($_SESSION['digi_meg'])) {
                                     <tr>
                                         <td><?= $count++ ?></td>
                                         <td><?= $data['event_title'] ?></td>
+                                        <td><?php if($data['event_category'] = $data['event_category_id']){echo $data['event_category_name'];} ?></td>
                                         <td><?= $data['event_date'] ?></td>
                                         <td><?= $data['event_address'] ?></td>
                                         <td><?php

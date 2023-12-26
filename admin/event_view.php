@@ -45,9 +45,29 @@ if (isset($_GET['id'])) {
                     <?php endif ?>
                 </div>
                 <div class="col-md-4">
+                    <label>Event Category</label>
+                    <?php if ($row['event_category'] != '') : ?>
+                        <?php
+                        $sql = "SELECT * FROM event_category_tbl WHERE event_category_status = 1";
+                        $sql_run = mysqli_query($con, $sql);
+                        if (mysqli_num_rows($sql_run) > 0) {
+                            foreach ($sql_run as $data) {
+                        ?>
+                                <p><?php if ($row['event_category'] == $data['event_category_id']) {
+                                        echo $data['event_category_name'];
+                                    } ?></p>
+                        <?php
+                            }
+                        }
+                        ?>
+                    <?php else : ?>
+                        <p>Not Found</p>
+                    <?php endif ?>
+                </div>
+                <div class="col-md-4">
                     <label>Start time</label>
                     <?php if ($row['event_start_time'] != '') : ?>
-                    <p><?= $row['event_start_time'] ?></p>
+                        <p><?= $row['event_start_time'] ?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
@@ -55,53 +75,52 @@ if (isset($_GET['id'])) {
                 <div class="col-md-4">
                     <label>End time</label>
                     <?php if ($row['event_end_time'] != '') : ?>
-                    <p><?= $row['event_end_time'] ?></p>
+                        <p><?= $row['event_end_time'] ?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
-            
+
                 <div class="col-md-4">
                     <label>Address</label>
                     <?php if ($row['event_address'] != '') : ?>
-                    <p><?= $row['event_address'] ?></p>
+                        <p><?= $row['event_address'] ?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
-            
+
                 <div class="col-md-4">
                     <label>Status</label>
-                    <?php if ($row['event_status']!= '') : ?>
-                    <p><?php if($row['event_status'] == 1){
-                        echo "Active";
-                    } else{
-                        echo "Inactive";
-                    }
-                    ?></p>
+                    <?php if ($row['event_status'] != '') : ?>
+                        <p><?php if ($row['event_status'] == 1) {
+                                echo "Active";
+                            } else {
+                                echo "Inactive";
+                            }
+                            ?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
                 <div class="col-md-4">
-                    <label>Video</label>
+                    <label>Image</label>
                     <br>
-                    <?php if ($row['event_video']!= '') : ?>
-                        <video autoplay muted loop style="height: 200px;">
-                            <source src="./event_videos/<?= $row['event_video'] ?>">
-                        </video>                    <?php else : ?>
+                    <?php if ($row['event_image'] != '') : ?>
+                     <img src="./event_image/<?=$row['event_image']?>" height="200px">
+                    <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
                 <div class="col-md-12">
                     <label>Description</label>
                     <?php if ($row['event_description'] != '') : ?>
-                    <p><?= $row['event_description'] ?></p>
+                        <p><?= $row['event_description'] ?></p>
                     <?php else : ?>
                         <p>Not Found</p>
                     <?php endif ?>
                 </div>
-            
+
             </div>
         </div>
     </div>

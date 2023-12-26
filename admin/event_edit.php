@@ -60,6 +60,23 @@ if (isset($_SESSION['digi_meg'])) {
                         </select>
                     </div>
                     <div class="col-md-4">
+                        <label for="">Category</label>
+                        <select name="category" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                                <option value="">Select Category</option>
+                                <?php
+                                $sql = "SELECT * FROM event_category_tbl where event_category_status = 1";
+                                $sql_run = mysqli_query($con,$sql);
+                                if(mysqli_num_rows($sql_run) > 0){
+                                    foreach($sql_run as $data){
+                                        ?>
+                                        <option <?php if($row['event_category'] == $data['event_category_id']){echo "selected";}?> value="<?=$data['event_category_id']?>"><?=$data['event_category_name']?></option>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                    </div>
+                    <div class="col-md-4">
                         <label for="">Date</label>
                         <input type="date" name="date" class="form-control my-2" value="<?= $row['event_date'] ?>">
                     </div>
@@ -76,14 +93,12 @@ if (isset($_SESSION['digi_meg'])) {
                         <input type="text" name="address" class="form-control my-2" value="<?= $row['event_address'] ?>">
                     </div>
                     <div class="col-md-4">
-                        <label for="">Current Video</label> <br>
-                        <video autoplay muted loop style="height: 200px;">
-                            <source src="./event_videos/<?= $row['event_video'] ?>">
-                        </video>
+                        <label for="">Current image</label> <br>
+                        <img src="./event_image/<?= $row['event_image'] ?>"  style="height: 200px;">
                         <br>
-                        <input type="hidden" name="old_video" value="<?= $row['event_video'] ?>">
+                        <input type="hidden" name="old_image" value="<?= $row['event_image'] ?>">
                         <label for="">Choose New Image</label>
-                        <input type="file" name="new_video" class="form-control">
+                        <input type="file" name="new_image" class="form-control">
                     </div>
                     <div class="col-md-12">
                         <label for="">Description</label>

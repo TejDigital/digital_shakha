@@ -8,32 +8,33 @@ if (isset($_POST['add'])) {
     $address = mysqli_real_escape_string($con, $_POST['address']);
     $start_time = mysqli_real_escape_string($con, $_POST['start_time']);
     $end_time = mysqli_real_escape_string($con, $_POST['end_time']);
-    $description = mysqli_real_escape_string($con, $_POST['description']);
+    $description = $_POST['description'];
+    $category = mysqli_real_escape_string($con, $_POST['category']);
     $description = str_replace("'", "\'", $description);
-    $video = $_FILES['video']['name'];
+    $image = $_FILES['image']['name'];
 
-    if ($_FILES['video']['size'] > 15000000) {
+    if ($_FILES['image']['size'] > 7000000) {
         $_SESSION['digi_meg'] = "File is too big";
         header('Location: ./events.php');
         exit();
     }
 
-    $video_ext = ['mp4', 'avi', 'mov'];
-    $file_ext = pathinfo($video, PATHINFO_EXTENSION);
+    $image_ext = ['jpg', 'png', 'jpeg'];
+    $file_ext = pathinfo($image, PATHINFO_EXTENSION);
 
-    if (!in_array($file_ext, $video_ext)) {
-        $_SESSION['digi_meg'] = "File must have mp4, avi, or mov extension";
+    if (!in_array($file_ext, $image_ext)) {
+        $_SESSION['digi_meg'] = "File must have jpg, png, or jpeg extension";
         header('Location: ./events.php');
         exit();
     }
 
-    $sql = "INSERT INTO event_tbl(event_title, event_date, event_video, event_description, event_start_time, event_end_time, event_address) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO event_tbl(event_title, event_category,event_date, event_image, event_description, event_start_time, event_end_time, event_address) VALUES (?,?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($con, $sql);
-    mysqli_stmt_bind_param($stmt, "sssssss", $name, $date, $video, $description, $start_time, $end_time, $address);
+    mysqli_stmt_bind_param($stmt, "sissssss", $name,$category ,$date, $image, $description, $start_time, $end_time, $address);
     mysqli_stmt_execute($stmt);
 
     if ($stmt) {
-        move_uploaded_file($_FILES['video']['tmp_name'], './event_videos/' . $video);
+        move_uploaded_file($_FILES['image']['tmp_name'], './event_image/' . $image);
         $_SESSION['digi_meg'] = "Event Added";
         header('Location: ./events.php');
     } else {

@@ -102,6 +102,7 @@
           </a>
           <div class="collapse" id="ui-basic1">
             <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./event_category.php">Event Category</a></li>
               <li class="nav-item"> <a class="nav-link" href="./events.php">Event</a></li>
               <li class="nav-item"> <a class="nav-link" href="./event_register_table.php">Event Registration</a></li>
             </ul>
@@ -158,6 +159,21 @@
           </div>
         </li>
         <li class="nav-item menu-items">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic7" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Opportunities</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic7">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./opportunities.php">opportunities</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./opportunities_request_table.php">opportunities Request</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
           <a class="nav-link" href="./faqs.php">
             <span class="menu-icon">
               <i class="mdi mdi-application"></i>
@@ -171,14 +187,6 @@
               <i class="mdi mdi-application"></i>
             </span>
             <span class="menu-title">News Letter</span>
-          </a>
-        </li>
-        <li class="nav-item menu-items">
-          <a class="nav-link" href="./opportunities.php">
-            <span class="menu-icon">
-              <i class="mdi mdi-application"></i>
-            </span>
-            <span class="menu-title">Opportunities</span>
           </a>
         </li>
         <li class="nav-item menu-items">

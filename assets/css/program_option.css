@@ -103,7 +103,8 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    height: 330px;
+  width: 100%;
+  aspect-ratio: 7/8;
     border: 2px solid #AAA0A0;
 }
 
