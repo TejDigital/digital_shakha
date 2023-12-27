@@ -45,4 +45,13 @@
         }, 2);
     });
 </script>
+<script>
+      $(document).ready(function () {
+        // Add click event handler to the clicked-link class
+        $('.clicked-link').click(function () {
+            // Toggle the visibility of the dropdown item
+            $(this).siblings('.drop-item').slideToggle();
+        });
+    });
+</script>
 

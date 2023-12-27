@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('./admin/config/dbcon.php');
 ?>
 <!DOCTYPE php>
 
@@ -53,8 +54,6 @@ session_start();
 
 </head>
 <style>
-   
-
     .preloader2 {
         background-color: #BB5327;
         width: 100%;
@@ -65,6 +64,7 @@ session_start();
         flex-direction: column;
         animation: slideUp 1s linear;
     }
+
     .preloader1 {
         background-color: #1A0E09;
         width: 100%;
@@ -76,6 +76,7 @@ session_start();
         flex-direction: column;
         /* animation: slideUp 1s linear; */
     }
+
     .preloader {
         /* overflow: hidden; */
         position: fixed;
@@ -157,7 +158,7 @@ session_start();
     <header class="header">
         <div class="header-inner">
             <div class="container-fluid px-lg-5">
-                <!-- <nav class="navbar bg-body-tertiary fixed-top">
+                <nav class="navbar bg-body-tertiary mobile_nav">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="index.php">
                             <img src="./assets/images/digital_logo.png" class="logo1">
@@ -174,9 +175,9 @@ session_start();
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                     <li class="nav-item drop-list">
-                                        <a class="nav-link nav-after-effect hover-link" href="./index.php" id="header_link_home">
+                                        <p class=" nav-after-effect clicked-link" id="header_link_home">
                                             discover
-                                        </a>
+                                        </p>
                                         <ul class="list-group bg-dark drop-item">
                                             <li class="list-group-item"><a href="./opportunities.php" class="">Opportunities <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./program_option.php">Program Options <i class="color-ball"></i></a></li>
@@ -186,8 +187,9 @@ session_start();
                                         </ul>
                                     </li>
                                     <li class="nav-item drop-list">
-                                        <a class="nav-link nav-after-effect hover-link" href="./resources.php" id="">resources</a>
+                                        <p class="nav-after-effect clicked-link">resources</p>
                                         <ul class="list-group bg-dark drop-item">
+                                            <li class="list-group-item"><a href="./resources.php" class="">resources <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./resumebuilding.php" class="">Resume Building <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./cover_letter.php">Cover Letter Tips <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./interview_insights.php">Interview Insights <i class="color-ball"></i></a></li>
@@ -196,7 +198,7 @@ session_start();
                                         </ul>
                                     </li>
                                     <li class="nav-item drop-list">
-                                        <a class="nav-link nav-after-effect hover-link" href="#!" id="">employers</a>
+                                        <p class="nav-after-effect clicked-link">employers</p>
                                         <ul class="list-group bg-dark drop-item">
                                             <li class="list-group-item"><a href="./partner_with_us.php" class="">Partner with Us <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./post_job_internship.php">Post an Internship <i class="color-ball"></i></a></li>
@@ -205,7 +207,7 @@ session_start();
                                         </ul>
                                     </li>
                                     <li class="nav-item drop-list">
-                                        <a class="nav-link hover-link nav-after-effect" href="#!" id="">students</a>
+                                        <p class="clicked-link nav-after-effect">students</p>
                                         <ul class="list-group bg-dark drop-item">
                                             <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
@@ -214,14 +216,14 @@ session_start();
                                         </ul>
                                     </li>
                                     <li class="nav-item drop-list">
-                                        <a class="nav-link nav-after-effect hover-link" href="#!" id="">events</a>
+                                        <p class="nav-after-effect clicked-link">events</p>
                                         <ul class="list-group bg-dark drop-item">
                                             <li class="list-group-item"><a href="./events.php" class="">Our Events <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./event_register.php" class="">Register <i class="color-ball"></i></a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item drop-list">
-                                        <a class="nav-link nav-after-effect hover-link" href="#!" id="">updates</a>
+                                        <p class="nav-after-effect clicked-link">updates</p>
                                         <ul class="list-group bg-dark drop-item">
                                             <li class="list-group-item"><a href="./blog.php" class="">Blog <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./news_letter.php" class="">Newsletters <i class="color-ball"></i></a></li>
@@ -229,7 +231,7 @@ session_start();
                                     </li>
 
                                     <li class="nav-item list-group-item">
-                                        <a class="nav-link nav-after-effect" href="./contact.php" id="">
+                                        <a class="clicked-link nav-after-effect" href="./contact.php" id="">
                                             contact
                                         </a>
                                     </li>
@@ -243,21 +245,36 @@ session_start();
                                                 <span>|</span>
                                                 <a class="signup_popup">Signup</a>
                                             </div>
-                                        <?php
+                                            <?php
                                         } else {
-                                        ?>
-                                            <div class="btns">
-                                                <form id="std_log_out">
-                                                    <div class="drop-list">
-                                                        <a href="#!" class="hover-link"><img src="./assets/images/logout_icon.svg" alt=""></a>
-                                                        <ul class="list-group bg-dark drop-item">
-                                                            <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
-                                                            <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
-                                                        </ul>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                            $email = $_SESSION['std_auth_user']['user_email'];
+                                            $sql = "SELECT * FROM application_tbl WHERE email = '$email'";
+                                            $sql_run = mysqli_query($con, $sql);
+                                            if (mysqli_num_rows($sql_run) > 0) {
+                                                $show_profile = mysqli_fetch_assoc($sql_run);
+                                            ?>
+                                                <div class="btns">
+                                                    <form class="std_log_out">
+                                                        <div class="drop-list">
+                                                            <?php
+                                                            if ($show_profile['profile_photo'] != '') {
+                                                                echo "<a href='#!' class='hover-link'><img class='profile_img' src='./admin/student_application_photo/" . $show_profile['profile_photo'] . "'></a>
+                                                                ";
+                                                            } else {
+                                                                echo "<a href='#!' class='hover-link'><img class='profile_img' src='./assets/images/logout_icon.svg'></a>
+                                                                ";
+                                                            }
+                                                            ?>
+                                                            <!-- <a href="#!" class="hover-link"><img class="profile_img" src="./assets/images/logout_icon.svg" alt=""></a> -->
+                                                            <ul class="list-group bg-dark drop-item">
+                                                                <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
+                                                                <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
+                                                            </ul>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                         <?php
+                                            }
                                         }
                                         ?>
                                     </li>
@@ -265,8 +282,8 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </nav> -->
-                <nav class="navbar navbar-expand-lg border-bottom my-navbar">
+                </nav>
+                <nav class="navbar navbar-expand-lg border-bottom my-navbar main_nav">
                     <a class="navbar-brand" href="index.php">
                         <img src="./assets/images/digital_logo.png" class="logo1">
                         <img src="./assets/images/digital_logo.png" class="logo2">
@@ -294,7 +311,6 @@ session_start();
                                     <li class="list-group-item"><a href="./resumebuilding.php" class="">Resume Building <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./cover_letter.php">Cover Letter Tips <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./interview_insights.php">Interview Insights <i class="color-ball"></i></a></li>
-                                    <!-- <li class="list-group-item"><a href="#!">Networking Guide <i class="color-ball"></i></a></li> -->
                                     <li class="list-group-item"><a href="./success_stories.php">Success Stories <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./blog.php">Blog/Article<i class="color-ball"></i></a></li>
                                 </ul>
@@ -311,7 +327,6 @@ session_start();
                             <li class="nav-item drop-list">
                                 <a class="nav-link hover-link nav-after-effect" href="#!" id="">students</a>
                                 <ul class="list-group bg-dark drop-item">
-                                    <!-- <li class="list-group-item"><a href="./login.php" class="">Student Reg./Login <i class="color-ball"></i></a></li> -->
                                     <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./schedule_interview.php" class="">Schedule Interviews <i class="color-ball"></i></a></li>
@@ -332,40 +347,50 @@ session_start();
                                     <li class="list-group-item"><a href="./news_letter.php" class="">Newsletters <i class="color-ball"></i></a></li>
                                 </ul>
                             </li>
-
                             <li class="nav-item list-group-item">
                                 <a class="nav-link nav-after-effect" href="./contact.php" id="">
                                     contact
                                 </a>
                             </li>
                             <li class="nav-item list-group-item padding2">
-
                                 <?php
                                 if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth'] && !isset($_SESSION['std_auth_user']['user_name']) || !$_SESSION['std_auth_user']['user_name']) {
                                 ?>
-                                    <!-- Display login and signup buttons when the user is not logged in -->
                                     <div class="btns">
                                         <a class="login_popup">Login</a>
                                         <span>|</span>
                                         <a class="signup_popup">Signup</a>
                                     </div>
-                                <?php
+                                    <?php
                                 } else {
-                                ?>
-                                    <!-- Display logout button when the user is logged in -->
-                                    <div class="btns">
-                                        <form id="std_log_out">
-                                            <div class="drop-list">
-                                                <a href="#!" class="hover-link"><img src="./assets/images/logout_icon.svg" alt=""></a>
-                                                <ul class="list-group bg-dark drop-item">
-                                                    <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
-                                                    <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
-                                                </ul>
-                                            </div>
-                                            <!-- <button type="submit" name="log_out">Logout</button> -->
-                                        </form>
-                                    </div>
+                                    $email = $_SESSION['std_auth_user']['user_email'];
+                                    $sql = "SELECT * FROM application_tbl WHERE email = '$email'";
+                                    $sql_run = mysqli_query($con, $sql);
+                                    if (mysqli_num_rows($sql_run) > 0) {
+                                        $show_profile = mysqli_fetch_assoc($sql_run);
+                                    ?>
+                                        <div class="btns">
+                                            <form class="std_log_out">
+                                                <div class="drop-list">
+                                                    <?php
+                                                    if ($show_profile['profile_photo'] != '') {
+                                                        echo "<a href='#!' class='hover-link'><img class='profile_img' src='./admin/student_application_photo/" . $show_profile['profile_photo'] . "'></a>
+                                                                ";
+                                                    } else {
+                                                        echo "<a href='#!' class='hover-link'><img class='profile_img' src='./assets/images/logout_icon.svg'></a>
+                                                                ";
+                                                    }
+                                                    ?>
+                                                    <!-- <a href="#!" class="hover-link"><img class="profile_img" src="./assets/images/logout_icon.svg" alt=""></a> -->
+                                                    <ul class="list-group bg-dark drop-item">
+                                                        <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
+                                                        <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
+                                                    </ul>
+                                                </div>
+                                            </form>
+                                        </div>
                                 <?php
+                                    }
                                 }
                                 ?>
                             </li>

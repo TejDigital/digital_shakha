@@ -133,6 +133,7 @@ if (isset($_SESSION['digi_meg'])) {
                             <tr>
                                 <th> # </th>
                                 <th> Student name</th>
+                                <th> Course Name</th>
                                 <th> Mentor Grading</th>
                                 <th> Milestone Completed</th>
                                 <th> Status</th>
@@ -146,30 +147,37 @@ if (isset($_SESSION['digi_meg'])) {
                             $count = 1;
                             if (mysqli_num_rows($query)) {
                                 foreach ($query as $data) {
+                                    $program_query = "SELECT * FROM program_tbl where program_id = '" . $data['course'] . "'";
+                                    $program_query_run = mysqli_query($con, $program_query);
+                                    if (mysqli_num_rows($program_query_run) > 0) {
+                                        $program = mysqli_fetch_assoc($program_query_run);
+
                             ?>
-                                    <tr>
-                                        <td><?= $count++ ?></td>
-                                        <td><?php if ($data['id'] == $data['app_id']) {
-                                                echo  $row['name'] ." ". $row['last_name'] ;
-                                            } else {
-                                                echo "Not Found";
-                                            } ?></td>
-                                            <td><?=$data['mentor_grading']?></td>
-                                            <td><?=$data['milestone_completed']?></td>
-                                        <td><?php
-                                            if ($data['mentor_grading_status'] == 1) {
-                                                echo "Active";
-                                            } else {
-                                                echo "inactive";
-                                            }
-                                            ?></td>
-                                        <td class="text-center">
-                                            <a href="./internship_mentor_grading_edit.php?id=<?= $data['mentor_grading_id'] ?>" class='btn btn-square action_btn_edit btn-sm my-1'><i class="fa-regular fa-pen-to-square m-0"></i></a>
-                      
-                                            <button type='button' value=<?php echo $data['mentor_grading_id']; ?> class='btn btn-square action_btn_delete grading_delete btn-sm my-1'><i class="fa-solid fa-trash m-0"></i></button>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td><?= $count++ ?></td>
+                                            <td><?php if ($data['id'] == $data['app_id']) {
+                                                    echo  $row['name'] . " " . $row['last_name'];
+                                                } else {
+                                                    echo "Not Found";
+                                                } ?></td>
+                                            <td><?php if($data['course'] == $program['program_id']){echo $program['program_name'] ;} ?></td>
+                                            <td><?= $data['mentor_grading'] ?></td>
+                                            <td><?= $data['milestone_completed'] ?></td>
+                                            <td><?php
+                                                if ($data['mentor_grading_status'] == 1) {
+                                                    echo "Active";
+                                                } else {
+                                                    echo "inactive";
+                                                }
+                                                ?></td>
+                                            <td class="text-center">
+                                                <a href="./internship_mentor_grading_edit.php?id=<?= $data['mentor_grading_id'] ?>" class='btn btn-square action_btn_edit btn-sm my-1'><i class="fa-regular fa-pen-to-square m-0"></i></a>
+
+                                                <button type='button' value=<?php echo $data['mentor_grading_id']; ?> class='btn btn-square action_btn_delete grading_delete btn-sm my-1'><i class="fa-solid fa-trash m-0"></i></button>
+                                            </td>
+                                        </tr>
                             <?php
+                                    }
                                 }
                             }
                             ?>

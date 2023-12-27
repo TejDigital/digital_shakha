@@ -20,7 +20,18 @@
   		display: block !important;
   	}
   }
+@media(max-width:998px){
+	.header .header-inner .mobile_nav{
+		display: block;
+	}
+	.header .header-inner .main_nav{
+		display: none;
+	}
 
+}
+.mobile_nav{
+	display: none;
+}
   @media only screen and (max-width:992px) {
   	.header-inner {
   		/* background-color: white !important; */
@@ -44,11 +55,23 @@
   	}
   }
 
-
+.header .profile_img{
+	width: 30px;
+	aspect-ratio: 1/1;
+}
   .header {
   	position: relative;
   	width: 100%;
   	z-index: 99;
+  }
+
+  .drop-list>p {
+  	margin: 0;
+	cursor: pointer;
+  	padding: 0.6rem !important;
+  }
+  .nav-item .clicked-link {
+  	padding: 0.5rem !important;
   }
 
   .header .navbar-brand img {
@@ -193,12 +216,13 @@
   }
 
   .btns .logout_box_list a {
-	padding: 10px 10px !important;
-}
+  	padding: 10px 10px !important;
+  }
 
-.btns .logout_box_list button {
-	padding: 10px 10px !important;
-}
+  .btns .logout_box_list button {
+  	padding: 10px 10px !important;
+  }
+
   .nav-item .btns a:last-child {
   	color: #1A0E09;
   	/* border-left: 1px solid #000; */
@@ -269,6 +293,7 @@
   	position: relative;
   }
 
+
   .drop-list>a img {
   	position: relative;
   	width: 33px;
@@ -283,6 +308,11 @@
   	width: 13rem;
   	visibility: hidden;
   }
+  .mobile_nav .drop-list .drop-item {
+  	background-color: #ffffff;
+  	width: 13rem;
+  	display: none;
+  }
 
   .drop-list .hover-link {
   	position: relative;
@@ -290,6 +320,10 @@
 
   .drop-list:hover .drop-item {
   	visibility: visible;
+  }
+
+  .mobile_nav .drop-list:hover .drop-item {
+	  display: block;
   }
 
   .list-group-item {

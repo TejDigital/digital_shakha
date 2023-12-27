@@ -561,7 +561,7 @@ $(document).ready(function () {
 //--------------Student-Logout-------------
 
 $(document).ready(function () {
-  $("#std_log_out").on("submit", function (e) {
+  $(".std_log_out").on("submit", function (e) {
     e.preventDefault();
     $.ajax({
       type: "POST",

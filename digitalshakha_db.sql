@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2023 at 01:28 PM
+-- Generation Time: Dec 27, 2023 at 11:05 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -88,7 +88,7 @@ INSERT INTO `application_tbl` (`id`, `registration_id`, `name`, `last_name`, `ge
 (5, 'DS23102', 'Doremon ', 'gupta', 'male', '2023-12-23', 1234567596, 'rohan@gmail.com', 'balod 1', 'bhilai 2', 987656, '1064', '12', '101', 'LPU', 2, 4, 4, 2, 987679, 'application_bg_1.png', 'cover_letter_img_3.png', '9876545', 0, 1, '2023-12-20 07:31:52', '2023-12-20 07:31:52'),
 (7, 'DS23103', 'Gian', 'singh', 'male', '2023-12-20', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 456787, '30', '13', '101', 'UPU Govt. Polytechnic Durg', 1, 3, 4, 1, 8765456, 'resources_bg_1.png', 'program_box_bg_6.png', '9876545', 0, 1, '2023-12-20 07:32:07', '2023-12-20 07:32:07'),
 (8, 'DS23104', 'tej', 'Sahu', 'male', '2023-07-11', 2147483647, 'tejpratap.digitalshakha@gmail.com', 'balod 1', 'bhilai 2', 987656, '1928', '7', '101', 'LPU', 2, 4, 6, 1, 987679, 'application_bg_3.png', 'cover_letter_img_5.png', '567890', 0, 1, '2023-12-23 06:26:29', '2023-12-23 06:26:29'),
-(10, 'DS23103', 'Gian', 'singh', 'male', '2023-12-20', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 456787, '30', '13', '101', 'UPU Govt. Polytechnic Durg', 1, 4, 4, 1, 8765456, 'resources_bg_1.png', 'program_box_bg_6.png', '9876545', 0, 1, '2023-12-23 09:37:22', '2023-12-23 09:37:22');
+(10, 'DS23103', 'Gian', 'singh', 'male', '2023-12-20', 2147483647, 'tejpratapsahu00@gmail.com', 'balod 1', 'balod 2', 456787, '30', '13', '101', 'UPU Govt. Polytechnic Durg', 1, 4, 4, 1, 8765456, 'resources_bg_1.png', 'program_box_bg_6.png', '9876545', 0, 1, '2023-08-23 09:37:22', '2023-12-27 06:25:32');
 
 -- --------------------------------------------------------
 
@@ -383,7 +383,11 @@ INSERT INTO `internship_grade_tbl` (`grade_id`, `program`, `app_id`, `grade_stat
 (7, 4, 8, 0, '20', '45', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
 (8, 4, 8, 0, '20', '55', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
 (9, 4, 8, 0, '20', '43', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
-(10, 4, 8, 0, '20', '23', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02');
+(10, 4, 8, 0, '20', '23', 0, 0, 1, '2023-12-23 06:46:02', '2023-12-23 06:46:02'),
+(11, 4, 10, 1, '20', '90', 0, 0, 1, '2023-12-27 06:19:38', '2023-12-27 06:19:38'),
+(12, 4, 10, 1, '20', '89', 0, 0, 1, '2023-12-27 06:19:38', '2023-12-27 06:19:38'),
+(13, 4, 10, 1, '20', '96', 0, 0, 1, '2023-12-27 06:19:38', '2023-12-27 06:19:38'),
+(14, 4, 10, 1, '20', '98', 0, 0, 1, '2023-12-27 06:19:38', '2023-12-27 06:19:38');
 
 -- --------------------------------------------------------
 
@@ -8876,7 +8880,7 @@ ALTER TABLE `internship_course_material_tbl`
 -- AUTO_INCREMENT for table `internship_grade_tbl`
 --
 ALTER TABLE `internship_grade_tbl`
-  MODIFY `grade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `grade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `internship_mentor_grading_tbl`
