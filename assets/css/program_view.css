@@ -34,7 +34,19 @@
     width: 20px;
     margin-right: 1rem;
 }
+@media(max-width:768px){
+    .program_view_1{
+        padding: 1rem 0.1rem;
 
+    }
+    .program_view_1 .nav_box a{
+        margin: 0 0 0 0.5rem;
+        font-size: 0.9rem;
+    }
+    .program_view_1 .nav_box p{
+        font-size: 0.9rem;
+    }
+}
 /* -----------------program_view_2------------ */
 .program_view_2 {
     padding: 2rem 4rem;
@@ -1065,7 +1077,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        transform: translate(-16%, -50%);
-        width: 121%;
+        transform: translate(-10%, -50%);
+        width: 105%;
     }
+    .program_testimonial .testimonial_program_view .owl-nav button img {
+        width: 30px;
+        aspect-ratio: 1/1;
+    }
+    
 }

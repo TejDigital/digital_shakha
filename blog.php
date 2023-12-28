@@ -22,17 +22,18 @@ require('./admin/config/dbcon.php');
     </div>
 </section>
 <section class="blog_2">
-    <div class="row">
-        <div class="heading">
+<div class="heading">
             <p>Latest Blogs & Articles</p>
         </div>
+    <div class="row">
+       
         <?php
         $sql = "SELECT * FROM blog_tbl LEFT JOIN blog_category_tbl ON blog_tbl.blog_category = blog_category_tbl.blog_category_id WHERE blog_status = 1 ORDER BY blog_tbl.created_at DESC LIMIT 3";
         $sql_run = mysqli_query($con, $sql);
         if (mysqli_num_rows($sql_run) > 0) {
             while ($data = mysqli_fetch_assoc($sql_run)) {
         ?>
-                <div class="col-md-4 px-5">
+                <div class="col-md-4 px-3 mb-3">
                     <a href="./blog_view.php?blog_id=<?=$data['blog_id']?>">
                     <div class="blog_box">
                         <div class="text">

@@ -174,3 +174,12 @@
 .seasonal_placements_2 .end_text .img img{
     width: 100%;
 }
+@media(max-width:768px){
+    .seasonal_placements_2 {
+        padding: 2rem 0.3rem;
+    }
+    .seasonal_placements_2 .heading h1{
+        font-size: 2rem;
+        padding: 0 0.3em;
+    }
+}

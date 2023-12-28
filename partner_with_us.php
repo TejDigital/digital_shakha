@@ -83,7 +83,9 @@
                     <div class="dot1">
                         <span></span>
                     </div>
-                    <img src="./assets/images/partner_4.png" alt="">
+                    <div class="img">
+                        <img src="./assets/images/partner_4.png" alt="">
+                    </div>
                 </div>
                 <div class="img2">
                     <div class="dot1">

@@ -20,18 +20,22 @@
   		display: block !important;
   	}
   }
-@media(max-width:998px){
-	.header .header-inner .mobile_nav{
-		display: block;
-	}
-	.header .header-inner .main_nav{
-		display: none;
-	}
 
-}
-.mobile_nav{
-	display: none;
-}
+  @media(max-width:998px) {
+  	.header .header-inner .mobile_nav {
+  		display: block;
+  	}
+
+  	.header .header-inner .main_nav {
+  		display: none;
+  	}
+
+  }
+
+  .mobile_nav {
+  	display: none;
+  }
+
   @media only screen and (max-width:992px) {
   	.header-inner {
   		/* background-color: white !important; */
@@ -55,10 +59,11 @@
   	}
   }
 
-.header .profile_img{
-	width: 30px;
-	aspect-ratio: 1/1;
-}
+  .header .profile_img {
+  	width: 30px;
+  	aspect-ratio: 1/1;
+  }
+
   .header {
   	position: relative;
   	width: 100%;
@@ -67,10 +72,13 @@
 
   .drop-list>p {
   	margin: 0;
-	cursor: pointer;
+  	cursor: pointer;
   	padding: 0.6rem !important;
-  }
-  .nav-item .clicked-link {
+	font-weight: 600;
+}
+
+.nav-item .clicked-link {
+	  font-weight: 600;
   	padding: 0.5rem !important;
   }
 
@@ -87,7 +95,7 @@
   @media (max-width:700px) {
   	.header .navbar-brand img {
   		width: 100%;
-  		max-width: 100px;
+  		max-width: 150px;
   		margin: -3px 0px 0px 0px;
   	}
   }
@@ -308,6 +316,7 @@
   	width: 13rem;
   	visibility: hidden;
   }
+
   .mobile_nav .drop-list .drop-item {
   	background-color: #ffffff;
   	width: 13rem;
@@ -323,7 +332,7 @@
   }
 
   .mobile_nav .drop-list:hover .drop-item {
-	  display: block;
+  	display: block;
   }
 
   .list-group-item {
@@ -363,6 +372,20 @@
   		position: relative;
   		top: 0;
   		left: 50px;
+  		border: none !important;
+  		display: none;
+  		/* transition: all 0.3s; */
+  	}
+
+  	.drop-list:hover .drop-item {
+  		display: flex;
+  	}
+  }
+  @media(max-width:768px) {
+  	.drop-list .drop-item {
+  		position: relative;
+  		top: 0;
+  		left: 0px;
   		border: none !important;
   		display: none;
   		/* transition: all 0.3s; */

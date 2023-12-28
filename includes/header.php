@@ -169,7 +169,12 @@ require('./admin/config/dbcon.php');
                         </button>
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <div class="offcanvas-header">
-                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menus</h5>
+                                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                                <a class="navbar-brand" href="index.php">
+                            <img src="./assets/images/digital_logo.png" class="logo1">
+                            <img src="./assets/images/digital_logo.png" class="logo2">
+                        </a>
+                                </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                             <div class="offcanvas-body">
@@ -202,7 +207,7 @@ require('./admin/config/dbcon.php');
                                         <ul class="list-group bg-dark drop-item">
                                             <li class="list-group-item"><a href="./partner_with_us.php" class="">Partner with Us <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./post_job_internship.php">Post an Internship <i class="color-ball"></i></a></li>
-                                            <li class="list-group-item"><a href="#!">Employer Stories <i class="color-ball"></i></a></li>
+                                            <!-- <li class="list-group-item"><a href="#!">Employer Stories <i class="color-ball"></i></a></li> -->
                                             <li class="list-group-item"><a href="./contact.php">Contact <i class="color-ball"></i></a></li>
                                         </ul>
                                     </li>
@@ -235,7 +240,7 @@ require('./admin/config/dbcon.php');
                                             contact
                                         </a>
                                     </li>
-                                    <li class="nav-item list-group-item padding2">
+                                    <li class="nav-item list-group-item">
 
                                         <?php
                                         if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth'] && !isset($_SESSION['std_auth_user']['user_name']) || !$_SESSION['std_auth_user']['user_name']) {
@@ -427,11 +432,11 @@ require('./admin/config/dbcon.php');
                         <div class="form">
                             <form id="std_login_form">
                                 <div class="form-group">
-                                    <input type="text" class="input_box" name="email" placeholder="Email Address">
+                                    <input type="text" class="input_box" name="email" placeholder="Email Address" required>
                                     <i class="fa-regular fa-envelope"></i>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="input_box" name="password" placeholder="Password">
+                                    <input type="password" class="input_box" name="password" placeholder="Password" required>
                                     <i class="fa-solid fa-lock"></i>
                                 </div>
                                 <a class="forgetPassBtn">Forgot Password?</a>
@@ -484,30 +489,30 @@ require('./admin/config/dbcon.php');
                         <div class="form">
                             <form id="std_register_form">
                                 <div class="form-group">
-                                    <input type="text" class="input_box" name="name" placeholder="Full-Name">
+                                    <input type="text" class="input_box" name="name" placeholder="Full-Name" required>
                                     <i class="fa-regular fa-user"></i>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" class="input_box" name="phone" placeholder="Contact Number">
+                                    <input type="text" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" class="input_box" name="phone" placeholder="Contact Number" required>
                                     <span class="material-symbols-outlined">
                                         phone_iphone
                                     </span>
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="input_box" name="email" placeholder="Email Address">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" required>
                                         mail
                                     </span>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="input_box" name="password" placeholder="Create Password">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" required>
                                         lock
                                     </span>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="input_box" name="confirm_password" placeholder="Confirm Password">
-                                    <span class="material-symbols-outlined">
+                                    <span class="material-symbols-outlined" required>
                                         lock
                                     </span>
                                 </div>
@@ -547,7 +552,7 @@ require('./admin/config/dbcon.php');
                         <div class="form">
                             <form id="std_forget_pass">
                                 <div class="form-group">
-                                    <input type="email" class="input_box" name="forget_email" placeholder="Email Address">
+                                    <input type="email" class="input_box" name="forget_email" placeholder="Email Address" required>
                                     <span class="material-symbols-outlined">
                                         mail
                                     </span>

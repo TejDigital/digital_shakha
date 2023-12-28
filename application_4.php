@@ -42,7 +42,7 @@ if(isset($_GET['id'])){
                                 </label>
                             </div>
                         </div>
-                        <input type="text" placeholder="Transaction ID*" name="transaction_code">
+                        <input type="text" placeholder="Transaction ID*" name="transaction_code" required>
 
                         <div class="btn_area">
                             <button type="submit" name="apply">Finish</button>

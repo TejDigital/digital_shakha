@@ -14,7 +14,7 @@
             </div>
             <div class="form_area">
                 <form class="news_letter" id="news_letter">
-                    <input type="text" name="email" placeholder="Enter E-mail Address">
+                    <input type="text" name="email" placeholder="Enter E-mail Address" required>
                     <button type="submit">SUBSCRIBE</button>
                 </form>
             </div>

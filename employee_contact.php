@@ -27,17 +27,17 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="text" placeholder="Organization Name" class="input_area">
+                    <input type="text" placeholder="Organization Name" class="input_area" required>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="text" placeholder="Industry/Field" class="input_area">
+                    <input type="text" placeholder="Industry/Field" class="input_area" required>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="text" placeholder="Organization Website (if applicable)" class="input_area">
+                    <input type="text" placeholder="Organization Website (if applicable)" class="input_area" required>
                 </div>
             </div>
         </div>
@@ -47,22 +47,22 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="text" placeholder="Your Full Name" class="input_area">
+                    <input type="text" placeholder="Your Full Name" class="input_area" required>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="text" placeholder="Your Position/Title" class="input_area">
+                    <input type="text" placeholder="Your Position/Title" class="input_area" required>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="Email" placeholder="Email Address" class="input_area">
+                    <input type="Email" placeholder="Email Address" class="input_area" required>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="text" placeholder="Phone Number" class="input_area">
+                    <input type="text" placeholder="Phone Number" class="input_area" required>
                 </div>
             </div>
         </div>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="input_box2">
-                        <select class="input_area">
+                        <select class="input_area" required>
                             <option value="">Type of Partnership Interest</option>
                             <option value="Educational Programs">Educational Programs</option>
                             <option value="Skill Development Initiatives">Skill Development Initiatives</option>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_box2">
-                            <textarea name="" id="" cols="30" rows="5" class="input_area" placeholder="Briefly Describe Your Organization's Goals and Values"></textarea>
+                            <textarea name="" id="" cols="30" rows="5" class="input_area" placeholder="Briefly Describe Your Organization's Goals and Values" required></textarea>
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="input_box2">
-                        <select class="input_area">
+                        <select class="input_area" required>
                             <option value="">Type of Partnership Interest</option>
                             <option value="Online Search">Online Search</option>
                             <option value="Social Media">Social Media</option>
@@ -104,12 +104,12 @@
                     </div>
                     <div class="col-md-12">
                         <div class="input_box2">
-                            <textarea name="" id="" cols="30" rows="5" class="input_area" placeholder="Any Specific Questions or Information You Would Like to Share"></textarea>
+                            <textarea name="" id="" cols="30" rows="5" class="input_area" placeholder="Any Specific Questions or Information You Would Like to Share" required></textarea>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="input_box2">
-                            <input type="checkbox" class="checkbox">
+                            <input type="checkbox" class="checkbox" required>
                             <p>By submitting this form, you agree to allow DigitalShakha to contact you regarding your partnership inquiry. Rest assured, your information will be handled with confidentiality and used exclusively for communication purposes.</p>
                         </div>
                     </div>

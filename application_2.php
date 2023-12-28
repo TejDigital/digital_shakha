@@ -33,18 +33,18 @@ if (isset($_GET['id'])) {
                         <div class="app_top" id="app_top">
 
                         </div>
-                        <input type="text" placeholder="Mobile Number*" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" name="phone">
-                        <input type="email" placeholder="E-mail Address*" name="email" value="<?=$_SESSION['std_auth_user']['user_email']?>">
+                        <input type="text" placeholder="Mobile Number*" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" name="phone" required>
+                        <input type="email" placeholder="E-mail Address*" name="email" value="<?=$_SESSION['std_auth_user']['user_email']?>" required>
                         <div class="permanent_address">
                             <div class="row">
                                 <div class="col-md-5">
                                     <p>Permanent Address</p>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" placeholder="Street Address Line 1" name="address1">
-                                    <input type="text" placeholder="Street Address Line 2" name="address2">
+                                    <input type="text" placeholder="Street Address Line 1" name="address1" required>
+                                    <input type="text" placeholder="Street Address Line 2" name="address2" required>
                                     <div class="flex-box">
-                                        <select name="country" id="country">
+                                        <select name="country" id="country" required>
                                             <option value="">Select country</option>
                                             <?php
                                             $sql_country = "SELECT * FROM tbl_countries ORDER BY country_name ASC";
@@ -58,14 +58,14 @@ if (isset($_GET['id'])) {
                                             }
                                             ?>
                                         </select>
-                                        <select name="state" id="state">
+                                        <select name="state" id="state" required>
                                         </select>
                                     </div>
                                     <div class="flex-box">
-                                        <select name="city" id="city">
+                                        <select name="city" id="city" required>
 
                                         </select>
-                                        <input type="text" maxlength="6" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Postal Code" name="pin_code">
+                                        <input type="text" maxlength="6" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Postal Code" name="pin_code" required>
                                     </div>
                                 </div>
                             </div>
@@ -73,8 +73,8 @@ if (isset($_GET['id'])) {
                         <div class="color_line">
                             <p></p>
                         </div>
-                        <input type="text" placeholder="College Name*" name="college">
-                        <select name="degree">
+                        <input type="text" placeholder="College Name*" name="college" required>
+                        <select name="degree" required>
                             <option value="">Select Degree</option>
                             <option value="1">BCA</option>
                             <option value="2">MCA</option>

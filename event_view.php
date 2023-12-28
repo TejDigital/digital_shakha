@@ -15,7 +15,7 @@ if (isset($_GET['event_id'])) {
 
 <section class="blog_view_1">
     <div class="container">
-        <div class="row">
+        <div class="row flex-change">
             <div class="col-md-9">
                 <div class="heading">
                     <a href="./events.php">events & Articles<i class="fa-solid fa-arrow-up-right-from-square"></i></a>

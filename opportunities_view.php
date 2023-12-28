@@ -31,17 +31,17 @@ if (isset($_GET['id'])) {
                             <input type="hidden" name="opportunities_id" class="opportunities_id">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Name" name="name" class="input_area">
+                                    <input type="text" placeholder="Name" name="name" class="input_area"required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Number" name="phone" class="input_area">
+                                    <input type="text" placeholder="Number" name="phone" class="input_area" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="Email Address" name="email" class="input_area">
+                                    <input type="email" placeholder="Email Address" name="email" class="input_area" required>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="wrapper d-flex justify-content-between ">
-                                        <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center">
+                                        <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center" >
                                             <p id="fileNameDisplay1" class="text-start m-0">Attach CV or Resume</p>
                                             <input type="file" accept=".png , .jpg , .png , .jpeg , .pdf , .doc , .docx" name="image" class="input_box" id="fileInput1" onchange="checkFileSize(this)" hidden>
                                             <i class="fa-solid fa-paperclip"></i>

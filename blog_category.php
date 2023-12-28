@@ -11,7 +11,7 @@ if (isset($_GET['cat_id'])) {
 ?>
 <section class="blog_view_1">
     <div class="container">
-        <div class="row">
+        <div class="row flex-change">
             <div class="col-md-9">
                 <div class="heading">
                     <a href="./blog.php">Blogs & Articles<i class="fa-solid fa-arrow-up-right-from-square"></i></a>

@@ -21,14 +21,14 @@
                             <input type="hidden" name="new_forget_email" value="<?php if (isset($_GET['email'])) {echo $_GET['email'];} ?>">
                             <input type="hidden" name="token" value="<?php if (isset($_GET['token'])) {echo $_GET['token'];} ?>">
                             <div class="form-group">
-                                <input type="password" class="input_box" name="password" placeholder="Create Password">
+                                <input type="password" class="input_box" name="password" placeholder="Create Password" required>
                                 <span class="material-symbols-outlined">
                                     lock
                                 </span>
                             </div>
                             <p>Between 8 and 64 characters</p>
                             <div class="form-group">
-                                <input type="text" class="input_box" name="confirm_password" placeholder="Confirm Password">
+                                <input type="text" class="input_box" name="confirm_password" placeholder="Confirm Password" required>
                                 <span class="material-symbols-outlined">
                                     lock
                                 </span>

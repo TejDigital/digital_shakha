@@ -373,4 +373,10 @@ margin-bottom: 2rem;
     .opportunities_5 .container {
         padding: 0 1rem;
     }
+    .opportunities_5 .main_box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }

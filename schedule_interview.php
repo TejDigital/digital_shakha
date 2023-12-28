@@ -18,7 +18,7 @@
                     <form class="interview_form" id="interview_form">
                         <div class="box">
                             <p>Enter the unique confirmation code you received in your email, post Application:</p>
-                            <input type="text" name="unique_id" placeholder="Enter Code here">
+                            <input type="text" name="unique_id" placeholder="Enter Code here" required>
                         </div>
                         <div class="box">
                             <p>When do you want your interview to be conducted? Select a date</p>
@@ -51,7 +51,7 @@
                                     <p>Schedule at ( Time )</p>
                                     <div class="time_box">
                                         <label class="radio_box">
-                                            <input type="radio" name="time" value="9:30 AM">
+                                            <input type="radio" name="time" value="9:30 AM" >
                                             <span>9:30 AM</span>
                                         </label>
                                         <label class="radio_box">
@@ -71,16 +71,16 @@
                             </div>
                         </div>
                         <div class="box">
-                            <input type="text" name="name" placeholder="Full Name">
-                            <input type="email" name="email" placeholder="E-mail Address">
-                            <input type="text" name="phone" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Phone Number">
-                            <select name="position">
+                            <input type="text" name="name" placeholder="Full Name" required>
+                            <input type="email" name="email" placeholder="E-mail Address" required>
+                            <input type="text" name="phone" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Phone Number" required>
+                            <select name="position" required>
                                 <option value="">Select the position that you applied for</option>
                                 <option value="1">Intern</option>
                                 <option value="2">executive</option>
                                 <option value="3">Other</option>
                             </select>
-                            <textarea name="message" cols="30" rows="5" placeholder="Additional Comments"></textarea>
+                            <textarea name="message" cols="30" rows="5" placeholder="Additional Comments" required></textarea>
                         </div>
                         <div class="box">
                             <p>Review your selections and information. Click the "Submit" button to confirm your interview schedule.</p>

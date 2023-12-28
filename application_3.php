@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
                                 <p>Basic Details</p>
                             </div>
                         </div>
-                        <select name="course">
+                        <select name="course" required>
                             <option value="">Select Course </option>
                             <?php
                             $sql = "SELECT * FROM program_tbl WHERE program_status = 1";
@@ -44,17 +44,17 @@ if(isset($_GET['id'])){
                             }
                             ?>
                         </select>
-                        <select name="duration">
+                        <select name="duration" required>
                             <option value="">Select Duration*</option>
                             <option value="4">4 month</option>
                             <option value="6">6 month</option>
                         </select>
-                        <select name="find">
+                        <select name="find" required>
                             <option value="">Where you got to know about us?</option>
                             <option value="1">From Friend</option>
                             <option value="2">From Instagram</option>
                         </select>
-                        <input type="text" placeholder="Referral Code" name="referral_code">
+                        <input type="text" placeholder="Referral Code" name="referral_code" required>
                        
 
                         <div class="btn_area">

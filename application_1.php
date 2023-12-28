@@ -27,20 +27,20 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                                 <p>Basic Details</p>
                             </div>
                         </div>
-                        <input type="text" name="first_name" placeholder="First Name*">
-                        <input type="text" name="last_name" placeholder="Last Name*">
+                        <input type="text" name="first_name" placeholder="First Name*" required>
+                        <input type="text" name="last_name" placeholder="Last Name*" required>
                         <div class="check">
                             <p class="">Gender</p>
                             <label class="radio_box"><span class="gender_name">Male</span>
-                                <input type="radio" value="male" checked="checked" name="gender">
+                                <input type="radio" value="male" checked="checked" name="gender" required>
                                 <span class="checkmark"></span>
                             </label>
                             <label class="radio_box"><span class="gender_name">Female</span>
-                                <input type="radio" value="female" name="gender">
+                                <input type="radio" value="female" name="gender" required>
                                 <span class="checkmark"></span>
                             </label>
                             <label class="radio_box"><span class="gender_name">Other</span>
-                                <input type="radio" value="other" name="gender">
+                                <input type="radio" value="other" name="gender" required>
                                 <span class="checkmark"></span>
                             </label>
                         </div>

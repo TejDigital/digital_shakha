@@ -437,7 +437,13 @@
 .internship_track_1 .grade .main-box .main-grade table tbody tr .padding{
     padding:2rem 0 2.5rem 0;
 }
-
+@media(max-width:768px){
+    .internship_track_1 .grade .main-box .main-grade table tbody tr td p{
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin: 0;
+     }
+}
 
 /* -------------------internship_track_1-course_info--------- */
 

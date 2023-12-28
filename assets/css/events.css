@@ -203,4 +203,7 @@
     .event_2 {
         padding: 1rem 1rem;
     }
+    .event_2 .image_content .flex-box {
+        flex-direction: column;
+    }
 }

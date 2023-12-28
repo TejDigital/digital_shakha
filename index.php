@@ -29,10 +29,10 @@ require('./admin/config/dbcon.php');
     </div>
 </section>
 <section class="home_2">
-    <div class="container px-5">
+    <div class="container px-3">
         <div class="home_2_top">
             <h1>Your Future Starts </h1>
-            <div class="row">
+            <div class="row" style="gap: 1rem 0;">
                 <div class="col-md-3 video_container">
                     <div class="video_box">
                         <video autoplay muted loop>
@@ -61,7 +61,7 @@ require('./admin/config/dbcon.php');
                         </video>
                     </div>
                 </div>
-                <div class="col-md-12 text-end d-flex justify-content-end p-0">
+                <div class="col-md-12 text-end d-flex justify-content-end">
                     <div class="video_area">
                         <video autoplay muted loop>
                             <source src="./assets/images/home_video_1.mp4" type="video/mp4">
@@ -322,23 +322,23 @@ require('./admin/config/dbcon.php');
                             <input type="hidden" name="upcoming_batch_id" class="upcoming_batch_id">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Name" name="name" class="input_area">
+                                    <input type="text" placeholder="Name" name="name" class="input_area" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Number" name="phone" class="input_area">
+                                    <input type="text" placeholder="Number" name="phone" class="input_area"required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="Email Address" name="email" class="input_area">
+                                    <input type="email" placeholder="Email Address" name="email" class="input_area" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="designation" class="input_area">
+                                    <select name="designation" class="input_area" required>
                                         <option value="">Select Designation</option>
                                         <option value="Student">Student</option>
                                         <option value="Working professional">Working professional</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="location" class="input_area">
+                                    <select name="location" class="input_area" required>
                                         <option value="">Select location</option>
                                         <option value="Bhilai">Bhilai</option>
                                     </select>

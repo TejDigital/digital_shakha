@@ -119,7 +119,9 @@
         padding: 2rem 1rem;
     }
     .blog_2 .blog_box{
-        height: 200px;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 10/8;
     }
     .blog_2 .blog_box .text {
         padding: 0.5rem;
