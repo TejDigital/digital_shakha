@@ -528,6 +528,7 @@
     border: 1px solid #ffffff;
     color: #ffffff;
     width: 100%;
+    cursor: not-allowed;
 }
 
 .upcoming_batch .box .btn_area {

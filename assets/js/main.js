@@ -50,10 +50,12 @@ closeLoginBtn.onclick = function() {
 
 
 var registerModal = document.getElementById("registerModal");
-var registerBtn = document.querySelector(".signup_popup");
+var registerBtn = document.getElementById("signup_popup");
+// var registerBtn = document.querySelector(".signup_popup");
 var closeRegisterBtn = document.getElementById("close_signup_btn");
 
 registerBtn.onclick = function() {
+  // console.log("open");
   registerModal.style.display = "block";
 }
 
@@ -199,3 +201,30 @@ $(".story_slider").owlCarousel({
   }
 
 });
+
+
+// -------------------------------------validation.js---------------------
+//  // Validation rules
+//  var constraints = {
+//   val_email: {
+//     email: true
+//   }
+// };
+
+// // Validate function
+// function validateForm() {
+//   var form = document.getElementById('std_register_form');
+//   var validationResult = validate(form, constraints);
+
+//   if (validationResult) {
+//     alert(JSON.stringify(validationResult, null, 2));
+//   } else {
+//     alert('Form is valid!');
+//   }
+// }
+
+// // Attach the validation function to the form submission
+// document.getElementById('std_register_form').addEventListener('submit', function (e) {
+//   e.preventDefault();
+//   validateForm();
+// });

@@ -50,7 +50,7 @@ function send_reset_pass($name, $get_email, $token)
           <p><strong>Name:</strong> ' . $name . '</p>
           <p><strong>Email:</strong> ' . $get_email . '</p>
           <p><strong>Message:</strong></p>
-          <p> <a href="https://digitalshakha.com/internship/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
+          <p> <a href="http://localhost/digital_shakha/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
           </body>
           </html>';
           // <p> <a href="http://localhost/digital_shakha/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>

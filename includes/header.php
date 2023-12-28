@@ -42,14 +42,13 @@ require('./admin/config/dbcon.php');
     <link rel="stylesheet" href="./assets/css/application_success.css">
     <link rel="stylesheet" href="./assets/css/error.css">
     <link rel="stylesheet" href="./assets/css/about.css">
-    <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.css">
+    <link rel="stylesheet" href="./assets/fontawesome-free-6.4.2-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/splide-4.1.3/dist/css/splide.min.css">
     <link rel="stylesheet" href="./assets/css/preloading/effect.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="./sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./assets/OwlCarousel2/dist/assets/owl.carousel.css">
-    <link rel="stylesheet" href="./assets/OwlCarousel2/dist/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="./assets/OwlCarousel2/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/OwlCarousel2/dist/assets/owl.theme.default.min.css">
     <title>Digitalshakha</title>
 
 </head>
@@ -321,16 +320,15 @@ require('./admin/config/dbcon.php');
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
-                                <a class="nav-link nav-after-effect hover-link" href="#!" id="">employers</a>
+                                <a class="nav-link nav-after-effect hover-link" >employers</a>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./partner_with_us.php" class="">Partner with Us <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./post_job_internship.php">Post an Internship <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="#!">Employer Stories <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./contact.php">Contact <i class="color-ball"></i></a></li>
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
-                                <a class="nav-link hover-link nav-after-effect" href="#!" id="">students</a>
+                                <a class="nav-link hover-link nav-after-effect" >students</a>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
@@ -339,14 +337,14 @@ require('./admin/config/dbcon.php');
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
-                                <a class="nav-link nav-after-effect hover-link" href="#!" id="">events</a>
+                                <a class="nav-link nav-after-effect hover-link">events</a>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./events.php" class="">Our Events <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./event_register.php" class="">Register <i class="color-ball"></i></a></li>
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
-                                <a class="nav-link nav-after-effect hover-link" href="#!" id="">updates</a>
+                                <a class="nav-link nav-after-effect hover-link">updates</a>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./blog.php" class="">Blog <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./news_letter.php" class="">Newsletters <i class="color-ball"></i></a></li>
@@ -364,7 +362,7 @@ require('./admin/config/dbcon.php');
                                     <div class="btns">
                                         <a class="login_popup">Login</a>
                                         <span>|</span>
-                                        <a class="signup_popup">Signup</a>
+                                        <a id="signup_popup" class="signup_popup">Signup</a>
                                     </div>
                                     <?php
                                 } else {
@@ -386,7 +384,6 @@ require('./admin/config/dbcon.php');
                                                                 ";
                                                     }
                                                     ?>
-                                                    <!-- <a href="#!" class="hover-link"><img class="profile_img" src="./assets/images/logout_icon.svg" alt=""></a> -->
                                                     <ul class="list-group bg-dark drop-item">
                                                         <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
                                                         <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
@@ -487,32 +484,32 @@ require('./admin/config/dbcon.php');
                             <p>Begin Your Journey at Digitalshakha</p>
                         </div>
                         <div class="form">
-                            <form id="std_register_form">
+                            <form id="std_register_form" name="std_register_form">
                                 <div class="form-group">
-                                    <input type="text" class="input_box" name="name" placeholder="Full-Name" required>
+                                    <input type="text" class="input_box" id="val_name" name="name" placeholder="Full-Name" required>
                                     <i class="fa-regular fa-user"></i>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" class="input_box" name="phone" placeholder="Contact Number" required>
+                                    <input type="text" maxlength="10" id="duration" onkeypress="return event.charCode>=48 && event.charCode<=57" class="input_box" name="phone" placeholder="Contact Number" required>
                                     <span class="material-symbols-outlined">
                                         phone_iphone
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="input_box" name="email" placeholder="Email Address">
-                                    <span class="material-symbols-outlined" required>
+                                    <input type="email" class="input_box" id="val_email" name="email" placeholder="Email Address" required>
+                                    <span class="material-symbols-outlined" >
                                         mail
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="input_box" name="password" placeholder="Create Password">
-                                    <span class="material-symbols-outlined" required>
+                                    <input type="password" class="input_box" id="val_password" name="password" placeholder="Create Password" required>
+                                    <span class="material-symbols-outlined" >
                                         lock
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="input_box" name="confirm_password" placeholder="Confirm Password">
-                                    <span class="material-symbols-outlined" required>
+                                    <input type="password" class="input_box" value="val_c_password" name="confirm_password" placeholder="Confirm Password" required>
+                                    <span class="material-symbols-outlined" >
                                         lock
                                     </span>
                                 </div>
