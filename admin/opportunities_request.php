@@ -1,6 +1,8 @@
 <?php
 require('./config/dbcon.php');
 
+
+
 $opportunities_id = mysqli_real_escape_string($con,$_POST['opportunities_id']);
 $name = mysqli_real_escape_string($con,$_POST['name']);
 $phone = mysqli_real_escape_string($con,$_POST['phone']);
@@ -14,7 +16,7 @@ mysqli_stmt_execute($stmt);
 
 if ($stmt) {
     move_uploaded_file($_FILES['image']['tmp_name'], './opportunities_request_files/' . $image);
-    echo json_encode(array("res" => 1));
+    echo json_encode(array('res' => 1 , 'data' => $opportunities_id));
 } else {
     header('HTTP/1.1 401 Unauthorized');
     echo json_encode(array("res" => 0));

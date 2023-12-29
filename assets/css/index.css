@@ -224,6 +224,7 @@
     height: 80px;
     justify-content: center;
     align-items: center;
+
 }
 
 .home_2 .home_2_top .video_area video {
@@ -248,9 +249,10 @@
 }
 
 .home_2 .home_2_top .video_area .video_text H1 {
-    /* background-color: #000; */
+    background-color: transparent;
     color: #fff;
     font-size: 6rem;
+    margin: 0;
 }
 
 @media(max-width:998px) {
@@ -269,13 +271,15 @@
 }
 
 @media(max-width:768px) {
-    .home_2 .home_2_top .video_area{
+    .home_2 .home_2_top .video_area {
         width: 110px;
         height: 50px;
     }
+
     .home_2 .home_2_top .video_area .video_text H1 {
         font-size: 3rem;
     }
+
     .home_2 .home_2_top h1 {
         font-size: 2rem;
     }
@@ -335,7 +339,7 @@
 }
 
 .home_2 .home_2_bottom .video_area .video_text H1 {
-    /* background-color: #000; */
+    background-color: transparent;
     color: #fff;
     font-size: 4.5rem;
 }
@@ -348,16 +352,19 @@
 }
 
 @media(max-width:768px) {
-    .home_2{
+    .home_2 {
         padding: 2rem 0.2rem;
     }
+
     .home_2 .home_2_bottom .video_area {
         width: 170px;
         height: 30px;
     }
+
     .home_2 .home_2_bottom .video_area .video_text H1 {
         font-size: 2.5rem;
     }
+
     .home_2 .home_2_bottom h1 {
         font-size: 2rem;
     }
@@ -417,6 +424,19 @@
     font-weight: 500;
     line-height: 22px;
 
+}
+
+@media(max-width:998px) {
+    #upcoming_modal .modal-content {
+        width: 95%;
+    }
+}
+
+@media(max-width:768px) {
+    #upcoming_modal .modal-content {
+        margin: 0 auto !important;
+        width: 95% !important;
+    }
 }
 
 /* ------------------------upcoming_batch-------------------- */
@@ -498,6 +518,7 @@
     font-weight: 500;
     line-height: 30px;
 }
+
 .upcoming_batch .sold1 .text h2 {
     font-size: 1.4rem;
     font-weight: 500;
@@ -546,11 +567,67 @@
 
 @media(max-width:998px) {
     .upcoming_batch {
-        padding: 2rem 3rem;
+        padding: 2rem 0.2rem;
     }
 
-    .upcoming_batch {
-        padding: 2rem 0.2rem;
+    .upcoming_batch .box {
+        padding: 1rem;
+    }
+
+    .upcoming_batch .sold1 {
+        padding: 1rem;
+    }
+
+    .upcoming_batch .box .text h2 {
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 30px;
+        margin-bottom: 0;
+    }
+
+    .upcoming_batch .box .text h3 {
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 30px;
+        margin-bottom: 0;
+    }
+
+    .upcoming_batch .box .text h4 {
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 30px;
+        margin-bottom: 0;
+    }
+
+    .upcoming_batch .box .btn_area button {
+        padding: 0.3rem;
+        font-size: 0.9rem;
+    }
+
+    .upcoming_batch .sold1 .text h2 {
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 30px;
+        margin-bottom: 0;
+    }
+
+    .upcoming_batch .sold1 .text h3 {
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 30px;
+        margin-bottom: 0;
+    }
+
+    .upcoming_batch .sold1 .text h4 {
+        font-size: 1.1rem;
+        font-weight: 500;
+        line-height: 30px;
+        margin-bottom: 0;
+    }
+
+    .upcoming_batch .sold1 .btn_area button {
+        padding: 0.3rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -602,6 +679,8 @@
 .program_options a {
     text-decoration: none;
     color: #000;
+    width: 100%;
+    aspect-ratio: 7/9;
 }
 
 .program_options .btn_area {
@@ -619,26 +698,26 @@
 
 }
 
-.program_options .box {
+.program_options a {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    height: 340px;
+    width: 100%;
     border: 2px solid #AAA0A0;
 }
 
-.program_options .box .img {
+.program_options a .img {
     width: 100%;
     height: 150px;
 }
 
-.program_options .box .img img {
+.program_options a .img img {
     width: 100%;
     height: 100%;
 }
 
-.program_options .box .text {
+.program_options a .text {
     padding: 1rem;
 }
 
@@ -646,34 +725,55 @@
     padding: 1rem;
 }
 
-.program_options .box .text h4 {
+.program_options a .text h4 {
     font-size: 1.7vw;
     font-weight: 600;
     line-height: 30px;
 }
 
-.program_options .box .text p {
+.program_options a .text p {
     font-size: 1.3vw;
     font-weight: 500;
-    line-height: 28px;
+    line-height: 2vw;
+}
+
+@media(max-width:998px) {
+    .program_options {
+        padding: 4rem 1rem;
+    }
+    .program_options a .text h4 {
+        font-size: 1.3rem;
+    }
+    .program_options a .text {
+        padding: 0.9rem;
+    }
 }
 
 @media(max-width:768px) {
     .program_options {
         padding: 4rem 0.2rem;
     }
+    .program_options a .img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .program_options a{
+       aspect-ratio: 0;
+
+    }
 
     .program_options .heading h1 {
         font-size: 1.8rem;
     }
 
-    .program_options .box .text h4 {
+    .program_options a .text h4 {
         font-size: 1.8rem;
         font-weight: 600;
         line-height: 30px;
     }
 
-    .program_options .box .text p {
+    .program_options a .text p {
         font-size: 1rem;
         font-weight: 500;
         line-height: 28px;

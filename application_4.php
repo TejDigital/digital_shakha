@@ -19,7 +19,7 @@ if(isset($_GET['id'])){
                 </div>
             </div>
             <div class="col-md-6 app-click4">
-                <form class="formID4" id="app_form" enctype="multipart/form-data">
+                <form class="formID4" id="app_form4" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?=$id?>">
                     <div class="text">
                         <div class="heading">
@@ -35,17 +35,18 @@ if(isset($_GET['id'])){
                                 <img src="./assets/images/qr 1.png" alt="">
                             </div>
                             <div class="wrapper d-flex justify-content-between ">
-                                <label for="fileInput2" class="d-flex justify-content-between w-100 align-items-center">
+                                <label for="fileInput2" class="d-flex justify-content-between w-100 align-items-center file-label">
                                     <p id="fileNameDisplay2" class="text-start m-0">Upload Payment Screenshot</p>
-                                    <input type="file" name="payment_ss" class="p-0 m-0" id="fileInput2" onchange="checkFileSize(this)" hidden>
+                                    <input type="file" name="payment_ss" class="input_box" id="fileInput2" onchange="checkFileSize(this)" >
                                     <i class="fa-solid fa-paperclip"></i>
                                 </label>
                             </div>
                         </div>
-                        <input type="text" placeholder="Transaction ID*" name="transaction_code" required>
+                        <label id="fileInput2-error" class="error error-message" for="fileInput2"></label>
+                        <input type="text" placeholder="Transaction ID*" name="transaction_code">
 
                         <div class="btn_area">
-                            <button type="submit" name="apply">Finish</button>
+                            <button type="submit" id="app_submit_btn" name="apply">Finish</button>
                             <p>Review your selections and information. Click the "Save & Next" button to save the details filled and move forward with your application process.</p>
                         </div>
                 </form>

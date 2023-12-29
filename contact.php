@@ -22,11 +22,11 @@
                         <p>For any specific inquiries or feedback, please utilize our convenient online form below. Our team is committed to responding promptly and providing the information or assistance you seek.</p>
                     </div>
                     <div class="inputs form-click">
-                        <form class="formID" id="formReset" name="uploader">
-                            <input type="text" name="full_name" placeholder="Full Name" class="input_box" required>
-                            <input type="number" name="mobile" placeholder="Contact Number" class="input_box" required>
-                            <input type="email" name="email" placeholder="Email Address" class="input_box" required>
-                            <textarea cols="30" rows="5" name="message" class="input_box" placeholder="Your Message" required></textarea>
+                        <form class="formID" id="contactFrom" name="uploader">
+                            <input type="text" name="full_name" placeholder="Full Name" class="input_box" >
+                            <input type="number" name="mobile" placeholder="Contact Number" class="input_box" >
+                            <input type="email" name="email" placeholder="Email Address" class="input_box" >
+                            <textarea cols="30" rows="5" name="message" class="input_box" placeholder="Your Message" ></textarea>
                             <button class="btn_contact" type="submit" name="submit">Register</button>
                         </form>
                     </div>

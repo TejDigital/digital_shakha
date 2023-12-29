@@ -18,7 +18,7 @@
                     <form class="interview_form" id="interview_form">
                         <div class="box">
                             <p>Enter the unique confirmation code you received in your email, post Application:</p>
-                            <input type="text" name="unique_id" placeholder="Enter Code here" required>
+                            <input type="text" name="unique_id" placeholder="Enter Code here" >
                         </div>
                         <div class="box">
                             <p>When do you want your interview to be conducted? Select a date</p>
@@ -71,16 +71,29 @@
                             </div>
                         </div>
                         <div class="box">
-                            <input type="text" name="name" placeholder="Full Name" required>
-                            <input type="email" name="email" placeholder="E-mail Address" required>
-                            <input type="text" name="phone" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Phone Number" required>
-                            <select name="position" required>
+                            <input type="text" name="name" placeholder="Full Name" >
+                            <label id="name-error" class="error error-message" for="name"></label>
+
+                            <input type="email" name="email" placeholder="E-mail Address" >
+                            <label id="email-error" class="error error-message" for="email"></label>
+
+
+                            <input type="text" name="phone"  placeholder="Phone Number" >
+                            <label id="phone-error" class="error error-message" for="phone"></label>
+
+
+                            <select name="position" >
                                 <option value="">Select the position that you applied for</option>
                                 <option value="1">Intern</option>
                                 <option value="2">executive</option>
                                 <option value="3">Other</option>
                             </select>
-                            <textarea name="message" cols="30" rows="5" placeholder="Additional Comments" required></textarea>
+                            <label id="position-error" class="error error-message" for="position"></label>
+
+
+                            <textarea name="message" cols="30" rows="5" placeholder="Additional Comments" ></textarea>
+                            <label id="message-error" class="error error-message" for="message"></label>
+
                         </div>
                         <div class="box">
                             <p>Review your selections and information. Click the "Submit" button to confirm your interview schedule.</p>

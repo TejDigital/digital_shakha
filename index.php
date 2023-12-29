@@ -322,23 +322,23 @@ require('./admin/config/dbcon.php');
                             <input type="hidden" name="upcoming_batch_id" class="upcoming_batch_id">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Name" name="name" class="input_area" required>
+                                    <input type="text" placeholder="Name"  name="name" class="input_area" >
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Number" name="phone" class="input_area"required>
+                                    <input type="text" placeholder="Number" name="phone" class="input_area" >
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="Email Address" name="email" class="input_area" required>
+                                    <input type="email" placeholder="Email Address" name="email" class="input_area" >
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="designation" class="input_area" required>
+                                    <select name="designation" class="input_area" >
                                         <option value="">Select Designation</option>
                                         <option value="Student">Student</option>
                                         <option value="Working professional">Working professional</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="location" class="input_area" required>
+                                    <select name="location" class="input_area" >
                                         <option value="">Select location</option>
                                         <option value="Bhilai">Bhilai</option>
                                     </select>

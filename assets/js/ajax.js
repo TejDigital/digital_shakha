@@ -1,52 +1,98 @@
 $(document).ready(function () {
-  $(".form-click").on("submit", "form.formID", function (e) {
+  $("#contactFrom").on("submit", function (e) {
     e.preventDefault();
+    let formReset = $("#contactFrom")[0];
     var form = $(this);
-    var formData = form.serialize();
-    $.ajax({
-      type: "POST",
-      url: "././admin/connect.php",
-      data: formData,
-      success: function (response) {
-        console.log(response);
-        if (response == "Thankyou We are connect soon") {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: response,
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
+    $("#contactFrom").validate({
+      rules: {
+        full_name: {
+          required: true,
+          maxlength: 255,
+        },
+        mobile: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+        message: {
+          required: true,
+        },
+      },
+      messages: {
+        full_name: {
+          required: "Please enter your name",
+          maxlength: "Name must be less than 255 characters",
+        },
+        mobile: {
+          required: "Please enter your phone number",
+          digits: "Please enter a valid phone number",
+          minlength: "Phone number must be 10 digits",
+          maxlength: "Phone number must be 10 digits",
+        },
+        email: {
+          required: "Please enter your email address",
+          email: "Please enter a valid email address",
+        },
+        message: {
+          required: "Please enter message",
+        },
+      },
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = $(form).serialize();
+        $.ajax({
+          type: "POST",
+          url: "././admin/connect.php",
+          data: formData,
+          success: function (response) {
+            console.log(response);
+            if (response == "Thankyou We are connect soon") {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: response,
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
                           rgba(40, 39, 19,0.4)
                           left top
                           no-repeat`,
-            timer: 2500,
-          });
-        }
-      },
-      error: function (response) {
-        alert("Something went wrong");
-        console.log(response);
+                timer: 2500,
+              });
+            }
+          },
+          error: function (response) {
+            alert("Something went wrong");
+            console.log(response);
+          },
+        });
+        clearInput();
       },
     });
-    clearInput();
+    function clearInput() {
+      formReset.reset();
+    }
   });
-  let formReset = document.getElementById("formReset");
-  function clearInput() {
-    formReset.reset();
-  }
 });
 
 //--------------Student-Registration-------------
@@ -54,123 +100,174 @@ $(document).ready(function () {
 $(document).ready(function () {
   $("#std_register_form").on("submit", function (e) {
     e.preventDefault();
+    var reg_form = $("#std_register_form")[0];
+    var submitBtn = $("#RegSubmitBtn");
     var form = $(this);
-    var formData = form.serialize();
-    var submitBtn = $("#submitBtn");
-    // Disable the submit button
-    submitBtn.prop("disabled", true);
-    // console.log(formData);
-    $.ajax({
-      type: "POST",
-      url: "././admin/register_code.php",
-      data: formData,
-      success: function (response) {
-        let message = JSON.parse(response);
-        if (message.alert === 2) {
-          clearRegisterForm();
-          closeRegistrationModal();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "email has been sent to your email id",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
-            timer: 2500,
-          });
-          submitBtn.prop("disabled", true);
-        } else if (message.alert === 13) {
-          clearRegisterForm();
-          closeRegistrationModal();
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: "Password and confirm password not match",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
-            timer: 2500,
-          });
-          submitBtn.prop("disabled", true);
-        } else if (message.alert === 12) {
-          clearRegisterForm();
-          closeRegistrationModal();
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: "Something went wrong , please try after some time",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
-            timer: 2500,
-          });
-          submitBtn.prop("disabled", true);
-        } else if (message.alert == 1) {
-          clearRegisterForm();
-          var sms = message.message;
-          $("#top").append(sms);
-          window.setTimeout(function () {
-            $("#success-alert").alert("close");
-          }, 4000);
-        }
+    $.validator.addMethod(
+      "alphaWithSpaces",
+      function (value, element) {
+        return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
       },
-      error: function (response) {
-        alert("something wrong");
+      "Please enter only alphabets and spaces."
+    );
+    $("#std_register_form").validate({
+      rules: {
+        name: {
+          required: true,
+          alphaWithSpaces: true,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+        phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10,
+        },
+        password: {
+          required: true,
+          minlength: 6,
+        },
+        confirm_password: {
+          required: true,
+          equalTo: "#val_password",
+        },
+      },
+      messages: {
+        name: "Please enter your name",
+        email: {
+          required: "Please enter your email",
+          email: "Please enter a valid email address",
+        },
+        phone: "Please enter valid phone no.",
+        password: "Please enter password",
+        confirm_password: {
+          equalTo: "Passwords do not match",
+        },
+      },
+      errorPlacement: function (error, element) {
+        // Display errors in a toast
+        //toastr.error(error.text());
+        error.appendTo(element.parent());
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = $(form).serialize();
+        // submitBtn.prop("disabled", true);
+        $.ajax({
+          type: "POST",
+          url: "././admin/register_code.php",
+          data: formData,
+          success: function (response) {
+            submitBtn.prop("disabled", true);
+            let message = JSON.parse(response);
+            if (message.alert === 2) {
+              clearRegisterForm();
+              closeRegistrationModal();
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "email has been sent to your email id",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
+                                      rgba(40, 39, 19,0.4)
+                                      left top
+                                      no-repeat`,
+                timer: 2500,
+              });
+            } else if (message.alert === 13) {
+              clearRegisterForm();
+              submitBtn.prop("disabled", false);
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                text: "Password and confirm password not match",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
+                                      rgba(40, 39, 19,0.4)
+                                      left top
+                                      no-repeat`,
+                timer: 2500,
+              });
+            } else if (message.alert === 12) {
+              clearRegisterForm();
+              closeRegistrationModal();
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                text: "Something went wrong , please try after some time",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
+                                      rgba(40, 39, 19,0.4)
+                                      left top
+                                      no-repeat`,
+                timer: 2500,
+              });
+            } else if (message.alert == 1) {
+              submitBtn.prop("disabled", false);
+              clearRegisterForm();
+              var sms = message.message;
+              $("#top").append(sms);
+              window.setTimeout(function () {
+                $("#success-alert").alert("close");
+              }, 4000);
+            }
+          },
+          error: function (response) {
+            alert("something wrong");
+          },
+        });
       },
     });
+
+    function closeRegistrationModal() {
+      $("#registerModal").hide();
+    }
+    function clearRegisterForm() {
+      reg_form.reset();
+    }
   });
-  function closeRegistrationModal() {
-    $("#registerModal").hide();
-  }
-  var reg_form = $("#std_register_form")[0];
-  function clearRegisterForm() {
-    reg_form.reset();
-  }
 });
 
 //-------------------------for-redirecting from gmail------------
@@ -193,368 +290,407 @@ $(document).ready(function () {
   $("#std_login_form").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = new FormData(form[0]);
-
-    $.ajax({
-      type: "POST",
-      url: "././admin/std_login_code.php",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function (response) {
-        var result = JSON.parse(response);
-        if (result.res == "1") {
-          closeLoginModal();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Welcome Back",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
-            timer: 2500,
-          }).then(function () {
-            location.reload();
-          });
-        } else if (result.res == "2") {
-          closeLoginModal();
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: "You are Not verified",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
-            timer: 2500,
-          });
-          clearForm();
-        } else if (result.res == "3") {
-          closeLoginModal();
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: "Password not Match",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
-            timer: 2500,
-          });
-          clearForm();
-        } else if (result.res == "4") {
-          closeLoginModal();
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: "User id not found",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
-            timer: 2500,
-          });
-          clearForm();
-        }
+    $("#std_login_form").validate({
+      rules: {
+        email: {
+          required: true,
+          email: true,
+        },
+        password: {
+          required: true,
+        },
       },
-      error: function (response) {
-        closeLoginModal();
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          text: "Something went wrong",
-          showConfirmButton: false,
-          showClass: {
-            popup: "animate__animated animate__fadeInDown",
+      messages: {
+        email: {
+          required: "Please enter your email",
+          email: "Please enter a valid email address",
+        },
+        password: "Please enter password",
+      },
+      errorPlacement: function (error, element) {
+        error.appendTo(element.parent());
+        error.addClass("error-message");
+      },
+      submitHandler: function (validatedForm) {
+        var formData = new FormData(validatedForm);
+        $.ajax({
+          type: "POST",
+          url: "././admin/std_login_code.php",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            console.log(response);
+            var result = JSON.parse(response);
+            if (result.res == "1") {
+              closeLoginModal();
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "Welcome Back",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+                timer: 2500,
+              }).then(function () {
+                location.reload();
+              });
+            } else if (result.res == "2") {
+              closeLoginModal();
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                text: "You are Not verified",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+                timer: 2500,
+              });
+              clearForm();
+            } else if (result.res == "3") {
+              closeLoginModal();
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                text: "Password not Match",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+                timer: 2500,
+              });
+              clearForm();
+            } else if (result.res == "4") {
+              closeLoginModal();
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                text: "User id not found",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+                timer: 2500,
+              });
+              clearForm();
+            }
           },
-          hideClass: {
-            popup: "animate__animated animate__fadeOutUp",
+          error: function (response) {
+            closeLoginModal();
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              text: "Something went wrong",
+              showConfirmButton: false,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+              customClass: {
+                icon: "custom-icon-color",
+                modal: "custom-border",
+              },
+              width: 600,
+              color: "#EBAB56",
+              background: "#fff",
+              backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+              timer: 2500,
+            });
+            console.log(response);
           },
-          customClass: {
-            icon: "custom-icon-color",
-            modal: "custom-border",
-          },
-          width: 600,
-          color: "#EBAB56",
-          background: "#fff",
-          backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
-          timer: 2500,
         });
-        console.log(response);
       },
     });
+    function closeLoginModal() {
+      $("#loginModal").hide();
+    }
+    var log_form = $("#std_login_form")[0];
+    function clearForm() {
+      log_form.reset();
+    }
   });
-
-  function closeLoginModal() {
-    $("#loginModal").hide();
-  }
-
-  var log_form = $("#std_login_form")[0];
-  function clearForm() {
-    log_form.reset();
-  }
 });
 //--------------Student-forget-password-------------
 
 $(document).ready(function () {
+  var reg_form = $("#std_forget_pass")[0];
+  var errorAlert = $("#forgetPassError");
+
   $("#std_forget_pass").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = form.serialize();
-    var submitBtn = $("#forgetBtn");
-    submitBtn.prop("disabled", true);
-    $.ajax({
-      type: "POST",
-      url: "././admin/forget_password_code.php",
-      data: formData,
-      success: function (response) {
-        console.log(response);
-        let message = JSON.parse(response);
-        if (message.forget_msg === 2) {
-          clearForgetPass();
-          closeForgetPassModal();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Check your email for reset password",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
-            timer: 2500,
-          });
-          submitBtn.prop("disabled", true);
-        }
+
+    $("#std_forget_pass").validate({
+      rules: {
+        forget_email: {
+          required: true,
+          email: true,
+        },
       },
-      error: function (response) {
-        alert("something wrong");
+      messages: {
+        forget_email: {
+          required: "Please enter your email",
+          email: "Please enter a valid email address",
+        },
+      },
+      errorPlacement: function (error, element) {
+        error.appendTo(element.parent());
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = $(form).serialize();
+        var submitBtn = $("#forgetBtn");
+        submitBtn.prop("disabled", true);
+
+        $.ajax({
+          type: "POST",
+          url: "././admin/forget_password_code.php",
+          data: formData,
+          success: function (response) {
+            var message = JSON.parse(response);
+            if (message.forget_msg === 2) {
+              clearForgetPass();
+              closeForgetPassModal();
+              showSuccessNotification();
+            } else if (message.forget_msg === 3 || message.forget_msg === 4) {
+              clearForgetPass();
+              displayError(
+                message.forget_msg === 3
+                  ? "Something went wrong"
+                  : "Email not found"
+              );
+              setTimeout(function () {
+                errorAlert.hide();
+              }, 2500);
+            }
+          },
+          error: function (response) {
+            alert("Something went wrong");
+          },
+        });
       },
     });
   });
+
   function closeForgetPassModal() {
     $("#forgetPassModal").hide();
   }
-  var reg_form = $("#std_forget_pass")[0];
+
   function clearForgetPass() {
     reg_form.reset();
+  }
+
+  function showSuccessNotification() {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      text: "Check your email for reset password",
+      showConfirmButton: false,
+      showClass: {
+        popup: "animate__animated animate__fadeInDown",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutUp",
+      },
+      customClass: {
+        icon: "custom-icon-color",
+        modal: "custom-border",
+      },
+      width: 600,
+      color: "#EBAB56",
+      background: "#fff",
+      backdrop: "rgba(40, 39, 19,0.4) left top no-repeat",
+      timer: 2500,
+    });
+  }
+
+  function displayError(errorMessage) {
+    errorAlert.text(errorMessage);
+    errorAlert.show();
   }
 });
 
 //--------------Student-reset-password-------------
-
 $(document).ready(function () {
+  var reg_form = $("#std_reset_password")[0];
+
   $("#std_reset_password").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
     var formData = form.serialize();
     var submitBtn = $("#resetBtn");
-    // submitBtn.prop("disabled", true);
-    console.log(formData);
-    $.ajax({
-      type: "POST",
-      url: "././admin/forget_password_code.php",
-      data: formData,
-      success: function (response) {
-        // console.log(response);
-        let message = JSON.parse(response);
-        if (message.reset_msg === 3) {
-          var token = message.token;
-          var email = message.email;
-        }
-        if (message.reset_msg === 4) {
-          var token = message.token;
-          var email = message.email;
-        }
-        if (message.reset_msg === 5) {
-          var token = message.token;
-          var email = message.email;
-        }
-        if (message.reset_msg === 2) {
-          clearResetPassFrom();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "New Password Updated",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
-            timer: 2500,
-          }).then(function () {
-            window.location.href = "././index.php?";
-          });
-          submitBtn.prop("disabled", true);
-        } else if (message.reset_msg === 3) {
-          clearResetPassFrom();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Something went wrong",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
-            timer: 2500,
-          }).then(function () {
-            window.location.href =
-              "././reset_password.php?token=" + token + "&email=" + email;
-          });
-        } else if (message.reset_msg === 4) {
-          clearResetPassFrom();
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: "Password not match ! check it",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
-            timer: 2500,
-          }).then(function () {
-            window.location.href =
-              "././reset_password.php?token=" + token + "&email=" + email;
-          });
-        } else if (message.reset_msg === 5) {
-          clearResetPassFrom();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Invalid token",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                    rgba(40, 39, 19,0.4)
-                                    left top
-                                    no-repeat`,
-            timer: 2500,
-          }).then(function () {
-            window.location.href =
-              "././reset_password.php?token=" + token + "&email=" + email;
-          });
-        }
+
+    $("#std_reset_password").validate({
+      rules: {
+        password: {
+          required: true,
+          minlength: 6,
+        },
+        confirm_password: {
+          required: true,
+          equalTo: "#c_pass",
+        },
       },
-      error: function (response) {
-        alert("something wrong");
+      messages: {
+        password: "Please enter a password",
+        confirm_password: {
+          equalTo: "Passwords do not match",
+        },
+      },
+      errorPlacement: function (error, element) {
+        error.appendTo(element.parent());
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        $.ajax({
+          type: "POST",
+          url: "././admin/forget_password_code.php",
+          data: formData,
+          success: function (response) {
+            var message = JSON.parse(response);
+            var token = message.token;
+            var email = message.email;
+
+            if (message.reset_msg === 2) {
+              clearResetPassForm();
+              showSuccessNotification();
+              submitBtn.prop("disabled", true);
+            } else if (
+              message.reset_msg === 3 ||
+              message.reset_msg === 4 ||
+              message.reset_msg === 5
+            ) {
+              clearResetPassForm();
+              showErrorNotification(message.reset_msg, token, email);
+            }
+          },
+          error: function (response) {
+            alert("Something went wrong");
+          },
+        });
       },
     });
   });
 
-  var reg_form = $("#std_reset_password")[0];
-  function clearResetPassFrom() {
+  function clearResetPassForm() {
     reg_form.reset();
+  }
+
+  function showSuccessNotification() {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      text: "New Password Updated",
+      showConfirmButton: false,
+      showClass: {
+        popup: "animate__animated animate__fadeInDown",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutUp",
+      },
+      customClass: {
+        icon: "custom-icon-color",
+        modal: "custom-border",
+      },
+      width: 600,
+      color: "#EBAB56",
+      background: "#fff",
+      backdrop: "rgba(40, 39, 19,0.4) left top no-repeat",
+      timer: 2500,
+    }).then(function () {
+      window.location.href = "././index.php?";
+    });
+  }
+
+  function showErrorNotification(resetMsg, token, email) {
+    var textMessage = "";
+    switch (resetMsg) {
+      case 3:
+        textMessage = "Something went wrong";
+        break;
+      case 4:
+        textMessage = "Password does not match! Check it";
+        break;
+      case 5:
+        textMessage = "Invalid token";
+        break;
+      default:
+        textMessage = "Unknown error";
+        break;
+    }
+
+    Swal.fire({
+      position: "center",
+      icon: "error",
+      text: textMessage,
+      showConfirmButton: false,
+      showClass: {
+        popup: "animate__animated animate__fadeInDown",
+      },
+      hideClass: {
+        popup: "animate__animated animate__fadeOutUp",
+      },
+      customClass: {
+        icon: "custom-icon-color",
+        modal: "custom-border",
+      },
+      width: 600,
+      color: "#EBAB56",
+      background: "#fff",
+      backdrop: "rgba(40, 39, 19,0.4) left top no-repeat",
+      timer: 2500,
+    }).then(function () {
+      window.location.href =
+        "././reset_password.php?token=" + token + "&email=" + email;
+    });
   }
 });
 
@@ -606,188 +742,366 @@ $(document).ready(function () {
 
 // ---------------------------Application-form-------------------------
 $(document).ready(function () {
-  $(".app-click").on("submit", "form.formID", function (e) {
+  let app_form = $("#app_form")[0];
+  $.validator.addMethod(
+    "fileExtension",
+    function (value, element) {
+      // Get the file extension
+      var extension = value.split(".").pop().toLowerCase();
+      // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+      return ["jpg", "jpeg", "png", "pdf"].indexOf(extension) !== -1;
+    },
+    "Please select a valid file type (jpg, jpeg, png, pdf)."
+  );
+  $("#app_form").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = new FormData(form[0]);
-    $.ajax({
-      type: "POST",
-      url: "././admin/application_code.php",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function (response) {
-        var parsed_data = JSON.parse(response);
-        if (parsed_data.success === 1) {
-          var ids = parsed_data.data;
-          console.log(ids);
-        }
-        if (parsed_data.success === 1) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Fill the next Field",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                  rgba(40, 39, 19,0.4)
-                                  left top
-                                  no-repeat`,
-            timer: 2500,
-          }).then(function () {
-            window.location.href = "././application_2.php?id=" + ids;
-          });
-        } else if (response == 10) {
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: response,
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                  rgba(40, 39, 19,0.4)
-                                  left top
-                                  no-repeat`,
-            timer: 2500,
-          });
-        }
-        clearInput();
+    $("#app_form").validate({
+      rules: {
+        first_name: {
+          required: true,
+          maxlength: 255,
+        },
+        last_name: {
+          required: true,
+          maxlength: 200,
+        },
+        gender: {
+          required: true,
+        },
+        dob: {
+          required: true,
+        },
+        photo: {
+          required: true,
+          fileExtension: true,
+        },
       },
-      error: function (response) {
-        alert("Something went wrong");
-        console.log(response);
+      messages: {
+        full_name: {
+          required: "Please enter your name",
+          maxlength: "Name must be less than 255 characters",
+        },
+        last_name: {
+          required: "Please enter your last name name",
+          maxlength: "Name must be less than 200 characters",
+        },
+        gender: {
+          required: "Please select gender",
+        },
+        dob: {
+          required: "Please select Date of birth",
+        },
+        photo: {
+          required: "Please choose a file.",
+          fileExtension:
+            "Please select a valid file type (jpg, jpeg, png, pdf).",
+        },
+      },
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = new FormData(form);
+        $.ajax({
+          type: "POST",
+          url: "././admin/application_code.php",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            var parsed_data = JSON.parse(response);
+            if (parsed_data.success === 1) {
+              var ids = parsed_data.data;
+              console.log(ids);
+            }
+            if (parsed_data.success === 1) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "Fill the next Field",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+                timer: 2500,
+              }).then(function () {
+                window.location.href = "././application_2.php?id=" + ids;
+              });
+            } else if (response == 10) {
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                text: response,
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+                timer: 2500,
+              });
+            }
+            clearInput();
+          },
+          error: function (response) {
+            alert("Something went wrong");
+            console.log(response);
+          },
+        });
       },
     });
+    function clearInput() {
+      $("#fileNameDisplay1").text("Candidate Passport Size Photo");
+      app_form.reset();
+    }
   });
-  let app_form = $("#app_form")[0];
-  function clearInput() {
-    $("#fileNameDisplay1").text("Candidate Passport Size Photo");
-    $("#fileNameDisplay2").text("Upload Payment Screenshot");
-    app_form.reset();
-  }
 });
 // ---------------------------Application-2-form-------------------------
 $(document).ready(function () {
-  $(".app-click2").on("submit", "form.formID2", function (e) {
+  $("#app_form2").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = new FormData(form[0]);
-    $.ajax({
-      type: "POST",
-      url: "././admin/application_2_code.php",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function (response) {
-        var parsed_data = JSON.parse(response);
-        if (parsed_data.success === 2) {
-          var ids = parsed_data.data;
-        }
-        if (parsed_data.success == 2) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Fill the next field",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                  rgba(40, 39, 19,0.4)
-                                  left top
-                                  no-repeat`,
-            timer: 2500,
-          }).then(function () {
-            window.location.href = "././application_3.php?id=" + ids;
-          });
-        } else if (response == 20) {
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: response,
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                                  rgba(40, 39, 19,0.4)
-                                  left top
-                                  no-repeat`,
-            timer: 2500,
-          });
-        } else if (parsed_data.success === 22) {
-          var sms = parsed_data.msg;
-          $("#app_top").append(sms);
-          window.setTimeout(function () {
-            $("#success-alert2").alert("close");
-          }, 4000);
-        }
-        clearInput();
+    $("#app_form2").validate({
+      rules: {
+        phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+        address1: {
+          required: true,
+        },
+        address2: {
+          required: true,
+        },
+        country: {
+          required: true,
+        },
+        state: {
+          required: true,
+        },
+        city: {
+          required: true,
+        },
+        pin_code: {
+          required: true,
+          digits: true,
+          minlength: 6,
+          maxlength: 6,
+        },
+        college: {
+          required: true,
+        },
+        degree: {
+          required: true,
+        },
       },
-      error: function (response) {
-        alert("Something went wrong");
-        console.log(response);
+      messages: {
+        phone: {
+          required: "Please enter your phone number",
+          digits: "Please enter a valid phone number",
+          minlength: "Phone number must be 10 digits",
+          maxlength: "Phone number must be 10 digits",
+        },
+        address1: {
+          required: "Please fill the address",
+        },
+        address2: {
+          required: "Please fill the address",
+        },
+        country: {
+          required: "Please select the country",
+        },
+        state: {
+          required: "Please select the state",
+        },
+        city: {
+          required: "Please select the city",
+        },
+        pin_code: {
+          required: "Please enter the area code",
+          digits: "Please enter a valid phone number",
+          minlength: "Phone number must be 6 digits",
+          maxlength: "Phone number must be 6 digits",
+        },
+        collage: {
+          required: "Please enter the collage name",
+        },
+        degree: {
+          required: "Please select the degree",
+        },
+      },
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = new FormData(form);
+        console.log(formData)
+        $.ajax({
+          type: "POST",
+          url: "././admin/application_2_code.php",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            console.log(response);
+            var parsed_data = JSON.parse(response);
+            if (parsed_data.success === 2) {
+              var ids = parsed_data.data;
+            }
+            if (parsed_data.success == 2) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "Fill the next field",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+                timer: 2500,
+              }).then(function () {
+                window.location.href = "././application_3.php?id=" + ids;
+              });
+            } else if (response == 20) {
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                text: response,
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+                timer: 2500,
+              });
+            } else if (parsed_data.success === 22) {
+              var sms = parsed_data.msg;
+              $("#app_top").append(sms);
+              window.setTimeout(function () {
+                $("#success-alert2").alert("close");
+              }, 4000);
+            }
+            clearInput();
+          },
+          error: function (response) {
+            alert("Something went wrong");
+            console.log(response);
+          },
+        });
       },
     });
+    let app_form = $("#app_form2")[0];
+    function clearInput() {
+      app_form.reset();
+    }
   });
-  let app_form = $("#app_form")[0];
-  function clearInput() {
-    $("#fileNameDisplay1").text("Candidate Passport Size Photo");
-    $("#fileNameDisplay2").text("Upload Payment Screenshot");
-    app_form.reset();
-  }
 });
 // ---------------------------Application-3-form-------------------------
 $(document).ready(function () {
-  $(".app-click3").on("submit", "form.formID3", function (e) {
+  $("#app_form3").on("submit",  function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = new FormData(form[0]);
-    // console.log(formData);
+    $("#app_form3").validate({
+      rules: {
+        find: {
+          required: true,
+        },
+        referral_code: {
+          digits: true,
+          minlength: 6,
+          maxlength: 6,
+        },
+        duration: {
+          required: true,
+        },
+        course: {
+          required: true,
+        },
+      },
+      messages: {
+        referral_code: {
+          required: "Please enter your phone number",
+          digits: "Please enter a valid phone number",
+          minlength: "Phone number must be 6 digits",
+          maxlength: "Phone number must be 6 digits",
+        },
+        course: {
+          required: "Please select the course",
+        },
+        find: {
+          required: "Please select the find",
+        },
+        duration: {
+          required: "Please select the duration",
+        },
+      },
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = new FormData(form);
     $.ajax({
       type: "POST",
       url: "././admin/application_3_code.php",
@@ -860,21 +1174,46 @@ $(document).ready(function () {
         // console.log(response);
       },
     });
+  }
   });
-  let app_form = $("#app_form")[0];
+  let app_form = $("#app_form3")[0];
   function clearInput() {
-    $("#fileNameDisplay1").text("Candidate Passport Size Photo");
-    $("#fileNameDisplay2").text("Upload Payment Screenshot");
     app_form.reset();
   }
 });
+});
 // ---------------------------Application-4-form-------------------------
 $(document).ready(function () {
-  $(".app-click4").on("submit", "form.formID4", function (e) {
+  var submitBtn = $("#app_submit_btn");
+  $("#app_form4").on("submit",  function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = new FormData(form[0]);
-    // console.log(formData);
+    $("#app_form4").validate({
+      rules: {
+        transaction_code: {
+          required: true,
+        },
+        payment_ss: {
+          required: true,
+          fileExtension: true,
+        },
+      },
+      messages: {
+        transaction_code: {
+          required: "Please select Date of birth",
+        },
+        payment_ss: {
+          required: "Please choose a file.",
+          fileExtension:
+            "Please select a valid file type (jpg, jpeg, png, pdf).",
+        },
+      },
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = new FormData(form);
     $.ajax({
       type: "POST",
       url: "././admin/application_4_code.php",
@@ -914,6 +1253,8 @@ $(document).ready(function () {
           }).then(function () {
             window.location.href = "././application_success.php?id=" + ids;
           });
+          submitBtn.prop("disabled", true);
+
         } else if (response == 40) {
           Swal.fire({
             position: "center",
@@ -947,93 +1288,132 @@ $(document).ready(function () {
         console.log(response);
       },
     });
+  }
   });
-  let app_form = $("#app_form")[0];
+  let app_form = $("#app_form4")[0];
   function clearInput() {
     $("#fileNameDisplay2").text("Upload Payment Screenshot");
     app_form.reset();
   }
+});
 });
 
 // ---------------------------interview_form-form-------------------------
 $(document).ready(function () {
   $("#interview_form").on("submit", function (e) {
     e.preventDefault();
-    var interview_form = $(this);
-    // var formData = new FormData(interview_form[0]);
-    var formData = interview_form.serialize();
-    console.log(formData);
+    let interview_form = $("#interview_form")[0];
+    var form = $(this);
 
-    $.ajax({
-      type: "POST",
-      url: "././admin/schedule_code.php",
-      data: formData,
-      success: function (response) {
-        console.log(response);
-        if (response == "we are connect soon") {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: response,
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `
-                                  rgba(40, 39, 19,0.4)
-                                  left top
-                                  no-repeat`,
-            timer: 2500,
-          });
-        } else if (response == "Something went wrong") {
-          Swal.fire({
-            position: "center",
-            icon: "error",
-            text: response,
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `
-                                  rgba(40, 39, 19,0.4)
-                                  left top
-                                  no-repeat`,
-            timer: 2500,
-          });
-        }
-        clearInput();
+    $("#interview_form").validate({
+      rules: {
+        unique_id: "required",
+        date: "required",
+        time: "required",
+        name: "required",
+        email: {
+          required: true,
+          email: true,
+        },
+        phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10,
+        },
+        position: "required",
+        message: "required",
       },
-      error: function (response) {
-        alert("Something went wrong");
-        console.log(response);
+      messages: {
+        unique_id: "Please enter the confirmation code",
+        date: "Please select a date",
+        time: "Please select a time",
+        name: "Please enter your full name",
+        email: {
+          required: "Please enter your email address",
+          email: "Please enter a valid email address",
+        },
+        phone: "Please enter your phone number",
+        position: "Please select the position you applied for",
+        message: "Please enter message",
+      },
+      errorPlacement: function (error, element) {
+        error.appendTo(element.parent());
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = $(form).serialize();
+        $.ajax({
+          type: "POST",
+          url: "././admin/schedule_code.php",
+          data: formData,
+          success: function (response) {
+            let message = JSON.parse(response);
+            if (message.alert == 1) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "we are connect soon",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+                timer: 2500,
+              });
+            } else if (message.alert == 2) {
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                text: "Something went wrong",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+                timer: 2500,
+              });
+            }
+            clearInput();
+          },
+          error: function (response) {
+            alert("Something went wrong");
+            console.log(response);
+          },
+        });
       },
     });
-  });
-  let interview_form = $("#interview_form")[0];
 
-  function clearInput() {
-    interview_form.reset();
-  }
+    function clearInput() {
+      interview_form.reset();
+    }
+  });
 });
 
 // ---------------------For-state-------------
@@ -1080,273 +1460,452 @@ $(document).ready(function () {
 
 //-------------------------Event-register----------------
 $(document).ready(function () {
-  $(".event_register").on("submit", function (e) {
+  let formReset = $("#event_register")[0];
+  $("#event_register").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = form.serialize();
-    console.log(formData);
-    $.ajax({
-      type: "POST",
-      url: "././admin/event_register.php",
-      data: formData,
-      success: function (response) {
-        console.log(response);
-        var result = JSON.parse(response);
-        if (result.res == "1") {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Thank You ! We are connect soon",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                          rgba(40, 39, 19,0.4)
-                          left top
-                          no-repeat`,
-            timer: 2500,
-          });
-        }
+    $("#event_register").validate({
+      rules: {
+        name: "required",
+        email: {
+          required: true,
+          email: true,
+        },
+        phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10,
+        },
+        event: "required",
       },
-      error: function (response) {
-        alert("Something went wrong");
-        console.log(response);
+      messages: {
+        name: "Please enter your full name",
+        email: {
+          required: "Please enter your email address",
+          email: "Please enter a valid email address",
+        },
+        phone: "Please enter your phone number",
+        event: "Please select the event",
+      },
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = $(form).serialize();
+        $.ajax({
+          type: "POST",
+          url: "././admin/event_register.php",
+          data: formData,
+          success: function (response) {
+            console.log(response);
+            var result = JSON.parse(response);
+            if (result.res == "1") {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "Thank You ! We are connect soon",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
+                                rgba(40, 39, 19,0.4)
+                                left top
+                                no-repeat`,
+                timer: 2500,
+              });
+            }
+            clearInput();
+          },
+          error: function (response) {
+            alert("Something went wrong");
+            console.log(response);
+          },
+        });
       },
     });
-    clearInput();
+
+    function clearInput() {
+      formReset.reset();
+    }
   });
-  let formReset = document.getElementById("event_register");
-  function clearInput() {
-    formReset.reset();
-  }
 });
 //-------------------------upcoming_batch_request----------------
 $(document).ready(function () {
-  $(".upcoming_batch_request").on("submit", function (e) {
-    e.preventDefault();
-    var form = $(this);
-    var formData = form.serialize();
-    console.log(formData);
-    $.ajax({
-      type: "POST",
-      url: "././admin/upcoming_batch_request.php",
-      data: formData,
-      success: function (response) {
-        $("#upcoming_modal").modal("hide");
-        console.log(response);
-        var result = JSON.parse(response);
-        if (result.res == "1") {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Thank You ! We are connect soon",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
-                          rgba(40, 39, 19,0.4)
-                          left top
-                          no-repeat`,
-            timer: 2500,
-          });
-        }
+  $(".upcoming_batch_request").validate({
+    rules: {
+      name: {
+        required: true,
       },
-      error: function (response) {
-        $("#upcoming_modal").hide();
-        alert("Something went wrong");
-        console.log(response);
+      phone: {
+        required: true,
+        digits: true,
+        minlength: 10,
+        maxlength: 10,
       },
-    });
-    clearInput();
+      email: {
+        required: true,
+        email: true,
+      },
+      designation: {
+        required: true,
+      },
+      location: {
+        required: true,
+      },
+    },
+    messages: {
+      name: {
+        required: "Please enter your name",
+      },
+      phone: {
+        required: "Please enter your phone number",
+      },
+      email: {
+        required: "Please enter your email address",
+        email: "Please enter a valid email address",
+      },
+      designation: {
+        required: "Please select your designation",
+      },
+      location: {
+        required: "Please select your location",
+      },
+    },
+    errorPlacement: function (error, element) {
+      error.appendTo(element.parent());
+      error.addClass("error-message");
+    },
+    submitHandler: function (form) {
+      var formData = $(form).serialize();
+      $.ajax({
+        type: "POST",
+        url: "././admin/upcoming_batch_request.php",
+        data: formData,
+        success: function (response) {
+          $("#upcoming_modal").modal("hide");
+          console.log(response);
+          var result = JSON.parse(response);
+          if (result.res == "1") {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              text: "Thank You! We will connect with you soon",
+              showConfirmButton: false,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+              customClass: {
+                icon: "custom-icon-color",
+                modal: "custom-border",
+              },
+              width: 600,
+              color: "#EBAB56",
+              background: "#fff",
+              backdrop: `  
+                              rgba(40, 39, 19,0.4)
+                              left top
+                              no-repeat`,
+              timer: 2500,
+            });
+          }
+        },
+        error: function (response) {
+          $("#upcoming_modal").hide();
+          alert("Something went wrong");
+          console.log(response);
+        },
+      });
+      clearInput();
+    },
   });
-  let formReset = document.getElementById("upcoming_batch_request");
+
   function clearInput() {
-    formReset.reset();
+    $(".upcoming_batch_request")[0].reset();
   }
 });
 //-------------------------news_letter----------------
 $(document).ready(function () {
-  $(".news_letter").on("submit", function (e) {
+  let formReset = $("#news_letter")[0];
+  $("#news_letter").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = form.serialize();
-    // console.log(formData);
-    $.ajax({
-      type: "POST",
-      url: "././admin/news_letter_ajax.php",
-      data: formData,
-      success: function (response) {
-        // console.log(response);
-        var result = JSON.parse(response);
-        if (result.res == "1") {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Thank You ! We are connect soon",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
+    $("#news_letter").validate({
+      rules: {
+        email: {
+          required: true,
+          email: true,
+        },
+      },
+      messages: {
+        email: {
+          required: "*Please enter your email address",
+          email: "*Please enter a valid email address",
+        },
+      },
+      errorPlacement: function (error, element) {
+        error.insertAfter(element);
+        error.addClass("error-message");
+      },
+      submitHandler: function (form) {
+        var formData = $(form).serialize();
+        $.ajax({
+          type: "POST",
+          url: "././admin/news_letter_ajax.php",
+          data: formData,
+          success: function (response) {
+            // console.log(response);
+            var result = JSON.parse(response);
+            if (result.res == "1") {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "Thank You ! We are connect soon",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
                           rgba(40, 39, 19,0.4)
                           left top
                           no-repeat`,
-            timer: 2500,
-          });
-        }
-      },
-      error: function (response) {
-        $("#upcoming_modal").hide();
-        alert("Something went wrong");
-        console.log(response);
+                timer: 2500,
+              });
+            }
+          },
+          error: function (response) {
+            $("#upcoming_modal").hide();
+            alert("Something went wrong");
+            console.log(response);
+          },
+        });
+        clearInput();
       },
     });
-    clearInput();
+    function clearInput() {
+      formReset.reset();
+    }
   });
-  let formReset = document.getElementById("news_letter");
-  function clearInput() {
-    formReset.reset();
-  }
 });
 //-------------------------Request-internship-track--------------
 $(document).ready(function () {
+  let formReset = $("#internship_request_from")[0];
   $("#internship_request_from").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    var formData = form.serialize();
-    $.ajax({
-      type: "POST",
-      url: "././admin/internship_track_msg_code.php",
-      data: formData,
-      success: function (response) {
-        var result = JSON.parse(response);
-        if (result.res == "1") {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Thank You ! We are connect soon",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `  
+    $("#internship_request_from").validate({
+      rules: {
+        message: {
+          required: true,
+        },
+      },
+      messages: {
+        message: "*Please enter your message",
+      },
+      errorPlacement: function (error, element) {
+        error.appendTo(element.parent());
+        error.addClass("error-message");
+        console.log(error);
+      },
+      submitHandler: function (form) {
+        var formData = $(form).serialize();
+        $.ajax({
+          type: "POST",
+          url: "././admin/internship_track_msg_code.php",
+          data: formData,
+          success: function (response) {
+            var result = JSON.parse(response);
+            if (result.res == "1") {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "Thank You ! We are connect soon",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `  
                           rgba(40, 39, 19,0.4)
                           left top
                           no-repeat`,
-            timer: 2500,
-          });
-        }
-      },
-      error: function (response) {
-        $("#request_modal").hide();
-        alert("Something went wrong");
-        console.log(response);
+                timer: 2500,
+              });
+            }
+          },
+          error: function (response) {
+            $("#request_modal").hide();
+            alert("Something went wrong");
+            console.log(response);
+          },
+        });
+        clearInput();
       },
     });
-    clearInput();
+    function clearInput() {
+      formReset.reset();
+    }
   });
-  let formReset = document.getElementById("internship_request_from");
-  function clearInput() {
-    formReset.reset();
-  }
 });
-
 //-------------------------opportunities_request----------------
 $(document).ready(function () {
+  $.validator.addMethod(
+    "fileExtension",
+    function (value, element) {
+      var extension = value.split(".").pop().toLowerCase();
+      return ["jpg", "jpeg", "png", "pdf"].indexOf(extension) !== -1;
+    },
+    "Please select a valid file type (jpg, jpeg, png, pdf)."
+  );
+  let formReset = $("#opportunities_request")[0];
   $("#opportunities_request").on("submit", function (e) {
     e.preventDefault();
-    var form = $(this);
-    var formData = new FormData(form[0]); 
-    $.ajax({
-      type: "POST",
-      url: "././admin/opportunities_request.php",
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function (response) {
-        $("#opportunities_modal").modal("hide");
-        var result = JSON.parse(response);
-        console.log(result);
-        if (result.res === 1) {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            text: "Thank You ! We are connect soon",
-            showConfirmButton: false,
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
-            customClass: {
-              icon: "custom-icon-color",
-              modal: "custom-border",
-            },
-            width: 600,
-            color: "#EBAB56",
-            background: "#fff",
-            backdrop: `
-                          rgba(40, 39, 19,0.4)
-                          left top
-                          no-repeat`,
-            timer: 2500,
-          });
-        }
+    var MyForm = $(this);
+    $("#opportunities_request").validate({
+      rules: {
+        name: {
+          required: true,
+          maxlength: 255,
+        },
+        phone: {
+          required: true,
+          digits: true,
+          minlength: 10,
+          maxlength: 10,
+        },
+        email: {
+          required: true,
+          email: true,
+        },
+        image: {
+          required: true,
+          fileExtension: true,
+        },
+        // image: {
+        //     required: true,
+        //     extension: "pdf|doc|docx|png|jpeg",
+        //     filesize: 3 * 1024 * 1024,
+        // },
       },
-      error: function (response) {
-        $("#opportunities_modal").hide();
-        alert("Something went wrong");
-        console.log(response);
+      messages: {
+        name: {
+          required: "Please enter your name",
+          maxlength: "Name must be less than 255 characters",
+        },
+        phone: {
+          required: "Please enter your phone number",
+          digits: "Please enter a valid phone number",
+          minlength: "Phone number must be 10 digits",
+          maxlength: "Phone number must be 10 digits",
+        },
+        email: {
+          required: "Please enter your email address",
+          email: "Please enter a valid email address",
+        },
+        image: {
+          required: "Please choose a file.",
+          fileExtension:
+            "Please select a valid file type (jpg, jpeg, png, pdf).",
+        },
+        // image: {
+        //     required: "Please attach your CV or Resume",
+        //     extension: "File must be in PDF, DOC, DOCX, PNG, or JPEG format",
+        //     filesize: "File size is too large. Please select a smaller file.",
+        // },
+      },
+      errorPlacement: function (error, element) {
+        error.appendTo(element.parent());
+        error.addClass("error-message");
+      },
+      submitHandler: function (MyForm) {
+        var formData = new FormData(MyForm);
+        // console.log(formData);
+        $.ajax({
+          type: "POST",
+          url: "././admin/opportunities_request.php",
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            $("#opportunities_modal").modal("hide");
+            // console.log(response);
+            var result = JSON.parse(response);
+            console.log(result);
+            if (result.res === 1) {
+              var ids = result.data;
+            }
+            if (result.res === 1) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                text: "Thank You! We will connect soon",
+                showConfirmButton: false,
+                showClass: {
+                  popup: "animate__animated animate__fadeInDown",
+                },
+                hideClass: {
+                  popup: "animate__animated animate__fadeOutUp",
+                },
+                customClass: {
+                  icon: "custom-icon-color",
+                  modal: "custom-border",
+                },
+                width: 600,
+                color: "#EBAB56",
+                background: "#fff",
+                backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+                timer: 2500,
+              }).then(function () {
+                window.location.href = "././opportunities_view.php?id=" + ids;
+              });
+            }
+          },
+          error: function (response) {
+            $("#opportunities_modal").hide();
+            alert("Something went wrong");
+            console.log(response);
+          },
+        });
+        clearInput();
       },
     });
-    clearInput();
+    function clearInput() {
+      $("#fileNameDisplay1").text("Attach CV or Resume");
+      formReset.reset();
+    }
   });
-  let formReset = document.getElementById("opportunities_request");
-  function clearInput() {
-    $("#fileNameDisplay1").text("Attach CV or Resume");
-    formReset.reset();
-  }
 });

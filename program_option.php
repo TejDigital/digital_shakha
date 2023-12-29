@@ -29,7 +29,7 @@ require('./admin/config/dbcon.php');
         <div class="heading">
             <h1>Explore the Possibilities</h1>
         </div>
-        <div class="row d-flex align-items-center justify-content-center">
+        <div class="row d-flex align-items-start justify-content-center">
             <?php
             $sql = "SELECT * FROM program_tbl WHERE program_status = 1";
             $sql_run = mysqli_query($con, $sql);
@@ -38,14 +38,12 @@ require('./admin/config/dbcon.php');
             ?>
                     <div class="col-md-3 p-2">
                         <a href="./program_view.php?id=<?= $data['program_id'] ?>">
-                            <div class="box">
-                                <div class="text">
-                                    <h4><?= $data['program_name'] ?></h4>
-                                    <p><?= $data['program_detail'] ?></p>
-                                </div>
-                                <div class="img">
-                                    <img src="./admin/program_images/<?= $data['program_image'] ?>" alt="">
-                                </div>
+                            <div class="text">
+                                <h4><?= $data['program_name'] ?></h4>
+                                <p><?= $data['program_detail'] ?></p>
+                            </div>
+                            <div class="img">
+                                <img src="./admin/program_images/<?= $data['program_image'] ?>" alt="">
                             </div>
                         </a>
                     </div>

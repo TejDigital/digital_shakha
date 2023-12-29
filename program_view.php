@@ -462,7 +462,7 @@ if (isset($_GET['id'])) {
             </div> -->
         </div>
         <div class="btn_area">
-            <a href="#!">Any Queries, Contact Us<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="./contact.php">Any Queries, Contact Us<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
         <div class="row">
             <div class="row end_text">

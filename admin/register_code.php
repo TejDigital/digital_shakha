@@ -81,7 +81,7 @@ if (mysqli_num_rows($query_run) > 0) {
               <p><strong>Phone:</strong> ' . $number . '</p>
               <p><strong>Email:</strong> ' . $usermail . '</p>
               <p><strong>Message:</strong></p>
-              <p> <a href="http://localhost/digital_shakha/admixn/verify_token.php?token=' . $v_token . '">click here to verify</a> </p>
+              <p> <a href="https://digitalshakha.com/internship/admin/verify_token.php?token=' . $v_token . '">click here to verify</a> </p>
               </body>
               </html>';
               // <p> <a href="http://localhost/digital_shakha/admixn/verify_token.php?token=' . $v_token . '">click here to verify</a> </p>

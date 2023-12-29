@@ -15,7 +15,8 @@ $sql = "INSERT INTO schedule_interview_tbl(unique_id, name, email, phone, date, 
 $sql_run = mysqli_query($con,$sql);
 
 if($sql){
-    echo "we are connect soon";
+    echo json_encode(array("alert"=>1)); //we are connect soon
+
 }else{
-    echo"Something went wrong";
+    echo json_encode(array("alert"=>2)); //Something went wrong
 }

@@ -168,13 +168,13 @@
     padding: 0.8rem;
     border: 1px solid #000;
     margin: 0.8rem 0;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .application_1 .text .wrapper {
-    padding: 1rem;
+    /* padding: 1rem; */
     width: 100%;
-    border: 1px solid #000;
+    border: 1px solid transparent;
     margin: 1rem 0;
     box-shadow: none !important;
     border-radius: 0 !important;
@@ -182,6 +182,39 @@
 
 .application_1 .text .wrapper label {
     cursor: pointer;
+}
+.wrapper .file-label {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border: 1px solid #000;
+    /* margin: 0.8rem 0; */
+    width: 100%;
+}
+
+.application_1 .wrapper .input_box {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Style the label to make it look like a button */
+.application_1  .wrapper  .file-label i {
+    margin-left: 8px;
+    padding: 8px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.application_1  .wrapper  .file-label:hover i {
+    background-color: #0056b3;
 }
 
 .application_1 .text select {

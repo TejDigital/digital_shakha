@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="text" placeholder="Your Full Name" class="input_area" required>
+                    <input type="text" placeholder="Your Full Name" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' class="input_area" required>
                 </div>
             </div>
             <div class="col-md-4">
@@ -62,7 +62,7 @@
             </div>
             <div class="col-md-4">
                 <div class="input_box">
-                    <input type="text" placeholder="Phone Number" class="input_area" required>
+                    <input type="text" onkeypress="return event.charCode>=48 && event.charCode<=57" maxlength="10" placeholder="Phone Number" class="input_area" required>
                 </div>
             </div>
         </div>

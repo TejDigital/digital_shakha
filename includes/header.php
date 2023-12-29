@@ -133,10 +133,44 @@ require('./admin/config/dbcon.php');
             animation-timing-function: ease-out;
         }
     }
+
+    .error-message {
+        color: red;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    @media(max-width:768px) {
+        .preloader1 {
+            padding: 1.5rem;
+            justify-content: space-around;
+        }
+
+        .preloader1 .text {
+            padding: 1rem;
+            height: auto;
+        }
+
+        .preloader1 .text h1 {
+            font-size: 2.5rem;
+        }
+
+        .preloader1 .count {
+            padding: 1rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 1rem 0;
+            color: #FFFFFF;
+        }
+
+        .preloader1 .img {
+            padding: 0 1rem;
+            width: 300px;
+        }
+    }
 </style>
 
 <body>
-
     <div class="preloader">
         <div class="preloader1">
             <div class="text">
@@ -169,10 +203,10 @@ require('./admin/config/dbcon.php');
                         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                             <div class="offcanvas-header">
                                 <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                                <a class="navbar-brand" href="index.php">
-                            <img src="./assets/images/digital_logo.png" class="logo1">
-                            <img src="./assets/images/digital_logo.png" class="logo2">
-                        </a>
+                                    <a class="navbar-brand" href="index.php">
+                                        <img src="./assets/images/digital_logo.png" class="logo1">
+                                        <img src="./assets/images/digital_logo.png" class="logo2">
+                                    </a>
                                 </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
@@ -206,7 +240,6 @@ require('./admin/config/dbcon.php');
                                         <ul class="list-group bg-dark drop-item">
                                             <li class="list-group-item"><a href="./partner_with_us.php" class="">Partner with Us <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./post_job_internship.php">Post an Internship <i class="color-ball"></i></a></li>
-                                            <!-- <li class="list-group-item"><a href="#!">Employer Stories <i class="color-ball"></i></a></li> -->
                                             <li class="list-group-item"><a href="./contact.php">Contact <i class="color-ball"></i></a></li>
                                         </ul>
                                     </li>
@@ -271,7 +304,7 @@ require('./admin/config/dbcon.php');
                                                             ?>
                                                             <!-- <a href="#!" class="hover-link"><img class="profile_img" src="./assets/images/logout_icon.svg" alt=""></a> -->
                                                             <ul class="list-group bg-dark drop-item">
-                                                                <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
+                                                                <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and support</a></li>
                                                                 <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
                                                             </ul>
                                                         </div>
@@ -320,7 +353,7 @@ require('./admin/config/dbcon.php');
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
-                                <a class="nav-link nav-after-effect hover-link" >employers</a>
+                                <a class="nav-link nav-after-effect hover-link">employers</a>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./partner_with_us.php" class="">Partner with Us <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./post_job_internship.php">Post an Internship <i class="color-ball"></i></a></li>
@@ -328,7 +361,7 @@ require('./admin/config/dbcon.php');
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
-                                <a class="nav-link hover-link nav-after-effect" >students</a>
+                                <a class="nav-link hover-link nav-after-effect">students</a>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
@@ -362,7 +395,7 @@ require('./admin/config/dbcon.php');
                                     <div class="btns">
                                         <a class="login_popup">Login</a>
                                         <span>|</span>
-                                        <a id="signup_popup" class="signup_popup">Signup</a>
+                                        <a class="signup_popup">Signup</a>
                                     </div>
                                     <?php
                                 } else {
@@ -385,7 +418,7 @@ require('./admin/config/dbcon.php');
                                                     }
                                                     ?>
                                                     <ul class="list-group bg-dark drop-item">
-                                                        <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and sport</a></li>
+                                                        <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and support</a></li>
                                                         <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
                                                     </ul>
                                                 </div>
@@ -429,11 +462,11 @@ require('./admin/config/dbcon.php');
                         <div class="form">
                             <form id="std_login_form">
                                 <div class="form-group">
-                                    <input type="text" class="input_box" name="email" placeholder="Email Address" required>
+                                    <input type="text" class="input_box" name="email" placeholder="Email Address">
                                     <i class="fa-regular fa-envelope"></i>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="input_box" name="password" placeholder="Password" required>
+                                    <input type="password" class="input_box" name="password" placeholder="Password">
                                     <i class="fa-solid fa-lock"></i>
                                 </div>
                                 <a class="forgetPassBtn">Forgot Password?</a>
@@ -486,36 +519,36 @@ require('./admin/config/dbcon.php');
                         <div class="form">
                             <form id="std_register_form" name="std_register_form">
                                 <div class="form-group">
-                                    <input type="text" class="input_box" id="val_name" name="name" placeholder="Full-Name" required>
+                                    <input type="text" class="input_box" id="val_name" name="name" placeholder="Full-Name">
                                     <i class="fa-regular fa-user"></i>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" maxlength="10" id="duration" onkeypress="return event.charCode>=48 && event.charCode<=57" class="input_box" name="phone" placeholder="Contact Number" required>
+                                    <input type="text" id="phone" class="input_box" name="phone" placeholder="Contact Number">
                                     <span class="material-symbols-outlined">
                                         phone_iphone
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="input_box" id="val_email" name="email" placeholder="Email Address" required>
-                                    <span class="material-symbols-outlined" >
+                                    <input type="email" class="input_box" id="val_email" name="email" placeholder="Email Address">
+                                    <span class="material-symbols-outlined">
                                         mail
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="input_box" id="val_password" name="password" placeholder="Create Password" required>
-                                    <span class="material-symbols-outlined" >
+                                    <input type="password" class="input_box" id="val_password" name="password" placeholder="Create Password">
+                                    <span class="material-symbols-outlined">
                                         lock
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="input_box" value="val_c_password" name="confirm_password" placeholder="Confirm Password" required>
-                                    <span class="material-symbols-outlined" >
+                                    <input type="password" class="input_box" name="confirm_password" placeholder="Confirm Password">
+                                    <span class="material-symbols-outlined">
                                         lock
                                     </span>
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" id="submitBtn">Join Digitalshakha</button>
+                                    <button type="submit" id="RegSubmitBtn">Join Digitalshakha</button>
                                 </div>
                             </form>
                         </div>
@@ -546,10 +579,14 @@ require('./admin/config/dbcon.php');
                             <h1>Forgot password</h1>
                             <p>Enter the email address you use on Digitalshakha. We'll send you a link to reset your password.</p>
                         </div>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert" id="forgetPassError" style="display: none;">
+                            <strong>Hey !</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         <div class="form">
                             <form id="std_forget_pass">
                                 <div class="form-group">
-                                    <input type="email" class="input_box" name="forget_email" placeholder="Email Address" required>
+                                    <input type="email" class="input_box" name="forget_email" placeholder="Email Address">
                                     <span class="material-symbols-outlined">
                                         mail
                                     </span>

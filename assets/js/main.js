@@ -50,14 +50,13 @@ closeLoginBtn.onclick = function() {
 
 
 var registerModal = document.getElementById("registerModal");
-var registerBtn = document.getElementById("signup_popup");
-// var registerBtn = document.querySelector(".signup_popup");
+var registerBtn = document.querySelectorAll(".signup_popup");
 var closeRegisterBtn = document.getElementById("close_signup_btn");
-
-registerBtn.onclick = function() {
-  // console.log("open");
-  registerModal.style.display = "block";
-}
+registerBtn.forEach(function(registerBtn){
+  registerBtn.onclick = function() {
+    registerModal.style.display = "block";
+  }
+})
 
 closeRegisterBtn.onclick = function() {
   registerModal.style.display = "none";

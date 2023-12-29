@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
             <div class="col-md-6 app-click2">
-                <form class="formID2" id="app_form" enctype="multipart/form-data">
+                <form class="formID2" id="app_form2" enctype="multipart/form-data">
                     <input type="hidden" name="id" value="<?= $id ?>">
                     <div class="text">
                         <div class="heading">
@@ -33,18 +33,18 @@ if (isset($_GET['id'])) {
                         <div class="app_top" id="app_top">
 
                         </div>
-                        <input type="text" placeholder="Mobile Number*" maxlength="10" onkeypress="return event.charCode>=48 && event.charCode<=57" name="phone" required>
-                        <input type="email" placeholder="E-mail Address*" name="email" value="<?=$_SESSION['std_auth_user']['user_email']?>" required>
+                        <input type="text" placeholder="Mobile Number*"  name="phone" >
+                        <input type="email" placeholder="E-mail Address*" name="email" value="<?=$_SESSION['std_auth_user']['user_email']?>" >
                         <div class="permanent_address">
                             <div class="row">
                                 <div class="col-md-5">
                                     <p>Permanent Address</p>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" placeholder="Street Address Line 1" name="address1" required>
-                                    <input type="text" placeholder="Street Address Line 2" name="address2" required>
+                                    <input type="text" placeholder="Street Address Line 1" name="address1" >
+                                    <input type="text" placeholder="Street Address Line 2" name="address2" >
                                     <div class="flex-box">
-                                        <select name="country" id="country" required>
+                                        <select name="country" id="country" >
                                             <option value="">Select country</option>
                                             <?php
                                             $sql_country = "SELECT * FROM tbl_countries ORDER BY country_name ASC";
@@ -58,14 +58,14 @@ if (isset($_GET['id'])) {
                                             }
                                             ?>
                                         </select>
-                                        <select name="state" id="state" required>
+                                        <select name="state" id="state" >
                                         </select>
                                     </div>
                                     <div class="flex-box">
-                                        <select name="city" id="city" required>
+                                        <select name="city" id="city" >
 
                                         </select>
-                                        <input type="text" maxlength="6" onkeypress="return event.charCode>=48 && event.charCode<=57" placeholder="Postal Code" name="pin_code" required>
+                                        <input type="text" maxlength="6"  placeholder="Postal Code" name="pin_code" >
                                     </div>
                                 </div>
                             </div>
@@ -73,8 +73,8 @@ if (isset($_GET['id'])) {
                         <div class="color_line">
                             <p></p>
                         </div>
-                        <input type="text" placeholder="College Name*" name="college" required>
-                        <select name="degree" required>
+                        <input type="text" placeholder="College Name*" name="college" >
+                        <select name="degree">
                             <option value="">Select Degree</option>
                             <option value="1">BCA</option>
                             <option value="2">MCA</option>

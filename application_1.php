@@ -27,31 +27,33 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                                 <p>Basic Details</p>
                             </div>
                         </div>
-                        <input type="text" name="first_name" placeholder="First Name*" required>
-                        <input type="text" name="last_name" placeholder="Last Name*" required>
+                        <input type="text" name="first_name"  placeholder="First Name*" >
+                        <input type="text" name="last_name"placeholder="Last Name*" >
                         <div class="check">
                             <p class="">Gender</p>
                             <label class="radio_box"><span class="gender_name">Male</span>
-                                <input type="radio" value="male" checked="checked" name="gender" required>
+                                <input type="radio" value="male" checked="checked" name="gender" >
                                 <span class="checkmark"></span>
                             </label>
                             <label class="radio_box"><span class="gender_name">Female</span>
-                                <input type="radio" value="female" name="gender" required>
+                                <input type="radio" value="female" name="gender" >
                                 <span class="checkmark"></span>
                             </label>
                             <label class="radio_box"><span class="gender_name">Other</span>
-                                <input type="radio" value="other" name="gender" required>
+                                <input type="radio" value="other" name="gender" >
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <input type="text" placeholder="Date of birth*" onfocus="(this.type='date')" name="dob">
-                        <div class="wrapper d-flex justify-content-between ">
-                            <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center">
+                        <div class="wrapper d-flex justify-content-between">
+                            <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center file-label">
                                 <p id="fileNameDisplay1" class="text-start m-0">Candidate Passport Size Photo</p>
-                                <input type="file" name="photo" class="input_box" id="fileInput1" onchange="checkFileSize(this)" hidden>
+                                <input type="file" accept=".png,.jpg,.jpeg,.pdf,.doc,.docx" name="photo" class="input_box" id="fileInput1" onchange="checkFileSize(this)">
                                 <i class="fa-solid fa-paperclip"></i>
                             </label>
                         </div>
+                        
+                        <label id="fileInput1-error" class="error error-message" for="fileInput1"></label>
 
                     </div>
                     <div class="btn_area">

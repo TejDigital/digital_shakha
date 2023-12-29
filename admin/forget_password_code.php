@@ -50,7 +50,7 @@ function send_reset_pass($name, $get_email, $token)
           <p><strong>Name:</strong> ' . $name . '</p>
           <p><strong>Email:</strong> ' . $get_email . '</p>
           <p><strong>Message:</strong></p>
-          <p> <a href="http://localhost/digital_shakha/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
+          <p> <a href="https://digitalshakha.com/internship/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
           </body>
           </html>';
           // <p> <a href="http://localhost/digital_shakha/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
@@ -60,11 +60,8 @@ function send_reset_pass($name, $get_email, $token)
 }
 
 if (isset($_POST['forget_email'])) {
-
-
   $email = mysqli_real_escape_string($con,  $_POST['forget_email']);
   $token = md5(rand());
-
   $resend = "SELECT * FROM users WHERE email = '$email'";
   $resend_query = mysqli_query($con, $resend);
 
@@ -78,21 +75,20 @@ if (isset($_POST['forget_email'])) {
 
     if ($update_token_query) {
       send_reset_pass($name, $get_email, $token);
-      // $_SESSION['message'] = "Check your email for reset password";
-      // header('Location:../index.php');
       echo json_encode(array("forget_msg" => 2)); //Check your email for reset password
     } else {
-      $_SESSION['message'] = "Something went wrong";
-      header('location:../index.php');
-      // echo "Something went wrong";
+      echo json_encode(array("forget_msg" => 3)); //Something went wrong
     }
   } else {
-    $_SESSION['message'] = "Email not found";
-    header('location:../index.php');
-    // echo "Email not found";
+    echo json_encode(array("forget_msg" => 4)); //Email not found
   }
 }
 
+
+
+
+
+// ------------------------------reset-password-code------------------
 
 if (isset($_POST['new_forget_email'])) {
   $email = mysqli_real_escape_string($con, $_POST['new_forget_email']);

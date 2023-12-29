@@ -135,12 +135,12 @@
 }
 
 #loginModal .modal-content .box .end_text {
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
     text-align: center;
 }
 
 #loginModal .modal-content .box .end_text p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: #615D5D;
 }
@@ -148,6 +148,8 @@
 #loginModal .modal-content .box .end_text p a {
     color: #615D5D;
     text-decoration: none;
+    font-size: 0.9rem;
+
     font-weight: 600;
 }
 
@@ -294,17 +296,18 @@
 }
 
 #registerModal .modal-content .box .end_text {
-    padding: 1rem 0;
+    padding: 1rem 0 0 0;
     text-align: center;
 }
 
 #registerModal .modal-content .box .end_text p {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: #615D5D;
 }
 
 #registerModal .modal-content .box .end_text p a {
+    font-size: 0.8rem;
     color: #615D5D;
     text-decoration: none;
     font-weight: 600;

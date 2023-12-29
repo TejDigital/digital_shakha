@@ -17,10 +17,10 @@ require('./admin/config/dbcon.php');
                     </div>
                     <div class="input_area">
                         <form class="event_register" id="event_register">
-                            <input type="text" name="name" class="input_box" placeholder="Full Name" required>
-                            <input type="text" name="phone" class="input_box" maxlength="10" placeholder="Contact Number" onkeypress="return event.charCode>=48 && event.charCode<=57" required>
-                            <input type="Email" name="email" class="input_box" placeholder="Email Address" required>
-                            <select name="event" class="input_box" required>
+                            <input type="text" name="name" class="input_box"placeholder="Full Name" >
+                            <input type="text" name="phone" class="input_box" maxlength="10" placeholder="Contact Number"  >
+                            <input type="Email" name="email" class="input_box" placeholder="Email Address" >
+                            <select name="event" class="input_box" >
                                 <option value="">Select Events</option>
                                 <?php
                                 $sql = "SELECT * FROM event_tbl WHERE event_status = 1";
@@ -35,7 +35,7 @@ require('./admin/config/dbcon.php');
                                 ?>
                             </select>
                             <button type="submit">Register</button>
-                        </form>
+                        <form>
                     </div>
                 </div>
             </div>

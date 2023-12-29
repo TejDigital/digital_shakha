@@ -501,7 +501,7 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                                             <h1 style="font-size: 1.8rem; font-weight:700; line-height:40px; color:#BB5327">Write us a message.</h1>
                                             <p style="font-size: 0.9rem; font-weight:400; line-height:20px;">Tell us what you want to learn or if you have any questions. We're here to help !</p>
                                             <input type="hidden" class="request_id" name="request_id" >
-                                            <textarea class="form-control" name="message" cols="30" rows="5" required></textarea>
+                                            <textarea class="form-control" name="message" cols="30" rows="5" ></textarea>
                                             <button type="submit" id="request_btn" style="font-weight:600; background-color: #BB5327; color:#fff; padding:0.7rem 1.1rem; border:0;" class="my-3" data-bs-dismiss="modal">OK</button>
                                         </form>
                                     </div>

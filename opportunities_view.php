@@ -31,22 +31,23 @@ if (isset($_GET['id'])) {
                             <input type="hidden" name="opportunities_id" class="opportunities_id">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Name" name="name" class="input_area"required>
+                                    <input type="text" placeholder="Name" name="name" class="input_area">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Number" name="phone" class="input_area" required>
+                                    <input type="text" placeholder="Number" name="phone" class="input_area" >
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="Email Address" name="email" class="input_area" required>
+                                    <input type="email" placeholder="Email Address" name="email" class="input_area" >
                                 </div>
                                 <div class="col-md-6">
                                     <div class="wrapper d-flex justify-content-between ">
-                                        <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center" >
+                                        <label for="fileInput1" class="d-flex justify-content-between w-100 align-items-center file-label" >
                                             <p id="fileNameDisplay1" class="text-start m-0">Attach CV or Resume</p>
-                                            <input type="file" accept=".png , .jpg , .png , .jpeg , .pdf , .doc , .docx" name="image" class="input_box" id="fileInput1" onchange="checkFileSize(this)" hidden>
+                                            <input type="file" accept=".png , .jpg , .png , .jpeg , .pdf , .doc , .docx" name="image" class="input_box" id="fileInput1" onchange="checkFileSize(this)" >
                                             <i class="fa-solid fa-paperclip"></i>
                                         </label>
                                     </div>
+                                    <label id="fileInput1-error" class="error error-message" for="fileInput1"></label>
                                 </div>
                                 <div class="btn_area">
                                     <button type="submit">Submit</button>
@@ -131,7 +132,7 @@ if (isset($_GET['id'])) {
                 fileSizeMessage.innerHTML = ` <span style="color:red;">File size is too large. Please select a smaller file.</span> `;
                 fileInput.value = ""; // Clear the file input
             } else {
-                fileSizeMessage.innerHTML = `<span style="color:#BB5327;"> Selected file: <b> ${fileInput.files[0].name} </b> </span>`;
+                fileSizeMessage.innerHTML = `<span style=" font-size:0.7rem;color:#BB5327;"><b > ${fileInput.files[0].name} </b> </span>`;
             }
         }
     }
