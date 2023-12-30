@@ -45,6 +45,14 @@
     padding: 0.7rem;
   
 }
+.table th, .jsgrid .jsgrid-table th, .table td, .jsgrid .jsgrid-table td a{
+    text-wrap: wrap;
+    line-height: 20px;
+}
+.table th, .jsgrid .jsgrid-table th, .table td, .jsgrid .jsgrid-table td a p{
+    line-height: 20px;
+    text-wrap: wrap;
+}
 table thead th{
     color: #d2d5e6 !important;
     font-weight: 800 !important;

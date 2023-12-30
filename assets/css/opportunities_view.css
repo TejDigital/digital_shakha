@@ -92,6 +92,14 @@
 }
 /* ------------------------opportunities_modal-------------------- */
 
+
+#opportunities_modal {
+   background-color: #BB5327;
+   border-radius: 0;
+}
+#opportunities_modal .modal-content {
+    border-radius: 0;
+}
 #opportunities_modal .heading h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -185,4 +193,10 @@
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
+}
+
+@media (max-width:768px) {
+    #opportunities_modal .modal-content {
+        width: 99% !important;
+    }
 }

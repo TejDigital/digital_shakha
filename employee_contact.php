@@ -21,109 +21,112 @@
 </section>
 <section class="employee_contact_2">
     <div class="container">
-        <div class="heading">
-            <h1>Organization Information</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="input_box">
-                    <input type="text" placeholder="Organization Name" class="input_area" required>
+        <form id="employee_contact">
+            <div class="heading">
+                <h1>Organization Information</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input_box">
+                        <input type="text" placeholder="Organization Name" name="employee_organization_name" class="input_area">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input_box">
+                        <input type="text" placeholder="Industry/Field" name="employee_industry" class="input_area">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input_box">
+                        <input type="text" placeholder="Organization Website (if applicable)" name="employee_website" class="input_area">
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="input_box">
-                    <input type="text" placeholder="Industry/Field" class="input_area" required>
+            <div class="heading">
+                <h1>Contact Information</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input_box">
+                        <input type="text" placeholder="Your Full Name" name="employee_fullname" class="input_area">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input_box">
+                        <input type="text" placeholder="Your Position/Title" name="employee_position" class="input_area">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input_box">
+                        <input type="Email" placeholder="Email Address" name="employee_email" class="input_area">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input_box">
+                        <input type="text" placeholder="Phone Number" name="employee_phone" class="input_area">
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="input_box">
-                    <input type="text" placeholder="Organization Website (if applicable)" class="input_area" required>
-                </div>
-            </div>
-        </div>
-        <div class="heading">
-            <h1>Contact Information</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="input_box">
-                    <input type="text" placeholder="Your Full Name" onkeypress='return ((event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode == 32))' class="input_area" required>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="input_box">
-                    <input type="text" placeholder="Your Position/Title" class="input_area" required>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="input_box">
-                    <input type="Email" placeholder="Email Address" class="input_area" required>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="input_box">
-                    <input type="text" onkeypress="return event.charCode>=48 && event.charCode<=57" maxlength="10" placeholder="Phone Number" class="input_area" required>
-                </div>
-            </div>
-        </div>
 
 
-        <div class="row">
-            <div class="col-md-8">
-                <div class="heading">
-                    <h1>Partnership Details</h1>
-                </div>
-                <div class="col-md-12">
-                    <div class="input_box2">
-                        <select class="input_area" required>
-                            <option value="">Type of Partnership Interest</option>
-                            <option value="Educational Programs">Educational Programs</option>
-                            <option value="Skill Development Initiatives">Skill Development Initiatives</option>
-                            <option value="Joint Events and Workshops">Joint Events and Workshops</option>
-                            <option value="Other (Please Specify)">Other (Please Specify)</option>
-                        </select>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="heading">
+                        <h1>Partnership Details</h1>
                     </div>
                     <div class="col-md-12">
                         <div class="input_box2">
-                            <textarea name="" id="" cols="30" rows="5" class="input_area" placeholder="Briefly Describe Your Organization's Goals and Values" required></textarea>
+                            <select class="input_area" name="employee_partnership_interest">
+                                <option value="">Type of Partnership Interest</option>
+                                <option value="Educational Programs">Educational Programs</option>
+                                <option value="Skill Development Initiatives">Skill Development Initiatives</option>
+                                <option value="Joint Events and Workshops">Joint Events and Workshops</option>
+                                <option value="Other (Please Specify)">Other (Please Specify)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input_box2">
+                                <textarea name="employee_goal_and_values" cols="30" rows="5" class="input_area" placeholder="Briefly Describe Your Organization's Goals and Values"></textarea>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="heading">
-                    <h1>Partnership Details</h1>
-                </div>
-                <div class="col-md-12">
-                    <div class="input_box2">
-                        <select class="input_area" required>
-                            <option value="">Type of Partnership Interest</option>
-                            <option value="Online Search">Online Search</option>
-                            <option value="Social Media">Social Media</option>
-                            <option value="Referral">Referral</option>
-                            <option value="Other (Please Specify)">Other (Please Specify)</option>
-                        </select>
+                    <div class="heading">
+                        <h1>Partnership Details</h1>
                     </div>
                     <div class="col-md-12">
                         <div class="input_box2">
-                            <textarea name="" id="" cols="30" rows="5" class="input_area" placeholder="Any Specific Questions or Information You Would Like to Share" required></textarea>
+                            <select class="input_area" name="hear_about_us">
+                                <option value="">How Did You Hear About DigitalShakha?</option>
+                                <option value="Online Search">Online Search</option>
+                                <option value="Social Media">Social Media</option>
+                                <option value="Referral">Referral</option>
+                                <option value="Other (Please Specify)">Other (Please Specify)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input_box2">
+                                <textarea name="employee_questions" cols="30" rows="5" class="input_area" placeholder="Any Specific Questions or Information You Would Like to Share"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input_box2">
+                                <input type="checkbox" name="check_box" class="checkbox">
+                                <p>By submitting this form, you agree to allow DigitalShakha to contact you regarding your partnership inquiry. Rest assured, your information will be handled with confidentiality and used exclusively for communication purposes.</p>
+                            </div>
+                        </div>
+                        <div class="btn_area">
+                            <button type="submit">Submit Your Inquiry</button>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="input_box2">
-                            <input type="checkbox" class="checkbox" required>
-                            <p>By submitting this form, you agree to allow DigitalShakha to contact you regarding your partnership inquiry. Rest assured, your information will be handled with confidentiality and used exclusively for communication purposes.</p>
-                        </div>
-                    </div>
-                    <div class="btn_area">
-                        <button>Submit Your Inquiry</button>
+                </div>
+                <div class="col-md-4 d-flex align-items-center justify-content-center">
+                    <div class="img">
+                        <img src="./assets//images/employee_content_2.png" alt="">
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex align-items-center justify-content-center">
-                <div class="img">
-                    <img src="./assets//images/employee_content_2.png" alt="">
-                </div>
-            </div>
-        </div>
+        </form>
+    </div>
 </section>
 <section class="employee_contact_3">
     <div class="container">

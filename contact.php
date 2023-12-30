@@ -9,9 +9,9 @@
 <section class="contact_1">
     <div class="container-fluid p-0 m-0">
         <div class="row m-0">
-            <div class="col-md-6 p-0">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
                 <div class="img">
-                    <img src="./assets/images/contact.png" alt="">
+                    <img src="./assets/images/contact_bg_1.png" alt="">
                 </div>
             </div>
             <div class="col-md-6 p-0">

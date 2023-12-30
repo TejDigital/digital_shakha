@@ -372,6 +372,12 @@
 
 /* ------------------------upcoming_Modal-------------------- */
 
+#upcoming_modal  {
+    background-color: #BB5327;
+}
+#upcoming_modal .modal-content {
+    border-radius: 0;
+}
 #upcoming_modal .heading h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -388,7 +394,7 @@
 }
 
 #upcoming_modal .form {
-    padding: 1rem 0;
+    padding: 1rem 1rem;
 }
 
 #upcoming_modal .form .col-md-6 {
@@ -417,12 +423,14 @@
 
 #upcoming_modal .end_text {
     text-align: center;
+    width: 70%;
+    margin: auto;
 }
 
 #upcoming_modal .end_text p {
     font-size: 0.8rem;
     font-weight: 500;
-    line-height: 22px;
+    line-height: 18px;
 
 }
 
@@ -514,11 +522,11 @@
 }
 
 .upcoming_batch .box .text h4 {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 500;
-    line-height: 30px;
+    line-height: 24px;
 }
-
+/* ----------------------For-batch-full-box--------------- */
 .upcoming_batch .sold1 .text h2 {
     font-size: 1.4rem;
     font-weight: 500;
@@ -533,9 +541,9 @@
 }
 
 .upcoming_batch .sold1 .text h4 {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 500;
-    line-height: 30px;
+    line-height: 24px;
 }
 
 .upcoming_batch .sold1 .btn_area {
@@ -681,8 +689,12 @@
     color: #000;
     width: 100%;
     aspect-ratio: 7/9;
+    transition: 0.3s all ease-in;
 }
-
+.program_options  a:hover{
+    box-shadow:  0px 1px 6px 4px #c0c0c0;
+    transform: scale(1.01);
+ }
 .program_options .btn_area {
     text-align: center;
     padding: 1rem 0;

@@ -106,8 +106,12 @@
   width: 100%;
   aspect-ratio: 7/8;
     border: 2px solid #AAA0A0;
+    transition: 0.3s all ease-out;
 }
-
+.program_option_2  a:hover{
+   box-shadow:  0px 1px 6px 4px #c0c0c0;
+   transform: scale(1.01);
+}
 .program_option_2 a .text {
     padding: 1rem;
 }

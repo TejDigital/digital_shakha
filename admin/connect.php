@@ -2,7 +2,7 @@
 require('authentication.php');
 require('./config/dbcon.php');
 
-if(isset($_POST['full_name'])){
+
     $full_name = $_POST['full_name'];
     $mobile = $_POST['mobile'];
     $email = $_POST['email'];
@@ -13,13 +13,13 @@ if(isset($_POST['full_name'])){
     $query = mysqli_query($con,$sql);
 
     if($query){
-        echo "Thankyou We are connect soon";
+        echo json_encode(array("con_msg"=>1));//Thankyou We are connect soon
         // header('location:../contact.php');
     }else{
-        echo "Something went wrong";
+        echo json_encode(array("con_msg"=>2));//Something went wrong
         // header('location:../contact.php');
     }
-}
+
 
 
 

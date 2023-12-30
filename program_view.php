@@ -214,10 +214,6 @@ if (isset($_GET['id'])) {
                             }
                         }
                         ?>
-                        <!-- <li>Expert training provided by industry leaders.</li>
-                        <li>Showcase your skills through portfolio-ready projects.</li>
-                        <li>Attain a prestigious, employer-recognized certificate.</li>
-                        <li>Unlock opportunities for sought-after roles like User Experience (UX) Designer, UI Designer, and Interaction Designer.</li> -->
                     </ul>
                 </div>
             </div>
@@ -397,69 +393,27 @@ if (isset($_GET['id'])) {
                 foreach ($sql_run as $data) {
                     if ($data['program_testimonial_image'] != '') {
             ?>
-                  
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-center">
-                    <div class="img">
-                        <img src="./admin/program_testimonial_images/<?=$data['program_testimonial_image']?>" alt="">
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="text">
-                        <img src="./assets/images/dot1.svg" alt="">
-                        <p><?=$data['program_testimonial_text']?></p>
-                        <p><?=$data['program_testimonial_name']?></p>
-                    </div>
-                </div>
-            </div>
+
+                        <div class="row">
+                            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                <div class="img">
+                                    <img src="./admin/program_testimonial_images/<?= $data['program_testimonial_image'] ?>" alt="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 ">
+                                <div class="text">
+                                    <img src="./assets/images/dot1.svg" alt="">
+                                    <p><?= $data['program_testimonial_text'] ?></p>
+                                    <p><?= $data['program_testimonial_name'] ?></p>
+                                </div>
+                            </div>
+                        </div>
             <?php
                     }
                 }
             }
             ?>
-<!-- 
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-center">
-                    <div class="img">
-                        <img src="./assets/images/testimonial_program_view.png" alt="">
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="text">
-                        <img src="./assets/images/dot1.svg" alt="">
-                        <p>The comprehensive curriculum, hands-on projects, and personalized mentorship enabled me to not only grasp the intricacies of design but also apply them to real-world scenarios. Today, I am confidently navigating the field, thanks to the valuable skills and confidence gained at Digitalshakha.</p>
-                        <p>Ananya Pandey</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6  d-flex align-items-center justify-content-center">
-                    <div class="img">
-                        <img src="./assets/images/testimonial_program_view.png" alt="">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text">
-                        <img src="./assets/images/dot1.svg" alt="">
-                        <p>The comprehensive curriculum, hands-on projects, and personalized mentorship enabled me to not only grasp the intricacies of design but also apply them to real-world scenarios. Today, I am confidently navigating the field, thanks to the valuable skills and confidence gained at Digitalshakha.</p>
-                        <p>Ananya Pandey</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6  d-flex align-items-center justify-content-center">
-                    <div class="img">
-                        <img src="./assets/images/testimonial_program_view.png" alt="">
-                    </div>
-                </div>
-                <div class="col-md-6 ">
-                    <div class="text">
-                        <img src="./assets/images/dot1.svg" alt="">
-                        <p>The comprehensive curriculum, hands-on projects, and personalized mentorship enabled me to not only grasp the intricacies of design but also apply them to real-world scenarios. Today, I am confidently navigating the field, thanks to the valuable skills and confidence gained at Digitalshakha.</p>
-                        <p>Ananya Pandey</p>
-                    </div>
-                </div>
-            </div> -->
+
         </div>
         <div class="btn_area">
             <a href="./contact.php">Any Queries, Contact Us<i class="fa-solid fa-arrow-up-right-from-square"></i></a>

@@ -213,10 +213,10 @@ require('./admin/config/dbcon.php');
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                                     <li class="nav-item drop-list">
-                                        <p class=" nav-after-effect clicked-link" id="header_link_home">
+                                        <p class="nav-after-effect clicked-link nav_link_toggle_btn" id="header_link_home">
                                             discover
                                         </p>
-                                        <ul class="list-group bg-dark drop-item">
+                                        <ul class="list-group bg-dark drop-item nav_content_toggle_content">
                                             <li class="list-group-item"><a href="./opportunities.php" class="">Opportunities <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./program_option.php">Program Options <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./internship_track_0.php">Internship Tracks <i class="color-ball"></i></a></li>
@@ -225,8 +225,8 @@ require('./admin/config/dbcon.php');
                                         </ul>
                                     </li>
                                     <li class="nav-item drop-list">
-                                        <p class="nav-after-effect clicked-link">resources</p>
-                                        <ul class="list-group bg-dark drop-item">
+                                        <p class="nav-after-effect clicked-link nav_link_toggle_btn">resources</p>
+                                        <ul class="list-group bg-dark drop-item nav_content_toggle_content">
                                             <li class="list-group-item"><a href="./resources.php" class="">resources <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./resumebuilding.php" class="">Resume Building <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./cover_letter.php">Cover Letter Tips <i class="color-ball"></i></a></li>
@@ -236,49 +236,48 @@ require('./admin/config/dbcon.php');
                                         </ul>
                                     </li>
                                     <li class="nav-item drop-list">
-                                        <p class="nav-after-effect clicked-link">employers</p>
-                                        <ul class="list-group bg-dark drop-item">
+                                        <p class="nav-after-effect clicked-link nav_link_toggle_btn">employers</p>
+                                        <ul class="list-group bg-dark drop-item nav_content_toggle_content">
                                             <li class="list-group-item"><a href="./partner_with_us.php" class="">Partner with Us <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./post_job_internship.php">Post an Internship <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./contact.php">Contact <i class="color-ball"></i></a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item drop-list">
-                                        <p class="clicked-link nav-after-effect">students</p>
-                                        <ul class="list-group bg-dark drop-item">
+                                        <p class="nav-after-effect clicked-link nav_link_toggle_btn">events</p>
+                                        <ul class="list-group bg-dark drop-item nav_content_toggle_content">
+                                            <li class="list-group-item"><a href="./events.php" class="">Our Events <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./event_register.php" class="">Register <i class="color-ball"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item drop-list">
+                                        <p class="nav-after-effect clicked-link nav_link_toggle_btn">updates</p>
+                                        <ul class="list-group bg-dark drop-item nav_content_toggle_content">
+                                            <li class="list-group-item"><a href="./blog.php" class="">Blog <i class="color-ball"></i></a></li>
+                                            <li class="list-group-item"><a href="./news_letter.php" class="">Newsletters <i class="color-ball"></i></a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item drop-list">
+                                        <p class="clicked-link nav-after-effect nav_link_toggle_btn">students</p>
+                                        <ul class="list-group bg-dark drop-item nav_content_toggle_content">
                                             <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./schedule_interview.php" class="">Schedule Interviews <i class="color-ball"></i></a></li>
                                             <li class="list-group-item"><a href="./internship_resources.php" class="">Internship Resources <i class="color-ball"></i></a></li>
                                         </ul>
                                     </li>
-                                    <li class="nav-item drop-list">
-                                        <p class="nav-after-effect clicked-link">events</p>
-                                        <ul class="list-group bg-dark drop-item">
-                                            <li class="list-group-item"><a href="./events.php" class="">Our Events <i class="color-ball"></i></a></li>
-                                            <li class="list-group-item"><a href="./event_register.php" class="">Register <i class="color-ball"></i></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item drop-list">
-                                        <p class="nav-after-effect clicked-link">updates</p>
-                                        <ul class="list-group bg-dark drop-item">
-                                            <li class="list-group-item"><a href="./blog.php" class="">Blog <i class="color-ball"></i></a></li>
-                                            <li class="list-group-item"><a href="./news_letter.php" class="">Newsletters <i class="color-ball"></i></a></li>
-                                        </ul>
-                                    </li>
-
                                     <li class="nav-item list-group-item">
                                         <a class="clicked-link nav-after-effect" href="./contact.php" id="">
                                             contact
                                         </a>
                                     </li>
-                                    <li class="nav-item list-group-item">
+                                    <li class="nav-item list-group-item ">
 
                                         <?php
                                         if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth'] && !isset($_SESSION['std_auth_user']['user_name']) || !$_SESSION['std_auth_user']['user_name']) {
                                         ?>
                                             <div class="btns">
-                                                <a class="login_popup">Login</a>
+                                                <a class="login_popup" style="color: #BB5327;">Login</a>
                                                 <span>|</span>
                                                 <a class="signup_popup">Signup</a>
                                             </div>
@@ -295,15 +294,15 @@ require('./admin/config/dbcon.php');
                                                         <div class="drop-list">
                                                             <?php
                                                             if ($show_profile['profile_photo'] != '') {
-                                                                echo "<a href='#!' class='hover-link'><img class='profile_img' src='./admin/student_application_photo/" . $show_profile['profile_photo'] . "'></a>
+                                                                echo "<p  class=' nav_link_toggle_btn'><img class='profile_img' src='./admin/student_application_photo/" . $show_profile['profile_photo'] . "'></p>
                                                                 ";
                                                             } else {
-                                                                echo "<a href='#!' class='hover-link'><img class='profile_img' src='./assets/images/logout_icon.svg'></a>
+                                                                echo "<p class='nav_link_toggle_btn'><img class='profile_img' src='./assets/images/logout_icon.svg'></p>
                                                                 ";
                                                             }
                                                             ?>
                                                             <!-- <a href="#!" class="hover-link"><img class="profile_img" src="./assets/images/logout_icon.svg" alt=""></a> -->
-                                                            <ul class="list-group bg-dark drop-item">
+                                                            <ul class="list-group bg-dark drop-item nav_content_toggle_content">
                                                                 <li class="list-group-item logout_box_list"><a style="padding:10px;" href="./contact.php">Help and support</a></li>
                                                                 <li class="list-group-item logout_box_list"><button type="submit" name="log_out">Logout</button></li>
                                                             </ul>
@@ -331,9 +330,9 @@ require('./admin/config/dbcon.php');
                     <div class="collapse navbar-collapse navbar_mobile" id="navbarSupportedContent">
                         <ul class="navbar-nav m-auto ps-3">
                             <li class="nav-item drop-list">
-                                <a class="nav-link nav-after-effect hover-link" href="./index.php" id="header_link_home">
+                                <p class="nav-link nav-after-effect hover-link"  id="header_link_home">
                                     discover
-                                </a>
+                                </p>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./opportunities.php" class="">Opportunities <i class="color-ball"></i></a></li>
                                     <li class="list-group-item"><a href="./program_option.php">Program Options <i class="color-ball"></i></a></li>
@@ -361,15 +360,6 @@ require('./admin/config/dbcon.php');
                                 </ul>
                             </li>
                             <li class="nav-item drop-list">
-                                <a class="nav-link hover-link nav-after-effect">students</a>
-                                <ul class="list-group bg-dark drop-item">
-                                    <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="./schedule_interview.php" class="">Schedule Interviews <i class="color-ball"></i></a></li>
-                                    <li class="list-group-item"><a href="./internship_resources.php" class="">Internship Resources <i class="color-ball"></i></a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item drop-list">
                                 <a class="nav-link nav-after-effect hover-link">events</a>
                                 <ul class="list-group bg-dark drop-item">
                                     <li class="list-group-item"><a href="./events.php" class="">Our Events <i class="color-ball"></i></a></li>
@@ -383,6 +373,15 @@ require('./admin/config/dbcon.php');
                                     <li class="list-group-item"><a href="./news_letter.php" class="">Newsletters <i class="color-ball"></i></a></li>
                                 </ul>
                             </li>
+                            <li class="nav-item drop-list">
+                                <a class="nav-link hover-link nav-after-effect">students</a>
+                                <ul class="list-group bg-dark drop-item">
+                                    <li class="list-group-item"><a href="./explore_opportunities.php" class="">Explore Opportunities <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./application_1.php" class="">Application <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./schedule_interview.php" class="">Schedule Interviews <i class="color-ball"></i></a></li>
+                                    <li class="list-group-item"><a href="./internship_resources.php" class="">Internship Resources <i class="color-ball"></i></a></li>
+                                </ul>
+                            </li>
                             <li class="nav-item list-group-item">
                                 <a class="nav-link nav-after-effect" href="./contact.php" id="">
                                     contact
@@ -393,28 +392,25 @@ require('./admin/config/dbcon.php');
                                 if (!isset($_SESSION['std_auth']) || !$_SESSION['std_auth'] && !isset($_SESSION['std_auth_user']['user_name']) || !$_SESSION['std_auth_user']['user_name']) {
                                 ?>
                                     <div class="btns">
-                                        <a class="login_popup">Login</a>
+                                        <a class="login_popup" style="color: #BB5327;">Login</a>
                                         <span>|</span>
                                         <a class="signup_popup">Signup</a>
                                     </div>
                                     <?php
-                                } else {
+                                }else {
                                     $email = $_SESSION['std_auth_user']['user_email'];
                                     $sql = "SELECT * FROM application_tbl WHERE email = '$email'";
                                     $sql_run = mysqli_query($con, $sql);
-                                    if (mysqli_num_rows($sql_run) > 0) {
-                                        $show_profile = mysqli_fetch_assoc($sql_run);
                                     ?>
                                         <div class="btns">
                                             <form class="std_log_out">
                                                 <div class="drop-list">
                                                     <?php
-                                                    if ($show_profile['profile_photo'] != '') {
-                                                        echo "<a href='#!' class='hover-link'><img class='profile_img' src='./admin/student_application_photo/" . $show_profile['profile_photo'] . "'></a>
-                                                                ";
-                                                    } else {
-                                                        echo "<a href='#!' class='hover-link'><img class='profile_img' src='./assets/images/logout_icon.svg'></a>
-                                                                ";
+                                                     if (mysqli_num_rows($sql_run) > 0) {
+                                                        $show_profile = mysqli_fetch_assoc($sql_run);
+                                                            echo "<a href='#!' class='hover-link'><img class='profile_img' src='./admin/student_application_photo/" . $show_profile['profile_photo'] . "'></a>";
+                                                    }else{
+                                                        echo "<a href='#!' class='hover-link'><img class='profile_img' src='./assets/images/logout_icon.svg'></a>";
                                                     }
                                                     ?>
                                                     <ul class="list-group bg-dark drop-item">
@@ -426,7 +422,6 @@ require('./admin/config/dbcon.php');
                                         </div>
                                 <?php
                                     }
-                                }
                                 ?>
                             </li>
                         </ul>

@@ -306,7 +306,7 @@ require('./admin/config/dbcon.php');
 
 <!-- Modal -->
 <div class="modal fade" id="upcoming_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -364,7 +364,7 @@ require('./admin/config/dbcon.php');
         <div class="heading">
             <h1>Upcoming Batches</h1>
         </div>
-        <div class="row">
+        <div class="row p-1">
             <?php
             $sql = "SELECT * FROM upcoming_batch_tbl left join program_tbl on upcoming_batch_tbl.batch_name = program_tbl.program_id WHERE batch_status = 1  ORDER BY upcoming_batch_tbl.created_at DESC ";
             $sql_run = mysqli_query($con, $sql);

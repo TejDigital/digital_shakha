@@ -40,13 +40,37 @@
         }, 2);
     });
 </script>
-<script>
-      $(document).ready(function () {
+<!-- <script>
+    $(document).ready(function() {
         // Add click event handler to the clicked-link class
-        $('.clicked-link').click(function () {
+        $('.clicked-link').click(function() {
             // Toggle the visibility of the dropdown item
             $(this).siblings('.drop-item').slideToggle();
         });
     });
-</script>
+</script> -->
+<script>
+    $(document).ready(function() {
+        $(".nav_link_toggle_btn").click(function() {
+            // Close all other toggle_content elements
+            $(".nav_content_toggle_content").slideUp();
+            $(".nav_link_toggle_btn").removeClass("nav_active_toggle_content");
+            // $(".plus").show();
+            // $(".minus").hide();
 
+            // Toggle the clicked toggle_content
+            var panel = $(this).next(".nav_content_toggle_content");
+            $(this).toggleClass("nav_active_toggle_content");
+
+            if (panel.is(":hidden")) {
+                panel.slideDown();
+                // $(this).find('.plus').hide();
+                // $(this).find('.minus').show();
+            } else {
+                panel.slideUp();
+                // $(this).find('.plus').show();
+                // $(this).find('.minus').hide();
+            }
+        });
+    });
+</script>

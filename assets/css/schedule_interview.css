@@ -73,6 +73,9 @@
     color: #615D5D;
     line-height: 30px;
 }
+.schedule_1 .text_area #selected-date-display {
+    margin: 0 1rem !important;
+}
 
 .schedule_1 .text_area .box .btn-box {
     display: flex;
@@ -212,7 +215,8 @@
     background: transparent;
     border: 1px solid #BB5327;
     border-radius: 10px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    /* box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); */
+    padding-bottom: 1rem;
 }
 
 .wrapper header {
@@ -234,24 +238,19 @@
 }
 
 header .icons {
-    display: none;
+    /* display: none; */
 }
 
 header .icons span {
-    height: 38px;
-    width: 38px;
-    margin: 0 1px;
     cursor: pointer;
     color: #878787;
     text-align: center;
     line-height: 38px;
     font-size: 1.9rem;
-    user-select: none;
-    border-radius: 50%;
 }
 
 .icons span:last-child {
-    margin-right: -10px;
+    /* margin-right: -10px; */
 }
 
 header .icons span:hover {
