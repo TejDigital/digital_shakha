@@ -66,7 +66,7 @@
                 ?>
             </div>
             <div class="new-apply-btn">
-                <p>Not an Intern at digitalshakha? <a href="#!">Apply for internship here.</a></p>
+                <p>Not an Intern at digitalshakha? <a href="./application_1.php">Apply for internship here.</a></p>
             </div>
             <div class="row end_text">
                 <div class="col-md-12 d-flex align-items-center justify-content-center flex-column">
@@ -90,7 +90,7 @@
                             <p>Let us help you build delightfulexperiences to propel yourcompany's growth.</p>
                             <p>We're just one message away.</p>
                         </div>
-                        <a href="#!">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
+                        <a href="./contact.php">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
                     </div>
                 </div>
                 <div class="padding-top col-md-6 d-flex align-items-center justify-content-center">

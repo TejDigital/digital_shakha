@@ -344,7 +344,7 @@ require('./admin/config/dbcon.php');
                                     </select>
                                 </div>
                                 <div class="btn_area">
-                                    <button type="submit">Submit</button>
+                                    <button type="submit" id="submitBtn">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -497,7 +497,7 @@ require('./admin/config/dbcon.php');
             <div class="col-md-12">
                 <div class="links">
                     <p>Follow Digitalshakha on:</p>
-                    <a href="#!"><img src="./assets/images/Instagram.svg" alt=""></a>
+                    <a href="https://www.instagram.com/digitalshakha_?igsh=MTJsaGgyYzAyeXp5dw=="><img src="./assets/images/Instagram.svg" alt=""></a>
                     <a href="#!"><img src="./assets/images/LinkedIn_link.svg" alt=""></a>
                     <a href="#!"><img src="./assets/images/Facebook.svg" alt=""></a>
                     <a href="#!"><img src="./assets/images/Behance.svg" alt=""></a>
@@ -519,7 +519,7 @@ require('./admin/config/dbcon.php');
                             <p>Let us help you build delightfulexperiences to propel yourcompany's growth.</p>
                             <p>We're just one message away.</p>
                         </div>
-                        <a href="#!">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
+                        <a href="./contact.php">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
                     </div>
                 </div>
                 <div class="padding-top col-md-6 d-flex align-items-center justify-content-center">

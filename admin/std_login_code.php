@@ -24,18 +24,18 @@ if ($row = mysqli_fetch_assoc($login_query)) {
             ];
 
             header('HTTP/1.1 200 OK');
-            echo json_encode(array("res"=>'1'));
+            echo json_encode(array("res"=>1));
         } else {
             // header('HTTP/1.1 401 Unauthorized');
-            echo json_encode(array("res"=>'2'));
+            echo json_encode(array("res"=>2));
         }
     } else {
         // header('HTTP/1.1 401 Unauthorized');
-        echo json_encode(array("res"=>'3'));
+        echo json_encode(array("res"=>3));
     }
 } else {
     // header('HTTP/1.1 401 Unauthorized');
-    echo json_encode(array("res"=>'4'));
+    echo json_encode(array("res"=>4));
 }
 
 mysqli_close($con);

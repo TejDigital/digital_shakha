@@ -526,7 +526,12 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
         </section>
     <?php
     } else {
-        echo "apply for the program ";
+        ?>
+        <div class="text" style="text-align: center;padding:4rem;height:50vh">
+            <h1>Apply for the program</h1>
+            <a href="./application_1.php" style="text-decoration: none; color:#BB5327; font-size:1.5rem;font-weight:600">fill an application</a>
+        </div>
+        <?php
     }
     ?>
     <?php require('./includes/footer.php'); ?>

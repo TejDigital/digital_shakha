@@ -29,7 +29,7 @@ require('./admin/config/dbcon.php');
         <div class="row">
             <h1>Overview: Get a Comprehensive Understanding of Each Program</h1>
             <p>Before you dive into eligibility criteria, it's essential to gain a comprehensive understanding of the program you're interested in. We've created detailed program overviews to give you a sneak peek into what each course offers. Explore the curriculum, learning objectives, and potential outcomes to make an informed decision about your educational journey.</p>
-            <a href="#!">Explore Program Overviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="./program_option.php">Explore Program Overviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
     </div>
 </section>

@@ -99,7 +99,7 @@
             </div>
             <div class="box">
               <p>Review your selections and information. Click the "Submit" button to confirm your interview schedule.</p>
-              <button type="submit" name="submit" class="s_btn">Schedule</button>
+              <button type="submit" id="submitBtn" name="submit" class="s_btn">Schedule</button>
             </div>
           </form>
         </div>

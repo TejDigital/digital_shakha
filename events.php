@@ -113,7 +113,7 @@ require('./admin/config/dbcon.php');
                             <p>Let us help you build delightfulexperiences to propel yourcompany's growth.</p>
                             <p>We're just one message away.</p>
                         </div>
-                        <a href="#!">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
+                        <a href="./contact.php">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
                     </div>
                 </div>
                 <div class="padding-top col-md-6 d-flex align-items-center justify-content-center">

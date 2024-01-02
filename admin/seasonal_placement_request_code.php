@@ -7,20 +7,19 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
-
-$opportunities_id = mysqli_real_escape_string($con,$_POST['opportunities_id']);
+$seasonal_id = mysqli_real_escape_string($con,$_POST['placement_id']);
 $name = mysqli_real_escape_string($con,$_POST['name']);
 $phone = mysqli_real_escape_string($con,$_POST['phone']);
 $email = mysqli_real_escape_string($con,$_POST['email']);
 $image = $_FILES['image']['name'];
 
-$sql = "INSERT INTO opportunities_request_tbl(opportunities_id,name,phone, email,image) VALUES (?,?,?,?,?)";
+$sql = "INSERT INTO placement_view_tbl(seasonal_id,name,phone, email,image) VALUES (?,?,?,?,?)";
 $stmt = mysqli_prepare($con, $sql);
-mysqli_stmt_bind_param($stmt, "issss",$opportunities_id,$name,$phone,$email,$image);
+mysqli_stmt_bind_param($stmt, "issss",$seasonal_id,$name,$phone,$email,$image);
 mysqli_stmt_execute($stmt);
 
 if ($stmt) {
-    move_uploaded_file($_FILES['image']['tmp_name'], './opportunities_request_files/' . $image);
+    move_uploaded_file($_FILES['image']['tmp_name'], './seasonal_placement_request_file/' . $image);
     try {
         $mail = new PHPMailer();
         // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
@@ -195,7 +194,7 @@ if ($stmt) {
                     <img src='./digital_logo.png' >
                  </div>
                 <div class='text_box'>
-                    <h2>Thank you for your interest in opportunities with DigitalShakha! We've received your details and CV/Resume.
+                    <h2>Confirmation and Next Steps for Your Seasonal Placement Request
                     .</h2>
                     <ul>
                         <li style='margin-bottom: .5rem;'>
@@ -242,7 +241,7 @@ if ($stmt) {
     </html>
     ";
         $mail->send();
-        echo json_encode(array('res' => 1 , 'data' => $opportunities_id));
+        echo json_encode(array('res' => 1 , 'data' => $seasonal_id));
         exit(0);
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

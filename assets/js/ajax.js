@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   //--------------contact-form-----------
   $("#contactFrom").validate({
     rules: {
@@ -51,12 +50,13 @@ $(document).ready(function () {
     var form = $(this);
     if ($(this).valid()) {
       var formData = $(form).serialize();
+      console.log(formData);
       $.ajax({
         type: "POST",
         url: "././admin/connect.php",
         data: formData,
         success: function (response) {
-          // console.log(response);
+          console.log(response);
           var msg = JSON.parse(response);
           if (msg.con_msg == 1) {
             Swal.fire({
@@ -313,11 +313,9 @@ $(document).ready(function () {
         processData: false,
         contentType: false,
         success: function (response) {
-          console.log(response);
+          // console.log(response);
           var result = JSON.parse(response);
-
           if (result.res == "1") {
-            // Handle success case
             closeLoginModal();
             Swal.fire({
               position: "center",
@@ -342,17 +340,60 @@ $(document).ready(function () {
             }).then(function () {
               location.reload();
             });
-          } else if (
-            result.res == "2" ||
-            result.res == "3" ||
-            result.res == "4"
-          ) {
-            // Handle error cases
+          } else if (result.res === 3) {
             closeLoginModal();
             Swal.fire({
               position: "center",
               icon: "error",
-              text: result.message,
+              text: "Password Not match",
+              showConfirmButton: false,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+              customClass: {
+                icon: "custom-icon-color",
+                modal: "custom-border",
+              },
+              width: 600,
+              color: "#EBAB56",
+              background: "#fff",
+              backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+              timer: 2500,
+            });
+            clearForm();
+          } else if (result.res === 4) {
+            closeLoginModal();
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              text: "Email not Found",
+              showConfirmButton: false,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+              customClass: {
+                icon: "custom-icon-color",
+                modal: "custom-border",
+              },
+              width: 600,
+              color: "#EBAB56",
+              background: "#fff",
+              backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+              timer: 2500,
+            });
+            clearForm();
+          } else if (result.res === 2) {
+            closeLoginModal();
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              text: "You are not verified",
               showConfirmButton: false,
               showClass: {
                 popup: "animate__animated animate__fadeInDown",
@@ -1279,7 +1320,9 @@ $(document).ready(function () {
     e.preventDefault();
     let interview_form = $("#interview_form")[0];
     var form = $(this);
+    var subBtn = $("#submitBtn");
     if ($(this).valid()) {
+      subBtn.prop("disabled", true);
       var formData = $(form).serialize();
       $.ajax({
         type: "POST",
@@ -1312,6 +1355,8 @@ $(document).ready(function () {
                                   no-repeat`,
               timer: 2500,
             });
+            subBtn.prop("disabled", false);
+
           } else if (message.alert == 2) {
             Swal.fire({
               position: "center",
@@ -1337,6 +1382,8 @@ $(document).ready(function () {
                                   no-repeat`,
               timer: 2500,
             });
+            subBtn.prop("disabled", false);
+
           }
           clearInput();
         },
@@ -1350,8 +1397,6 @@ $(document).ready(function () {
       interview_form.reset();
     }
   });
-
-
 
   // ---------------------For-state-------------
   $("#country").on("change", function (e) {
@@ -1392,83 +1437,85 @@ $(document).ready(function () {
   });
 
   //-------------------------Event-register----------------
+  $("#event_register").validate({
+    rules: {
+      name: "required",
+      email: {
+        required: true,
+        email: true,
+      },
+      phone: {
+        required: true,
+        digits: true,
+        minlength: 10,
+        maxlength: 10,
+      },
+      event: "required",
+    },
+    messages: {
+      name: "Please enter your full name",
+      email: {
+        required: "Please enter your email address",
+        email: "Please enter a valid email address",
+      },
+      phone: "Please enter your phone number",
+      event: "Please select the event",
+    },
+    errorPlacement: function (error, element) {
+      error.insertAfter(element);
+      error.addClass("error-message");
+    },
+  });
   $("#event_register").on("submit", function (e) {
     let formReset = $("#event_register")[0];
     e.preventDefault();
     var form = $(this);
-    $("#event_register").validate({
-      rules: {
-        name: "required",
-        email: {
-          required: true,
-          email: true,
-        },
-        phone: {
-          required: true,
-          digits: true,
-          minlength: 10,
-          maxlength: 10,
-        },
-        event: "required",
-      },
-      messages: {
-        name: "Please enter your full name",
-        email: {
-          required: "Please enter your email address",
-          email: "Please enter a valid email address",
-        },
-        phone: "Please enter your phone number",
-        event: "Please select the event",
-      },
-      errorPlacement: function (error, element) {
-        error.insertAfter(element);
-        error.addClass("error-message");
-      },
-      submitHandler: function (form) {
-        var formData = $(form).serialize();
-        $.ajax({
-          type: "POST",
-          url: "././admin/event_register.php",
-          data: formData,
-          success: function (response) {
-            console.log(response);
-            var result = JSON.parse(response);
-            if (result.res == "1") {
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                text: "Thank You ! We are connect soon",
-                showConfirmButton: false,
-                showClass: {
-                  popup: "animate__animated animate__fadeInDown",
-                },
-                hideClass: {
-                  popup: "animate__animated animate__fadeOutUp",
-                },
-                customClass: {
-                  icon: "custom-icon-color",
-                  modal: "custom-border",
-                },
-                width: 600,
-                color: "#EBAB56",
-                background: "#fff",
-                backdrop: `  
+    var submitBtn = $("#submitBtn");
+    submitBtn.prop("disabled", true);
+    if ($(this).valid()) {
+      var formData = $(form).serialize();
+      $.ajax({
+        type: "POST",
+        url: "././admin/event_register.php",
+        data: formData,
+        success: function (response) {
+          console.log(response);
+          var result = JSON.parse(response);
+          if (result.res == "1") {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              text: "Thank You ! We are connect soon",
+              showConfirmButton: false,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+              customClass: {
+                icon: "custom-icon-color",
+                modal: "custom-border",
+              },
+              width: 600,
+              color: "#EBAB56",
+              background: "#fff",
+              backdrop: `  
                                 rgba(40, 39, 19,0.4)
                                 left top
                                 no-repeat`,
-                timer: 2500,
-              });
-            }
-            clearInput();
-          },
-          error: function (response) {
-            alert("Something went wrong");
-            console.log(response);
-          },
-        });
-      },
-    });
-
+              timer: 2500,
+            });
+            submitBtn.prop("disabled", false);
+          }
+          clearInput();
+        },
+        error: function (response) {
+          alert("Something went wrong");
+          console.log(response);
+        },
+      });
+    }
     function clearInput() {
       formReset.reset();
     }
@@ -1519,8 +1566,16 @@ $(document).ready(function () {
       error.appendTo(element.parent());
       error.addClass("error-message");
     },
-    submitHandler: function (form) {
+  });
+  $("#upcoming_batch_request").on("submit", function (e) {
+    e.preventDefault();
+    var form = $(this);
+
+    if ($(this).valid()) {
       var formData = $(form).serialize();
+      console.log(formData);
+      var subBtn = $("#submitBtn");
+      subBtn.prop("disabled", true);
       $.ajax({
         type: "POST",
         url: "././admin/upcoming_batch_request.php",
@@ -1529,7 +1584,7 @@ $(document).ready(function () {
           $("#upcoming_modal").modal("hide");
           console.log(response);
           var result = JSON.parse(response);
-          if (result.res == "1") {
+          if (result.res == 1) {
             Swal.fire({
               position: "center",
               icon: "success",
@@ -1563,79 +1618,83 @@ $(document).ready(function () {
         },
       });
       clearInput();
-    },
+    }
+    function clearInput() {
+      $(".upcoming_batch_request")[0].reset();
+    }
   });
-  function clearInput() {
-    $(".upcoming_batch_request")[0].reset();
-  }
 
   //-------------------------news_letter----------------
+  $("#news_letter").validate({
+    rules: {
+      email: {
+        required: true,
+        email: true,
+      },
+    },
+    messages: {
+      email: {
+        required: "*Please enter your email address",
+        email: "*Please enter a valid email address",
+      },
+    },
+    errorPlacement: function (error, element) {
+      error.insertAfter(element);
+      error.addClass("error-message");
+    },
+  });
   let formReset = $("#news_letter")[0];
   $("#news_letter").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
-    $("#news_letter").validate({
-      rules: {
-        email: {
-          required: true,
-          email: true,
-        },
-      },
-      messages: {
-        email: {
-          required: "*Please enter your email address",
-          email: "*Please enter a valid email address",
-        },
-      },
-      errorPlacement: function (error, element) {
-        error.insertAfter(element);
-        error.addClass("error-message");
-      },
-      submitHandler: function (form) {
-        var formData = $(form).serialize();
-        $.ajax({
-          type: "POST",
-          url: "././admin/news_letter_ajax.php",
-          data: formData,
-          success: function (response) {
-            // console.log(response);
-            var result = JSON.parse(response);
-            if (result.res == "1") {
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                text: "Thank You ! We are connect soon",
-                showConfirmButton: false,
-                showClass: {
-                  popup: "animate__animated animate__fadeInDown",
-                },
-                hideClass: {
-                  popup: "animate__animated animate__fadeOutUp",
-                },
-                customClass: {
-                  icon: "custom-icon-color",
-                  modal: "custom-border",
-                },
-                width: 600,
-                color: "#EBAB56",
-                background: "#fff",
-                backdrop: `  
+    var subBtn = $("#submitBtn");
+    subBtn.prop("disabled", true);
+    if ($(this).valid()) {
+      var formData = $(form).serialize();
+      $.ajax({
+        type: "POST",
+        url: "././admin/news_letter_ajax.php",
+        data: formData,
+        success: function (response) {
+          // console.log(response);
+          var result = JSON.parse(response);
+          if (result.res == "1") {
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              text: "Thank You ! We are connect soon",
+              showConfirmButton: false,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+              customClass: {
+                icon: "custom-icon-color",
+                modal: "custom-border",
+              },
+              width: 600,
+              color: "#EBAB56",
+              background: "#fff",
+              backdrop: `  
                           rgba(40, 39, 19,0.4)
                           left top
                           no-repeat`,
-                timer: 2500,
-              });
-            }
-          },
-          error: function (response) {
-            $("#upcoming_modal").hide();
-            alert("Something went wrong");
-            console.log(response);
-          },
-        });
-        clearInput();
-      },
-    });
+              timer: 2500,
+            });
+            subBtn.prop("disabled", false);
+          }
+        },
+        error: function (response) {
+          $("#upcoming_modal").hide();
+          alert("Something went wrong");
+          console.log(response);
+        },
+      });
+      clearInput();
+    }
+
     function clearInput() {
       formReset.reset();
     }
@@ -1829,25 +1888,24 @@ $(document).ready(function () {
     $("#opportunities_request")[0].reset();
   }
 
-
-//---------------------employee-contact-form----------------
+  //---------------------employee-contact-form----------------
   $("#employee_contact").validate({
     rules: {
-      employee_organization_name:{
+      employee_organization_name: {
         required: true,
       },
-      employee_industry:{
+      employee_industry: {
         required: true,
       },
-      employee_website:{
+      employee_website: {
         required: true,
       },
       employee_fullname: {
-        required: true, 
+        required: true,
         maxlength: 255,
       },
       employee_position: {
-        required: true, 
+        required: true,
       },
       employee_phone: {
         required: true,
@@ -1859,24 +1917,24 @@ $(document).ready(function () {
         required: true,
         email: true,
       },
-      employee_partnership_interest:{
+      employee_partnership_interest: {
         required: true,
       },
-      hear_about_us:{
+      hear_about_us: {
         required: true,
       },
-      check_box:{
+      check_box: {
         required: true,
-      }
+      },
     },
     messages: {
-      employee_organization_name:{
+      employee_organization_name: {
         required: "Please enter organization name",
       },
-      employee_industry:{
+      employee_industry: {
         required: "Please enter industry name",
       },
-      employee_website:{
+      employee_website: {
         required: "Please enter website name",
       },
       employee_fullname: {
@@ -1893,15 +1951,15 @@ $(document).ready(function () {
         required: "Please enter your email address",
         email: "Please enter a valid email address",
       },
-      employee_partnership_interest:{
+      employee_partnership_interest: {
         required: "Please enter partnership_interest name",
       },
-      hear_about_us:{
+      hear_about_us: {
         required: "Please enter hear_about_us ",
       },
-      check_box:{
+      check_box: {
         required: "Please check the box",
-      }
+      },
     },
     errorPlacement: function (error, element) {
       error.insertAfter(element);
@@ -1957,5 +2015,120 @@ $(document).ready(function () {
       this.reset();
     }
   });
-
 });
+
+//-------------------------Seasonal_placement_request----------------
+$.validator.addMethod(
+  "fileExtension",
+  function (value, element) {
+    var extension = value.split(".").pop().toLowerCase();
+    return ["jpg", "jpeg", "png", "pdf"].indexOf(extension) !== -1;
+  },
+  "Please select a valid file type (jpg, jpeg, png, pdf)."
+);
+$("#placement_request").validate({
+  rules: {
+    name: {
+      required: true,
+      maxlength: 255,
+    },
+    phone: {
+      required: true,
+      digits: true,
+      minlength: 10,
+      maxlength: 10,
+    },
+    email: {
+      required: true,
+      email: true,
+    },
+    image: {
+      required: true,
+      fileExtension: true,
+    },
+  },
+  messages: {
+    name: {
+      required: "Please enter your name",
+      maxlength: "Name must be less than 255 characters",
+    },
+    phone: {
+      required: "Please enter your phone number",
+      digits: "Please enter a valid phone number",
+      minlength: "Phone number must be 10 digits",
+      maxlength: "Phone number must be 10 digits",
+    },
+    email: {
+      required: "Please enter your email address",
+      email: "Please enter a valid email address",
+    },
+    image: {
+      required: "Please choose a file.",
+      fileExtension: "Please select a valid file type (jpg, jpeg, png, pdf).",
+    },
+  },
+  errorPlacement: function (error, element) {
+    error.appendTo(element.parent());
+    error.addClass("error-message");
+  },
+});
+$("#placement_request").on("submit", function (e) {
+  e.preventDefault();
+  var form = $(this);
+  if ($(this).valid()) {
+    var opportunitiesSubmitBtn = $("#submitBtm");
+    opportunitiesSubmitBtn.prop("disabled", true); // Disable the submit button
+
+    var formData = new FormData(form.get(0));
+    console.log(formData);
+    $.ajax({
+      type: "POST",
+      url: "././admin/seasonal_placement_request_code.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        console.log(response);
+        var result = JSON.parse(response);
+        if (result.res === 1) {
+          $("#placement_modal").modal("hide");
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            text: "Thank You! We will connect soon",
+            showConfirmButton: false,
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
+            customClass: {
+              icon: "custom-icon-color",
+              modal: "custom-border",
+            },
+            width: 600,
+            color: "#EBAB56",
+            background: "#fff",
+            backdrop: `rgba(40, 39, 19,0.4) left top no-repeat`,
+            timer: 2500,
+          }).then(function () {
+            window.location.href = "././placement_view.php?id=" + result.data;
+          });
+        }
+      },
+      error: function (response) {
+        alert("Something went wrong");
+        console.log(response);
+      },
+      complete: function () {
+        opportunitiesSubmitBtn.prop("disabled", false);
+      },
+    });
+    clearInput();
+  }
+});
+function clearInput() {
+  $("#fileNameDisplay1").text("Attach CV or Resume");
+  $("#placement_request")[0].reset();
+}

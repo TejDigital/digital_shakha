@@ -15,7 +15,7 @@
             <div class="form_area">
                 <form  id="news_letter">
                     <input type="text" name="email" placeholder="Enter E-mail Address" >
-                    <button type="submit">SUBSCRIBE</button>
+                    <button type="submit" id="submitBtn">SUBSCRIBE</button>
                 </form>
             </div>
             <div class="end_area">
@@ -97,7 +97,7 @@
                             <p>Let us help you build delightfulexperiences to propel yourcompany's growth.</p>
                             <p>We're just one message away.</p>
                         </div>
-                        <a href="#!">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
+                        <a href="./contact.php">Get in touch <img src="./assets/images/arrow.png" alt=""></a>
                     </div>
                 </div>
                 <div class="padding-top col-md-6 d-flex align-items-center justify-content-center">

@@ -70,7 +70,7 @@
     color: #BB5327;
 }
 
-.place_view_1 .left-main .des a:last-child {
+.place_view_1 .left-main .des button {
     padding: 0.7rem 1rem;
     background-color: transparent;
     border: 1px solid #BB5327;
@@ -120,3 +120,117 @@
 .place_view_1 .category_main .category ul li {
    padding-bottom: 0.6rem;
 }
+
+
+
+/* ------------------------placement_modal-------------------- */
+
+
+#placement_modal {
+    background-color: #BB5327;
+    border-radius: 0;
+ }
+ #placement_modal .modal-content {
+     border-radius: 0;
+ }
+ #placement_modal .heading h1 {
+     font-size: 2rem;
+     font-weight: 700;
+     line-height: 50px;
+     color: #BB5327;
+     text-align: center;
+     padding: 0rem;
+ }
+ 
+ #placement_modal .heading p {
+     font-size: 1rem;
+     font-weight: 400;
+     line-height: 24px;
+     text-align: center;
+ }
+ 
+ #placement_modal .form {
+     padding: 1rem 0;
+ }
+ 
+ #placement_modal .form .col-md-6 {
+     margin-bottom: 1rem;
+ }
+ 
+ #placement_modal .form .input_area {
+     border: 1px solid #000;
+     padding: 0.7rem 1rem;
+     width: 100%;
+ }
+ 
+ #placement_modal .form .btn_area {
+     padding-bottom: 1rem;
+     text-align: center;
+ }
+ 
+ #placement_modal .form .btn_area button {
+     background-color: #BB5327;
+     color: #ffffff;
+     border: 0;
+     font-weight: 600;
+     text-align: center;
+     border: 1px solid transparent;
+     padding: 1rem 3rem;
+ }
+ 
+ #placement_modal .end_text {
+     text-align: center;
+ }
+ 
+ #placement_modal .end_text p {
+     font-size: 0.8rem;
+     font-weight: 500;
+     line-height: 22px;
+ }
+ #placement_modal  .wrapper {
+     /* padding: 1rem; */
+     width: 100%;
+     border: 1px solid transparent;
+     /* margin: 1rem 0; */
+     box-shadow: none !important;
+     border-radius: 0 !important;
+ }
+ 
+ #placement_modal .text .wrapper label {
+     cursor: pointer;
+ }
+ #placement_modal .wrapper .file-label {
+     cursor: pointer;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0.8rem;
+     border: 1px solid #000;
+     /* margin: 0.8rem 0; */
+     width: 100%;
+ }
+ 
+ #placement_modal .wrapper .input_box {
+     width: 0;
+     height: 0;
+     opacity: 0;
+     overflow: hidden;
+     position: absolute;
+     z-index: -1;
+ }
+ 
+ /* Style the label to make it look like a button */
+ #placement_modal  .wrapper  .file-label i {
+     margin-left: 8px;
+     padding: 8px;
+     background-color: #007BFF;
+     color: #fff;
+     border-radius: 4px;
+     cursor: pointer;
+ }
+ 
+ @media (max-width:768px) {
+     #placement_modal .modal-content {
+         width: 99% !important;
+     }
+ }

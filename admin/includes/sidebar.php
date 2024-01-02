@@ -182,6 +182,21 @@
           </div>
         </li>
         <li class="nav-item menu-items">
+          <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic8" aria-expanded="false" aria-controls="ui-basic">
+            <span class="menu-icon">
+              <i class="mdi mdi-laptop"></i>
+            </span>
+            <span class="menu-title">Seasonal Placement</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="ui-basic8">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./seasonal_placement.php">Seasonal Placement</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./seasonal_place_request_table.php">seasonal_placement Request</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav-item menu-items">
           <a class="nav-link" href="./faqs.php">
             <span class="menu-icon">
               <i class="mdi mdi-application"></i>
@@ -219,14 +234,6 @@
               <i class="mdi mdi-table-large"></i>
             </span>
             <span class="menu-title">Schedule Interview</span>
-          </a>
-        </li>
-        <li class="nav-item menu-items">
-          <a class="nav-link" href="./seasonal_placement.php">
-            <span class="menu-icon">
-              <i class="mdi mdi-table-large"></i>
-            </span>
-            <span class="menu-title">Seasonal Placement</span>
           </a>
         </li>
         <li class="nav-item menu-items">
