@@ -1,5 +1,4 @@
 <?php
-require('./includes/header.php');
 session_start();
 ?>
  <?php
@@ -7,7 +6,24 @@ if (isset($_SESSION['cons_msg'])) {
     echo "<script>alert('" . $_SESSION['cons_msg'] . "')</script>";
     unset($_SESSION['cons_msg']);
 }
+if(isset($_GET['email'])){
+    $email = $_GET['email'];
+}
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Digitalshakha Admin Login</title>
+  <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="./assets/images/d_logo.png" />
+</head>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 my-5">
@@ -17,10 +33,10 @@ if (isset($_SESSION['cons_msg'])) {
                         <form action="code.php" method="post">
                             <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                                 <div class="d-flex align-items-center justify-content-between mb-3">
-                                    <a href="index.html" class="">
-                                    </a>
-                                    <h3>Set New Password</h3>
+                                    <h3 class="text-dark">Set New Password</h3>
+                                    <p class="text-dark">Email: <b><?=$email?></b></p>
                                 </div>
+                                <input type="hidden" value="<?=$email?>" name="email">
                                 <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="floatingInput" name="password" placeholder="name@example.com">
                                     <label for="floatingInput">Password</label>
@@ -30,7 +46,7 @@ if (isset($_SESSION['cons_msg'])) {
                                     <label for="floatingPassword">Confirm Password</label>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
-                                <a href="./adminlogin.php" >i got it my  Password</a>
+                                <a href="./adminlogin.php" style="color: #000;" >I got it my Password</a>
 
                                 </div>
                                 <button type="submit" name="set" class="btn btn-primary py-3 w-100 mb-4">Set New</button>
@@ -44,5 +60,3 @@ if (isset($_SESSION['cons_msg'])) {
 </div>
 
 <?php require('includes/script.php'); ?>
-<?php
- ?>

@@ -3,7 +3,7 @@
 ?>
 <section class="internship_track_1">
     <div class="container">
-        <div class="row">
+        <div class="row flex-change">
             <div class="col-md-6">
                 <div class="text">
                     <h1>Internship Track</h1>
@@ -11,7 +11,7 @@
                     <p>Our Internship Tracks offer you the opportunity to not only gain valuable work experience but also track your journey to success. As an intern at DigitalShakha, you can enjoy a host of benefits:</p>
                 </div>
             </div>
-            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-center pb-3">
                 <div class="img">
                     <span class="dot1"></span>
                     <span class="dot2"></span>

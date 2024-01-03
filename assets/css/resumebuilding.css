@@ -1,73 +1,98 @@
-.resume_1{
+.resume_1 {
     padding: 2rem 4rem;
 }
-.resume_1 .text h1{
+
+.resume_1 .text h1 {
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 50px;
 }
 
-.resume_1 .text p:nth-child(2){
+.resume_1 .text p:nth-child(2) {
     font-size: 1rem;
     font-weight: 400;
     line-height: 30px;
     color: #615D5D;
 }
-.resume_1 .text p:nth-child(3){
+
+.resume_1 .text p:nth-child(3) {
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 30px;
     color: #615D5D;
 }
-.resume_1 .dot-position{
-    position: relative;
-}
-.resume_1 .img{
+
+.resume_1 .img {
     width: 100%;
-    position: relative;
     max-width: 300px;
+    position: relative;
 }
-.resume_1 .img .dot1{
+
+.resume_1 .img .dot1 {
     position: absolute;
-    top: -1rem;
+    top: 0;
+    left: 0;
     display: block;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: #BB5327;
 }
 
-.resume_1 .img .dot3{
-    /* position: absolute; */
+.resume_1 .img .dot2 {
+    position: absolute;
     display: block;
+    right: 0rem;
+    top: 0;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     background-color: #BB5327;
 }
-.resume_1 .img .dot4{
+
+.resume_1 .img .dot3 {
     position: absolute;
-    right: -40px;
+    display: block;
+    bottom: 0rem;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #BB5327;
+}
+
+.resume_1 .img .dot4 {
+    position: absolute;
+    right: -3rem;
     bottom: 0rem;
     display: block;
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
     background-color: #5C2109;
 }
-.resume_1 .img img{
+
+.resume_1 .img img {
     width: 95%;
-  aspect-ratio: 2/2;
+    /* height: 90%; */
+    aspect-ratio: 2/25C2109;
 }
-@media(max-width:768px){
-    .resume_1{
+
+@media(max-width:768px) {
+    .resume_1 {
         padding: 2rem 0;
     }
-    .flex_change{
-    display: flex;
-    flex-direction: column-reverse !important;
+    .resume_1 .img .dot4 {
+        position: absolute;
+        right: 0rem;
+        bottom: 0rem;
+        display: block;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #5C2109;
     }
 }
+
 
 
 /* -------------resume-2----------------- */

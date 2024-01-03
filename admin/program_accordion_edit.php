@@ -8,7 +8,7 @@ require('./config/dbcon.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM program_detail_tbl WHERE program_detail_id = '$id'";
+    $sql = "SELECT * FROM program_accordion_tbl WHERE program_accordion_id  = '$id'";
 
     $sql_run = mysqli_query($con, $sql);
 
@@ -30,10 +30,10 @@ if (isset($_SESSION['digi_meg'])) {
 }
 ?>
 <div class="page-header">
-    <h3 class="page-title">Program detail Edit </h3>
+    <h3 class="page-title">Program accordion Edit </h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./program_details.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="./program_accordion.php">Home</a></li>
         </ol>
     </nav>
 </div>
@@ -41,8 +41,8 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="col-md-12 p-0 app-click">
-            <form action="./program_detail_edit_code.php" method="post">
-                <input type="hidden" value="<?= $row['program_detail_id'] ?>" name="id">
+            <form action="./program_accordion_edit_code.php" method="post">
+                <input type="hidden" value="<?= $row['program_accordion_id'] ?>" name="id">
                 <div class="row">
                     <div class="col-md-4">
                         <label for="">Batch Name</label>
@@ -65,26 +65,36 @@ if (isset($_SESSION['digi_meg'])) {
                     <div class="col-md-4">
                         <Label>Status</Label>
                         <select name="status" class="form-select mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
-                            <option <?php if ($row['program_detail_status'] == 1) {
+                            <option <?php if ($row['program_accordion_status'] == 1) {
                                         echo "selected";
                                     } ?> value="1">Active</option>
-                            <option <?php if ($row['program_detail_status'] == 0) {
+                            <option <?php if ($row['program_accordion_status'] == 0) {
                                         echo "selected";
                                     } ?> value="0">inactive</option>
                         </select>
                     </div>
-                  
-
                     <div class="col-md-4">
-                        <label for="">heading</label>
-                        <input type="text" class="form-control mb-2" name="heading" value="<?= $row['program_detail_heading'] ?>">
+                        <label for="">Dropdown days</label>
+                        <select name="day" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <?php
+                            for ($i = 1; $i <= 31; $i++) {
+                                echo '<option value="' . $i . '" ' . ($i == $row['program_detail_dropdown_days'] ? 'selected' : '') . '>' . $i . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+           
+                    <div class="col-md-4">
+                        <label for="">Dropdown Heading</label>
+                        <input type="text" class="form-control mb-2" name="dropdown_heading" placeholder="add dropdown heading" value="<?= $row['program_detail_dropdown_heading'] ?>">
                     </div>
                 
                     <div class="col-md-6">
-                        <label for="">Main Description</label>
-                        <textarea name="description" class="form-control mb-2" cols="30" rows="10"><?= $row['program_detail_description'] ?></textarea>
+                        <label for="">Dropdown Description</label>
+                        <textarea name="dropdown_description" class="form-control mb-2" cols="30" rows="10"><?= $row['program_detail_dropdown_description'] ?></textarea>
                     </div>
-            
+
                 </div>
                 <button class="btn btn-success my-2" type="submit" name="update">Update</button>
             </form>

@@ -133,7 +133,12 @@ $(document).ready(function () {
         required: "Please enter your email",
         email: "Please enter a valid email address",
       },
-      phone: "Please enter valid phone no.",
+      phone: {
+        required: "Please enter your phone number",
+        digits: "Please enter a valid phone number",
+        minlength: "Phone number must be 10 digits",
+        maxlength: "Phone number must be 10 digits",
+      },
       password: "Please enter password",
       confirm_password: {
         equalTo: "Passwords do not match",
@@ -460,60 +465,60 @@ $(document).ready(function () {
 
   var reg_form = $("#std_forget_pass")[0];
   var errorAlert = $("#forgetPassError");
+
+  $("#std_forget_pass").validate({
+    rules: {
+      forget_email: {
+        required: true,
+        email: true,
+      },
+    },
+    messages: {
+      forget_email: {
+        required: "Please enter your email",
+        email: "Please enter a valid email address",
+      },
+    },
+    errorPlacement: function (error, element) {
+      error.appendTo(element.parent());
+      error.addClass("error-message");
+    },
+  });
   $("#std_forget_pass").on("submit", function (e) {
     e.preventDefault();
     var form = $(this);
 
-    $("#std_forget_pass").validate({
-      rules: {
-        forget_email: {
-          required: true,
-          email: true,
+    var formData = form.serialize();
+    if ($(this).valid()) {
+      var submitBtn = $("#forgetBtn");
+      submitBtn.prop("disabled", true);
+      $.ajax({
+        type: "POST",
+        url: "././admin/forget_password_code.php",
+        data: formData,
+        success: function (response) {
+          var message = JSON.parse(response);
+          if (message.forget_msg === 2) {
+            clearForgetPass();
+            closeForgetPassModal();
+            showSuccessNotificationForgetPass();
+          } else if (message.forget_msg === 3 || message.forget_msg === 4) {
+            clearForgetPass();
+            displayError(
+              message.forget_msg === 3
+                ? "Something went wrong"
+                : "Email not found"
+            );
+            setTimeout(function () {
+              errorAlert.hide();
+            }, 2500);
+          }
         },
-      },
-      messages: {
-        forget_email: {
-          required: "Please enter your email",
-          email: "Please enter a valid email address",
+        error: function (response) {
+          alert("Something went wrong");
         },
-      },
-      errorPlacement: function (error, element) {
-        error.appendTo(element.parent());
-        error.addClass("error-message");
-      },
-      submitHandler: function (form) {
-        var formData = $(form).serialize();
-        var submitBtn = $("#forgetBtn");
-        submitBtn.prop("disabled", true);
-
-        $.ajax({
-          type: "POST",
-          url: "././admin/forget_password_code.php",
-          data: formData,
-          success: function (response) {
-            var message = JSON.parse(response);
-            if (message.forget_msg === 2) {
-              clearForgetPass();
-              closeForgetPassModal();
-              showSuccessNotification();
-            } else if (message.forget_msg === 3 || message.forget_msg === 4) {
-              clearForgetPass();
-              displayError(
-                message.forget_msg === 3
-                  ? "Something went wrong"
-                  : "Email not found"
-              );
-              setTimeout(function () {
-                errorAlert.hide();
-              }, 2500);
-            }
-          },
-          error: function (response) {
-            alert("Something went wrong");
-          },
-        });
-      },
-    });
+      });
+    }
   });
   function closeForgetPassModal() {
     $("#forgetPassModal").hide();
@@ -521,7 +526,7 @@ $(document).ready(function () {
   function clearForgetPass() {
     reg_form.reset();
   }
-  function showSuccessNotification() {
+  function showSuccessNotificationForgetPass() {
     Swal.fire({
       position: "center",
       icon: "success",
@@ -550,6 +555,28 @@ $(document).ready(function () {
   }
 
   //--------------Student-reset-password-------------
+  $("#std_reset_password").validate({
+    rules: {
+      password: {
+        required: true,
+        minlength: 6,
+      },
+      confirm_password: {
+        required: true,
+        equalTo: "#c_pass",
+      },
+    },
+    messages: {
+      password: "Please enter a password",
+      confirm_password: {
+        equalTo: "Passwords do not match",
+      },
+    },
+    errorPlacement: function (error, element) {
+      error.appendTo(element.parent());
+      error.addClass("error-message");
+    },
+  });
 
   $("#std_reset_password").on("submit", function (e) {
     var reg_form = $("#std_reset_password")[0];
@@ -558,56 +585,35 @@ $(document).ready(function () {
     var formData = form.serialize();
     var submitBtn = $("#resetBtn");
 
-    $("#std_reset_password").validate({
-      rules: {
-        password: {
-          required: true,
-          minlength: 6,
-        },
-        confirm_password: {
-          required: true,
-          equalTo: "#c_pass",
-        },
-      },
-      messages: {
-        password: "Please enter a password",
-        confirm_password: {
-          equalTo: "Passwords do not match",
-        },
-      },
-      errorPlacement: function (error, element) {
-        error.appendTo(element.parent());
-        error.addClass("error-message");
-      },
-      submitHandler: function (form) {
-        $.ajax({
-          type: "POST",
-          url: "././admin/forget_password_code.php",
-          data: formData,
-          success: function (response) {
-            var message = JSON.parse(response);
-            var token = message.token;
-            var email = message.email;
+    if ($(this).valid()) {
+      submitBtn.prop("disabled", true);
+      $.ajax({
+        type: "POST",
+        url: "././admin/std_reset_password.php",
+        data: formData,
+        success: function (response) {
+          var message = JSON.parse(response);
+          var token = message.token;
+          var email = message.email;
 
-            if (message.reset_msg === 2) {
-              clearResetPassForm();
-              showSuccessNotification();
-              submitBtn.prop("disabled", true);
-            } else if (
-              message.reset_msg === 3 ||
-              message.reset_msg === 4 ||
-              message.reset_msg === 5
-            ) {
-              clearResetPassForm();
-              showErrorNotification(message.reset_msg, token, email);
-            }
-          },
-          error: function (response) {
-            alert("Something went wrong");
-          },
-        });
-      },
-    });
+          if (message.reset_msg === 2) {
+            clearResetPassForm();
+            showSuccessNotification();
+            submitBtn.prop("disabled", false);
+          } else if (
+            message.reset_msg === 3 ||
+            message.reset_msg === 4 ||
+            message.reset_msg === 5
+          ) {
+            clearResetPassForm();
+            showErrorNotification(message.reset_msg, token, email);
+          }
+        },
+        error: function (response) {
+          alert("Something went wrong");
+        },
+      });
+    }
   });
   function clearResetPassForm() {
     reg_form.reset();
@@ -1281,7 +1287,12 @@ $(document).ready(function () {
   // ---------------------------interview_form-form-------------------------
   $("#interview_form").validate({
     rules: {
-      unique_id: "required",
+      unique_id:{
+        required:true,
+        digits:true,
+        minlength:6,
+        maxlength:6,
+      },
       date: "required",
       time: "required",
       name: "required",
@@ -1299,7 +1310,12 @@ $(document).ready(function () {
       message: "required",
     },
     messages: {
-      unique_id: "Please enter the confirmation code",
+      unique_id: {
+        required: "Please enter your id number",
+        digits: "Please enter a valid id number",
+        minlength: "Phone number must be 6 digits",
+        maxlength: "Phone number must be 6 digits",
+      },
       date: "Please select a date",
       time: "Please select a time",
       name: "Please enter your full name",
@@ -1307,7 +1323,12 @@ $(document).ready(function () {
         required: "Please enter your email address",
         email: "Please enter a valid email address",
       },
-      phone: "Please enter your phone number",
+      phone:{
+        required: "Please enter your phone number",
+        digits: "Please enter a valid phone number",
+        minlength: "Phone number must be 10 digits",
+        maxlength: "Phone number must be 10 digits",
+      },
       position: "Please select the position you applied for",
       message: "Please enter message",
     },
@@ -1356,7 +1377,6 @@ $(document).ready(function () {
               timer: 2500,
             });
             subBtn.prop("disabled", false);
-
           } else if (message.alert == 2) {
             Swal.fire({
               position: "center",
@@ -1383,7 +1403,32 @@ $(document).ready(function () {
               timer: 2500,
             });
             subBtn.prop("disabled", false);
-
+          }else if(message.alert == 3){
+            Swal.fire({
+              position: "center",
+              icon: "error",
+              text: "Unique Code not Valid",
+              showConfirmButton: false,
+              showClass: {
+                popup: "animate__animated animate__fadeInDown",
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp",
+              },
+              customClass: {
+                icon: "custom-icon-color",
+                modal: "custom-border",
+              },
+              width: 600,
+              color: "#EBAB56",
+              background: "#fff",
+              backdrop: `
+                                  rgba(40, 39, 19,0.4)
+                                  left top
+                                  no-repeat`,
+              timer: 2500,
+            });
+            subBtn.prop("disabled", false);
           }
           clearInput();
         },
@@ -1868,6 +1913,8 @@ $(document).ready(function () {
               window.location.href =
                 "././opportunities_view.php?id=" + result.data;
             });
+            opportunitiesSubmitBtn.prop("disabled", false); // Disable the submit button
+
           }
         },
         error: function (response) {

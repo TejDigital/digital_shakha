@@ -8,10 +8,10 @@ if (isset($_POST['update'])) {
     $name = mysqli_real_escape_string($con, $_POST['name']);
     $designation = mysqli_real_escape_string($con, $_POST['designation']);
 
-    $description = mysqli_real_escape_string($con, $_POST['description']);
+    $description = $_POST['description'];
     $description = str_replace("'", "\'", $description);
 
-    $tips = mysqli_real_escape_string($con, $_POST['tips']);
+    $tips = $_POST['tips'];
     $tips = str_replace("'", "\'", $tips);
 
     $old_image = mysqli_real_escape_string($con, $_POST['old_image']);

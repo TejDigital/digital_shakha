@@ -24,7 +24,7 @@ if (isset($_GET['id'])) {
                     <div class="text">
                         <div class="heading">
                             <h1>Application</h1>
-                            <p>Candidate Application Form</p> 
+                            <p>Candidate Application Form</p>
                             <div class="step_text">
                                 <p class="m-0"><span>Step 1 >> Step 2 >> </span> Step 3 >> Step 4</p>
                                 <p>Basic Details</p>
@@ -33,39 +33,52 @@ if (isset($_GET['id'])) {
                         <div class="app_top" id="app_top">
 
                         </div>
-                        <input type="text" placeholder="Mobile Number*"  name="phone" >
-                        <input type="email" placeholder="E-mail Address*" name="email" value="<?=$_SESSION['std_auth_user']['user_email']?>" >
+                        <input type="text" placeholder="Mobile Number*" name="phone">
+                        <input type="email" placeholder="E-mail Address*" name="email" value="<?= $_SESSION['std_auth_user']['user_email'] ?>">
                         <div class="permanent_address">
                             <div class="row">
                                 <div class="col-md-5">
                                     <p>Permanent Address</p>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" placeholder="Street Address Line 1" name="address1" >
-                                    <input type="text" placeholder="Street Address Line 2" name="address2" >
+                                    <input type="text" placeholder="Street Address Line 1" name="address1">
+                                    <input type="text" placeholder="Street Address Line 2" name="address2">
                                     <div class="flex-box">
-                                        <select name="country" id="country" >
-                                            <option value="">Select country</option>
-                                            <?php
-                                            $sql_country = "SELECT * FROM tbl_countries ORDER BY country_name ASC";
-                                            $sql_country_run = mysqli_query($con, $sql_country);
-                                            if (mysqli_num_rows($sql_country_run) > 0) {
-                                                foreach ($sql_country_run as $country) {
-                                            ?>
-                                                    <option value="<?= $country['country_id'] ?>"><?= $country['country_name'] ?></option>
-                                            <?php
+                                        <div class="address_box">
+                                            <select name="country" id="country">
+                                                <option value="">Select country</option>
+                                                <?php
+                                                $sql_country = "SELECT * FROM tbl_countries ORDER BY country_name ASC";
+                                                $sql_country_run = mysqli_query($con, $sql_country);
+                                                if (mysqli_num_rows($sql_country_run) > 0) {
+                                                    foreach ($sql_country_run as $country) {
+                                                ?>
+                                                        <option value="<?= $country['country_id'] ?>"><?= $country['country_name'] ?></option>
+                                                <?php
+                                                    }
                                                 }
-                                            }
-                                            ?>
-                                        </select>
-                                        <select name="state" id="state" >
-                                        </select>
+                                                ?>
+                                            </select>
+                                            <br>
+                                            <label id="country-error" class="error error-message" for="country"></label>
+                                        </div>
+                                        <div class="address_box">
+                                            <select name="state" id="state">
+                                            </select>
+                                            <label id="state-error" class="error error-message" for="state"></label>
+                                        </div>
                                     </div>
                                     <div class="flex-box">
-                                        <select name="city" id="city" >
+                                        <div class="address_box">
+                                            <select name="city" id="city">
 
-                                        </select>
-                                        <input type="text" maxlength="6"  placeholder="Postal Code" name="pin_code" >
+                                            </select>
+                                            <label id="city-error" class="error error-message" for="city"></label>
+                                        </div>
+                                        <div class="address_box">
+                                            <input type="text" maxlength="6" placeholder="Postal Code" name="pin_code">
+                                            <label id="pin_code-error" class="error error-message" for="pin_code"></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +86,7 @@ if (isset($_GET['id'])) {
                         <div class="color_line">
                             <p></p>
                         </div>
-                        <input type="text" placeholder="College Name*" name="college" >
+                        <input type="text" placeholder="College Name*" name="college">
                         <select name="degree">
                             <option value="">Select Degree</option>
                             <option value="1">BCA</option>

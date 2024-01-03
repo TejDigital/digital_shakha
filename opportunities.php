@@ -4,7 +4,7 @@ require('./admin/config/dbcon.php');
  ?>
 <section class="opportunities_1">
     <div class="container">
-        <div class="row">
+        <div class="row flex-change">
             <div class="col-md-6">
                 <div class="text">
                     <h1>Opportunities</h1>
@@ -15,7 +15,7 @@ require('./admin/config/dbcon.php');
                         opportunities is the key to reaching new heights.</p>
                 </div>
             </div>
-            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
                 <div class="img">
                     <span class="dot1"></span>
                     <span class="dot2"></span>

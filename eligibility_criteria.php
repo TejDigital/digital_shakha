@@ -4,7 +4,7 @@ require('./admin/config/dbcon.php');
  ?>
 <section class="eligibility_criteria_1">
     <div class="container">
-        <div class="row">
+        <div class="row flex-change">
             <div class="col-md-6">
                 <div class="text">
                     <h1>Eligibility Criteria</h1>
@@ -12,7 +12,7 @@ require('./admin/config/dbcon.php');
                     <p>The eligibility criteria are like the key to unlock the door to your chosen program. This section is all about helping you understand what it takes to get in. We lay out the specific requirements for each program, so you can quickly see if you're a match. From educational background to prior experience, it's all here. It's the first step to joining your dream program.</p>
                 </div>
             </div>
-            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-center pb-4">
                 <div class="img">
                     <span class="dot1"></span>
                     <span class="dot2"></span>

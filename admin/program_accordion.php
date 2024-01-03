@@ -17,10 +17,10 @@ if (isset($_SESSION['digi_meg'])) {
 }
 ?>
 <div class="page-header">
-    <h3 class="page-title">Program Details</h3>
+    <h3 class="page-title">Program Accordion</h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./program_details.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="./program_accordion.php">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Home</li>
         </ol>
     </nav>
@@ -29,17 +29,17 @@ if (isset($_SESSION['digi_meg'])) {
     <h3></h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#Add_detail">ADD</a></li>
+            <li class="breadcrumb-item"><a class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#Add_accordion">ADD</a></li>
         </ol>
     </nav>
 </div>
 
-<div class="modal fade" id="Add_detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="Add_accordion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./program_detail_code.php" method="POST">
+            <form action="./program_accordion_code.php" method="POST">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add detail</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add accordion</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
@@ -62,12 +62,48 @@ if (isset($_SESSION['digi_meg'])) {
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <label for="">Heading</label>
-                            <input type="text" class="form-control mb-2" name="heading" placeholder="type heading">
+                            <label for="">Dropdown Heading</label>
+                            <input type="text" class="form-control mb-2" name="dropdown_heading" placeholder="add dropdown heading">
                         </div>
                         <div class="col-md-4">
-                            <label for="">Main Description</label>
-                            <textarea name="description" class="form-control mb-2" cols="30" rows="10"></textarea>
+                            <label for="">Dropdown days</label>
+                            <select name="day" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                                <option value="">Select day</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="">Dropdown Description</label>
+                            <textarea name="dropdown_description" class="form-control mb-2" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                 </div>
@@ -80,22 +116,22 @@ if (isset($_SESSION['digi_meg'])) {
     </div>
 </div>
 
-<div class="modal fade" id="program_detail_delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="program_accordion_delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Delete Program detail</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Delete Program accordion</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                 </button>
             </div>
-            <form action="./program_detail_delete.php" method="POST">
+            <form action="./program_accordion_delete_code.php" method="POST">
                 <div class="modal-body">
-                    <input type="hidden" name="program_detail_delete_id" class="program_detail_delete_id">
+                    <input type="hidden" name="program_accordion_delete_id" class="program_accordion_delete_id">
                     <p>Are you sure , you want to delete this data ?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" name="program_detail_delete" class="btn btn-danger">Delete</button>
+                    <button type="submit" name="program_accordion_delete" class="btn btn-danger">Delete</button>
                 </div>
             </form>
         </div>
@@ -118,7 +154,7 @@ if (isset($_SESSION['digi_meg'])) {
                         </thead>
                         <tbody>
                             <?php
-                            $sql = "SELECT * FROM program_detail_tbl left join program_tbl on program_detail_tbl.program = program_tbl.program_id ORDER BY program_detail_tbl.created_at DESC";
+                            $sql = "SELECT * FROM program_accordion_tbl left join program_tbl on program_accordion_tbl.program = program_tbl.program_id ORDER BY program_accordion_tbl.created_at DESC";
                             $query = mysqli_query($con, $sql);
                             $count = 1;
                             if (mysqli_num_rows($query)) {
@@ -129,18 +165,18 @@ if (isset($_SESSION['digi_meg'])) {
                                         <td><?php if ($data['program_id'] == $data['program']) {
                                                 echo $data['program_name'];
                                             } ?></td>
-                                        <td><?= $data['program_detail_heading'] ?></td>
+                                        <td><?= $data['program_detail_dropdown_heading'] ?></td>
                                         <td><?php
-                                            if ($data['program_detail_status'] == 1) {
+                                            if ($data['program_accordion_status'] == 1) {
                                                 echo "Active";
                                             } else {
                                                 echo "inactive";
                                             }
                                             ?></td>
                                         <td class="text-center">
-                                            <a href="./program_detail_edit.php?id=<?= $data['program_detail_id'] ?>" class='btn btn-square action_btn_edit btn-sm my-1'><i class="fa-regular fa-pen-to-square m-0"></i></a>
-                                            <a href="./program_detail_view.php?id=<?= $data['program_detail_id'] ?>" class='btn btn-square action_btn_view btn-sm my-1'><i class="fa-regular fa-eye m-0"></i></a>
-                                            <button type='button' value=<?php echo $data['program_detail_id']; ?> class='btn btn-square action_btn_delete program_detail_delete btn-sm my-1'><i class="fa-solid fa-trash m-0"></i></button>
+                                            <a href="./program_accordion_edit.php?id=<?= $data['program_accordion_id'] ?>" class='btn btn-square action_btn_edit btn-sm my-1'><i class="fa-regular fa-pen-to-square m-0"></i></a>
+                                            <a href="./program_accordion_view.php?id=<?= $data['program_accordion_id'] ?>" class='btn btn-square action_btn_view btn-sm my-1'><i class="fa-regular fa-eye m-0"></i></a>
+                                            <button type='button' value=<?php echo $data['program_accordion_id']; ?> class='btn btn-square action_btn_delete program_accordion_delete btn-sm my-1'><i class="fa-solid fa-trash m-0"></i></button>
                                         </td>
                                     </tr>
                             <?php
@@ -161,12 +197,12 @@ require('./includes/script.php');
 <script>
     // -----------------------delete------------------------
     $(document).ready(function() {
-        $('.program_detail_delete').click(function(e) {
+        $('.program_accordion_delete').click(function(e) {
             e.preventDefault();
             var user_id = $(this).val();
             // console.log(user_id);
-            $('.program_detail_delete_id').val(user_id);
-            $('#program_detail_delete_modal').modal('show');
+            $('.program_accordion_delete_id').val(user_id);
+            $('#program_accordion_delete_modal').modal('show');
         });
     });
 </script>

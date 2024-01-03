@@ -40,6 +40,8 @@
     position: relative;
     /* width: 85%;
     margin-left: 7.5%; */
+    margin-top: 1rem;
+
 }
 
 .application_1 .btn_area button {
@@ -94,12 +96,15 @@
 
 }
 
-.application_1 .text .permanent_address .flex-box select {
+.application_1 .text .permanent_address .flex-box .address_box {
     width: 50%;
+}
+.application_1 .text .permanent_address .flex-box select {
+    width: 100%;
 }
 
 .application_1 .text .permanent_address .flex-box input {
-    width: 50%;
+    width: 100%;
 }
 
 .application_1 .text .permanent_address .flex-box input:nth-child(2) {
@@ -109,7 +114,7 @@
 .application_1 .text input[type="text"] {
     padding: 0.8rem;
     border: 1px solid #000;
-    margin: 0.8rem 0;
+    margin-top: 1rem;
     width: 100%;
 }
 
@@ -155,19 +160,19 @@
 .application_1 .text input[type="date"] {
     padding: 0.8rem;
     border: 1px solid #000;
-    margin: 0.8rem 0;
+    margin-top: 1rem;
 }
 
 .application_1 .text input[type="email"] {
     padding: 0.8rem;
     border: 1px solid #000;
-    margin: 0.8rem 0;
+    margin-top: 1rem;
 }
 
 .application_1 .text input[type="file"] {
     padding: 0.8rem;
     border: 1px solid #000;
-    margin: 0.8rem 0;
+    margin-top: 1rem;
     /* width: 100%; */
 }
 
@@ -175,7 +180,7 @@
     /* padding: 1rem; */
     width: 100%;
     border: 1px solid transparent;
-    margin: 1rem 0;
+    margin-top: 1rem;
     box-shadow: none !important;
     border-radius: 0 !important;
 }
@@ -220,7 +225,7 @@
 .application_1 .text select {
     padding: 1rem;
     border: 1px solid #000;
-    margin: 1rem 0;
+    margin-top: 1rem;
 }
 
 .application_1 .text .check {

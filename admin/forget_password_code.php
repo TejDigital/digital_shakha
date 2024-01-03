@@ -9,121 +9,251 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
-function send_reset_pass($name, $get_email, $token)
-{
-  $mail = new PHPMailer(true);
-  // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
-  $mail->SMTPDebug = 0;                      
-  $mail->isSMTP();
-  $mail->Host = 'smtp.gmail.com'; 
-  $mail->Port = 587;  
-  $mail->SMTPAuth = true;
-  $mail->Username = 'tejpratap.digitalshakha@gmail.com';  
-  $mail->Password = 'ckytndyqptfopcns'; 
-  $mail->SMTPSecure = 'tls';  
 
-  $mail->setFrom('tejpratap.digitalshakha@gmail.com', 'Mailer');
-  $mail->addAddress($get_email, $name);     
+$email = mysqli_real_escape_string($con,  $_POST['forget_email']);
+$token = md5(rand());
+$resend = "SELECT * FROM users WHERE email = '$email'";
+$resend_query = mysqli_query($con, $resend);
 
-  $mail->isHTML(true);                                  
-  $mail->Subject = 'resend - Password verification from the king';
-  $mail->Body = '<html>
+if (mysqli_num_rows($resend_query) > 0) {
+  $row = mysqli_fetch_assoc($resend_query);
+  $name = $row['name'];
+  $get_email = $row['email'];
+
+  $update_token = "UPDATE users SET verification_token ='$token' WHERE email='$get_email' limit 1";
+  $update_token_query = mysqli_query($con, $update_token);
+
+  if ($update_token_query) {
+    // send_reset_pass($name, $get_email, $token);
+    try {
+      $mail = new PHPMailer();
+      // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+      $mail->isSMTP();
+      $mail->isHTML(true);
+      $mail->Host = 'smtp.gmail.com';
+      $mail->Port = 587;
+      $mail->SMTPAuth = true;
+      $mail->Username = 'tejpratap.digitalshakha@gmail.com';
+      $mail->Password = 'ckytndyqptfopcns';
+      $mail->SMTPSecure = 'tls';
+
+      //Recipients
+      $mail->setFrom('tejpratap.digitalshakha@gmail.com', 'Digitalshakha');
+      $mail->addAddress($get_email, $name);     //Add a recipient
+
+      //Content
+      $mail->Subject = 'Application Received - Confirmation';
+      $mail->Body = "<!DOCTYPE html>
+        <html lang='en'>
         <head>
-          <style>
-            body {
-              font-family: Arial, sans-serif;
-              background-color: #f1f1f1;
-            }
-            h1 {
-              color: #333;
-            }
-            h1 span{
-              color:#000000;
-            }
-            p {
-              color: #555;
-            } 
-          </style>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <title>Digitalshakha</title>
+            <style>
+                * {
+                    padding: 0;
+                    margin: 0;
+                    box-sizing: border-box;
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+        
+                .email_1 {
+                    padding: 2rem;
+                }
+        
+                .email_1 .img {
+                    width: 300px;
+                    margin-bottom: 1rem;
+                }
+        
+                .email_1 .img img {
+                    width: 100%;
+                    width: 100%;
+                }
+        
+                .email_1 .text_box {
+                    border: 1px solid #BB5327;
+                    padding: 2rem;
+                    text-align: left;
+                }
+        
+                .email_1 .text_box ul {
+                    list-style: none;
+                    text-align: left;
+                    margin: 2rem 0;
+                    /* padding-left: 2rem; */
+                }
+        
+                .email_1 .text_box ul li {
+                    list-style: none;
+                }
+        
+                .email_1 .text_box p {
+                    font-size: 1rem;
+                    font-weight: 500;
+                    line-height: 22px;
+                    /* text-align: center; */
+                    margin-bottom: 1rem;
+                }
+                .email_1 .text_box h2 {
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    line-height: 30px;
+                    margin-bottom:2rem;
+                }
+                .email_1 .text_box h3 {
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    line-height: 22px;
+                }
+        
+                .email_2 {
+                    padding: 1rem;
+                    background-color: #BB532733;
+                }
+        
+                .email_2 .social_links {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+        
+                .email_2 .social_links h1 {
+                    font-size: 1.4rem;
+                    font-weight: 400;
+                    line-height: 30px;
+                    color: #5C2109;
+                }
+        
+                .email_2 .social_links .links {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 0 1rem;
+                }
+        
+                .email_2 .social_links .links a {
+                    text-decoration: none;
+                }
+        
+                .email_2 .social_links .links a img {
+                    width: 30px;
+                }
+        
+                .email_3 {
+                    padding: 2rem;
+                    background-color: #1A0E09;
+                    color: #FFFFFF;
+                    text-align: center;
+                }
+        
+                .email_3 .footer .text1 {
+                    padding: 2rem;
+                }
+        
+                .email_3 .footer .text1 p {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    line-height: 24px;
+                }
+        
+                .email_3 .footer .text1 p a {
+                    color: #FFFFFF;
+                    text-decoration: none;
+                }
+        
+                .email_3 .footer .end_text p {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    line-height: 24px;
+                }
+        
+                .email_3 .footer .end_text p a {
+                    color: #FFFFFF;
+                    text-decoration: none;
+                }
+        
+                @media(max-width:500px) {
+                    .email_2 .social_links {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+                    }
+        
+                    .email_1 .img {
+                        width: 200px;
+                        margin-bottom: 1rem;
+                    }
+                }
+            </style>
         </head>
+        
         <body>
-          <h1>New query from the <span> KING </span></h1>
-          <p><strong>Name:</strong> ' . $name . '</p>
-          <p><strong>Email:</strong> ' . $get_email . '</p>
-          <p><strong>Message:</strong></p>
-          <p> <a href="https://digitalshakha.com/internship/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
-          </body>
-          </html>';
-          // <p> <a href="http://localhost/digital_shakha/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
-          // <p> <a href="https://digitalshakha.com/internship/reset_password.php?token=' . $token . '&email=' . $get_email . '">click</a> </p>
+            <div class='#mailBody'>
+                <section class='email_1'>
+                    <div class='img'>
+                    // <img src='./digital_logo.png'>
+                     </div>
+                     <br>
+                     <br>
+                    <div class='text_box'>
+                        <h2>To reset your Digitalshakha password, click:</h2>
+                        <p> <a href='https://learn.digitalshakha.in/reset_password.php?token=" . $token . '&email=' . $get_email . "'>click</a> </p>
+      
+                        <ul>
+                            <li style='margin-bottom: .5rem;'>
+                                <h3>Detail:</h3>
+                            </li>
+                            <li><span>Name</span>:" . $name . "</li>
+                            <li><span>Email</span>: " . $get_email . "</li>
+                        </ul>
+      
+                        <p>Stay Connected, Stay Empowered!</p>
           
-  $mail->send();
-}
+                        <p>Thank you for being a part of the DigitalShakha journey. We look forward to keeping you informed and inspired!</p>
+                    </div>
+                </section>
+                <section class='email_2'>
+                    <div class='social_links'>
+                        <h3>Follow Digitalshakha on:</h3>
+                        <div class='links'>
+                            <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='../assets/images/Instagram.svg' alt=''></a>
+                            <a href='https://www.behance.net/digitalshakha_/info'><img src='../assets/images/Behance.svg' alt=''></a>
+                            <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='../assets/images/Facebook.svg' alt=''></a>
+                            <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='../assets/images/YouTube.svg' alt=''></a>
+                            <a href='https://www.linkedin.com/company/digitalshakha/'><img src='../assets/images/LinkedIn_link.svg' alt=''></a>
+                            <a href='https://in.pinterest.com/digitalshakha_/'><img src='../assets/images/Pinterest.svg' alt=''></a>
+                        </div>
+                    </div>
+                </section>
+                <section class='email_3'>
+                    <div class='footer'>
+                        <div class='text1'>
+                            <p><a href='#!'>Unsubscribe</a> or manage preferences</p>
+                        </div>
+                        <div class='end_text'>
+                            <p> © 2023 <a href='https://www.digitalshakha.in'>Digitalshakha</a>, All Rights Reserved | PLOT - 490-B, cross, Street 25, main road, Smriti Nagar, Bhilai, Chhattisgarh 490020</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </body>
+        </html>";
+      // <p> <a href='http://localhost/digital_shakha/reset_password.php?token=" . $token . '&email=' . $get_email . "'>click</a> </p>
+      // <p> <a href='https://learn.digitalshakha.in/reset_password.php?token=" . $token . '&email=' . $get_email . "'>click</a> </p>
+      // <p> <a href='https://digitalshakha.com/internship/reset_password.php?token=" . $token . '&email=' . $get_email . "'>click</a> </p>
 
-if (isset($_POST['forget_email'])) {
-  $email = mysqli_real_escape_string($con,  $_POST['forget_email']);
-  $token = md5(rand());
-  $resend = "SELECT * FROM users WHERE email = '$email'";
-  $resend_query = mysqli_query($con, $resend);
+      $mail->send();
 
-  if (mysqli_num_rows($resend_query) > 0) {
-    $row = mysqli_fetch_assoc($resend_query);
-    $name = $row['name'];
-    $get_email = $row['email'];
-
-    $update_token = "UPDATE users SET verification_token ='$token' WHERE email='$get_email' limit 1";
-    $update_token_query = mysqli_query($con, $update_token);
-
-    if ($update_token_query) {
-      send_reset_pass($name, $get_email, $token);
       echo json_encode(array("forget_msg" => 2)); //Check your email for reset password
-    } else {
-      echo json_encode(array("forget_msg" => 3)); //Something went wrong
+
+      exit(0);
+    } catch (Exception $e) {
+      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
   } else {
-    echo json_encode(array("forget_msg" => 4)); //Email not found
+    echo json_encode(array("forget_msg" => 3)); //Something went wrong
   }
-}
-
-
-
-
-
-// ------------------------------reset-password-code------------------
-
-if (isset($_POST['new_forget_email'])) {
-  $email = mysqli_real_escape_string($con, $_POST['new_forget_email']);
-  $password = mysqli_real_escape_string($con, $_POST['password']);
-  $confirm_password =  mysqli_real_escape_string($con, $_POST['confirm_password']);
-  $token = mysqli_real_escape_string($con, $_POST['token']);
-
-  $check = "SELECT verification_token from users where  verification_token = '$token' limit 1";
-  $check_query = mysqli_query($con, $check);
-
-  if (mysqli_num_rows($check_query) > 0) {
-    if ($password == $confirm_password) {
-      $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-      $update_pass = "UPDATE users SET password ='$hashed_password' WHERE verification_token='$token' limit 1";
-      $update_pass_query = mysqli_query($con, $update_pass);
-
-      if ($update_pass_query) {
-        // $_SESSION['message'] = "New Password Updated";
-        // header('location:../index.php');
-        echo json_encode(array("reset_msg" => 2));//New Password Updated
-  
-      } else {
-        // $_SESSION['message'] = "Something went wrong";
-        echo json_encode(array("reset_msg" => 3 , "token" => $token , "email" => $email));//Something went wrong
-        // header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
-      }
-    } else {
-      // $_SESSION['message'] = "Password not match";
-      echo json_encode(array("reset_msg" => 4 , "token" => $token , "email" => $email));//Password not match
-      // header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
-    }
-  } else {
-    // $_SESSION['message'] = "Invalid token";
-    echo json_encode(array("reset_msg" => 5 , "token" => $token , "email" => $email));//Invalid token
-    // header('location:../setPassword.php?token=' . $token . '&email=' . $email . '');
-  }
+} else {
+  echo json_encode(array("forget_msg" => 4)); //Email not found
 }

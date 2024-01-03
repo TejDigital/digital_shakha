@@ -1,63 +1,40 @@
 <?php
+session_start();
 require('./config/dbcon.php');
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
-$name = $_POST['name'];
-$unique_id = $_POST['unique_id'];
-$date = $_POST['date'];
-$time = $_POST['time'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$position = $_POST['position'];
-$message = $_POST['message'];
+if (isset($_POST['add'])) {
+    $email = $_POST['email'];
+    $unique_code = $_POST['code'];
 
-$check_unique_code = "SELECT * FROM opportunities_request_tbl WHERE unique_code = '$unique_id'";
-$check_unique_code_run = mysqli_query($con, $check_unique_code);
+    $sql = "INSERT INTO unique_code_tbl(email,unique_code)VALUES('$email','$unique_code')";
+    $sql_run = mysqli_query($con, $sql);
 
-// $check_unique_code2 = "SELECT * FROM unique_code_tbl WHERE unique_code = '$unique_id'";
-// $check_unique_code_run2 = mysqli_query($con, $check_unique_code2);
+    if ($sql_run) {
+        try {
+            $mail = new PHPMailer();
+            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            $mail->isSMTP();
+            $mail->isHTML(true);
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPAuth = true;
+            $mail->Username = 'tejpratap.digitalshakha@gmail.com';
+            $mail->Password = 'ckytndyqptfopcns';
+            $mail->SMTPSecure = 'tls';
 
-// if (mysqli_num_rows($check_unique_code_run) > 0 && mysqli_num_rows($check_unique_code_run2) > 0) {
-    if (mysqli_num_rows($check_unique_code_run) >  0) {
+            //Recipients
+            $mail->setFrom('tejpratap.digitalshakha@gmail.com', 'Digitalshakha');
+            $mail->addAddress($email);     //Add a recipient
+            // $mail->addAttachment('./digital_logo.png');
 
-$sql = "INSERT INTO schedule_interview_tbl(unique_id, name, email, phone, date, time, position, message) VALUES ('$unique_id','$name','$email','$phone','$date','$time','$position','$message')";
-
-$sql_run = mysqli_query($con,$sql);
-
-if($sql){
-
-    try {
-        $mail = new PHPMailer();
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-        $mail->isSMTP();
-        $mail->isHTML(true);
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Port = 587;
-        $mail->SMTPAuth = true;
-        $mail->Username = 'tejpratap.digitalshakha@gmail.com';
-        $mail->Password = 'ckytndyqptfopcns';
-        $mail->SMTPSecure = 'tls';
-
-        //Recipients
-        $mail->setFrom('tejpratap.digitalshakha@gmail.com', 'Digitalshakha');
-        $mail->addAddress($email, $name);     //Add a recipient
-        // $mail->addAttachment('./digital_logo.png');
-
-
-        // // Embed an image
-        // $imagePath = 'digital_logo.png'; // Replace with the actual path to your image
-        // $imageCID = 'unique-cid'; // Unique Content-ID for the image
-        // $mail->addEmbeddedImage($imagePath, $imageCID);
-
-
-        //Content
-        $mail->Subject = 'Interview Schedule Confirmation';
-        $mail->Body = "<!DOCTYPE html>
+            //Content
+            $mail->Subject = 'Unique code for Schedule interview at Digitalshakha';
+            $mail->Body = "<!DOCTYPE html>
         <html lang='en'>
         <head>
             <meta charset='UTF-8'>
@@ -73,6 +50,10 @@ if($sql){
         
                 .email_1 {
                     padding: 2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
                 }
         
                 .email_1 .img {
@@ -110,10 +91,9 @@ if($sql){
                     margin-bottom: 1rem;
                 }
                 .email_1 .text_box h2 {
-                    font-size: 1.3rem;
+                    font-size: 1.5rem;
                     font-weight: 600;
                     line-height: 30px;
-                    margin-bottom:2rem;
                 }
                 .email_1 .text_box h3 {
                     font-size: 1.2rem;
@@ -204,31 +184,23 @@ if($sql){
         
         <body>
             <div class='#mailBody'>
-                <section class='email_1'>
+                <section class='email_1' style = 'flex-direction:column;'>
                     <div class='img'>
-                 <img src = './digital_logo.png' >
+                        <img src='./digital_logo.png' >
                      </div>
-                     <br>
-                     <br>
                     <div class='text_box'>
-                        <h2>Congratulations on reaching the interview scheduling stage! We appreciate your interest in joining our team. To ensure a smooth process, please review and confirm the details below for your upcoming interview:</h2>
+                        <h2>Thank you for your interest in DigitalShakha.</h2>
                         <ul>
-                        <li><span>Interview Date:</span>:" . $date . "</li>
-                        <li><span>Interview Time:</span>: " . $time . "</li>
-                    </ul>
-
-                        <ul>
-                        <li style='margin-bottom: .5rem;'>
-                            <h3>Personal Information:</h3>
-                        </li>
-                        <li><span>Name</span>:" . $name . "</li>
-                        <li><span>Number</span>: " . $phone . "</li>
-                        <li><span>Email</span>: " . $email . "</li>
-                    </ul>
-                      
-                        <p>Please be punctual and ensure that you are well-prepared for the interview. We look forward to getting to know you better and exploring your potential contributions to our team.
-                        </p>
+                            <li style='margin-bottom: .5rem;'>
+                                <h3>Details:</h3>
+                            </li>
+                            <li><span>Name</span>:" . $email . "</li>
+                            <li><span>Unique code</span>: " . $unique_code . "</li>
+                        </ul>
         
+                        <p>Our team is reviewing your request, and we'll get back to you soon. In the meantime, feel free to reach out if you have any questions.
+                        </p>
+                
                         <p>Thank you for choosing DigitalShakha</p>
                     </div>
                 </section>
@@ -259,19 +231,14 @@ if($sql){
         </body>
         </html>
         ";
-        $mail->send();
-        echo json_encode(array("alert"=>1)); //we are connect soon
-        exit(0);
-    } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            $mail->send();
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+        $_SESSION['digi_meg'] = "send";
+        header('Location:./send_unique_code.php');
+    } else {
+        $_SESSION['digi_meg'] = "Failed";
+        header('Location:./send_unique_code.php');
     }
-    
-
-}else{
-    echo json_encode(array("alert"=>2)); //Something went wrong
-}
-
-}else{
-    echo json_encode(array("alert"=>3)); //Code not valid
-
 }

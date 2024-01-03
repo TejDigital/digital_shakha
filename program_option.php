@@ -4,7 +4,7 @@ require('./admin/config/dbcon.php');
 ?>
 <section class="program_option_1">
     <div class="container">
-        <div class="row">
+        <div class="row flex-change">
             <div class="col-md-6">
                 <div class="text">
                     <h1>Program Options</h1>
@@ -12,7 +12,7 @@ require('./admin/config/dbcon.php');
                     <p>Digitalshakha offers a rich array of programs designed to catapult your career in the digital world. Our comprehensive programs are meticulously crafted to equip you with the skills and expertise you need to thrive in the industry. Whether you're a tech enthusiast, a creative mind, or a data aficionado, we have the perfect program for you.</p>
                 </div>
             </div>
-            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
+            <div class="col-md-6 dot-position d-flex align-items-center justify-content-center">
                 <div class="img">
                     <span class="dot1"></span>
                     <span class="dot2"></span>

@@ -69,6 +69,7 @@
                       <span>6:30 PM</span>
                     </label>
                   </div>
+                  <label id="time-error" class="error error-message" for="time"></label>
                 </div>
               </div>
             </div>

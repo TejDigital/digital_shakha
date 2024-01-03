@@ -22,52 +22,52 @@
     color: #615D5D;
 }
 
-.seasonal_placements_1 .dot-position {
-
-    position: relative;
-}
-
 .seasonal_placements_1 .img {
     width: 100%;
     max-width: 300px;
+    position: relative;
 }
 
 .seasonal_placements_1 .img .dot1 {
-    /* position: absolute; */
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: #BB5327;
 }
 
 .seasonal_placements_1 .img .dot2 {
     position: absolute;
     display: block;
-    right: 1rem;
+    right: 0rem;
     top: 0;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: #BB5327;
 }
 
 .seasonal_placements_1 .img .dot3 {
     position: absolute;
     display: block;
+    bottom: 0rem;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     background-color: #BB5327;
 }
 
 .seasonal_placements_1 .img .dot4 {
     position: absolute;
-    right: 3rem;
+    right: -3rem;
+    bottom: 0rem;
     display: block;
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
     background-color: #5C2109;
 }
 
@@ -81,7 +81,18 @@
     .seasonal_placements_1 {
         padding: 2rem 0;
     }
+    .seasonal_placements_1 .img .dot4 {
+        position: absolute;
+        right: 0rem;
+        bottom: 0rem;
+        display: block;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background-color: #5C2109;
+    }
 }
+
 
 /* ------------------------seasonal_placements_1---------- */
 .seasonal_placements_2 {

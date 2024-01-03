@@ -197,7 +197,16 @@ if (isset($_GET['id'])) {
         <div class="row">
             <div class="col-md-6">
                 <div class="heading">
-                    <h1>Get Set for a Career in UX Design</h1>
+                    <?php
+                    $sql = "SELECT * FROM program_outcome_heading WHERE program = '$id'";
+                    $sql_run = mysqli_query($con, $sql);
+                    if (mysqli_num_rows($sql_run)) {
+                        $row = mysqli_fetch_assoc($sql_run);
+                    ?>
+                        <h1><?=$row['heading']?></h1>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div class="list">
                     <ul>
@@ -349,12 +358,12 @@ if (isset($_GET['id'])) {
         </div>
         <div class="modules">
             <?php
-            $sql = "SELECT * FROM program_detail_tbl WHERE program = '$id' limit 1";
+            $sql = "SELECT * FROM program_accordion_tbl WHERE program = '$id' limit 1";
             $sql_run = mysqli_query($con, $sql);
             if (mysqli_num_rows($sql_run)) {
                 foreach ($sql_run as $data) {
                     $count = 1;
-                    if ($data['program_detail_heading'] != '') {
+                    if ($data['program_detail_dropdown_heading'] != '') {
             ?>
                         <div class="toggle_box main_box">
                             <div class="left">

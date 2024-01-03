@@ -59,6 +59,14 @@
           </a>
         </li>
         <li class="nav-item menu-items">
+          <a class="nav-link" href="send_unique_code.php">
+            <span class="menu-icon">
+              <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Send Code</span>
+          </a>
+        </li>
+        <li class="nav-item menu-items">
           <a class="nav-link" href="employee_contact.php">
             <span class="menu-icon">
               <i class="mdi mdi-speedometer"></i>
@@ -145,8 +153,10 @@
               <li class="nav-item"> <a class="nav-link" href="./program_about.php">Program about</a></li>
               <li class="nav-item"> <a class="nav-link" href="./program_skill.php">Program skill</a></li>
               <li class="nav-item"> <a class="nav-link" href="./program_outcome.php">Program outcome</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./program_outcome_heading.php">Program outcome heading</a></li>
               <li class="nav-item"> <a class="nav-link" href="./program_outcome_image.php">Program outcome image</a></li>
               <li class="nav-item"> <a class="nav-link" href="./program_details.php">Program Details</a></li>
+              <li class="nav-item"> <a class="nav-link" href="./program_accordion.php">Program Accordion</a></li>
               <li class="nav-item"> <a class="nav-link" href="./program_testimonial.php">Program Testimonial</a></li>
             </ul>
           </div>

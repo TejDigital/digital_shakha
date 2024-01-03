@@ -84,6 +84,7 @@
                                 <option value="Other (Please Specify)">Other (Please Specify)</option>
                             </select>
                         </div>
+                        <label id="employee_partnership_interest-error" class="error error-message" for="employee_partnership_interest"></label>
                         <div class="col-md-12">
                             <div class="input_box2">
                                 <textarea name="employee_goal_and_values" cols="30" rows="5" class="input_area" placeholder="Briefly Describe Your Organization's Goals and Values"></textarea>
@@ -103,6 +104,7 @@
                                 <option value="Other (Please Specify)">Other (Please Specify)</option>
                             </select>
                         </div>
+                        <label id="hear_about_us-error" class="error error-message" for="hear_about_us"> </label>
                         <div class="col-md-12">
                             <div class="input_box2">
                                 <textarea name="employee_questions" cols="30" rows="5" class="input_area" placeholder="Any Specific Questions or Information You Would Like to Share"></textarea>
@@ -113,6 +115,7 @@
                                 <input type="checkbox" name="check_box" class="checkbox">
                                 <p>By submitting this form, you agree to allow DigitalShakha to contact you regarding your partnership inquiry. Rest assured, your information will be handled with confidentiality and used exclusively for communication purposes.</p>
                             </div>
+                            <label id="check_box-error" class="error error-message" for="check_box"></label>
                         </div>
                         <div class="btn_area">
                             <button type="submit">Submit Your Inquiry</button>

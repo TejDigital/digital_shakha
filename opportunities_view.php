@@ -50,7 +50,7 @@ if (isset($_GET['id'])) {
                                     <label id="fileInput1-error" class="error error-message" for="fileInput1"></label>
                                 </div>
                                 <div class="btn_area">
-                                    <button type="submit">Submit</button>
+                                    <button type="submit" id="opportunitiesSubmitBtn">Submit</button>
                                 </div>
                             </div>
                         </form>

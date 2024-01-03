@@ -49,11 +49,12 @@
 .contact_1 .inputs form .input_box {
     width: 100%;
     padding: 1rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
     border: 1px solid #000;
 }
 
 .contact_1 .inputs form .btn_contact {
+    margin-top: 1rem;
     color: #fff;
     font-size: 1.1rem;
     font-weight: 600;

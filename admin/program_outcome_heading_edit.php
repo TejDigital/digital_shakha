@@ -8,7 +8,7 @@ require('./config/dbcon.php');
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM program_detail_tbl WHERE program_detail_id = '$id'";
+    $sql = "SELECT * FROM program_outcome_heading WHERE outcome_heading_id = '$id'";
 
     $sql_run = mysqli_query($con, $sql);
 
@@ -30,10 +30,10 @@ if (isset($_SESSION['digi_meg'])) {
 }
 ?>
 <div class="page-header">
-    <h3 class="page-title">Program detail Edit </h3>
+    <h3 class="page-title">Program outcome heading Edit </h3>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="./program_details.php">Home</a></li>
+            <li class="breadcrumb-item"><a href="./program_outcome_heading.php">Home</a></li>
         </ol>
     </nav>
 </div>
@@ -41,8 +41,8 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="row">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="col-md-12 p-0 app-click">
-            <form action="./program_detail_edit_code.php" method="post">
-                <input type="hidden" value="<?= $row['program_detail_id'] ?>" name="id">
+            <form action="./program_outcome_heading_edit_code.php" method="post">
+                <input type="hidden" value="<?= $row['outcome_heading_id'] ?>" name="id">
                 <div class="row">
                     <div class="col-md-4">
                         <label for="">Batch Name</label>
@@ -64,27 +64,20 @@ if (isset($_SESSION['digi_meg'])) {
                     </div>
                     <div class="col-md-4">
                         <Label>Status</Label>
-                        <select name="status" class="form-select mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
-                            <option <?php if ($row['program_detail_status'] == 1) {
+                        <select name="status" class="form-select mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <option <?php if ($row['outcome_status'] == 1) {
                                         echo "selected";
                                     } ?> value="1">Active</option>
-                            <option <?php if ($row['program_detail_status'] == 0) {
+                            <option <?php if ($row['outcome_status'] == 0) {
                                         echo "selected";
                                     } ?> value="0">inactive</option>
                         </select>
                     </div>
-                  
-
                     <div class="col-md-4">
-                        <label for="">heading</label>
-                        <input type="text" class="form-control mb-2" name="heading" value="<?= $row['program_detail_heading'] ?>">
+                        <label for="">List</label>
+                        <input type="text" name="heading" value="<?= $row['heading'] ?>" class="form-control mb-2 ">
                     </div>
-                
-                    <div class="col-md-6">
-                        <label for="">Main Description</label>
-                        <textarea name="description" class="form-control mb-2" cols="30" rows="10"><?= $row['program_detail_description'] ?></textarea>
-                    </div>
-            
+
                 </div>
                 <button class="btn btn-success my-2" type="submit" name="update">Update</button>
             </form>

@@ -1,7 +1,7 @@
 <?php require('./includes/header.php'); ?>
 <section class="resources_1">
     <div class="container">
-        <div class="row flex-change " >
+        <div class="row flex-change ">
             <div class="col-md-6  d-flex align-items-center justify-content-start">
                 <div class="text">
                     <h1 class="mb-2">Resources</h1>
@@ -12,7 +12,7 @@
             </div>
             <div class="col-md-6 dot-position ">
                 <div class="img">
-                <div class="img_area1">
+                    <div class="img_area1">
                         <img src="./assets/images/resources_bg_1.png" alt="">
                         <span class="dot1"></span>
                         <img src="./assets/images/resources_bg_2.png" alt="">
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
 </section>
 <section class="resources_2">
@@ -137,7 +137,7 @@
                     </div>
                     <div class="img img2">
                         <a href="#!"><img src="./assets/images/slack-logo.png" alt=""></a>
-                       <a href="#!"> <img src="./assets/images/channels-logo.png" alt=""></a>
+                        <a href="#!"> <img src="./assets/images/channels-logo.png" alt=""></a>
                     </div>
                 </div>
             </div>

@@ -28,6 +28,8 @@ if (isset($_POST['adduser'])) {
 
     if ($password == $confirmpassword) {
 
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
         $confirmemail = "SELECT email FROM users WHERE email='$email'";
         $confirmemail_run = mysqli_query($con, $confirmemail);
 
@@ -36,7 +38,7 @@ if (isset($_POST['adduser'])) {
             $_SESSION['cons_msg'] = "Email Already taken !";
             header('location:registered.php');
         } else {
-            $adduser_qurey = "INSERT INTO users(name,phone,email,password,type) values('$name','$phone','$email','$password','$type')";
+            $adduser_qurey = "INSERT INTO users(name,phone,email,password,type) values('$name','$phone','$email','$hashed_password','$type')";
 
             $adduser_connect_db = mysqli_query($con, $adduser_qurey);
 
@@ -63,9 +65,11 @@ if (isset($_POST['updateuser'])) {
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $password = $_POST["password"];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
     $role_as = $_POST["type"];
 
-    $query = "UPDATE users SET  name='$name',email='$email', phone='$phone' ,password='$password',type='$role_as' WHERE id='$user_id'";
+    $query = "UPDATE users SET  name='$name',email='$email', phone='$phone' ,password='$hashed_password',type='$role_as' WHERE id='$user_id'";
 
     $query_run = mysqli_query($con, $query);
 
@@ -136,42 +140,38 @@ if(isset($_POST['find'])){
 
     if($result == 1){
         $_SESSION['cons_msg'] = "Set A new Password Here";
-        header('location:./forget_pass.php');
+        header('location:./forget_pass.php?email='.$email);
     }else{
         $_SESSION['cons_msg'] = "this Id Is not in Database";
         header('location:adminlogin.php');
     }
 }
 
-// if(isset($_POST['find'])) {
-//     $email = $_POST['email'];
 
-//     // Use prepared statements to prevent SQL injection
-//     $sql1 = "SELECT * FROM users WHERE email = ?";
-//     $stmt = mysqli_prepare($con, $sql1);
-//     mysqli_stmt_bind_param($stmt, "s", $email);
-//     mysqli_stmt_execute($stmt);
+// --------------------set-new-password-------------
 
-//     // Check if any rows were returned
-//     $result = mysqli_stmt_get_result($stmt);
+if(isset($_POST['set'])){
 
-//     if(mysqli_num_rows($result) == 1) {
-//         $_SESSION['cons_msg'] = "Set a new password here";
-//         header('location: ./forget_pass.php');
-//     } else {
-//         $_SESSION['cons_msg'] = "This email is not in the database";
-//         header('location: adminlogin.php');
-//     }
-// }
-
-
-if(isset($_POST['set']) && isset($_SESSION['email'])){
+    $id = $_POST['email'];
     $password = $_POST['password'];
     $c_password = $_POST['c_password'];
-    $id = $_SESSION['email'];
+
+    // echo $id;
+    // echo "<br>";
+    // echo $password;
+    // echo "<br>";
+  
+    
 
     if($password == $c_password){
-        $sql2 = "UPDATE users SET password='$password' where email ='$id'";
+
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        // echo $hashed_password;
+        // echo "<br>";
+
+        // die();
+
+        $sql2 = "UPDATE users SET password='$hashed_password' where email ='$id'";
         $query2 = mysqli_query($con, $sql2);
         if($query2){
             $_SESSION['cons_msg'] = "new password set";
@@ -180,5 +180,8 @@ if(isset($_POST['set']) && isset($_SESSION['email'])){
             $_SESSION['cons_msg'] = "failed";
             header('location: ./forget_pass.php');
         }
+    }else{
+        $_SESSION['cons_msg'] = "Password and confirm password not match";
+        header('location: ./forget_pass.php?email='.$id);
     }
 }

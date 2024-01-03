@@ -104,7 +104,7 @@ if (isset($_SESSION['auth']) && ($_SESSION['auth'] == "admin" || $_SESSION['auth
                                     <label for="floatingPassword">Password</label>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#forgetModal">Forgot Password</a>
+                                    <a href="#" style="color: #000000;" data-bs-toggle="modal" data-bs-target="#forgetModal">Forgot Password</a>
                                 </div>
                                 <button type="submit" name="login_btn" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                             </div>

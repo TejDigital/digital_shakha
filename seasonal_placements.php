@@ -13,7 +13,7 @@ require('./admin/config/dbcon.php');
                     <p>At DigitalShakha, we understand that career growth isn't confined to a single season. That's why we offer a range of seasonal placement opportunities that align with your academic calendar and career goals.</p>
                 </div>
             </div>
-            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-center">
                 <div class="img">
                     <span class="dot1"></span>
                     <span class="dot2"></span>
@@ -56,62 +56,7 @@ require('./admin/config/dbcon.php');
                 }
             }
             ?>
-            <!-- <div class="col-md-6">
-                <div class="box">
-                    <a href="./placement_view.php">
-                        <div class="head">
-                            <h1>Summer Internships</h1>
-                            <p>Dive into summer learning and gain practical experience.</p>
-                            <p><b>Start Date: May 15</b></p>
-                        </div>
-                        <div class="img">
-                            <img src="./assets/images/seasonal_pacement_explore_1.png" alt="">
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="box">
-                    <a href="#!">
-                        <div class="head">
-                            <h1>Fall Internships</h1>
-                            <p>Transition seamlessly from vacation to skill-building.</p>
-                            <p><b>Start Date: September 1</b></p>
-                        </div>
-                        <div class="img">
-                            <img src="./assets/images/seasonal_pacement_explore_2.png" alt="">
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="box">
-                    <a href="#!">
-                        <div class="head">
-                            <h1>Spring Internships</h1>
-                            <p>Welcome the season of renewal with fresh career insights.</p>
-                            <p><b>Start Date: January 15</b></p>
-                        </div>
-                        <div class="img">
-                            <img src="./assets/images/seasonal_pacement_explore_3.png" alt="">
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="box">
-                    <a href="#!">
-                        <div class="head">
-                            <h1>Year-Round Internships</h1>
-                            <p>Never stop learning with opportunities throughout the year.</p>
-                            <p><b>Ongoing Opportunities</b></p>
-                        </div>
-                        <div class="img">
-                            <img src="./assets/images/seasonal_pacement_explore_4.png" alt="">
-                        </div>
-                    </a>
-                </div>
-            </div> -->
+         
         </div>
         <div class="row end_text">
             <div class="col-md-12 d-flex align-items-center justify-content-center flex-column">

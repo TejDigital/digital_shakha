@@ -47,16 +47,16 @@ require('config/dbcon.php');
                                         <input type="email" name="email" value="<?php echo $row['email'] ?>" class="form-control" placeholder="email">
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="text-light">Email</label>
+                                        <label for="" class="text-light">Phone</label>
                                         <input type="number" name="phone" value="<?php echo $row['phone'] ?>" class="form-control" placeholder="phone">
                                     </div>
                                     <div class="form-group">
                                         <label for=""  class="text-light">Password</label>
-                                        <input type="text" name="password" value="<?php echo $row['password'] ?>" class="form-control" placeholder="password">
+                                        <input type="text" name="password"  class="form-control" placeholder="new password">
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="text-light">Give role</label>
-                                        <select name="type" class="form-control text-light" >
+                                        <select name="type" class="form-control text-light" style="appearance: revert;background:#2A3038 !important; color:#fff !important;" >
                                           
                                             <option value="employee" <?php
                                                                 if ($row['type'] == "employee") {

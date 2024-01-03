@@ -1,7 +1,7 @@
 <?php require('./includes/header.php'); ?>
 <section class="resume_1">
     <div class="container">
-        <div class="row flex_change" >
+        <div class="row flex-change" >
             <div class="col-md-6">
                 <div class="text">
                     <h1>Resume Building</h1>
@@ -12,7 +12,7 @@
                         you stand out in the competitive job market.</p>
                 </div>
             </div>
-            <div class="col-md-6 dot-position d-flex align-content-center justify-content-center">
+            <div class="col-md-6 d-flex align-items-center justify-content-center pb-4">
                 <div class="img">
                 <span class="dot1"></span>
                 <img src="./assets/images/resume_1.png" alt="">

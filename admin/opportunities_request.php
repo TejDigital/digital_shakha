@@ -13,10 +13,11 @@ $name = mysqli_real_escape_string($con,$_POST['name']);
 $phone = mysqli_real_escape_string($con,$_POST['phone']);
 $email = mysqli_real_escape_string($con,$_POST['email']);
 $image = $_FILES['image']['name'];
+$unique_code  = rand(100000, 999999);
 
-$sql = "INSERT INTO opportunities_request_tbl(opportunities_id,name,phone, email,image) VALUES (?,?,?,?,?)";
+$sql = "INSERT INTO opportunities_request_tbl(opportunities_id,unique_code,name,phone, email,image) VALUES (?,?,?,?,?,?)";
 $stmt = mysqli_prepare($con, $sql);
-mysqli_stmt_bind_param($stmt, "issss",$opportunities_id,$name,$phone,$email,$image);
+mysqli_stmt_bind_param($stmt, "iissss",$opportunities_id,$unique_code,$name,$phone,$email,$image);
 mysqli_stmt_execute($stmt);
 
 if ($stmt) {
@@ -203,6 +204,7 @@ if ($stmt) {
                         </li>
                         <li><span>Name</span>: " . $name . "</li>
                         <li><span>Number</span>: " . $phone . "</li>
+                        <li><span>Unique ID</span>: " . $unique_code . "</li>
                     </ul>
     
                     <p> Our team will review your application, and we'll be in touch soon with the next steps. If you have any questions or preferences, feel free to reply to this email
