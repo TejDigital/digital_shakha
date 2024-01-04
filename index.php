@@ -318,11 +318,11 @@ require('./admin/config/dbcon.php');
                 <div class="links">
                     <p>Follow Digitalshakha on:</p>
                     <a href="https://www.instagram.com/digitalshakha_?igsh=MTJsaGgyYzAyeXp5dw=="><img src="./assets/images/Instagram.svg" alt=""></a>
-                    <a href="#!"><img src="./assets/images/LinkedIn_link.svg" alt=""></a>
-                    <a href="#!"><img src="./assets/images/Facebook.svg" alt=""></a>
-                    <a href="#!"><img src="./assets/images/Behance.svg" alt=""></a>
-                    <a href="#!"><img src="./assets/images/Pinterest.svg" alt=""></a>
-                    <a href="#!"><img src="./assets/images/YouTube.svg" alt=""></a>
+                    <a href="https://www.linkedin.com/company/digitalshakha/"><img src="./assets/images/LinkedIn_link.svg" alt=""></a>
+                    <a href="https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL"><img src="./assets/images/Facebook.svg" alt=""></a>
+                    <a href="https://www.behance.net/digitalshakha_/info"><img src="./assets/images/Behance.svg" alt=""></a>
+                    <a href="https://in.pinterest.com/digitalshakha_/"><img src="./assets/images/Pinterest.svg" alt=""></a>
+                    <a href="https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY"><img src="./assets/images/YouTube.svg" alt=""></a>
                 </div>
             </div>
         </div>

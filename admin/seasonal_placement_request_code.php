@@ -228,9 +228,7 @@ if ($stmt) {
             </section>
             <section class='email_3'>
                 <div class='footer'>
-                    <div class='text1'>
-                        <p><a href='#!'>Unsubscribe</a> or manage preferences</p>
-                    </div>
+                 
                     <div class='end_text'>
                         <p> © 2023 <a href='https://www.digitalshakha.in'>Digitalshakha</a>, All Rights Reserved | PLOT - 490-B, cross, Street 25, main road, Smriti Nagar, Bhilai, Chhattisgarh 490020</p>
                     </div>

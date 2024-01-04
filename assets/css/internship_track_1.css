@@ -273,7 +273,8 @@
     text-align: end;
 }
 
-.internship_track_1 .down-box .complete_btn button {
+.internship_track_1 .down-box .complete_btn a {
+    text-decoration: none;
     padding: 0.6rem 2rem;
     text-align: center;
     color: #BB5327;

@@ -85,6 +85,7 @@
           </a>
           <div class="collapse" id="ui-basic6">
             <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="./internship_certificate.php">Certificate</a></li>
               <li class="nav-item"> <a class="nav-link" href="./internship_track_course_material.php">Course Material</a></li>
               <li class="nav-item"> <a class="nav-link" href="./internship_track_course_info.php">Course Info</a></li>
               <li class="nav-item"> <a class="nav-link" href="./internship_mentor_grading.php">Mentor Grading</a></li>

@@ -239,7 +239,16 @@ if (!isset($_SESSION['std_auth']) || $_SESSION['std_auth'] !== true) {
                                             if ($progressPercentage1 >= 100) {
                                             ?>
                                                 <div class="complete_btn">
-                                                    <button>Download Certificate</button>
+                                                    <?php
+                                                    $certificate_query = "SELECT * FROM internship_certificate_tbl WHERE app_id = '$app_id'";
+                                                    $certificate_query_run = mysqli_query($con,$certificate_query);
+                                                    if(mysqli_num_rows($certificate_query_run) > 0){
+                                                        $certificate = mysqli_fetch_assoc($certificate_query_run);
+                                                  ?>
+                                                    <a href="./admin/certificate_files/<?=$certificate['file']?>" target="_blank" download>Download Certificate</a>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                             <?php
                                             }
