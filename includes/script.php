@@ -8,8 +8,14 @@
 <script src="./assets/splide-4.1.3/dist/js/splide.min.js"></script>
 <script src="./assets/paroller.js-master/dist/jquery.paroller.min.js"></script>
 <script src="./assets/OwlCarousel2/dist/owl.carousel.min.js"></script>
-
 <script src="./assets/js/main.js"></script>
+<script src="./assets/js/gsap/gsap.min.js"></script>
+<script src="./assets/js/gsap/gsap_scrollTrigger.min.js"></script>
+<script src="./assets/js/gsap/gsap_animation.js"></script>
+<script src="./assets/aos-master/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var percentage = 0;

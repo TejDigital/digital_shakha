@@ -8,6 +8,8 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
+$actual_link = 'http://' . $_SERVER['HTTP_HOST'];
+
 
 $id = $_POST['id'];
 $transaction_code = $_POST['transaction_code'];
@@ -17,43 +19,43 @@ $sql = "UPDATE application_tbl SET transaction_id = '$transaction_code' ,payment
 $sql_run  = mysqli_query($con, $sql);
 
 if ($sql_run) {
-  move_uploaded_file($_FILES['payment_ss']['tmp_name'], './student_application_payment_ss/' . $payment_ss);
+    move_uploaded_file($_FILES['payment_ss']['tmp_name'], './student_application_payment_ss/' . $payment_ss);
 
-  $select = "SELECT * FROM application_tbl WHERE id = '$id'";
-  $select_query = mysqli_query($con, $select);
-  if (mysqli_num_rows($select_query) > 0) {
-    foreach ($select_query as $row) {
-      $name = $row['name'];
-      $last_name = $row['last_name'];
-      $userEmail = $row['email'];
-      $course = $row['course'];
-      $phone = $row['phone'];
-      $dob = $row['dob'];
-      $program_query = "SELECT * FROM program_tbl WHERE program_id = '$course'";
-      $program_query_run = mysqli_query($con, $program_query);
-      if (mysqli_num_rows($program_query_run) > 0) {
-        $program = mysqli_fetch_assoc($program_query_run);
-        $program_name = $program['program_name'];
-      }
-      try {
-        $mail = new PHPMailer();
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-        $mail->isSMTP();
-        $mail->isHTML(true);
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Port = 587;
-        $mail->SMTPAuth = true;
-        $mail->Username = 'tejpratap.digitalshakha@gmail.com';
-        $mail->Password = 'ckytndyqptfopcns';
-        $mail->SMTPSecure = 'tls';
+    $select = "SELECT * FROM application_tbl WHERE id = '$id'";
+    $select_query = mysqli_query($con, $select);
+    if (mysqli_num_rows($select_query) > 0) {
+        foreach ($select_query as $row) {
+            $name = $row['name'];
+            $last_name = $row['last_name'];
+            $userEmail = $row['email'];
+            $course = $row['course'];
+            $phone = $row['phone'];
+            $dob = $row['dob'];
+            $program_query = "SELECT * FROM program_tbl WHERE program_id = '$course'";
+            $program_query_run = mysqli_query($con, $program_query);
+            if (mysqli_num_rows($program_query_run) > 0) {
+                $program = mysqli_fetch_assoc($program_query_run);
+                $program_name = $program['program_name'];
+            }
+            try {
+                $mail = new PHPMailer();
+                // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                $mail->isSMTP();
+                $mail->isHTML(true);
+                $mail->Host = 'smtp.gmail.com';
+                $mail->Port = 587;
+                $mail->SMTPAuth = true;
+                $mail->Username = 'tejpratap.digitalshakha@gmail.com';
+                $mail->Password = 'ckytndyqptfopcns';
+                $mail->SMTPSecure = 'tls';
 
-        //Recipients
-        $mail->setFrom('tejpratap.digitalshakha@gmail.com', 'Digitalshakha');
-        $mail->addAddress($userEmail, $name);     //Add a recipient
+                //Recipients
+                $mail->setFrom('tejpratap.digitalshakha@gmail.com', 'Digitalshakha');
+                $mail->addAddress($userEmail, $name);     //Add a recipient
 
-        //Content
-        $mail->Subject = 'Application Received - Confirmation';
-        $mail->Body = "<!DOCTYPE html>
+                //Content
+                $mail->Subject = 'Application Received - Confirmation';
+                $mail->Body = "<!DOCTYPE html>
           <html lang='en'>
           <head>
               <meta charset='UTF-8'>
@@ -202,8 +204,8 @@ if ($sql_run) {
               <div class='#mailBody'>
                   <section class='email_1'>
                       <div class='img'>
-                      // <img src='./digital_logo.png'>
-                       </div>
+                      <img src='" . $actual_link . "/admin/email_images/digital_logo.png' >
+                      </div>
                        <br>
                        <br>
                       <div class='text_box'>
@@ -212,7 +214,7 @@ if ($sql_run) {
                               <li style='margin-bottom: .5rem;'>
                                   <h3>Detail:</h3>
                               </li>
-                              <li><span>Name</span>:" . $name ." ".$last_name . "</li>
+                              <li><span>Name</span>:" . $name . " " . $last_name . "</li>
                               <li><span>Number</span>: " . $phone . "</li>
                               <li><span>Email</span>: " . $userEmail . "</li>
                               <li><span>Date of Birth:</span>: " . $dob . "</li>
@@ -227,13 +229,13 @@ if ($sql_run) {
                       <div class='social_links'>
                           <h3>Follow Digitalshakha on:</h3>
                           <div class='links'>
-                              <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='../assets/images/Instagram.svg' alt=''></a>
-                              <a href='https://www.behance.net/digitalshakha_/info'><img src='../assets/images/Behance.svg' alt=''></a>
-                              <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='../assets/images/Facebook.svg' alt=''></a>
-                              <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='../assets/images/YouTube.svg' alt=''></a>
-                              <a href='https://www.linkedin.com/company/digitalshakha/'><img src='../assets/images/LinkedIn_link.svg' alt=''></a>
-                              <a href='https://in.pinterest.com/digitalshakha_/'><img src='../assets/images/Pinterest.svg' alt=''></a>
-                          </div>
+                          <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='" . $actual_link . "/admin/email_images/Instagram.svg' alt=''></a>
+                          <a href='https://www.behance.net/digitalshakha_/info'><img src='" . $actual_link . "/admin/email_images/Behance.svg' alt=''></a>
+                          <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='" . $actual_link . "/admin/email_images/Facebook.svg' alt=''></a>
+                          <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='" . $actual_link . "/admin/email_images/YouTube.svg' alt=''></a>
+                          <a href='https://www.linkedin.com/company/digitalshakha/'><img src='" . $actual_link . "/admin/email_images/LinkedIn_link.svg' alt=''></a>
+                          <a href='https://in.pinterest.com/digitalshakha_/'><img src='" . $actual_link . "/admin/email_images/Pinterest.svg' alt=''></a>
+                      </div>
                       </div>
                   </section>
                   <section class='email_3'>
@@ -251,18 +253,18 @@ if ($sql_run) {
           </html>
           ";
 
-        $mail->send();
+                $mail->send();
 
-        echo json_encode(array('success' => 4, 'data' => $id));
+                echo json_encode(array('success' => 4, 'data' => $id));
 
-        exit(0);
-      } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-      }
+                exit(0);
+            } catch (Exception $e) {
+                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            }
+        }
+    } else {
+        echo "error";
     }
-  } else {
-    echo "error";
-  }
 } else {
-  echo json_encode(40);
+    echo json_encode(40);
 }

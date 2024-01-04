@@ -7,6 +7,8 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
+$actual_link = 'http://'.$_SERVER['HTTP_HOST'];
+
 
 $opportunities_id = mysqli_real_escape_string($con,$_POST['opportunities_id']);
 $name = mysqli_real_escape_string($con,$_POST['name']);
@@ -15,9 +17,15 @@ $email = mysqli_real_escape_string($con,$_POST['email']);
 $image = $_FILES['image']['name'];
 $unique_code  = rand(100000, 999999);
 
-$sql = "INSERT INTO opportunities_request_tbl(opportunities_id,unique_code,name,phone, email,image) VALUES (?,?,?,?,?,?)";
+
+$sql2 = "INSERT INTO unique_code_tbl(email,unique_code)VALUES('$email','$unique_code')";
+$sql_run2 = mysqli_query($con, $sql2);
+    $Uid = mysqli_insert_id($con);
+
+
+$sql = "INSERT INTO opportunities_request_tbl(opportunities_id,unique_id,name,phone, email,image) VALUES (?,?,?,?,?,?)";
 $stmt = mysqli_prepare($con, $sql);
-mysqli_stmt_bind_param($stmt, "iissss",$opportunities_id,$unique_code,$name,$phone,$email,$image);
+mysqli_stmt_bind_param($stmt, "iissss",$opportunities_id,$Uid,$name,$phone,$email,$image);
 mysqli_stmt_execute($stmt);
 
 if ($stmt) {
@@ -57,10 +65,7 @@ if ($stmt) {
     
             .email_1 {
                 padding: 2rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
+               
             }
     
             .email_1 .img {
@@ -193,7 +198,8 @@ if ($stmt) {
         <div class='#mailBody'>
             <section class='email_1' style = 'flex-direction:column;'>
                 <div class='img'>
-                    <img src='./digital_logo.png' >
+                <img src='".$actual_link."/admin/email_images/digital_logo.png' >
+
                  </div>
                 <div class='text_box'>
                     <h2>Thank you for your interest in opportunities with DigitalShakha! We've received your details and CV/Resume.
@@ -220,13 +226,13 @@ if ($stmt) {
                 <div class='social_links'>
                     <h3>Follow Digitalshakha on:</h3>
                     <div class='links'>
-                        <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='../assets/images/Instagram.svg' alt=''></a>
-                        <a href='https://www.behance.net/digitalshakha_/info'><img src='../assets/images/Behance.svg' alt=''></a>
-                        <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='../assets/images/Facebook.svg' alt=''></a>
-                        <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='../assets/images/YouTube.svg' alt=''></a>
-                        <a href='https://www.linkedin.com/company/digitalshakha/'><img src='../assets/images/LinkedIn_link.svg' alt=''></a>
-                        <a href='https://in.pinterest.com/digitalshakha_/'><img src='../assets/images/Pinterest.svg' alt=''></a>
-                    </div>
+                    <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='".$actual_link."/admin/email_images/Instagram.svg' alt=''></a>
+                    <a href='https://www.behance.net/digitalshakha_/info'><img src='".$actual_link."/admin/email_images/Behance.svg' alt=''></a>
+                    <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='".$actual_link."/admin/email_images/Facebook.svg' alt=''></a>
+                    <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='".$actual_link."/admin/email_images/YouTube.svg' alt=''></a>
+                    <a href='https://www.linkedin.com/company/digitalshakha/'><img src='".$actual_link."/admin/email_images/LinkedIn_link.svg' alt=''></a>
+                    <a href='https://in.pinterest.com/digitalshakha_/'><img src='".$actual_link."/admin/email_images/Pinterest.svg' alt=''></a>
+                </div>
                 </div>
             </section>
             <section class='email_3'>

@@ -12,6 +12,7 @@ require './PHPMailer/src/SMTP.php';
 // print_r($_POST);
 // echo "pre";
 // die();
+$actual_link = 'http://'.$_SERVER['HTTP_HOST'];
 
 // Form data
 $employee_organization_name = $_POST['employee_organization_name'];
@@ -71,10 +72,6 @@ if ($con->query($sql) === TRUE) {
     
             .email_1 {
                 padding: 2rem;
-             
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
             }
     
             .email_1 .img {
@@ -209,7 +206,8 @@ if ($con->query($sql) === TRUE) {
         <div class='#mailBody'>
             <section class='email_1 d-flex'>
                 <div class='img'>
-                    <img src='./digital_logo.png' >
+                <img src='".$actual_link."/admin/email_images/digital_logo.png' >
+
                  </div>
                  <br>
                  <br>
@@ -247,13 +245,13 @@ if ($con->query($sql) === TRUE) {
                 <div class='social_links'>
                     <h3>Follow Digitalshakha on:</h3>
                     <div class='links'>
-                        <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='../assets/images/Instagram.svg' alt=''></a>
-                        <a href='https://www.behance.net/digitalshakha_/info'><img src='../assets/images/Behance.svg' alt=''></a>
-                        <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='../assets/images/Facebook.svg' alt=''></a>
-                        <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='../assets/images/YouTube.svg' alt=''></a>
-                        <a href='https://www.linkedin.com/company/digitalshakha/'><img src='../assets/images/LinkedIn_link.svg' alt=''></a>
-                        <a href='https://in.pinterest.com/digitalshakha_/'><img src='../assets/images/Pinterest.svg' alt=''></a>
-                    </div>
+                    <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='".$actual_link."/admin/email_images/Instagram.svg' alt=''></a>
+                    <a href='https://www.behance.net/digitalshakha_/info'><img src='".$actual_link."/admin/email_images/Behance.svg' alt=''></a>
+                    <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='".$actual_link."/admin/email_images/Facebook.svg' alt=''></a>
+                    <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='".$actual_link."/admin/email_images/YouTube.svg' alt=''></a>
+                    <a href='https://www.linkedin.com/company/digitalshakha/'><img src='".$actual_link."/admin/email_images/LinkedIn_link.svg' alt=''></a>
+                    <a href='https://in.pinterest.com/digitalshakha_/'><img src='".$actual_link."/admin/email_images/Pinterest.svg' alt=''></a>
+                </div>
                 </div>
             </section>
             <section class='email_3'>

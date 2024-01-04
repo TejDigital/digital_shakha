@@ -87,7 +87,7 @@ require('./admin/config/dbcon.php');
         <div class="home_2_bottom">
             <p class="line"></p>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 home_2_bottom_top" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">
                     <h1>What makes us</h1>
                     <div class="video_area">
                         <video autoplay muted loop>
@@ -98,20 +98,20 @@ require('./admin/config/dbcon.php');
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 " data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">
                     <p>Firstly, it's our people. Our dedicated team of tech enthusiasts doesn't just develop
                         solutions; they immerse themselves in the client's vision, ensuring a deep understanding
                         that transcends conventional consulting. Their passion for technology and a client-centric
                         mindset form the cornerstone of our distinct approach.</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">
                     <p>Secondly, we're not just developers; we're collaborators. We don't simply deliver projects;
                         we form partnerships. Our client relationships are built on open communication,
                         transparency, and a shared commitment to achieving remarkable results. This collaborative
                         spirit ensures that every project, big or small, receives the attention and expertise it
                         deserves.</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">
                     <p>Lastly, our agility and adaptability set us apart. In the dynamic realm of technology,
                         staying ahead means embracing change. DigitalShakha thrives in this ever-evolving landscape,
                         offering solutions that are not just current but forward-thinking. We navigate challenges
@@ -122,187 +122,7 @@ require('./admin/config/dbcon.php');
         </div>
     </div>
 </section>
-<!-- <section class="home_3">
-    <div class="container">
-        <div class="heading">
-            <h1>Our Courses</h1>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 p-2">
-                        <div class="text">
-                            <div>
-                                <h1>UX/UI Design</h1>
-                                <p>Craft seamless digital experiences with our UX/UI Design course, where aesthetics
-                                    meet functionality for user-centric design.</p>
-                            </div>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                        <div class="video_box">
-                            <video autoplay muted loop>
-                                <source src="./assets/images/home_video_2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 p-2">
-                        <div class="text">
-                            <div>
-                                <h1>Front-End Development</h1>
-                                <p>Master the art of bringing websites to life with our Front-End Development
-                                    course, where code meets creativity.</p>
-                            </div>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                        <div class="video_box">
-                            <video autoplay muted loop>
-                                <source src="./assets/images/home_video_2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 p-2">
-                        <div class="text">
-                            <div>
-                                <h1>Back-End Development</h1>
-                                <p>Build the backbone of powerful applications with our Back-End Development course,
-                                    focusing on server-side functionality and data management</p>
-                            </div>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                        <div class="video_box">
-                            <video autoplay muted loop>
-                                <source src="./assets/images/home_video_2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 p-2">
-                        <div class="text">
-                            <div>
-                                <h1>Digital Marketing</h1>
-                                <p>Navigate the digital landscape and drive business growth with our Digital
-                                    Marketing course, where strategies meet the speed of the online world.</p>
-                            </div>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                        <div class="video_box">
-                            <video autoplay muted loop>
-                                <source src="./assets/images/home_video_2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 p-2">
-                        <div class="text">
-                            <div>
-                                <h1>Mobile App Development</h1>
-                                <p>Shape the future of mobile technology with our Mobile App Development course,
-                                    where innovation meets the palm of your hand.</p>
-                            </div>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                        <div class="video_box">
-                            <video autoplay muted loop>
-                                <source src="./assets/images/home_video_2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 p-2">
-                        <div class="text">
-                            <div>
-                                <h1>Full Stack Web Development</h1>
-                                <p>Embark on a journey of creating dynamic web applications with our Full Stack Web
-                                    Development course, where the entire development spectrum comes alive.</p>
-                            </div>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                        <div class="video_box">
-                            <video autoplay muted loop>
-                                <source src="./assets/images/home_video_2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 p-2">
-                        <div class="text">
-                            <div>
-                                <h1>Machine Learning</h1>
-                                <p>Unlock the potential of intelligent systems with our Machine Learning course,
-                                    where algorithms meet data for predictive and analytical mastery.</p>
-                            </div>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                        <div class="video_box">
-                            <video autoplay muted loop>
-                                <source src="./assets/images/home_video_2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-6 p-2">
-                        <div class="text">
-                            <div>
-                                <h1>Internet of Things (IoT)</h1>
-                                <p>Connect the physical and digital worlds with our Internet of Things (IoT) course,
-                                    where devices meet data to revolutionize the way we live and work.</p>
-                            </div>
-                            <a href="#!">Know More <img src="./assets/images/arrow.png" alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 p-2">
-                        <div class="video_box">
-                            <video autoplay muted loop>
-                                <source src="./assets/images/home_video_2.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button> -->
+
 
 <!-- Modal -->
 <div class="modal fade" id="upcoming_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

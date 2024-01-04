@@ -54,7 +54,10 @@
     font-weight: 700;
     line-height: normal;
 }
-
+.home_1 h1::selection{
+    background-color: #000;
+    color: #BB5327;
+}
 .home_1 .video_area {
     position: relative;
     display: flex;

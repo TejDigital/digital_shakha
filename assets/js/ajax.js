@@ -1350,6 +1350,7 @@ $(document).ready(function () {
         url: "././admin/schedule_code.php",
         data: formData,
         success: function (response) {
+          console.log(response);
           let message = JSON.parse(response);
           if (message.alert == 1) {
             Swal.fire({

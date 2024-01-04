@@ -46,6 +46,7 @@ require('./admin/config/dbcon.php');
     <link rel="stylesheet" href="./assets/splide-4.1.3/dist/css/splide.min.css">
     <link rel="stylesheet" href="./assets/css/preloading/effect.css">
     <link rel="stylesheet" href="./sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="./assets/aos-master/dist/aos.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="./assets/OwlCarousel2/dist/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="./assets/OwlCarousel2/dist/assets/owl.theme.default.min.css">

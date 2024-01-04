@@ -7,8 +7,11 @@ use PHPMailer\PHPMailer\SMTP;
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
-$name = $_POST['name'];
+$actual_link = 'http://'.$_SERVER['HTTP_HOST'];
+
+
 $unique_id = $_POST['unique_id'];
+$name = $_POST['name'];
 $date = $_POST['date'];
 $time = $_POST['time'];
 $email = $_POST['email'];
@@ -16,20 +19,15 @@ $phone = $_POST['phone'];
 $position = $_POST['position'];
 $message = $_POST['message'];
 
-$check_unique_code = "SELECT * FROM opportunities_request_tbl WHERE unique_code = '$unique_id'";
-$check_unique_code_run = mysqli_query($con, $check_unique_code);
-
-// $check_unique_code2 = "SELECT * FROM unique_code_tbl WHERE unique_code = '$unique_id'";
-// $check_unique_code_run2 = mysqli_query($con, $check_unique_code2);
-
-// if (mysqli_num_rows($check_unique_code_run) > 0 && mysqli_num_rows($check_unique_code_run2) > 0) {
-    if (mysqli_num_rows($check_unique_code_run) >  0) {
+$check_unique_code2 = "SELECT * FROM unique_code_tbl WHERE unique_code = '$unique_id'";
+$check_unique_code_run2 = mysqli_query($con, $check_unique_code2);
+if (mysqli_num_rows($check_unique_code_run2) > 0) {
 
 $sql = "INSERT INTO schedule_interview_tbl(unique_id, name, email, phone, date, time, position, message) VALUES ('$unique_id','$name','$email','$phone','$date','$time','$position','$message')";
 
-$sql_run = mysqli_query($con,$sql);
+$sql_run = mysqli_query($con, $sql);
 
-if($sql){
+if ($sql) {
 
     try {
         $mail = new PHPMailer();
@@ -206,7 +204,8 @@ if($sql){
             <div class='#mailBody'>
                 <section class='email_1'>
                     <div class='img'>
-                 <img src = './digital_logo.png' >
+                    <img src='".$actual_link."/admin/email_images/digital_logo.png' >
+
                      </div>
                      <br>
                      <br>
@@ -236,12 +235,12 @@ if($sql){
                     <div class='social_links'>
                         <h3>Follow Digitalshakha on:</h3>
                         <div class='links'>
-                            <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='../assets/images/Instagram.svg' alt=''></a>
-                            <a href='https://www.behance.net/digitalshakha_/info'><img src='../assets/images/Behance.svg' alt=''></a>
-                            <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='../assets/images/Facebook.svg' alt=''></a>
-                            <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='../assets/images/YouTube.svg' alt=''></a>
-                            <a href='https://www.linkedin.com/company/digitalshakha/'><img src='../assets/images/LinkedIn_link.svg' alt=''></a>
-                            <a href='https://in.pinterest.com/digitalshakha_/'><img src='../assets/images/Pinterest.svg' alt=''></a>
+                            <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='".$actual_link."/admin/email_images/Instagram.svg' alt=''></a>
+                            <a href='https://www.behance.net/digitalshakha_/info'><img src='".$actual_link."/admin/email_images/Behance.svg' alt=''></a>
+                            <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='".$actual_link."/admin/email_images/Facebook.svg' alt=''></a>
+                            <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='".$actual_link."/admin/email_images/YouTube.svg' alt=''></a>
+                            <a href='https://www.linkedin.com/company/digitalshakha/'><img src='".$actual_link."/admin/email_images/LinkedIn_link.svg' alt=''></a>
+                            <a href='https://in.pinterest.com/digitalshakha_/'><img src='".$actual_link."/admin/email_images/Pinterest.svg' alt=''></a>
                         </div>
                     </div>
                 </section>
@@ -260,18 +259,14 @@ if($sql){
         </html>
         ";
         $mail->send();
-        echo json_encode(array("alert"=>1)); //we are connect soon
+        echo json_encode(array("alert" => 1)); //we are connect soon
         exit(0);
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
-    
-
-}else{
-    echo json_encode(array("alert"=>2)); //Something went wrong
+} else {
+    echo json_encode(array("alert" => 2)); //Something went wrong
 }
-
 }else{
-    echo json_encode(array("alert"=>3)); //Code not valid
-
+    echo json_encode(array("alert" => 3)); //code not found
 }
