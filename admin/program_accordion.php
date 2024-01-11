@@ -37,16 +37,16 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_accordion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./program_accordion_code.php" method="POST">
+            <form action="./program_accordion_code.php" method="POST" id="program_accordion_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add accordion</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+                    <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Program name</label>
-                            <select name="program_name" class="form-control mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <select name="program_name" class="form-control "  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select Program</option>
                                 <?php
                                 $sql = "SELECT * from program_tbl where program_status = 1";
@@ -61,13 +61,13 @@ if (isset($_SESSION['digi_meg'])) {
                                 ?>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Dropdown Heading</label>
-                            <input type="text" class="form-control mb-2" name="dropdown_heading" placeholder="add dropdown heading">
+                            <input type="text" class="form-control " name="dropdown_heading" placeholder="add dropdown heading">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Dropdown days</label>
-                            <select name="day" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <select name="day" class="form-control " style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select day</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -101,9 +101,9 @@ if (isset($_SESSION['digi_meg'])) {
                                 <option value="31">31</option>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Dropdown Description</label>
-                            <textarea name="dropdown_description" class="form-control mb-2" cols="30" rows="10"></textarea>
+                            <textarea name="dropdown_description" class="form-control " cols="30" rows="10"></textarea>
                         </div>
                     </div>
                 </div>
@@ -203,6 +203,65 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.program_accordion_delete_id').val(user_id);
             $('#program_accordion_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#program_accordion_form');
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png)."
+        );
+        form.validate({
+            rules: {
+                program_name: {
+                    required: true,
+                },
+                dropdown_heading: {
+                    required: true,
+                },
+                day: {
+                    required: true,
+                },
+                dropdown_description: {
+                    required: true,
+                },
+            },
+            messages: {
+                program_name: {
+                    required: "Please select program ",
+                },
+                day: {
+                    required: "Please select day ",
+                },
+                dropdown_heading: {
+                    required: "Please enter dropdown heading.",
+                },
+                dropdown_description: {
+                    required: "Please enter dropdown description.",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

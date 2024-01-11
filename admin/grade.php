@@ -11,7 +11,7 @@ if (isset($_GET['grade_id'])) {
     if (mysqli_num_rows($garde_query_run) > 0) {
         $row = mysqli_fetch_assoc($garde_query_run);
         $duration = $row['duration'];
-        $app_id= $row['id'];
+        $app_id = $row['id'];
     }
 }
 
@@ -43,14 +43,14 @@ if (isset($_SESSION['digi_meg'])) {
         <ol class="breadcrumb">
             <?php
             $sql = "SELECT * FROM internship_grade_tbl WHERE app_id = '$app_id'";
-            $sql_run = mysqli_query($con,$sql);
-            if(mysqli_num_rows($sql_run) > 0){
+            $sql_run = mysqli_query($con, $sql);
+            if (mysqli_num_rows($sql_run) > 0) {
                 echo "";
-            }else{
+            } else {
                 echo "<li class='breadcrumb-item'><a class='btn btn-sm btn-info' data-bs-toggle='modal' data-bs-target='#Add_grade'>ADD</a></li>";
             }
             ?>
-            
+
         </ol>
     </nav>
 </div>
@@ -58,7 +58,7 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_grade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./internship_track_grade_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./internship_track_grade_code.php" method="POST" enctype="multipart/form-data" id="internship_track_grade_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Grade</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
@@ -203,6 +203,54 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.grade_delete_id').val(user_id);
             $('#grade_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#internship_track_grade_form');
+        form.validate({
+            rules: {
+                grade_status: {
+                    required: true,
+                },
+                weight: {
+                    required: true,
+                    digits: true,
+                },
+                main_grade: {
+                    required: true,
+                    digits: true,
+                }
+            },
+            messages: {
+                weight: {
+                    required: "Please enter weight",
+                    digits: "Please enter a valid number",
+                },
+                main_grade: {
+                    required: "Please enter main grade",
+                    digits: "Please enter a valid number",
+
+                },
+                grade_status: {
+                    required: "Please select student",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

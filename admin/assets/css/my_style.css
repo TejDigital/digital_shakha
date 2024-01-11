@@ -60,3 +60,9 @@ table thead th{
 table tbody td{
     color: #c6c4d3 !important;
 }
+
+.error-message{
+    color: red;
+    font-weight: 800;
+    font-size: 0.8rem;
+}

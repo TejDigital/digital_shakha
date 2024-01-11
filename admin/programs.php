@@ -37,60 +37,60 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_program" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./program_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./program_code.php" method="POST" enctype="multipart/form-data" id="program_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Program</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Name</label>
-                            <input type="text" class="form-control mb-2" name="name">
+                            <input type="text" class="form-control " name="name">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Image</label>
-                            <input type="file" accept=".png , .jpg , .jpeg" class="form-control mb-2" name="image">
+                            <input type="file" accept=".png , .jpg , .jpeg" class="form-control " name="image">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">View Image</label>
-                            <input type="file" accept=".png , .jpg , .jpeg"  class="form-control mb-2" name="image2">
+                            <input type="file" accept=".png , .jpg , .jpeg" class="form-control " name="image2">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Type of class</label>
-                            <input type="text" class="form-control mb-2" name="type_class">
+                            <input type="text" class="form-control " name="type_class">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Next Batch</label>
-                            <input type="date" class="form-control mb-2" name="next_batch">
+                            <input type="date" class="form-control " name="next_batch">
                             <!-- <select name="next_batch" class="form-select" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                             <option value="">Select batch</option>
                             <?php
                             $sql = "SELECT * FROM upcoming_batch_tbl Where availability = '1'";
-                            $sql_run = mysqli_query($con , $sql);
-                            if(mysqli_num_rows($sql_run) > 0){
-                                foreach($sql_run as $row){
-                                    ?>
-                                <option value="<?=$row['batch_id']?>"><?=$row['batch_name']?></option>
+                            $sql_run = mysqli_query($con, $sql);
+                            if (mysqli_num_rows($sql_run) > 0) {
+                                foreach ($sql_run as $row) {
+                            ?>
+                                <option value="<?= $row['batch_id'] ?>"><?= $row['batch_name'] ?></option>
                                 <?php
                                 }
                             }
-                            ?>
+                                ?>
                             </select> -->
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">How many Enrolled</label>
-                            <input type="number" class="form-control mb-2" name="enroll_count">
+                            <input type="number" class="form-control " name="enroll_count">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Ratings</label>
-                            <input type="text" class="form-control mb-2" name="rating_no" placeholder="4.5">
+                            <input type="text" class="form-control " name="rating_no" placeholder="4.5">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Review No</label>
-                            <input type="text" class="form-control mb-2"  name="reviews">
+                            <input type="text" class="form-control " name="reviews">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Experience Level</label>
                             <select name="experience_level" class="form-select" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select Level</option>
@@ -99,21 +99,21 @@ if (isset($_SESSION['digi_meg'])) {
                                 <option value="3">Advance Level</option>
                             </select>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Experience text</label>
-                            <input type="text" class="form-control mb-2" name="experience_text">
+                            <input type="text" class="form-control " name="experience_text">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Program duration</label>
-                            <input type="text" class="form-control mb-2" name="program_duration">
+                            <input type="text" class="form-control " name="program_duration">
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">Detail</label>
-                            <textarea name="detail" class="form-control mb-2" cols="30" rows="5"></textarea>
+                            <textarea name="detail" class="form-control " cols="30" rows="5"></textarea>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">View Description</label>
-                           <textarea name="view_description" class="form-control mb-2 textarea" cols="30" rows="10"></textarea>
+                            <textarea name="view_description" class="form-control  textarea" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                 </div>
@@ -211,6 +211,123 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.program_delete_id').val(user_id);
             $('#program_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#program_form');
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png)."
+        );
+        form.validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                image: {
+                    required: true,
+                    fileExtension: true,
+                },
+                image2: {
+                    required: true,
+                    fileExtension: true,
+                },
+                type_class: {
+                    required: true,
+                },
+                next_batch: {
+                    required: true,
+                },
+                enroll_count: {
+                    required: true,
+                },
+                rating_no: {
+                    required: true,
+                },
+                reviews: {
+                    required: true,
+                },
+                experience_level: {
+                    required: true,
+                },
+                experience_text: {
+                    required: true,
+                },
+                program_duration: {
+                    required: true,
+                },
+                detail: {
+                    required: true,
+                },
+                view_description: {
+                    required: true,
+                },
+            },
+            messages: {
+                name: {
+                    required: "Please select batch program",
+                },
+                image: {
+                    required: "Please choose a file.",
+                    fileExtension: "Please select a valid file type (jpg, jpeg, png).",
+                },
+                image2: {
+                    required: "Please choose a file.",
+                    fileExtension: "Please select a valid file type (jpg, jpeg, png).",
+                },
+                type_class: {
+                    required: "Please Enter class.",
+                },
+                next_batch: {
+                    required: "Please Enter Date.",
+                },
+                enroll_count: {
+                    required: "Please Enter Number.",
+                },
+                rating_no: {
+                    required: "Please Enter rating.",
+                },
+                reviews: {
+                    required: "Please Enter review.",
+                },
+                experience_level: {
+                    required: "Please select experience level.",
+                },
+                experience_text: {
+                    required: "Please enter experience_text.",
+                },
+                program_duration: {
+                    required: "Please enter program duration.",
+                },
+                detail: {
+                    required: "Please enter detail.",
+                },
+                view_description: {
+                    required: "Please enter view_description.",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

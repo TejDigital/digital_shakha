@@ -37,7 +37,7 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_price" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="./application_price_code.php" method="POST" >
+            <form action="./application_price_code.php" method="POST" id="application_price_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Price</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
@@ -123,10 +123,10 @@ if (isset($_SESSION['digi_meg'])) {
                                     <tr>
                                         <td><?= $count++ ?></td>
                                         <!-- <td><?php if ($data['program_id'] == $data['course_name']) {
-                                                echo $data['program_name'];
-                                            } else {
-                                                echo "Not Found";
-                                            } ?></td> -->
+                                                        echo $data['program_name'];
+                                                    } else {
+                                                        echo "Not Found";
+                                                    } ?></td> -->
                                         <td><?= $data['price'] ?></td>
                                         <td><?php
                                             if ($data['price_status'] == 1) {
@@ -164,6 +164,43 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.price_delete_id').val(user_id);
             $('#price_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#application_price_form');
+        form.validate({
+            rules: {
+                price: {
+                    required: true,
+                    digits: true,
+                    minlength: 4,
+                    maxlength: 4,
+                }
+            },
+            messages: {
+                price: {
+                    required: "Please enter your price ",
+                    digits: "Please enter a valid price",
+                    minlength: "Phone number must be 4 digits",
+                    maxlength: "Phone number must be 4 digits",
+                }
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

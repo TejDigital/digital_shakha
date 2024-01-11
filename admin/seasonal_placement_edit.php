@@ -48,10 +48,10 @@ if (isset($_GET['id'])) {
                 <textarea name="detail" class="form-control mb-3" cols="30" rows="10"><?=$row['placement_detail']?></textarea>
 
                 <label for="">Date</label>
-                <input type="text" name="date" class="form-control my-2" value="<?= $row['placement_date'] ?>">
+                <input type="date" name="date" class="form-control my-2" value="<?= $row['placement_date'] ?>">
 
                 <label for="">Deadline Date</label>
-                <input type="text" name="end_date" class="form-control my-2" value="<?= $row['placement_date_deadline'] ?>">
+                <input type="date" name="end_date" class="form-control my-2" value="<?= $row['placement_date_deadline'] ?>">
 
                 <label for="Image">Front Image</label> <br>
                 <img src="./seasonal_placement_images/<?=$row['placement_front_image']?>" class="mb-4" style="width: 200px;" alt="">

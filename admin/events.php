@@ -37,57 +37,57 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_event" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./event_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./event_code.php" method="POST" enctype="multipart/form-data" id="event_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Event</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Name</label>
-                            <input type="text" class="form-control mb-2" name="name">
+                            <input type="text" class="form-control" name="name">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Category</label>
-                            <select name="category" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <select name="category" class="form-control" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select Category</option>
                                 <?php
                                 $sql = "SELECT * FROM event_category_tbl where event_category_status = 1";
-                                $sql_run = mysqli_query($con,$sql);
-                                if(mysqli_num_rows($sql_run) > 0){
-                                    foreach($sql_run as $row){
-                                        ?>
-                                        <option value="<?=$row['event_category_id']?>"><?=$row['event_category_name']?></option>
-                                        <?php
+                                $sql_run = mysqli_query($con, $sql);
+                                if (mysqli_num_rows($sql_run) > 0) {
+                                    foreach ($sql_run as $row) {
+                                ?>
+                                        <option value="<?= $row['event_category_id'] ?>"><?= $row['event_category_name'] ?></option>
+                                <?php
                                     }
                                 }
                                 ?>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Date</label>
-                            <input type="date" class="form-control mb-2" name="date">
+                            <input type="date" class="form-control" name="date">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Address</label>
-                            <input type="text" class="form-control mb-2" name="address">
+                            <input type="text" class="form-control" name="address">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Start Time</label>
-                            <input type="time" class="form-control mb-2" name="start_time">
+                            <input type="time" class="form-control" name="start_time">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">End Time</label>
-                            <input type="time" class="form-control mb-2" name="end_time">
+                            <input type="time" class="form-control" name="end_time">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Image</label>
-                            <input type="file" class="form-control mb-2" name="image">
+                            <input type="file" class="form-control" name="image">
                         </div>
                         <div class="col-md-12">
                             <label for="">Description</label>
-                           <textarea name="description" cols="30" rows="5" class="form-control textarea"></textarea>
+                            <textarea name="description" cols="30" rows="5" class="form-control textarea"></textarea>
                         </div>
                     </div>
                 </div>
@@ -149,7 +149,9 @@ if (isset($_SESSION['digi_meg'])) {
                                     <tr>
                                         <td><?= $count++ ?></td>
                                         <td><?= $data['event_title'] ?></td>
-                                        <td><?php if($data['event_category'] = $data['event_category_id']){echo $data['event_category_name'];} ?></td>
+                                        <td><?php if ($data['event_category'] = $data['event_category_id']) {
+                                                echo $data['event_category_name'];
+                                            } ?></td>
                                         <td><?= $data['event_date'] ?></td>
                                         <td><?= $data['event_address'] ?></td>
                                         <td><?php
@@ -189,6 +191,91 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.event_delete_id').val(user_id);
             $('#event_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#event_form');
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png)."
+        );
+        form.validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                category: {
+                    required: true,
+                },
+                date: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+                start_time: {
+                    required: true,
+                },
+                end_time: {
+                    required: true,
+                },
+                description: {
+                    required: true,
+                },
+                image: {
+                    required: true,
+                    fileExtension: true,
+                }
+            },
+            messages: {
+                name: {
+                    required: "Please enter event name",
+                },
+                category: {
+                    required: "Please select category",
+                },
+                description: {
+                    required: "Please enter description",
+                },
+                date: {
+                    required: "Please enter date",
+                },
+                address: {
+                    required: "Please enter address",
+                },
+                start_time: {
+                    required: "Please enter start time",
+                },
+                end_time: {
+                    required: "Please enter end time",
+                },
+                image: {
+                    required: "Please choose a file.",
+                    fileExtension: "Please select a valid file type (jpg, jpeg, png).",
+                }
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

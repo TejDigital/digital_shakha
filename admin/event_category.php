@@ -37,7 +37,7 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="./event_category_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./event_category_code.php" method="POST" enctype="multipart/form-data" id="event_category_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Category</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
@@ -141,6 +141,37 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.event_category_delete_id').val(user_id);
             $('#event_category_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+ 
+        var form = $('#event_category_form');
+        form.validate({
+            rules: {
+                name: {
+                    required: true,
+                }
+            },
+            messages: {
+                name: {
+                    required: "Please enter category",
+                }
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

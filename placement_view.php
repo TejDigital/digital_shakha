@@ -10,7 +10,16 @@ if (isset($_GET['id'])) {
 
     if (mysqli_num_rows($sql_run) > 0) {
         $row = mysqli_fetch_assoc($sql_run);
+
         $pace_id = $row['placement_id'];
+
+        $timestamp1 = strtotime($row['placement_date']);
+        $day1 = date('d', $timestamp1);
+        $month1 = date('M', $timestamp1);
+
+        $timestamp2 = strtotime($row['placement_date_deadline']);
+        $day2 = date('d', $timestamp2);
+        $month2 = date('M', $timestamp2);
     }
 }
 ?>
@@ -21,8 +30,8 @@ if (isset($_GET['id'])) {
                 <div class="heading">
                     <a href="./seasonal_placements.php">Placement <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     <h1><?= $row['placement_name'] ?></h1>
-                    <p>Application Opens: <b><?= $row['placement_date'] ?></b></p>
-                    <p>Application Deadline: <span><?= $row['placement_date_deadline'] ?></span></p>
+                    <p>Application Opens: <b><?= $day1 ?> <?=$month1?></b></p>
+                    <p>Application Deadline: <span><?= $day2 ?> <?=$month2?></span></p>
                 </div>
                 <div class="modal fade" id="placement_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">

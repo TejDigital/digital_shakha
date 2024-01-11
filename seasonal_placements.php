@@ -37,6 +37,9 @@ require('./admin/config/dbcon.php');
             $sql_run = mysqli_query($con, $sql);
             if (mysqli_num_rows($sql_run) > 0) {
                 while ($data = mysqli_fetch_assoc($sql_run)) {
+                    $timestamp = strtotime($data['placement_date']);
+                    $day = date('d', $timestamp);
+                    $month = date('M', $timestamp);
             ?>
                     <div class="col-md-6">
                         <div class="box">
@@ -44,7 +47,7 @@ require('./admin/config/dbcon.php');
                                 <div class="head">
                                     <h1><?=$data['placement_name']?></h1>
                                     <p><?=$data['placement_detail']?></p>
-                                    <p><b>Start Date: <span><?=$data['placement_date']?></span></b></p>
+                                    <p><b>Start Date: <span><?=$day?> <?=$month?></span></b></p>
                                 </div>
                                 <div class="img">
                                     <img src="./admin/seasonal_placement_images/<?=$data['placement_front_image']?>" alt="">

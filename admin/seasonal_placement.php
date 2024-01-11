@@ -37,44 +37,44 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_seasonal_placement" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./seasonal_placement_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./seasonal_placement_code.php" method="POST" enctype="multipart/form-data" id="seasonal_placement_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <label for="">Heading</label>
-                            <input type="text" class="form-control mb-2" name="heading">
+                            <input type="text" class="form-control " name="heading">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <label for="">Mini detail</label>
-                            <input type="text" class="form-control mb-2" name="mini_detail">
+                            <input type="text" class="form-control " name="mini_detail">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <label for="">Date</label>
-                            <input type="text" class="form-control mb-2" name="date">
+                            <input type="date" class="form-control " name="date">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <label for="">Deadline Date</label>
-                            <input type="text" class="form-control mb-2" name="end_date">
+                            <input type="date" class="form-control " name="end_date">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <label for="">front Image</label>
-                            <input type="file" class="form-control mb-2" name="front_image">
+                            <input type="file" class="form-control " name="front_image">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <label for="">Main Image</label>
-                            <input type="file" class="form-control mb-2" name="back_image">
+                            <input type="file" class="form-control " name="back_image">
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-2">
                             <label for="">Description</label>
                             <textarea name="description" class="form-control" cols="30" rows="5"></textarea>
                         </div>
@@ -173,6 +173,89 @@ require('./includes/script.php');
             var user_id = $(this).val();
             $('.seasonal_placement_id').val(user_id);
             $('#seasonal_placement_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#seasonal_placement_form');
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png)."
+        );
+        form.validate({
+            rules: {
+                heading: {
+                    required: true,
+                },
+                mini_detail: {
+                    required: true,
+                },
+                date: {
+                    required: true,
+                },
+                end_date: {
+                    required: true,
+                },
+                description: {
+                    required: true,
+                },
+                front_image: {
+                    required: true,
+                    fileExtension: true,
+                },
+                back_image: {
+                    required: true,
+                    fileExtension: true,
+                },
+            },
+            messages: {
+                heading: {
+                    required: "Please enter heading",
+                },
+                mini_detail: {
+                    required: "Please enter mini detail",
+                },
+                description: {
+                    required: "Please enter description",
+                },
+                date: {
+                    required: "Please enter date",
+                },
+                end_date: {
+                    required: "Please enter deadline date",
+                },
+                front_image: {
+                    required: "Please choose a file.",
+                    fileExtension: "Please select a valid file type (jpg, jpeg, png).",
+                },
+                back_image: {
+                    required: "Please choose a file.",
+                    fileExtension: "Please select a valid file type (jpg, jpeg, png).",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            tinyMCE.triggerSave();
+
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

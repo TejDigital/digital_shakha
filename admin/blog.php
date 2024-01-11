@@ -37,24 +37,24 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_blog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./blog_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./blog_code.php" method="POST" enctype="multipart/form-data" id="blog_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add blog</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Title</label>
-                            <input type="text" class="form-control mb-2" name="name">
+                            <input type="text" class="form-control " name="name">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Date</label>
-                            <input type="date" class="form-control mb-2" name="date">
+                            <input type="date" class="form-control " name="date">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Category</label>
-                            <select name="category" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <select name="category" class="form-control " style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select Category</option>
                                 <?php
                                 $sql = "SELECT * FROM blog_category_tbl where blog_category_status = 1";
@@ -69,15 +69,15 @@ if (isset($_SESSION['digi_meg'])) {
                                 ?>
                             </select>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-3 mb-2">
                             <label for="">Image</label>
-                            <input type="file" class="form-control mb-2" name="image">
+                            <input type="file" class="form-control " name="image">
                         </div>
                         <div class="col-md-12">
                             <label for="">Mini Description</label>
                            <textarea name="mini_description" cols="30" rows="5" class="form-control"></textarea>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">Description</label>
                            <textarea name="description" cols="30" rows="5" class="form-control textarea"></textarea>
                         </div>
@@ -179,6 +179,81 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.blog_delete_id').val(user_id);
             $('#blog_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#blog_form');
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png)."
+        );
+        form.validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                image: {
+                    required: true,
+                    fileExtension: true,
+                },
+                date: {
+                    required: true,
+                },
+                category: {
+                    required: true,
+                },
+                mini_description: {
+                    required: true,
+                },
+                description: {
+                    required: true,
+                },
+            },
+            messages: {
+                name: {
+                    required: "Please select blog name",
+                },
+                image: {
+                    required: "Please choose a file.",
+                    fileExtension: "Please select a valid file type (jpg, jpeg, png).",
+                },
+                date: {
+                    required: "Please enter date",
+                },
+                category: {
+                    required: "Please select category",
+                },
+                mini_description: {
+                    required: "Please enter mini description",
+                },
+                description: {
+                    required: "Please enter description",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            tinyMCE.triggerSave();
+
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

@@ -37,7 +37,7 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_material" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="./internship_track_course_material_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./internship_track_course_material_code.php" method="POST" enctype="multipart/form-data" id="internship_track_course_material_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Material</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
@@ -132,7 +132,7 @@ if (isset($_SESSION['digi_meg'])) {
                                             } else {
                                                 echo "Not Found";
                                             } ?></td>
-                                        <td><?=$data['material_name']?></td>
+                                        <td><?= $data['material_name'] ?></td>
                                         <td><a href="./course_material_files/<?= $data['material'] ?>" target="_blank"><?= $data['material'] ?></a></td>
                                         <td><?php
                                             if ($data['material_status'] == 1) {
@@ -171,6 +171,62 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.material_delete_id').val(user_id);
             $('#material_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png", "pdf", "doc"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png, pdf ,doc)."
+        );
+        var form = $('#internship_track_course_material_form');
+        form.validate({
+            rules: {
+                material_name: {
+                    required: true,
+                    maxlength: 255,
+                },
+                file: {
+                    required: true,
+                    fileExtension: true,
+                },
+                name: {
+                    required: true,
+                }
+            },
+            messages: {
+                material_name: {
+                    required: "Please enter material_name",
+                    maxlength: "Name must be less than 255 characters",
+                },
+                file: {
+                    required: "Please choose a file.",
+                    fileExtension: "Please select a valid file type (jpg, jpeg, png, pdf,doc).",
+                },
+                name: {
+                    required: "Please select course",
+                }
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

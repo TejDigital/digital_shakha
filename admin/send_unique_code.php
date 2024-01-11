@@ -33,11 +33,10 @@ if (isset($_SESSION['digi_meg'])) {
         </ol>
     </nav>
 </div>
-
 <div class="modal fade" id="Add_unique_code" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog ">
         <div class="modal-content">
-            <form action="./send_unique_code_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./send_unique_code_code.php" method="POST" enctype="multipart/form-data" id="myForm">
                 <div class="modal-header">
                     <!-- <h1 class="modal-title fs-5" id="exampleModalLabel"></h1> -->
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
@@ -50,9 +49,7 @@ if (isset($_SESSION['digi_meg'])) {
                         </div>
                         <div class="col-md-12">
                             <label for="">Unique Code</label>
-                            <input type="tel" maxlength="6" class="form-control mb-2" onkeyup="validateNumber(this,'msg_alert2')" name="code">
-                            <span id="msg_alert2" style="color:red;"></span>
-
+                            <input type="text" name="code" class="form-control mb-2">
                         </div>
                     </div>
                 </div>
@@ -121,7 +118,7 @@ if (isset($_SESSION['digi_meg'])) {
                                             }
                                             ?></td>
                                         <td class="text-center">
-                                            <a href="./unique_code_edit.php?id=<?= $data['code_id'] ?>" class='btn btn-square action_btn_edit btn-sm my-1'><i class="fa-regular fa-pen-to-square m-0"></i></a>
+                                            <!-- <a href="./unique_code_edit.php?id=<?= $data['code_id'] ?>" class='btn btn-square action_btn_edit btn-sm my-1'><i class="fa-regular fa-pen-to-square m-0"></i></a> -->
                                             <button type='button' value=<?php echo $data['code_id']; ?> class='btn btn-square action_btn_delete unique_code_btn btn-sm my-1'><i class="fa-solid fa-trash m-0"></i></button>
                                         </td>
                                     </tr>
@@ -162,4 +159,48 @@ require('./includes/script.php');
             document.getElementById(alertId).innerHTML = "";
         }
     }
+</script>
+<script>
+    $(document).ready(function() {
+        var form = $('#myForm');
+        form.validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true
+                },
+                code: {
+                    required: true,
+                    digits: true,
+                    minlength: 6,
+                    maxlength: 6
+                }
+            },
+            messages: {
+                email: {
+                    required: "Please enter your email address",
+                    email: "Please enter a valid email address"
+                },
+                code: {
+                    required: "Please enter the unique code",
+                    digits: "Please enter a valid 6-digit code",
+                    minlength: "Code must be 6 digits",
+                    maxlength: "Code must be 6 digits"
+                }
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
+        });
+    });
 </script>

@@ -37,16 +37,16 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="./blog_category_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./blog_category_code.php" method="POST" enctype="multipart/form-data" id="blog_category_form">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Delete</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add category</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">Name</label>
-                            <input type="text" class="form-control mb-2" name="name">
+                            <input type="text" class="form-control" name="name">
                         </div>
                     </div>
                 </div>
@@ -141,6 +141,47 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.blog_category_delete_id').val(user_id);
             $('#blog_category_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#blog_category_form');
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png)."
+        );
+        form.validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+            },
+            messages: {
+                name: {
+                    required: "Please enter blog category.",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

@@ -37,16 +37,16 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./internship_track_course_info_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./internship_track_course_info_code.php" method="POST" enctype="multipart/form-data" id="internship_track_course_info_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add info</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">Course Name</label>
-                            <select name="name" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <select name="name" class="form-control" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select Course</option>
                                 <?php
                                 $sql = "SELECT * FROM program_tbl WHERE program_status = 1";
@@ -61,9 +61,9 @@ if (isset($_SESSION['digi_meg'])) {
                                 ?>
                             </select>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">Add Info</label>
-                            <textarea name="info_name" class="form-control mb-2 textarea" cols="30" rows="5"></textarea>
+                            <textarea name="info_name" class="form-control textarea" cols="30" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -165,4 +165,58 @@ require('./includes/script.php');
             $('#info_delete_modal').modal('show');
         });
     });
+</script>
+<script>
+     $(document).ready(function() {
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: ".textarea",
+            // Add other TinyMCE configurations as needed
+        });
+
+        // Initialize form validation
+        var form = $('#internship_track_course_info_form');
+
+        form.validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                info_name: {
+                    required: function(element) {
+                        // Check if TinyMCE content is empty
+                        return tinymce.activeEditor.getContent().trim().length === 0;
+                    }
+                }
+            },
+            messages: {
+                name: {
+                    required: "Please select a course"
+                },
+                info_name: {
+                    required: "Please provide information"
+                }
+            },
+            errorPlacement: function(error, element) {
+                if (element.hasClass('textarea')) {
+                    error.insertAfter($('.mce-tinymce'));
+                } else {
+                    error.insertAfter(element);
+                }
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            // Manually trigger validation on TinyMCE content
+            tinymce.triggerSave();
+
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
+        });
+    }); 
 </script>

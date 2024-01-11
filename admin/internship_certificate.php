@@ -37,7 +37,7 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_internship_certificate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="./internship_certificate_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./internship_certificate_code.php" method="POST" enctype="multipart/form-data" id="internship_certificate_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add certificate</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
@@ -178,6 +178,54 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.certificate_delete_id').val(user_id);
             $('#certificate_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png", "pdf", "doc"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png, pdf ,doc)."
+        );
+        var form = $('#internship_certificate_form');
+        form.validate({
+            rules: {
+                file: {
+                    required: true,
+                    fileExtension: true,
+                },
+                std_name: {
+                    required: true,
+                }
+            },
+            messages: {
+                file: {
+                    required: "Please choose a file.",
+                    fileExtension: "Please select a valid file type (jpg, jpeg, png, pdf,doc).",
+                },
+                std_name: {
+                    required: "Please select student",
+                }
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

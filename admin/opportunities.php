@@ -37,9 +37,9 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_opportunities" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./opportunities_code.php" method="POST" enctype="multipart/form-data">
+            <form action="./opportunities_code.php" method="POST" enctype="multipart/form-data" id="opportunities_form">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Program</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add Opportunities</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
@@ -146,6 +146,42 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.opportunities_delete_id').val(user_id);
             $('#opportunities_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var form = $('#opportunities_form');
+        form.validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                description: {
+                    required: true,
+                },
+            },
+            messages: {
+                name: {
+                    required: "Please enter Opportunities",
+                },
+                description: {
+                    required: "Please enter description",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+        form.submit(function(event) {
+            tinyMCE.triggerSave();
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

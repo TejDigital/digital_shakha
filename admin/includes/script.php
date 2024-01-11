@@ -1,4 +1,5 @@
     <!-- plugins:js -->
+    <script src="./assets/js/jquery.js"></script>
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -19,6 +20,7 @@
     <!-- <script src="assets/js/dashboard.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> -->
     <script src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./assets/js/validate.min.js"></script>
     <script src="./tinymce/js/tinymce/tinymce.min.js"></script>
     <script src="./tinymce/js/tinymce/my_tiny.js"></script>
   </body>

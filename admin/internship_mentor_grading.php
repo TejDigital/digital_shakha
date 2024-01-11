@@ -37,16 +37,16 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_grading" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./internship_mentor_grading_code.php" method="POST">
+            <form action="./internship_mentor_grading_code.php" method="POST" id="internship_mentor_grading_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add info</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">Course Name</label>
-                            <select name="std_name" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <select name="std_name" class="form-control" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select Student</option>
                                 <?php
                                 $sql = "SELECT * FROM application_tbl WHERE status = 1";
@@ -61,10 +61,10 @@ if (isset($_SESSION['digi_meg'])) {
                                 ?>
                             </select>
                         </div>
-                        <div class='col-md-12'>
+                        <div class='col-md-12 mb-2'>
                             <label>Mentor Grading</label>
-                            <select name="mentor_grading" class='form-select mb-2' style='appearance: revert;background:#2A3038 !important; color:#fff !important;'>
-                                <option value="0">Add Mentor grade</option>
+                            <select name="mentor_grading" class='form-select' style='appearance: revert;background:#2A3038 !important; color:#fff !important;'>
+                                <option value="">Add Mentor grade</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -77,10 +77,10 @@ if (isset($_SESSION['digi_meg'])) {
                                 <option value="10">10</option>
                             </select>
                         </div>
-                        <div class='col-md-12'>
+                        <div class='col-md-12 mb-2'>
                             <label>Milestone Completed</label>
-                            <select name="milestone_completed" class='form-select mb-2' style='appearance: revert;background:#2A3038 !important; color:#fff !important;'>
-                                <option value="0">Add Milestone Completed</option>
+                            <select name="milestone_completed" class='form-select' style='appearance: revert;background:#2A3038 !important; color:#fff !important;'>
+                                <option value="">Add Milestone Completed</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -201,6 +201,49 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.grading_delete_id').val(user_id);
             $('#grading_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+ 
+        var form = $('#internship_mentor_grading_form');
+        form.validate({
+            rules: {
+                std_name: {
+                    required: true,
+                },
+                mentor_grading: {
+                    required: true,
+                },
+                milestone_completed: {
+                    required: true,
+                }
+            },
+            messages: {
+                milestone_completed: {
+                    required: "Please select milestone",
+                },
+                mentor_grading: {
+                    required: "Please select mentor",
+                },
+                std_name: {
+                    required: "Please select student",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

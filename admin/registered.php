@@ -13,7 +13,7 @@ require('./includes/header.php');
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="code.php" method="POST">
+            <form action="code.php" method="POST" id="register_form">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Name</label>
@@ -34,7 +34,7 @@ require('./includes/header.php');
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="password">
+                                <input type="password" name="password" id="val_password" class="form-control" placeholder="password">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -214,6 +214,69 @@ require('./includes/header.php');
             // console.log(user_id);
             $('.delete_user_id').val(user_id);
             $('#deletemodal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        var form = $('#register_form');
+
+        form.validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                phone: {
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength: 10,
+                },
+                email: {
+                    required: true,
+                    email: true,
+                },
+                password: {
+                    required: true,
+                    minlength: 6,
+                },
+                confirmpassword: {
+                    required: true,
+                    equalTo: "#val_password",
+                },
+            },
+            messages: {
+                name: {
+                    required: "Please enter name",
+                },
+                phone: {
+                    required: "Please enter your phone number",
+                    digits: "Please enter a valid phone number",
+                    minlength: "Phone number must be 10 digits",
+                    maxlength: "Phone number must be 10 digits",
+                },
+                email: {
+                    required: "Please enter your email address",
+                    email: "Please enter a valid email address",
+                },
+                password: "Please enter password",
+                confirmpassword: {
+                    equalTo: "Passwords do not match",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

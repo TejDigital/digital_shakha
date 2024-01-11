@@ -35,22 +35,22 @@ if (isset($_SESSION['digi_meg'])) {
 </div>
 
 <div class="modal fade" id="Add_faqs" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./faqs_code.php" method="POST">
+            <form action="./faqs_code.php" method="POST" id="faqs_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add FAQs</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">Question</label>
-                            <textarea name="question" class="form-control mb-2" cols="30" rows="5"></textarea>
+                            <textarea name="question" class="form-control " cols="30" rows="5"></textarea>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-2">
                             <label for="">Answer</label>
-                            <textarea name="answer" class="form-control mb-2" cols="30" rows="5"></textarea>
+                            <textarea name="answer" class="form-control " cols="30" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -146,6 +146,43 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.faq_delete_id').val(user_id);
             $('#faq_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#faqs_form');
+        form.validate({
+            rules: {
+                question: {
+                    required: true,
+                },
+                answer: {
+                    required: true,
+                },
+            },
+            messages: {
+                question: {
+                    required: "Please enter question",
+                },
+                answer: {
+                    required: "Please enter answer",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>

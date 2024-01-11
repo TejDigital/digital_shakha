@@ -37,16 +37,16 @@ if (isset($_SESSION['digi_meg'])) {
 <div class="modal fade" id="Add_batch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="./upcoming_batch_code.php" method="POST" >
+            <form action="./upcoming_batch_code.php" method="POST" id="upcoming_batch_form">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Program</h1>
                     <button type="button" class="btn-close text-light" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Batch Name</label>
-                            <select name="name" class="form-control mb-2" style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <select name="name" class="form-control " style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select batch</option>
                                 <?php
                                 $sql = "SELECT * FROM program_tbl WHERE program_status = 1";
@@ -61,29 +61,29 @@ if (isset($_SESSION['digi_meg'])) {
                                 ?>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Date</label>
-                            <input type="date" class="form-control mb-2" style="appearance: revert;" name="date">
+                            <input type="date" class="form-control " style="appearance: revert;" name="date">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Batch mode</label>
-                            <select name="mode" class="form-control mb-2"  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
+                            <select name="mode" class="form-control "  style="appearance: revert;background:#2A3038 !important; color:#fff !important;">
                                 <option value="">Select mode</option>
                                 <option value="Online">Online</option>
                                 <option value="Offline">Offline</option>
                             </select>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Address</label>
-                            <input type="text" class="form-control mb-2" name="address">
+                            <input type="text" class="form-control " name="address">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">Start Time</label>
-                            <input type="time" class="form-control mb-2" style="appearance: revert;" name="start_time">
+                            <input type="time" class="form-control " style="appearance: revert;" name="start_time">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 mb-2">
                             <label for="">End Time</label>
-                            <input type="time" class="form-control mb-2" style="appearance: revert;" name="end_time">
+                            <input type="time" class="form-control " style="appearance: revert;" name="end_time">
                         </div>
                     </div>
                 </div>
@@ -189,6 +189,77 @@ require('./includes/script.php');
             // console.log(user_id);
             $('.batch_delete_id').val(user_id);
             $('#batch_delete_modal').modal('show');
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+
+        var form = $('#upcoming_batch_form');
+        $.validator.addMethod(
+            "fileExtension",
+            function(value, element) {
+                // Get the file extension
+                var extension = value.split(".").pop().toLowerCase();
+                // Check if the extension is either 'jpg', 'jpeg', 'png', or 'pdf'
+                return ["jpg", "jpeg", "png"].indexOf(extension) !== -1;
+            },
+            "Please select a valid file type (jpg, jpeg, png)."
+        );
+        form.validate({
+            rules: {
+                name: {
+                    required: true,
+                },
+                mode: {
+                    required: true,
+                },
+                date: {
+                    required: true,
+                },
+                address: {
+                    required: true,
+                },
+                start_time: {
+                    required: true,
+                },
+                end_time: {
+                    required: true,
+                },
+            },
+            messages: {
+                name: {
+                    required: "Please select batch program",
+                },
+                mode: {
+                    required: "Please select mode",
+                },
+                date: {
+                    required: "Please enter date",
+                },
+                address: {
+                    required: "Please enter address",
+                },
+                start_time: {
+                    required: "Please enter start time",
+                },
+                end_time: {
+                    required: "Please enter end time",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
         });
     });
 </script>
