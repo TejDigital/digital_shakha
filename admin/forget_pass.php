@@ -23,28 +23,36 @@ if(isset($_GET['email'])){
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="./assets/images/d_logo.png" />
 </head>
-
+<style>
+    .error-message{
+        color: red;
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8 my-5">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-center" style="">
                     <div class="col-md-12">
-                        <form action="code.php" method="post">
+                        <form action="code.php" method="post" id="reset_pass_form">
                             <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                                 <div class="d-flex align-items-center justify-content-between mb-3">
                                     <h3 class="text-dark">Set New Password</h3>
                                     <p class="text-dark">Email: <b><?=$email?></b></p>
                                 </div>
                                 <input type="hidden" value="<?=$email?>" name="email">
-                                <div class="form-floating mb-3">
+                                <div class="form-floating">
                                     <input type="password" class="form-control" id="floatingInput" name="password" placeholder="name@example.com">
                                     <label for="floatingInput">Password</label>
                                 </div>
-                                <div class="form-floating mb-4">
+                                <label id="floatingInput-error" class="error error-message" for="floatingInput"></label>
+                                <div class="form-floating">
                                     <input type="password" class="form-control" name="c_password" id="floatingPassword" placeholder="Confirm Password">
                                     <label for="floatingPassword">Confirm Password</label>
                                 </div>
+                                <label id="floatingPassword-error" class="error error-message" for="floatingPassword"></label>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                 <a href="./adminlogin.php" style="color: #000;" >I got it my Password</a>
 
@@ -60,3 +68,41 @@ if(isset($_GET['email'])){
 </div>
 
 <?php require('includes/script.php'); ?>
+<script>
+        $(document).ready(function() {
+        var form = $('#reset_pass_form');
+
+        form.validate({
+            rules: {
+                password: {
+                    required: true,
+                    minlength: 6,
+                },
+                c_password: {
+                    required: true,
+                    equalTo: "#floatingInput",
+                },
+                
+            },
+            messages: {
+                password: "Please enter password",
+                c_password: {
+                    equalTo: "Passwords do not match",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
+        });
+    });
+</script>

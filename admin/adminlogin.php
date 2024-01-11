@@ -19,7 +19,13 @@ if (isset($_SESSION['auth']) && ($_SESSION['auth'] == "admin" || $_SESSION['auth
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="shortcut icon" href="./assets/images/d_logo.png" />
 </head>
-
+<style>
+    .error-message{
+        color: red;
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
+</style>
 <body>
   <div class="container-scroller">
 <div class="container">
@@ -69,7 +75,7 @@ if (isset($_SESSION['auth']) && ($_SESSION['auth'] == "admin" || $_SESSION['auth
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="code.php" method="POST">
+                        <form action="code.php" method="POST" id="forget_pass_form">
                             <div class="modal-body">
                                 <div class="form-group">
                                     <input type="email" name="email" class="form-control" placeholder="Enter Your Email">
@@ -87,7 +93,7 @@ if (isset($_SESSION['auth']) && ($_SESSION['auth'] == "admin" || $_SESSION['auth
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-md-12">
-                        <form action="./logincode.php" method="post">
+                        <form action="./logincode.php" method="post" id="login_form">
                             <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                                 <div class="d-flex align-items-center justify-content-between mb-3">
                                     <a href="index.html" class="">
@@ -95,14 +101,16 @@ if (isset($_SESSION['auth']) && ($_SESSION['auth'] == "admin" || $_SESSION['auth
                                     </a>
                                     <h3>Sign In</h3>
                                 </div>
-                                <div class="form-floating mb-3">
+                                <div class="form-floating">
                                     <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
                                     <label for="floatingInput">Email address</label>
                                 </div>
-                                <div class="form-floating mb-4">
+                                <label id="floatingInput-error" class="error error-message" for="floatingInput"></label>
+                                <div class="form-floating">
                                     <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
                                     <label for="floatingPassword">Password</label>
                                 </div>
+                                <label id="floatingPassword-error" class="error error-message" for="floatingPassword"></label>
                                 <div class="d-flex align-items-center justify-content-between mb-4">
                                     <a href="#" style="color: #000000;" data-bs-toggle="modal" data-bs-target="#forgetModal">Forgot Password</a>
                                 </div>
@@ -116,3 +124,74 @@ if (isset($_SESSION['auth']) && ($_SESSION['auth'] == "admin" || $_SESSION['auth
     </div>
 </div>
 <?php require('includes/script.php'); ?>
+<script>
+    $(document).ready(function() {
+        var form = $('#login_form');
+        var form2 = $('#forget_pass_form');
+
+        form.validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true,
+                },
+                password: {
+                    required: true,
+                    minlength: 6,
+                },
+            },
+            messages: {
+                email: {
+                    required: "Please enter your email address",
+                    email: "Please enter a valid email address",
+                },
+                password: "Please enter password",
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form.submit(function(event) {
+            if (form.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
+        });
+
+
+
+        form2.validate({
+            rules: {
+                email: {
+                    required: true,
+                    email: true,
+                },
+            },
+            messages: {
+                email: {
+                    required: "Please enter your email address",
+                    email: "Please enter a valid email address",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element);
+                error.addClass("error-message");
+            }
+        });
+
+        form2.submit(function(event) {
+            if (form2.valid()) {
+                // Your form is valid, you can submit it here
+            } else {
+                // Form is not valid, do something (e.g., prevent default submission)
+                event.preventDefault();
+            }
+        });
+
+
+    });
+</script>
