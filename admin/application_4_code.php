@@ -150,6 +150,7 @@ if ($sql_run) {
           
                   .email_2 .social_links .links a img {
                       width: 30px;
+                      height:30px
                   }
           
                   .email_3 {
@@ -229,12 +230,29 @@ if ($sql_run) {
                       <div class='social_links'>
                           <h3>Follow Digitalshakha on:</h3>
                           <div class='links'>
-                          <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='" . $actual_link . "/admin/email_images/Instagram.svg' alt=''></a>
-                          <a href='https://www.behance.net/digitalshakha_/info'><img src='" . $actual_link . "/admin/email_images/Behance.svg' alt=''></a>
-                          <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='" . $actual_link . "/admin/email_images/Facebook.svg' alt=''></a>
-                          <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='" . $actual_link . "/admin/email_images/YouTube.svg' alt=''></a>
-                          <a href='https://www.linkedin.com/company/digitalshakha/'><img src='" . $actual_link . "/admin/email_images/LinkedIn_link.svg' alt=''></a>
-                          <a href='https://in.pinterest.com/digitalshakha_/'><img src='" . $actual_link . "/admin/email_images/Pinterest.svg' alt=''></a>
+                          <table width='100%' cellspacing='0' cellpadding='0'>
+                          <tr>
+                              <td align='left'>
+                                  <a href='https://www.instagram.com/digitalshakha_?utm_source=ig_web_button_share_sheet&igsh=OGQ5ZDc2ODk2ZA=='><img src='".$actual_link."/admin/email_images/Instagram.svg' alt=''></a>
+                              </td>
+                              <td align='left'>
+                                  <a href='https://www.behance.net/digitalshakha_/info'><img src='".$actual_link."/admin/email_images/Behance.svg' alt=''></a>
+                              </td>
+                              <td align='left'>
+                                  <a href='https://www.facebook.com/profile.php?id=100064241974920&mibextid=ZbWKwL'><img src='".$actual_link."/admin/email_images/Facebook.svg' alt=''></a>
+                              </td>
+                              <td align='left'>
+                                  <a href='https://youtube.com/@digitalshakha5699?si=h06mPphwyqYWt1mY'><img src='".$actual_link."/admin/email_images/YouTube.svg' alt=''></a>
+                              </td>
+                              <td align='left'>
+                                  <a href='https://www.linkedin.com/company/digitalshakha/'><img src='".$actual_link."/admin/email_images/LinkedIn_link.svg' alt=''></a>
+                              </td>
+                              <td align='left'>
+                                  <a href='https://in.pinterest.com/digitalshakha_/'><img src='".$actual_link."/admin/email_images/Pinterest.svg' alt=''></a>
+                              </td>
+                          </tr>
+                      </table>
+                      
                       </div>
                       </div>
                   </section>
